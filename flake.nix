@@ -13,6 +13,10 @@
       inherit system;
       config = { allowUnfree = true; };
     };
+    unstable = import nixpkgs-unstable {
+      inherit system;
+      config = { allowUnfree = true; };
+    };
 
     lib = nixpkgs.lib;
   in {
@@ -22,6 +26,20 @@
 
 	modules = [
 	  ./configuration.nix
+	  {
+          security.pam.services.aitvaras.enableGnomeKeyring = true;
+
+	  hardware.steam-hardware.enable = true;
+
+	  networking.firewall.checkReversePath = "loose";
+	  services.tailscale.enable = true;
+
+	  users.users.aitvaras.packages = [
+	    unstable.bottles
+	    unstable.thunderbird-wayland
+	    unstable.protonvpn-gui
+	    ];
+	  }
 	];
       };
     };
