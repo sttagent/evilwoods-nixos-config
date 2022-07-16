@@ -165,9 +165,8 @@
       hashedPassword = "$6$r5XosfFY6X0yH0kg$sPHtZm25ZWpsx86cdKUsjr8fMv6AU6Jmj26H9qBbRKVOJx5SUBw2sSIwXx5FxAvarWmukal0r7.Biy1wpClwd1";
       extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
       packages = with pkgs; [
-        bottles
 	gnomeExtensions.appindicator
-	element-desktop
+	element-desktop-wayland
 	discord
 	standardnotes
 	wally-cli
@@ -188,7 +187,7 @@
     # List packages installed in system profile. To search, run:
     systemPackages = with pkgs; [
       neovim
-      firefox
+      firefox-wayland
       wget
       tmux
       nushell
