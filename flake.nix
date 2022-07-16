@@ -27,17 +27,20 @@
 	modules = [
 	  ./configuration.nix
 	  {
-          security.pam.services.aitvaras.enableGnomeKeyring = true;
+	    imports = [
+	      ./modules
+	    ];
+            security.pam.services.aitvaras.enableGnomeKeyring = true;
 
-	  hardware.steam-hardware.enable = true;
+	    hardware.steam-hardware.enable = true;
 
-	  networking.firewall.checkReversePath = "loose";
-	  services.tailscale.enable = true;
+	    networking.firewall.checkReversePath = "loose";
+	    services.tailscale.enable = true;
 
-	  users.users.aitvaras.packages = [
-	    unstable.bottles
-	    unstable.thunderbird-wayland
-	    unstable.protonvpn-gui
+	    users.users.aitvaras.packages = [
+	      unstable.bottles
+	      unstable.thunderbird-wayland
+	      unstable.protonvpn-gui
 	    ];
 	  }
 	];
