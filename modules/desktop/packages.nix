@@ -16,6 +16,10 @@ in {
       gnome-feeds
       yubioath-desktop
       unstable.bottles
+      gnomeExtensions.appindicator
+      element-desktop-wayland
+      discord
+      standardnotes
     ];
 
     environment.variables = {
