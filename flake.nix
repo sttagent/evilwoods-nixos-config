@@ -13,7 +13,7 @@
       inherit system;
       config = { allowUnfree = true; };
     };
-    unstable = import nixpkgs-unstable {
+    pkgsUnstable = import nixpkgs-unstable {
       inherit system;
       config = { allowUnfree = true; };
     };
@@ -23,7 +23,7 @@
       evilroots = nixpkgs.lib.nixosSystem {
         inherit system;
 
-	specialArgs = inputs;
+	specialArgs = { inherit pkgsUnstable; };
 
 	modules = [
 	  ./configuration.nix

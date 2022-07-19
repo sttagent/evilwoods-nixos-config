@@ -1,16 +1,10 @@
 
-{config, pkgs, nixpkgs-unstable, lib, ...}:
+{config, pkgs, pkgsUnstable, lib, ...}:
 
 with lib;
 
 let
-  unstable = import nixpkgs-unstable {
-    system = "x86_64-linux";
-    config = { allowUnfree = true; };
-  };
-
   desktop = config.sys.desktop.enable;
-
 in {
   config = mkIf desktop {
     environment.systemPackages = with pkgs; [
@@ -19,14 +13,16 @@ in {
       ffmpeg-full
       gnome-feeds
       yubioath-desktop
-      unstable.bottles
       gnomeExtensions.appindicator
       element-desktop
-      element-desktop-wayland
       discord
+      spotify
       standardnotes
-      unstable.thunderbird-wayland
-      unstable.protonvpn-gui
+
+      # Packages from ustable repository
+      pkgsUnstable.bottles
+      pkgsUnstable.thunderbird-wayland
+      pkgsUnstable.protonvpn-gui
     ];
 
     environment.variables = {

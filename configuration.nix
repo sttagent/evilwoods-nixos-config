@@ -94,7 +94,6 @@
       # Required for wayland
       modesetting.enable = true;
       powerManagement.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
     opengl = {
