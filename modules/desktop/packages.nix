@@ -1,14 +1,18 @@
 
 {config, pkgs, nixpkgs-unstable, lib, ...}:
 
+with lib;
+
 let
   unstable = import nixpkgs-unstable {
     system = "x86_64-linux";
     config = { allowUnfree = true; };
   };
 
+  desktop = config.sys.desktop.enable;
+
 in {
-  config = {
+  config = mkIf desktop {
     environment.systemPackages = with pkgs; [
       firefox-wayland
       nushell
@@ -17,9 +21,12 @@ in {
       yubioath-desktop
       unstable.bottles
       gnomeExtensions.appindicator
+      element-desktop
       element-desktop-wayland
       discord
       standardnotes
+      unstable.thunderbird-wayland
+      unstable.protonvpn-gui
     ];
 
     environment.variables = {

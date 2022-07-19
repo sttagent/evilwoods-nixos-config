@@ -31,6 +31,8 @@
 	    imports = [
 	      ./modules
 	    ];
+	    sys.desktop.enable = true;
+
             security.pam.services.aitvaras.enableGnomeKeyring = true;
 
 	    services.udev.packages = [ pkgs.yubikey-personalization ];
@@ -41,11 +43,9 @@
 	    services.tailscale.enable = true;
 
 	    users.users.aitvaras.packages = [
-	      unstable.thunderbird-wayland
-	      unstable.protonvpn-gui
 	    ];
 
-	    # Version installed. Future updates n
+	    # Version installed. Future updates 
             system.stateVersion = "22.05"; # Did you read the comment?
 	  }
 	];

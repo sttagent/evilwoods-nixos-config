@@ -3,7 +3,9 @@
 # Config for moonlander keyboard.
 
 {
-  hardware.keyboard.zsa.enable = true;
+  config = {
+    hardware.keyboard.zsa.enable = true;
 
-  environment.systemPackages = with pkgs; [ wally-cli ];
+    environment.systemPackages = with pkgs; [ wally-cli ];
+  };
 }
