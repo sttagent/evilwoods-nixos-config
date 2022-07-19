@@ -6,7 +6,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, ... }: 
+  outputs = { self, nixpkgs, nixpkgs-unstable, ... } @ inputs: 
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -18,11 +18,12 @@
       config = { allowUnfree = true; };
     };
 
-    lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
-      evilroots = lib.nixosSystem {
+      evilroots = nixpkgs.lib.nixosSystem {
         inherit system;
+
+	specialArgs = inputs;
 
 	modules = [
 	  ./configuration.nix
@@ -32,16 +33,20 @@
 	    ];
             security.pam.services.aitvaras.enableGnomeKeyring = true;
 
+	    services.udev.packages = [ pkgs.yubikey-personalization ];
+
 	    hardware.steam-hardware.enable = true;
 
 	    networking.firewall.checkReversePath = "loose";
 	    services.tailscale.enable = true;
 
 	    users.users.aitvaras.packages = [
-	      unstable.bottles
 	      unstable.thunderbird-wayland
 	      unstable.protonvpn-gui
 	    ];
+
+	    # Version installed. Future updates n
+            system.stateVersion = "22.05"; # Did you read the comment?
 	  }
 	];
       };
