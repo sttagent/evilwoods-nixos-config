@@ -10,15 +10,8 @@ let
 in {
   config = {
     environment.systemPackages = with pkgs; [
-      neovim
       firefox-wayland
-      wget
-      tmux
       nushell
-      git
-      git-crypt
-      htop
-      gnupg
       ffmpeg-full
       gnome-feeds
       yubioath-desktop
