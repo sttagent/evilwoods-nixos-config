@@ -15,6 +15,7 @@ in {
   };
 
 
-  config = mkIf cfg.enble {
+  config = mkIf cfg.enable {
+    services.fstrim.enable = true;
   };
 }
