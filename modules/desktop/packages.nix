@@ -20,9 +20,9 @@ in {
       standardnotes
 
       # Packages from ustable repository
-      pkgsUnstable.bottles
-      pkgsUnstable.thunderbird-wayland
-      pkgsUnstable.protonvpn-gui
+      bottles
+      thunderbird-wayland
+      protonvpn-gui
     ];
 
     environment.variables = {

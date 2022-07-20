@@ -31,7 +31,10 @@
 	    imports = [
 	      ./modules
 	    ];
+	    nixpkgs.pkgs = pkgsUnstable;
+
 	    sys.desktop.enable = true;
+	    sys.ssh.enable = true;
 
             security.pam.services.aitvaras.enableGnomeKeyring = true;
 
@@ -41,9 +44,6 @@
 
 	    networking.firewall.checkReversePath = "loose";
 	    services.tailscale.enable = true;
-
-	    users.users.aitvaras.packages = [
-	    ];
 
 	    # Version installed. Future updates 
             system.stateVersion = "22.05"; # Did you read the comment?

@@ -17,5 +17,31 @@ in {
 
   config = mkIf cfg.enable {
     services.fstrim.enable = true;
+
+    # Recommended for pipwire
+    security.rtkit.enable = true;
+    # Needs to be disabled if using pipwire
+    hardware.pulseaudio.enable = false;
+    services = {
+      # Enable the X11 windowing system.
+      xserver = {
+        enable = true;
+        videoDrivers = [ "nvidia" ];
+  
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
+      };
+  
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        jack.enable = true;
+      };
+
+      flatpak.enable = true;
+
+    };
   };
 }

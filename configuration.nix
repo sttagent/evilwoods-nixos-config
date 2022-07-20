@@ -102,53 +102,10 @@
       driSupport32Bit = true;
     };
 
-    # Needs to be disabled if using pipwire
-    pulseaudio.enable = false;
-  };
-
-
-  services = {
-    # Enable the OpenSSH daemon.
-    openssh.enable = true;
-
-    # Enable the X11 windowing system.
-    xserver = {
-      # Configure keymap in X11
-      # layout = "us";
-      # xkbOptions = {
-      #   "eurosign:e";
-      #   "caps:escape" # map caps to escape.
-      # };
-
-      enable = true;
-      videoDrivers = [ "nvidia" ];
-
-      # Enable the GNOME Desktop Environment.
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-
-      # Enable touchpad support (enabled default in most desktopManager).
-      # libinput.enable = true;
-    };
-
-    # enable pipwire
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-    flatpak.enable = true;
-
-    # Enable CUPS to print documents
-    # printing.enable = true;
   };
 
 
   # Recommended for pipwire
-  security.rtkit.enable = true;
 
 
   # disable user creation. needed to disable root account
@@ -164,10 +121,6 @@
       extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     };
   };
-
-
-  # allow propriety software
-  nixpkgs.config.allowUnfree = true;
 
 
   programs = {
