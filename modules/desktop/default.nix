@@ -14,7 +14,7 @@ in {
 
     desktop.enable = mkEnableOption "Gnome Deskop";
 
-    zsa.enable = mkEnableOption "Moonlander keybord"
+    zsa.enable = mkEnableOption "Moonlander keybord";
   };
 
 
