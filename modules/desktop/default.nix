@@ -24,9 +24,14 @@ in {
 
     # Recommended for pipwire
     security.rtkit.enable = true;
+    
+    security.pam.services.aitvaras.enableGnomeKeyring = true;
 
     # Needs to be disabled if using pipwire
     hardware.pulseaudio.enable = false;
+    
+    # Needed for controllers
+    hardware.steam-hardware.enable = true;
 
     services = {
 
@@ -55,12 +60,7 @@ in {
         jack.enable = true;
       };
 
-
-      services.udev.packages = [ pkgs.yubikey-personalization ];
-
-      security.pam.services.aitvaras.enableGnomeKeyring = true;
-      
-      hardware.steam-hardware.enable = true;
+      udev.packages = [ pkgs.yubikey-personalization ];
 
       flatpak.enable = true;
 
