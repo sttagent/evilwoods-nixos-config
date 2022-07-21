@@ -2,6 +2,8 @@
 
 # Config for moonlander keyboard.
 
+with lib;
+
 let
   moonlander = config.sys.zsa.enable;
 in {
