@@ -3,7 +3,7 @@
 # Config for moonlander keyboard.
 
 let
-  moonlander = cofig.sys.zsa.enable;
+  moonlander = config.sys.zsa.enable;
 in {
 
   config = mkIf moonlander {
