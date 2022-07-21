@@ -1,26 +1,41 @@
 {
   description = "Evilwoods nixos config";
 
+
   inputs = {
+
     nixpkgs.url = "nixpkgs/nixos-22.05";
+
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   };
 
+
   outputs = { self, nixpkgs, nixpkgs-unstable, ... } @ inputs: 
+
   let
+  
     system = "x86_64-linux";
+
     pkgs = import nixpkgs {
+
       inherit system;
+
       config = { allowUnfree = true; };
     };
+
     pkgsUnstable = import nixpkgs-unstable {
+
       inherit system;
+
       config = { allowUnfree = true; };
     };
 
   in {
+
     nixosConfigurations = {
+
       evilroots = nixpkgs.lib.nixosSystem {
+
         inherit system;
 
 	specialArgs = { inherit pkgsUnstable; };
@@ -31,21 +46,18 @@
 	    imports = [
 	      ./modules
 	    ];
-	    nixpkgs.pkgs = pkgsUnstable;
 
-	    sys.desktop.enable = true;
+	    nixpkgs.pkgs = pkgs;
+
 	    sys.ssh.enable = true;
 
-            security.pam.services.aitvaras.enableGnomeKeyring = true;
+	    sys.desktop.enable = true;
 
-	    services.udev.packages = [ pkgs.yubikey-personalization ];
+            sys.zsa.enable = true;
 
 	    hardware.steam-hardware.enable = true;
 
-	    networking.firewall.checkReversePath = "loose";
-	    services.tailscale.enable = true;
-
-	    # Version installed. Future updates 
+	    # Version when when the os was installed.
             system.stateVersion = "22.05"; # Did you read the comment?
 	  }
 	];
