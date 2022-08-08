@@ -18,9 +18,9 @@ in {
       discord
       spotify
       standardnotes
+      gnome.gnome-tweaks
 
       # Packages from ustable repository
-      bottles
       thunderbird-wayland
       protonvpn-gui
     ];

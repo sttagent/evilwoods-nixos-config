@@ -4,41 +4,32 @@
 
   inputs = {
 
-    nixpkgs.url = "nixpkgs/nixos-22.05";
+    nixpkgs-22-05.url = "nixpkgs/nixos-22.05";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   };
 
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, ... } @ inputs: 
+  outputs = { self, nixpkgs-22-05, nixpkgs-unstable, ... } @ inputs: 
 
   let
+    myLib = import ./lib;
+
+    allPkgs = {
+      "22-05" = myLib.mkPkgs { channel = nixpkgs-22-05; };
+
+      unstable = myLib.mkPkgs { channel = nixpkgs-unstable; };
+    };
   
-    system = "x86_64-linux";
-
-    pkgs = import nixpkgs {
-
-      inherit system;
-
-      config = { allowUnfree = true; };
-    };
-
-    pkgsUnstable = import nixpkgs-unstable {
-
-      inherit system;
-
-      config = { allowUnfree = true; };
-    };
-
   in {
 
     nixosConfigurations = {
 
-      evilroots = nixpkgs.lib.nixosSystem {
+      evilroots = nixpkgs-unstable.lib.nixosSystem {
 
-        inherit system;
+        system = "x86_64-linux";
 
-	specialArgs = { inherit pkgsUnstable; };
+	specialArgs = { inherit allPkgs; };
 
 	modules = [
 	  ./configuration.nix
@@ -47,7 +38,7 @@
 	      ./modules
 	    ];
 
-	    nixpkgs.pkgs = pkgs;
+	    nixpkgs.pkgs = allPkgs.unstable;
 
 	    sys.ssh.enable = true;
 
@@ -57,7 +48,7 @@
 
 	    hardware.steam-hardware.enable = true;
 
-	    # Version when when the os was installed.
+	    # Version when when the os was installed. Future updates 
             system.stateVersion = "22.05"; # Did you read the comment?
 	  }
 	];
