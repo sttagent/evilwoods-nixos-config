@@ -44,6 +44,8 @@
 
 	    sys.desktop.enable = true;
 
+	    sys.desktop.steam.enable = true;
+
             sys.zsa.enable = true;
 
 	    hardware.steam-hardware.enable = true;

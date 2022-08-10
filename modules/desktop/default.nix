@@ -8,6 +8,7 @@ in {
   imports = [
     ./packages.nix
     ./moonlander.nix
+    ./steam.nix
   ];
 
   options.sys = {
@@ -30,9 +31,6 @@ in {
     # Needs to be disabled if using pipwire
     hardware.pulseaudio.enable = false;
     
-    # Needed for controllers
-    hardware.steam-hardware.enable = true;
-
     services = {
 
       # Enable the X11 windowing system.
