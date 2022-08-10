@@ -43,16 +43,6 @@
   };
 
 
-  zramSwap.enable = true;
-
-  
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
-
-
   hardware = {
     # Enable moonlander keyboard udev rules
 
@@ -69,9 +59,6 @@
     };
 
   };
-
-
-  # Recommended for pipwire
 
 
   # disable user creation. needed to disable root account

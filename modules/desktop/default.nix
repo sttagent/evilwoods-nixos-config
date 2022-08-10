@@ -23,6 +23,8 @@ in {
   
     services.fstrim.enable = true;
 
+    zramSwap.enable = true;
+
     # Recommended for pipwire
     security.rtkit.enable = true;
     
