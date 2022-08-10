@@ -46,40 +46,6 @@
   zramSwap.enable = true;
 
   
-  networking = {
-    hostName = "evilroots"; # Define your hostname.
-    networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    firewall = {
-      # Open ports in the firewall.
-      # allowedTCPPorts = [ ... ];
-      # allowedUDPPorts = [ ... ];
-      # Or disable the firewall altogether.
-      # enable = false;
-    };
-  };
-
-
-  # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "sv_SE.UTF-8";
-      LC_IDENTIFICATION = "sv_SE.UTF-8";
-      LC_MEASUREMENT = "sv_SE.UTF-8";
-      LC_MONETARY = "sv_SE.UTF-8";
-      LC_NAME = "sv_SE.UTF-8";
-      LC_NUMERIC = "sv_SE.UTF-8";
-      LC_PAPER = "sv_SE.UTF-8";
-      LC_TELEPHONE = "sv_SE.UTF-8";
-      LC_TIME = "sv_SE.UTF-8";
-    };
-  };
-
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";

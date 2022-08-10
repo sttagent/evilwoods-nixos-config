@@ -33,10 +33,13 @@
 
 	modules = [
 	  ./configuration.nix
+
 	  {
 	    imports = [
 	      ./modules
 	    ];
+
+	    networking.hostName = "evilroots";
 
 	    nixpkgs.pkgs = allPkgs.unstable;
 
