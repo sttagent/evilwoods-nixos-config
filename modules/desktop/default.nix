@@ -30,6 +30,8 @@ in {
 
     # Needs to be disabled if using pipwire
     hardware.pulseaudio.enable = false;
+
+    programs.xwayland.enable = true;
     
     services = {
 
