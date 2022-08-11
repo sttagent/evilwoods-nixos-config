@@ -13,7 +13,7 @@ in {
     programs.steam.enable = true;
 
     # Needed for controllers
-    hardware.steam-hardware.enable = true;
+    # hardware.steam-hardware.enable = true;
 
   };
 }
