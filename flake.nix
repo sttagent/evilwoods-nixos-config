@@ -51,8 +51,6 @@
 
             evilcfg.zsa = true;
 
-	    hardware.steam-hardware.enable = true;
-
 	    # Version when when the os was installed. Future updates 
             system.stateVersion = "22.05"; # Did you read the comment?
 	  }
