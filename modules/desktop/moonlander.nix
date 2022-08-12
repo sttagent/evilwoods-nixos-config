@@ -5,10 +5,12 @@
 with lib;
 
 let
-  moonlander = config.sys.zsa.enable;
+  zsa = config.evilcfg.zsa;
 in {
 
-  config = mkIf moonlander {
+  options.evilcfg.zsa = mkEnableOption "ZSA";
+
+  config = mkIf zsa {
 
     hardware.keyboard.zsa.enable = true;
 

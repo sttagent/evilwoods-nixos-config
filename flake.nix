@@ -43,13 +43,13 @@
 
 	    nixpkgs.pkgs = allPkgs.unstable;
 
-	    sys.ssh.enable = true;
+	    evilcfg.ssh = true;
 
-	    sys.desktop.enable = true;
+	    evilcfg.desktop = true;
 
-	    sys.desktop.steam.enable = true;
+	    evilcfg.steam = true;
 
-            sys.zsa.enable = true;
+            evilcfg.zsa = true;
 
 	    hardware.steam-hardware.enable = true;
 

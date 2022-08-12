@@ -3,15 +3,13 @@
 with lib;
 
 let
-  cfg = config.sys;
+  ssh = config.evilcfg.ssh;
 in {
   imports = [
     ./core-packages.nix
   ];
 
-  options.sys.ssh = {
-    enable = mkEnableOption "testopenSSH";
-  };
+  options.evilcfg.ssh = mkEnableOption "ssh";
   
   config = {
     networking.networkmanager.enable = true;
@@ -23,7 +21,7 @@ in {
       trustedInterfaces = [ "tailscale0" ];
     };
 
-    services.openssh = mkIf cfg.ssh.enable {
+    services.openssh = mkIf ssh {
       enable = true;
     };
 

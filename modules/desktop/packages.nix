@@ -4,7 +4,7 @@
 with lib;
 
 let
-  desktop = config.sys.desktop.enable;
+  desktop = config.evilcfg.desktop;
 in {
   config = mkIf desktop {
     environment.systemPackages = with pkgs; [

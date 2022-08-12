@@ -3,7 +3,7 @@
 with lib;
 
 let
-  cfg = config.sys.desktop; 
+  desktop = config.evilcfg.desktop; 
 in {
   imports = [
     ./packages.nix
@@ -11,15 +11,14 @@ in {
     ./steam.nix
   ];
 
-  options.sys = {
+  options.evilcfg = {
 
-    desktop.enable = mkEnableOption "Gnome Deskop";
-
-    zsa.enable = mkEnableOption "Moonlander keybord";
+    # If machine will have a desktop or not
+    desktop = mkEnableOption "Gnome Deskop";
   };
 
 
-  config = mkIf cfg.enable {
+  config = mkIf desktop {
   
     services.fstrim.enable = true;
 
