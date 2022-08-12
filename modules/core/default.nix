@@ -7,6 +7,7 @@ let
 in {
   imports = [
     ./core-packages.nix
+    ./users
   ];
 
   options.evilcfg.ssh = mkEnableOption "ssh";
