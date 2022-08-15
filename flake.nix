@@ -20,13 +20,9 @@
   
   in {
 
-    nixosConfigurations = let
+    nixosConfigurations = {
 
-      nixpkgs = nixpkgs-unstable;
-
-    in {
-
-      evilroots = nixpkgs.lib.nixosSystem {
+      evilroots = nixpkgs-unstable.lib.nixosSystem {
 
         system = evilLib.defaultSystem;
 
@@ -49,6 +45,12 @@
 	    evilcfg.steam = true;
 
             evilcfg.zsa = true;
+
+	    fileSystems."/home/aitvaras/localdata" = {
+	      device = "/dev/disk/by-label/NIXOS";
+	      fsType = "btrfs";
+	      options = [ "subvol=data" "compress=zstd" "noatime" ];
+	    };
 
 	    # Version of NixOS installed from live disk. Needed for backwards compatability.
             system.stateVersion = "22.05"; # Did you read the comment?
