@@ -1,5 +1,5 @@
 
-{config, pkgs, pkgsUnstable, lib, ...}:
+{config, pkgs, lib, ...}:
 
 with lib;
 
@@ -19,10 +19,9 @@ in {
       spotify
       standardnotes
       gnome.gnome-tweaks
-
-      # Packages from ustable repository
       thunderbird-wayland
       protonvpn-gui
+      realvnc-vnc-viewer
     ];
 
     environment.variables = {
