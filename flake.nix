@@ -2,49 +2,101 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixpkgs-22-05.url = "nixpkgs/nixos-22.05";
+    nixpkgs-2205.url = "nixpkgs/nixos-22.05";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   };
 
 
-  outputs = { self, nixpkgs-22-05, nixpkgs-unstable, ... } @ inputs: 
+  outputs = { self, nixpkgs-2205, nixpkgs-unstable, ... } @ inputs: 
   let
     evilLib = import ./lib;
-
-    allPkgs = {
-      "22-05" = evilLib.mkPkgs { channel = nixpkgs-22-05; };
-
-      unstable = evilLib.mkPkgs { channel = nixpkgs-unstable; };
-    };
-  
   in {
 
     nixosConfigurations = {
 
-      evilroots = nixpkgs-unstable.lib.nixosSystem {
+      evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
 
         system = evilLib.defaultSystem;
-
-	specialArgs = { inherit allPkgs; };
 
 	modules = [
           ./modules
 
-	  ./configuration.nix
-
-	  {
+	  ({lib, pkgs, ...}: {
 	    networking.hostName = "evilroots";
 
-	    nixpkgs.pkgs = allPkgs.unstable;
+            nix.extraOptions = ''
+                experimental-features = nix-command flakes
+              '';
+
+	    nixpkgs.config.allowUnfree = true;
 
 	    evilcfg.ssh = true;
-
 	    evilcfg.desktop = true;
-
+	    evilcfg.nvidia = true;
 	    evilcfg.steam = true;
-
             evilcfg.zsa = true;
+	    evilcfg.podman = true;
+
+            boot.initrd = {
+	      availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+	      verbose = false;
+	    };
+            boot.kernelModules = [ "kvm-intel" ];
+
+            networking.useDHCP = nixpkgs.lib.mkDefault true;
+            # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
+
+            hardware.cpu.intel.updateMicrocode = nixpkgs.lib.mkDefault true;
+	    hardware.enableRedistributableFirmware = nixpkgs.lib.mkDefault true;
+
+            # Use the systemd-boot EFI boot loader.
+            boot = {
+              loader = {
+                efi = {
+                  canTouchEfiVariables = true;
+                  efiSysMountPoint = "/boot/efi";
+                };
+                systemd-boot.enable = true;
+              };
+              kernelPackages = pkgs.linuxPackages_latest;
+              consoleLogLevel = 0;
+              plymouth.enable = true;
+              kernelParams = [
+                "quiet"
+                "slash"
+                "rd.systemd.show_status=false"
+              ];
+            };
+
+	    # Disk formating
+            fileSystems."/" = {
+              device = "/dev/disk/by-label/NIXOS";
+              fsType = "btrfs";
+              options = [ "subvol=root" "compress=zstd" ];
+            };
+
+            fileSystems."/home" =
+              { device = "/dev/disk/by-label/NIXOS";
+              fsType = "btrfs";
+              options = [ "subvol=home" "compress=zstd" ];
+            };
+
+            fileSystems."/nix" = {
+              device = "/dev/disk/by-label/NIXOS";
+              fsType = "btrfs";
+              options = [ "subvol=nix" "compress=zstd" "noatime" ];
+            };
+
+            fileSystems."/boot" = {
+              device = "/dev/disk/by-label/BOOT";
+              fsType = "ext4";
+            };
+
+            fileSystems."/boot/efi" = {
+              device = "/dev/disk/by-label/EFI";
+              fsType = "vfat";
+            };
 
 	    fileSystems."/home/aitvaras/localdata" = {
 	      device = "/dev/disk/by-label/NIXOS";
@@ -54,7 +106,7 @@
 
 	    # Version of NixOS installed from live disk. Needed for backwards compatability.
             system.stateVersion = "22.05"; # Did you read the comment?
-	  }
+	  })
 	];
       };
     };

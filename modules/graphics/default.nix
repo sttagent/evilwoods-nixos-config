@@ -4,12 +4,25 @@ with lib;
 
 let
   nvidia = config.evilcfg.nvidia;
+  desktop = config.evilcfg.desktop;
 in {
-  opions.evilcfg.nvidia = mkEnableOtpion "nvidea";
+  options.evilcfg.nvidia = mkEnableOption "nvidia";
 
   config = mkIf nvidia {
-   services.xserver.videoDrivers = [ "nvidia" ];
-   hardware.nvidia.modesetting = true;
-   hardware.nvidia.powerManagement.enable   = true;
+    services.xserver = mkIf nvidia {
+      videoDrivers = [ "nvidia" ];
+    };
+
+    hardware = {
+      nvidia = mkIf (nvidia && desktop) {
+        modesetting.enable = true;
+        powerManagement.enable = true;
+      };
+      opengl = mkIf desktop {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+      };
+    };  
   };
 }

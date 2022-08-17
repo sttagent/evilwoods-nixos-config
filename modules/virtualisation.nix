@@ -7,10 +7,12 @@ let
 in {
   options.evilcfg.podman = mkEnableOption "podman";
 
-  config = (
-    podman = mkIf podamn {
-      enable = true;
-      enableNvidea = mkIf nvidia true;
+  config = {
+    virtualisation = {
+      podman = mkIf config.evilcfg.podman {
+        enable = true;
+        enableNvidia = mkIf nvidia true;
+      };
     };
-  );
+  };
 }

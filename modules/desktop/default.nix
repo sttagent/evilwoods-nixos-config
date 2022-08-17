@@ -35,29 +35,18 @@ in {
     programs.xwayland.enable = true;
     
     services = {
-
       # Enable the X11 windowing system.
       xserver = {
-
         enable = true;
-
-        videoDrivers = [ "nvidia" ];
-  
         displayManager.gdm.enable = true;
-
         desktopManager.gnome.enable = true;
       };
   
       pipewire = {
-
         enable = true;
-
         alsa.enable = true;
-
         alsa.support32Bit = true;
-
         pulse.enable = true;
-
         jack.enable = true;
       };
 
