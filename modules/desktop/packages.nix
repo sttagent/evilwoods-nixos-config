@@ -22,6 +22,7 @@ in {
       thunderbird-wayland
       protonvpn-gui
       realvnc-vnc-viewer
+      cryptomator
     ];
 
     environment.variables = {
