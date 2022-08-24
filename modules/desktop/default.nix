@@ -33,7 +33,7 @@ in {
     hardware.pulseaudio.enable = false;
 
     programs.xwayland.enable = true;
-    
+
     services = {
       # Enable the X11 windowing system.
       xserver = {
@@ -50,7 +50,16 @@ in {
         jack.enable = true;
       };
 
-      udev.packages = [ pkgs.yubikey-personalization ];
+      udev = {
+        packages = [ pkgs.yubikey-personalization ];
+	extraRules = ''
+          # Bitbox udev rules
+          SUBSYSTEM=="usb", SYMLINK+="bitbox02_%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403"
+          KERNEL=="hidraw*", SUBSYSTEM=="hidraw", SYMLINK+="bitbox02_%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403"
+          SUBSYSTEM=="usb", SYMLINK+="dbb%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
+          KERNEL=="hidraw*", SUBSYSTEM=="hidraw", SYMLINK+="dbbf%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
+	'';
+      };
 
       flatpak.enable = true;
 
