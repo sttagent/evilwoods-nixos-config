@@ -23,6 +23,8 @@ in {
       protonvpn-gui
       realvnc-vnc-viewer
       cryptomator
+      protonmail-bridge
+      appimage-run
     ];
 
     environment.variables = {
