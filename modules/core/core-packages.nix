@@ -10,6 +10,7 @@
       htop
       gnupg
       tmux
+      fish
     ];
   };
 }
