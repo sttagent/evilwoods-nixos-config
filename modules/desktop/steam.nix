@@ -11,6 +11,8 @@ in {
   config = mkIf (desktop && steam) {
     programs.steam.enable = true;
 
+    environment.systemPackages = [ pkgs.gamescope ];
+
     # Needed for controllers
     # hardware.steam-hardware.enable = true;
   };
