@@ -26,6 +26,8 @@ in {
       enable = true;
     };
 
+    programs.fish.enable = true;
+
     # Set your time zone.
     time.timeZone = "Europe/Stockholm";
 
