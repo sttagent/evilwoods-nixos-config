@@ -25,6 +25,7 @@ in {
       cryptomator
       protonmail-bridge
       appimage-run
+      zoom-us
     ];
 
     environment.variables = {
