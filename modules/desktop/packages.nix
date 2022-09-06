@@ -26,7 +26,13 @@ in {
       protonmail-bridge
       appimage-run
       zoom-us
-      vscode
+
+      (vscode-with-extensions.override {
+        vscodeExtensions = with vscode-extensions; [
+	  eamodio.gitlens
+	];
+      })
+
       distrobox
     ];
 
