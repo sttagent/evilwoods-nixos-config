@@ -4,6 +4,7 @@ with lib;
 
 let
   ssh = config.evilcfg.ssh;
+  primaryUser = config.evilcfg.primaryUser;
 in {
   imports = [
     ./core-packages.nix
@@ -22,8 +23,16 @@ in {
       trustedInterfaces = [ "tailscale0" ];
     };
 
-    services.openssh = mkIf ssh {
-      enable = true;
+    services = {
+      openssh = mkIf ssh {
+        enable = true;
+      };
+      syncthing = {
+        enable = true;
+	user = primaryUser;
+	dataDir = "/home/${primaryUser}/Sync";
+	configDir = "/home/${primaryUser}/Sync/.config/syncthing";
+      };
     };
 
     programs.fish.enable = true;
