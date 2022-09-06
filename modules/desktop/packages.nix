@@ -26,11 +26,14 @@ in {
       protonmail-bridge
       appimage-run
       zoom-us
+      vscode
+      distrobox
     ];
 
     environment.variables = {
       MOZ_ENABLE_WAYLAND = "1";
       EDITOR = "nvim";
+      NIXOS_OZONE_WL = "1";
     };
 
     environment.gnome.excludePackages = with pkgs; [
