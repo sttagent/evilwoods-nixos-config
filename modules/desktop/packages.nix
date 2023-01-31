@@ -21,6 +21,15 @@ in {
       appimage-run
       distrobox
       bottles
+      firefox
+      element-desktop
+      discord
+      spotify
+      standardnotes
+
+      vivaldi
+      vivaldi-widevine
+      vivaldi-ffmpeg-codecs
 
       /*
       (vscode-with-extensions.override {
@@ -44,11 +53,6 @@ in {
       })
       */
 
-      firefox
-      element-desktop
-      discord
-      spotify
-      standardnotes
       # thunderbird-wayland
       # protonmail-bridge
       zoom-us
