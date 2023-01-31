@@ -2,13 +2,13 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixpkgs-2205.url = "nixpkgs/nixos-22.05";
+    nixpkgs-stable.url = "nixpkgs/nixos-22.11";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   };
 
 
-  outputs = { self, nixpkgs-2205, nixpkgs-unstable, ... } @ inputs: 
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, ... } @ inputs: 
   let
     evilLib = import ./lib;
   in {
@@ -34,7 +34,7 @@
 	    evilcfg.ssh = true;
 	    evilcfg.desktop = true;
 	    evilcfg.nvidia = true;
-	    evilcfg.steam = true;
+	    # evilcfg.steam = true;
             evilcfg.zsa = true;
 	    evilcfg.podman = true;
 

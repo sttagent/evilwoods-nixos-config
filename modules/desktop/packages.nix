@@ -8,25 +8,21 @@ let
 in {
   config = mkIf desktop {
     environment.systemPackages = with pkgs; [
-      firefox-wayland
       nushell
       ffmpeg-full
-      gnome-feeds
-      yubioath-desktop
       gnomeExtensions.appindicator
-      element-desktop
-      discord
-      spotify
-      standardnotes
+      gnomeExtensions.dash-to-dock
       gnome.gnome-tweaks
-      thunderbird-wayland
       protonvpn-gui
+      megasync
+      megacmd
       realvnc-vnc-viewer
       cryptomator
-      protonmail-bridge
       appimage-run
-      zoom-us
+      distrobox
+      bottles
 
+      /*
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
 	  eamodio.gitlens
@@ -46,8 +42,17 @@ in {
 	  }
 	];
       })
+      */
 
-      distrobox
+      firefox
+      element-desktop
+      discord
+      spotify
+      standardnotes
+      # thunderbird-wayland
+      # protonmail-bridge
+      zoom-us
+      gnome-feeds
     ];
 
     environment.variables = {
