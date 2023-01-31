@@ -26,6 +26,8 @@ in {
       discord
       spotify
       standardnotes
+      yubioath-flutter
+      blackbox-terminal
 
       vivaldi
       vivaldi-widevine
