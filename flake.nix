@@ -104,7 +104,7 @@
             };
 
 	    fileSystems."/home/aitvaras/localdata" = {
-	      device = "/dev/disk/by-label/NIXOS";
+	      device = "/dev/disk/by-label/fedora_fedora";
 	      fsType = "btrfs";
 	      options = [ "subvol=data" "compress=zstd" "noatime" ];
 	    };
