@@ -21,6 +21,7 @@ in {
   config = mkIf desktop {
   
     services.fstrim.enable = true;
+    services.pcscd.enable = true;
 
     zramSwap.enable = true;
 
