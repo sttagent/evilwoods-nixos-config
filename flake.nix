@@ -50,6 +50,11 @@
             hardware.cpu.intel.updateMicrocode = nixpkgs.lib.mkDefault true;
 	    hardware.enableRedistributableFirmware = nixpkgs.lib.mkDefault true;
 
+	    services.udev.extraRules = ''
+  	    # Allow users to use the AVR avrisp2 programmer
+	    SUBSYSTEM=="usb", ATTR{idVendor}=="03eb", ATTR{idProduct}=="2104", TAG+="uaccess", RUN{builtin}+="uaccess"
+	    '';
+
             # Use the systemd-boot EFI boot loader.
             boot = {
               loader = {
