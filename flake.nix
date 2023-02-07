@@ -3,117 +3,106 @@
 
   inputs = {
     nixpkgs-stable.url = "nixpkgs/nixos-22.11";
-
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
   };
-
 
   outputs = { self, nixpkgs-stable, nixpkgs-unstable, ... } @ inputs: 
   let
     evilLib = import ./lib;
   in {
-
     nixosConfigurations = {
+        evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
+            system = evilLib.defaultSystem;
 
-      evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
+            modules = [
+                ./modules
 
-        system = evilLib.defaultSystem;
+                ({lib, pkgs, ...}: {
+                    networking.hostName = "evilroots";
 
-	modules = [
-          ./modules
+                    nix.extraOptions = ''
+                        experimental-features = nix-command flakes
+                    '';
 
-	  ({lib, pkgs, ...}: {
-	    networking.hostName = "evilroots";
+                    nixpkgs.config.allowUnfree = true;
 
-            nix.extraOptions = ''
-                experimental-features = nix-command flakes
-              '';
+                    evilcfg.ssh = true;
+                    evilcfg.desktop = true;
+                    evilcfg.nvidia = true;
+                    # evilcfg.steam = true;
+                    evilcfg.zsa = true;
+                    evilcfg.podman = true;
 
-	    nixpkgs.config.allowUnfree = true;
+                    boot.initrd = {
+                        availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+                        verbose = false;
+                    };
+                    boot.kernelModules = [ "kvm-intel" ];
 
-	    evilcfg.ssh = true;
-	    evilcfg.desktop = true;
-	    evilcfg.nvidia = true;
-	    # evilcfg.steam = true;
-            evilcfg.zsa = true;
-	    evilcfg.podman = true;
+                    networking.useDHCP = nixpkgs.lib.mkDefault true;
+                    # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 
-            boot.initrd = {
-	      availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
-	      verbose = false;
-	    };
-            boot.kernelModules = [ "kvm-intel" ];
+                    hardware.cpu.intel.updateMicrocode = nixpkgs.lib.mkDefault true;
+                    hardware.enableRedistributableFirmware = nixpkgs.lib.mkDefault true;
+                    # Use the systemd-boot EFI boot loader.
+                    boot = {
+                        loader = {
+                            efi = {
+                                canTouchEfiVariables = true;
+                                efiSysMountPoint = "/boot/efi";
+                            };
+                            systemd-boot.enable = true;
+                        };
+                        kernelPackages = pkgs.linuxPackages_latest;
+                        consoleLogLevel = 0;
+                        plymouth.enable = true;
+                        kernelParams = [
+                            "quiet"
+                            "slash"
+                            "rd.systemd.show_status=false"
+                        ];
+                    };
 
-            networking.useDHCP = nixpkgs.lib.mkDefault true;
-            # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
+                    # Disk formating
+                    fileSystems."/" = {
+                        device = "/dev/disk/by-label/NIXOS";
+                        fsType = "btrfs";
+                        options = [ "subvol=root" "compress=zstd" ];
+                    };
 
-            hardware.cpu.intel.updateMicrocode = nixpkgs.lib.mkDefault true;
-	    hardware.enableRedistributableFirmware = nixpkgs.lib.mkDefault true;
+                    fileSystems."/home" = {
+                        device = "/dev/disk/by-label/NIXOS";
+                        fsType = "btrfs";
+                        options = [ "subvol=home" "compress=zstd" ];
+                    };
 
-	    services.udev.extraRules = ''
-  	    # Allow users to use the AVR avrisp2 programmer
-	    SUBSYSTEM=="usb", ATTR{idVendor}=="03eb", ATTR{idProduct}=="2104", TAG+="uaccess", RUN{builtin}+="uaccess"
-	    '';
+                    fileSystems."/nix" = {
+                        device = "/dev/disk/by-label/NIXOS";
+                        fsType = "btrfs";
+                        options = [ "subvol=nix" "compress=zstd" "noatime" ];
+                    };
 
-            # Use the systemd-boot EFI boot loader.
-            boot = {
-              loader = {
-                efi = {
-                  canTouchEfiVariables = true;
-                  efiSysMountPoint = "/boot/efi";
-                };
-                systemd-boot.enable = true;
-              };
-              kernelPackages = pkgs.linuxPackages_latest;
-              consoleLogLevel = 0;
-              plymouth.enable = true;
-              kernelParams = [
-                "quiet"
-                "slash"
-                "rd.systemd.show_status=false"
-              ];
-            };
+                    fileSystems."/boot" = {
+                        device = "/dev/disk/by-label/BOOT";
+                        fsType = "ext4";
+                    };
 
-	    # Disk formating
-            fileSystems."/" = {
-              device = "/dev/disk/by-label/NIXOS";
-              fsType = "btrfs";
-              options = [ "subvol=root" "compress=zstd" ];
-            };
+                    fileSystems."/boot/efi" = {
+                        device = "/dev/disk/by-label/EFI";
+                        fsType = "vfat";
+                    };
 
-            fileSystems."/home" =
-              { device = "/dev/disk/by-label/NIXOS";
-              fsType = "btrfs";
-              options = [ "subvol=home" "compress=zstd" ];
-            };
+                    fileSystems."/home/aitvaras/localdata" = {
+                        device = "/dev/disk/by-label/fedora_fedora";
+                        fsType = "btrfs";
+                        options = [ "subvol=data" "compress=zstd" "noatime" ];
+                    };
 
-            fileSystems."/nix" = {
-              device = "/dev/disk/by-label/NIXOS";
-              fsType = "btrfs";
-              options = [ "subvol=nix" "compress=zstd" "noatime" ];
-            };
-
-            fileSystems."/boot" = {
-              device = "/dev/disk/by-label/BOOT";
-              fsType = "ext4";
-            };
-
-            fileSystems."/boot/efi" = {
-              device = "/dev/disk/by-label/EFI";
-              fsType = "vfat";
-            };
-
-	    fileSystems."/home/aitvaras/localdata" = {
-	      device = "/dev/disk/by-label/fedora_fedora";
-	      fsType = "btrfs";
-	      options = [ "subvol=data" "compress=zstd" "noatime" ];
-	    };
-
-	    # Version of NixOS installed from live disk. Needed for backwards compatability.
-            system.stateVersion = "22.05"; # Did you read the comment?
-	  })
-	];
-      };
+                    # Version of NixOS installed from live disk. Needed for backwards compatability.
+                    system.stateVersion = "22.05"; # Did you read the comment?
+                })
+            ];
+        };
     };
-  };
+};
 }
