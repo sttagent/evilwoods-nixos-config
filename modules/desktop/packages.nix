@@ -10,8 +10,6 @@ in {
     environment.systemPackages = with pkgs; [
       nushell
       ffmpeg-full
-      gnomeExtensions.appindicator
-      gnomeExtensions.dash-to-dock
       gnome.gnome-tweaks
       protonvpn-gui
       megasync
