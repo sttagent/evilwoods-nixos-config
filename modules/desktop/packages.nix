@@ -27,31 +27,20 @@ in {
       yubioath-flutter
       blackbox-terminal
 
-      vivaldi
-      vivaldi-widevine
-      vivaldi-ffmpeg-codecs
-
-      /*
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
 	  eamodio.gitlens
+      vscodevim.vim
+      bbenoist.nix
 	] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
 	  {
 	    name = "remote-containers";
 	    publisher = "ms-vscode-remote";
-	    version = "0.251.0";
-	    sha256 = "sha256-quAgBzBd3lCsN+5KbqOqECJxw675ix9ciR9+R6us9WE=";
-	  }
-	  
-	  {
-	    name = "mips";
-	    publisher = "kdarkhan";
-	    version = "0.1.0";
-	    sha256 = "sha256-1fhkl7aEuW1pE42nvxfG+UT0uS7e7Hwnqqk/qP0oKAI=";
+	    version = "0.275.1";
+	    sha256 = "sha256-A8X5NRfeUrV6ZSi1ZkQ4I6l3hi9pZtvxXm31o/posmE=";
 	  }
 	];
       })
-      */
 
       # thunderbird-wayland
       # protonmail-bridge
