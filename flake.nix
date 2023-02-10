@@ -29,7 +29,7 @@
                             evilcfg.ssh = true;
                             evilcfg.desktop = true;
                             evilcfg.nvidia = true;
-                            # evilcfg.steam = true;
+                            evilcfg.steam = true;
                             evilcfg.zsa = true;
                             evilcfg.podman = true;
 
