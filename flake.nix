@@ -29,7 +29,7 @@
             evilcfg.ssh = true;
             evilcfg.desktop = true;
             evilcfg.nvidia = true;
-            evilcfg.steam = true;
+            #evilcfg.steam = true;
             evilcfg.zsa = true;
             evilcfg.podman = true;
 
@@ -54,12 +54,13 @@
                 systemd-boot.enable = true;
               };
               kernelPackages = pkgs.linuxPackages_latest;
-              consoleLogLevel = 0;
+              #kernelPackages = pkgs.linuxPackages_6_1; # nvidia incopatible with linuxPackages_latest
+              #consoleLogLevel = 0;
               plymouth.enable = true;
               kernelParams = [
                 "quiet"
-                "slash"
-                "rd.systemd.show_status=false"
+                "splash"
+                #"rd.systemd.show_status=false"
               ];
             };
 
