@@ -4,12 +4,12 @@
   config = {
     environment.systemPackages = with pkgs; [
       neovim
+      zellij
       wget
       git
       git-crypt
       htop
       gnupg
-      tmux
     ];
   };
 }
