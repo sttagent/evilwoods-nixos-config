@@ -3,25 +3,25 @@
 with lib;
 
 let
-    desktop = config.evilcfg.desktop; 
+  desktop = config.evilcfg.desktop; 
 in {
-    imports = [
-        ./packages.nix
-        ./moonlander.nix
-        ./steam.nix
-    ];
+  imports = [
+    ./packages.nix
+    ./moonlander.nix
+    ./steam.nix
+  ];
 
-    options.evilcfg = {
+  options.evilcfg = {
 
-    # If machine will have a desktop or not
-    desktop = mkEnableOption "Gnome Deskop";
-    };
+  # If machine will have a desktop or not
+  desktop = mkEnableOption "Gnome Deskop";
+};
 
 
     config = mkIf desktop {
-        environment.systemPackages = with pkgs; [
-            gnomeExtensions.appindicator
-            gnomeExtensions.dash-to-dock
+      environment.systemPackages = with pkgs; [
+      gnomeExtensions.appindicator
+	    gnomeExtensions.blur-my-shell
 	    # gnomeExtensions.valent
         ];
 
