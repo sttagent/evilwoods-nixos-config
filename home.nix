@@ -18,5 +18,10 @@
     fish = {
       enable = true;
     };
+
+    atuin = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 }
