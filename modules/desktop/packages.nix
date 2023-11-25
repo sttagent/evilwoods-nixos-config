@@ -22,6 +22,7 @@ in {
       blackbox-terminal
       gnome-extension-manager
       nil
+      nixd
       # valent
 
       (vscode-with-extensions.override {
