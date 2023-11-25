@@ -9,6 +9,7 @@
   programs = {
     home-manager.enable = true;
 
+
     git = {
      enable = true;
      userName = "Arvydas Ramanauskas";
@@ -17,6 +18,9 @@
 
     fish = {
       enable = true;
+      shellInit = ''
+        set -U fish_greeting
+      '';
     };
 
     atuin = {
