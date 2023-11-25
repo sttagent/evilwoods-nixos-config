@@ -1,4 +1,4 @@
-{config, lib, ...}:
+{config, lib, pkgs, ...}:
 
 with lib;
 
@@ -12,6 +12,10 @@ in {
     services.xserver = mkIf nvidia {
       videoDrivers = [ "nvidia" ];
     };
+
+    environment.systemPackages = with pkgs; [
+      nvidia-vaapi-driver
+    ];
 
     hardware = {
       nvidia = mkIf (nvidia && desktop) {
