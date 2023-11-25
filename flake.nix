@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    disko = {
+        url = "github:nix-community/disko";
+	inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs = { self, nixpkgs-stable, nixpkgs-unstable, disko, home-manager, ... } @ inputs: 
@@ -19,6 +23,12 @@
         system = evilLib.defaultSystem;
 
         modules = [
+          disko.nixosModules.disko
+          ./evilroots-partition-scheme.nix
+          {
+            _module.args.disks = [ "/dev/sdb" ];
+          }
+
           ./modules
 
           ({lib, pkgs, ...}: {
@@ -56,7 +66,6 @@
               loader = {
                 efi = {
                   canTouchEfiVariables = true;
-                  efiSysMountPoint = "/boot/efi";
                 };
                 systemd-boot.enable = true;
               };
@@ -71,44 +80,10 @@
               ];
             };
 
-            # Disk formating
-            fileSystems."/" = {
-              device = "/dev/disk/by-label/NIXOS";
-              fsType = "btrfs";
-              options = [ "subvol=root" "compress=zstd" ];
-            };
-        
-            fileSystems."/home" = {
-              device = "/dev/disk/by-label/NIXOS";
-              fsType = "btrfs";
-              options = [ "subvol=home" "compress=zstd" ];
-            };
-
-            fileSystems."/nix" = {
-              device = "/dev/disk/by-label/NIXOS";
-              fsType = "btrfs";
-              options = [ "subvol=nix" "compress=zstd" "noatime" ];
-            };
-
-            fileSystems."/boot" = {
-              device = "/dev/disk/by-label/BOOT";
-              fsType = "ext4";
-            };
-
-            fileSystems."/boot/efi" = {
-              device = "/dev/disk/by-label/EFI";
-              fsType = "vfat";
-            };
-
-            fileSystems."/home/aitvaras/localdata" = {
-              device = "/dev/disk/by-label/fedora_fedora";
-              fsType = "btrfs";
-              options = [ "subvol=data" "compress=zstd" "noatime" ];
-            };
-
             # Version of NixOS installed from live disk. Needed for backwards compatability.
-            system.stateVersion = "22.05"; # Did you read the comment?
+            system.stateVersion = "23.05"; # Did you read the comment?
           })
+
 	  home-manager.nixosModules.home-manager
 	  {
 	    home-manager = {
