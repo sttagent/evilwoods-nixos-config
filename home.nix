@@ -16,6 +16,12 @@
       gtk-theme = "Adwaita-dark";
     };
 
+    "org/gnome/nautilus/icon-view" = {
+      default-zoom-level = "small-plus";
+    };
+
+  };
+
   programs = {
     home-manager.enable = true;
 
