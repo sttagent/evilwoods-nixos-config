@@ -20,6 +20,7 @@ in {
       element-desktop
       yubioath-flutter
       blackbox-terminal
+      # valent
 
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [

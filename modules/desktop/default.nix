@@ -22,6 +22,7 @@ in {
         environment.systemPackages = with pkgs; [
             gnomeExtensions.appindicator
             gnomeExtensions.dash-to-dock
+	    # gnomeExtensions.valent
         ];
 
         zramSwap.enable = true;
@@ -35,10 +36,6 @@ in {
 
         programs = {
             xwayland.enable = true;
-            kdeconnect = {
-                enable = true;
-                package = pkgs.gnomeExtensions.gsconnect;
-            };
         };
 
         services = {
