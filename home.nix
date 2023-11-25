@@ -11,6 +11,11 @@
       remember-window-size = true;
     };
 
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "Adwaita-dark";
+    };
+
   programs = {
     home-manager.enable = true;
 
