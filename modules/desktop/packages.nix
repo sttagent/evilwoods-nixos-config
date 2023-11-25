@@ -12,8 +12,6 @@ in {
       ffmpeg-full
       gnome.gnome-tweaks
       protonvpn-gui
-      megasync
-      megacmd
       realvnc-vnc-viewer
       cryptomator
       appimage-run
