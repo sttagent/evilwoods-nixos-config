@@ -14,5 +14,9 @@
      userName = "Arvydas Ramanauskas";
      userEmail = "arvydas.ramanauskas@evilwoods.net";
     };
+
+    fish = {
+      enable = true;
+    };
   };
 }
