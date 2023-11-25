@@ -20,27 +20,32 @@ in {
       element-desktop
       yubioath-flutter
       blackbox-terminal
+      gnome-extension-manager
+      nil
       # valent
 
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
-	  eamodio.gitlens
-      vscodevim.vim
-      bbenoist.nix
-	] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-	  {
-	    name = "remote-containers";
-	    publisher = "ms-vscode-remote";
-	    version = "0.275.1";
-	    sha256 = "sha256-A8X5NRfeUrV6ZSi1ZkQ4I6l3hi9pZtvxXm31o/posmE=";
-	  }
-	];
+	        eamodio.gitlens
+          vscodevim.vim
+	        ms-vscode-remote.remote-containers
+	        ms-vscode-remote.remote-ssh
+	        asvetliakov.vscode-neovim
+	        github.copilot
+	        github.copilot-chat
+	        ms-python.python
+	        ms-python.vscode-pylance
+	        esbenp.prettier-vscode
+	        ms-azuretools.vscode-docker
+	        tailscale.vscode-tailscale
+	        jnoortheen.nix-ide
+          arrterian.nix-env-selector
+	      ];
       })
 
       # thunderbird-wayland
       # protonmail-bridge
       zoom-us
-      gnome-feeds
     ];
 
     environment.variables = {
