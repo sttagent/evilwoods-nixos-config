@@ -4,6 +4,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       neovim
+      lazygit
       zellij
       wget
       git
