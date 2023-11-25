@@ -16,6 +16,13 @@
       gtk-theme = "Adwaita-dark";
     };
 
+    "org/gnome/mutter" = {
+      dynamic-workspaces = true;
+      edge-tiling = true;
+      workspaces-only-on-primary = true;
+    };
+
+
     "org/gnome/nautilus/icon-view" = {
       default-zoom-level = "small-plus";
     };
