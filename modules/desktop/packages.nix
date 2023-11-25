@@ -18,9 +18,6 @@ in {
       distrobox
       firefox
       element-desktop
-      discord
-      spotify
-      standardnotes
       yubioath-flutter
       blackbox-terminal
 
