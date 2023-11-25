@@ -6,6 +6,11 @@
     stateVersion = "23.11";
   };
 
+  dconf.settings = {
+    "com/raggesilver/BlackBox" = {
+      remember-window-size = true;
+    };
+
   programs = {
     home-manager.enable = true;
 
