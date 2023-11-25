@@ -16,7 +16,6 @@ in {
       cryptomator
       appimage-run
       distrobox
-      bottles
       firefox
       element-desktop
       discord
