@@ -16,6 +16,11 @@
       gtk-theme = "Adwaita-dark";
     };
 
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
+    };
+
+
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
