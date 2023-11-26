@@ -12,6 +12,7 @@ in {
       ffmpeg-full
       gnome.gnome-tweaks
       protonvpn-gui
+      fractal
       realvnc-vnc-viewer
       cryptomator
       appimage-run
