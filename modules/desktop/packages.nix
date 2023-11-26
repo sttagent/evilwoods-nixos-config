@@ -20,6 +20,7 @@ in {
       firefox
       element-desktop
       discord
+      spotify
       yubioath-flutter
       blackbox-terminal
       gnome-extension-manager
