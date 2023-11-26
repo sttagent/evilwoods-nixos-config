@@ -2,7 +2,7 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixpkgs-stable.url = "nixpkgs/nixos-22.11";
+    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
