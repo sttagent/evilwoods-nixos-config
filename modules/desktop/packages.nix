@@ -21,6 +21,7 @@ in {
       element-desktop
       discord
       spotify
+      signal-desktop
       yubioath-flutter
       blackbox-terminal
       gnome-extension-manager
