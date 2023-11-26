@@ -19,6 +19,7 @@ in {
       distrobox
       firefox
       element-desktop
+      discord
       yubioath-flutter
       blackbox-terminal
       gnome-extension-manager
