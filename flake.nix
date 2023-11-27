@@ -19,8 +19,12 @@
     evilLib = import ./lib;
   in {
     nixosConfigurations = {
-      evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
+      evilroots =
+        let
+          nixpkgs = nixpkgs-unstable;
+        in nixpkgs.lib.nixosSystem {
         system = evilLib.defaultSystem;
+        specialArgs = inputs;
 
         modules = [
           disko.nixosModules.disko
@@ -39,7 +43,7 @@
 	            extraOptions = ''
               	experimental-features = nix-command flakes
               '';
-	    };
+	          };
 
             nixpkgs.config.allowUnfree = true;
 
@@ -84,14 +88,14 @@
             system.stateVersion = "23.05"; # Did you read the comment?
           })
 
-	  home-manager.nixosModules.home-manager
-	  {
-	    home-manager = {
-	      useGlobalPkgs = true;
-	      useUserPackages = true;
-	      users.aitvaras = import ./home.nix;
-	    };
-	  }
+	        home-manager.nixosModules.home-manager
+	        {
+	          home-manager = {
+	            useGlobalPkgs = true;
+	            useUserPackages = true;
+	            users.aitvaras = import ./home.nix;
+	          };
+	        }
         ];
       };
     };
