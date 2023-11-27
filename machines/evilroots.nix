@@ -23,11 +23,11 @@
             };
             boot.kernelModules = [ "kvm-intel" ];
 
-            networking.useDHCP = nixpkgs.lib.mkDefault true;
+            networking.useDHCP = lib.mkDefault true;
             # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 
-            hardware.cpu.intel.updateMicrocode = nixpkgs.lib.mkDefault true;
-            hardware.enableRedistributableFirmware = nixpkgs.lib.mkDefault true;
+            hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
+            hardware.enableRedistributableFirmware = lib.mkDefault true;
             # Use the systemd-boot EFI boot loader.
             boot = {
               loader = {

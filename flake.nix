@@ -35,7 +35,7 @@
 
           ./modules
 
-          ./evilroots.nix
+          ./machines/evilroots.nix
 
 	        home-manager.nixosModules.home-manager
 	        {
