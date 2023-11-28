@@ -20,6 +20,10 @@
       sleep-inactive-ac-type = "nothing";
     };
 
+    "org/gnome/desktop/input-sources" = {
+      sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "se" ]) ];
+    };
+
 
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
