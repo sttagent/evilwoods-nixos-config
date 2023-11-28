@@ -18,17 +18,20 @@ in {
       appimage-run
       distrobox
       firefox
-      element-desktop
-      discord
-      spotify
-      signal-desktop
       yubioath-flutter
       blackbox-terminal
       gnome-extension-manager
       nil
       nixd
-      # valent
       newsflash
+      # valent # doesnt compile
+
+      # Electron apps
+      element-desktop
+      discord
+      spotify
+      signal-desktop
+      obsidian
 
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
