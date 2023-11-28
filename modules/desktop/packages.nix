@@ -28,6 +28,7 @@ in {
       nil
       nixd
       # valent
+      newsflash
 
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
