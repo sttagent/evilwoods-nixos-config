@@ -58,5 +58,5 @@
             };
 
             # Version of NixOS installed from live disk. Needed for backwards compatability.
-            system.stateVersion = "23.05"; # Did you read the comment?
+            system.stateVersion = "24.05"; # Did you read the comment?
 })

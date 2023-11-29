@@ -3,7 +3,7 @@
     username = "aitvaras";
     homeDirectory = "/home/aitvaras";
 
-    stateVersion = "23.11";
+    stateVersion = "24.05";
   };
 
   dconf.settings = with lib.hm.gvariant;{
