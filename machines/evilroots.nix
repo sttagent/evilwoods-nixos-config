@@ -16,6 +16,16 @@
             #evilcfg.steam = true;
             evilcfg.zsa = true;
             evilcfg.podman = true;
+            
+            # docker setup
+            virtualisation.docker = {
+              enable = true;
+              rootless = {
+                enable = true;
+                setSocketVariable = true;
+              };
+              storageDriver = "btrfs";
+            };
 
             boot.initrd = {
               availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
