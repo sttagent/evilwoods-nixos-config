@@ -4,11 +4,28 @@
     homeDirectory = "/home/aitvaras";
 
     stateVersion = "24.05";
+    
+    file = {
+      ".config/background" = {
+        source = ./background1.jpg;
+      };
+    };
   };
 
   dconf.settings = with lib.hm.gvariant;{
     "com/raggesilver/BlackBox" = {
       remember-window-size = true;
+
+    };
+
+	  "org/gnome/desktop/background" = {
+        picture-uri = "file:///home/aitvaras/.config/background";
+        picture-uri-dark = "file:///home/aitvaras/.config/background";
+        picture-options = "zoom";
+    };
+
+    "org/gnome/desktop/screensaver" = {
+        picture-uri = "file:///home/aitvaras/.config/background";
     };
 
     "org/gnome/desktop/interface" = {
