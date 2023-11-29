@@ -16,7 +16,11 @@
             #evilcfg.steam = true;
             evilcfg.zsa = true;
             evilcfg.podman = true;
-            
+
+	    # LTU VPN
+	    services.strongswan.enable = true;
+	    networking.networkmanager.enableStrongSwan = true;
+
             # docker setup
             virtualisation.docker = {
               enable = true;
