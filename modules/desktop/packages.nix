@@ -10,21 +10,22 @@ in {
     environment.systemPackages = with pkgs; [
       nushell
       ffmpeg-full
-      gnome.gnome-tweaks
       protonvpn-gui
-        fractal
-      realvnc-vnc-viewer
       cryptomator
       appimage-run
       distrobox
       firefox
       yubioath-flutter
-      blackbox-terminal
-      gnome-extension-manager
       nil
       nixd
-      newsflash
       # valent # doesnt compile
+
+      # Gnome apps
+      newsflash
+      gnome-extension-manager
+      blackbox-terminal
+      gnome.gnome-tweaks
+      #  fractal # doesn't compile
 
       # Electron apps
       element-desktop
