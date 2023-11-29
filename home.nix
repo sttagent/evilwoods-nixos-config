@@ -1,4 +1,4 @@
-{config, pkgs, ...}: {
+{config, lib, pkgs, ...}: {
   home = {
     username = "aitvaras";
     homeDirectory = "/home/aitvaras";
@@ -6,7 +6,7 @@
     stateVersion = "23.11";
   };
 
-  dconf.settings = {
+  dconf.settings = with lib.hm.gvariant;{
     "com/raggesilver/BlackBox" = {
       remember-window-size = true;
     };
