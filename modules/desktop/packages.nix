@@ -25,6 +25,8 @@ in {
       gnome-extension-manager
       blackbox-terminal
       gnome.gnome-tweaks
+      gnome.dconf-editor
+      dconf
       #  fractal # doesn't compile
 
       # Electron apps
