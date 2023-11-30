@@ -35,6 +35,7 @@ in {
       spotify
       signal-desktop
       obsidian
+      zoom-us
 
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
@@ -57,7 +58,6 @@ in {
 
       # thunderbird-wayland
       # protonmail-bridge
-      zoom-us
     ];
 
     environment.variables = {
