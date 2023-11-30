@@ -8,6 +8,8 @@ let
 in {
   config = mkIf desktop {
     environment.systemPackages = with pkgs; [
+      alacritty
+      alacritty-theme
       nushell
       ffmpeg-full
       protonvpn-gui
