@@ -17,7 +17,7 @@
       remember-window-size = true;
 
     };
-
+    
 	  "org/gnome/desktop/background" = {
         picture-uri = "file:///home/aitvaras/.config/background";
         picture-uri-dark = "file:///home/aitvaras/.config/background";
@@ -48,6 +48,18 @@
       workspaces-only-on-primary = true;
     };
 
+    "org/gnome/shell" = {
+      favorite-apps = [ 
+        "firefox.desktop"
+        "org.gnome.Nautilus.desktop"
+        "com.raggesilver.BlackBox.desktop"
+        "io.gitlab.news_flash.NewsFlash.desktop"
+        "discord.desktop"
+        "com.yubico.authenticator.desktop"
+        "code.desktop"
+        "com.mattjakeman.ExtensionManager.desktop"
+        "org.gnome.Settings.desktop"];
+    };
 
     "org/gnome/nautilus/icon-view" = {
       default-zoom-level = "small-plus";
