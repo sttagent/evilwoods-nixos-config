@@ -51,6 +51,14 @@
           ./modules
           # Secrets
           sops-nix.nixosModules.sops
+          {
+            sops.defaultSopsFile = ./secrets/secrets.yaml;
+            sops.defaultSopsFormat = "yaml";
+            sops.secrets.example-key = { };
+            sops.secrets."myservice/my_subdir/my_secret" = { };
+            sops.age.keyFile = /home/aitvaras/.config/sops/age/keys.txt;
+            sops.gnupg.sshKeyPaths =  [];
+          }
 
 
           # Disk configuration

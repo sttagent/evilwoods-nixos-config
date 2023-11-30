@@ -3,9 +3,9 @@
 # Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
 # for a more complex example.
 keys:
-  - &admin_arvydas 1A5DD1BBEA0C384850639B94302BF9F0CE2E4BC2
+  - &aitvaras age18052ftqzdgq52nh70a7t78pv9snd7p7zx7xp7hts4c9z93l9uu9qywdm43
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
-    - pgp:
-      - *admin_arvydas
+    - age:
+      - *aitvaras
