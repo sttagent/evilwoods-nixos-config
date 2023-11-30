@@ -24,11 +24,17 @@
     };
     disko = {
         url = "github:nix-community/disko";
-	inputs.nixpkgs.follows = "nixpkgs-unstable";
+	      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+   /*  */ 
+    # sops-nix is a tool for managing secrets
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, disko, home-manager, ... } @ inputs: 
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, disko, home-manager, sops-nix, ... } @ inputs: 
   let
     evilLib = import ./lib;
   in {
@@ -43,6 +49,9 @@
         modules = [
           # My nixos modules
           ./modules
+          # Secrets
+          sops-nix.nixosModules.sops-nix
+
 
           # Disk configuration
           disko.nixosModules.disko
