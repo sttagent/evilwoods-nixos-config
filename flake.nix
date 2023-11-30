@@ -50,7 +50,7 @@
           # My nixos modules
           ./modules
           # Secrets
-          sops-nix.nixosModules.sops-nix
+          sops-nix.nixosModules.sops
 
 
           # Disk configuration
