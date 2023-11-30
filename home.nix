@@ -19,13 +19,13 @@
     };
     
 	  "org/gnome/desktop/background" = {
-        picture-uri = "file:///home/aitvaras/.config/background";
-        picture-uri-dark = "file:///home/aitvaras/.config/background";
-        picture-options = "zoom";
+      picture-uri = "file:///home/aitvaras/.config/background";
+      picture-uri-dark = "file:///home/aitvaras/.config/background";
+      picture-options = "zoom";
     };
 
     "org/gnome/desktop/screensaver" = {
-        picture-uri = "file:///home/aitvaras/.config/background";
+      picture-uri = "file:///home/aitvaras/.config/background";
     };
 
     "org/gnome/desktop/interface" = {
@@ -64,7 +64,6 @@
     "org/gnome/nautilus/icon-view" = {
       default-zoom-level = "small-plus";
     };
-
   };
 
   programs = {
