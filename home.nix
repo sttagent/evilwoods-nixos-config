@@ -96,5 +96,10 @@
       enable = true;
       enableFishIntegration = true;
     };
+    
+    nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 }
