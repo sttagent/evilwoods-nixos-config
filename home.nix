@@ -65,29 +65,6 @@
       default-zoom-level = "small-plus";
     };
   };
-  
-  systemd = {
-    user = {
-      mounts = {
-        home-aitvaras-Games =  {
-          Unit = {
-            Description = "Mount games subvolume";
-          };
-          
-          Mount =  {
-            What = "/dev/disk/by-partlabel/disk-data-home";
-            Type = "btrfs";
-            Options = [ "subvol=games" "nodatacow"];
-            Where = "/home/aitvaras/Games";
-          };
-          
-          Install = {
-            WantedBy = [ "default.target" ];
-          };
-        };
-      };
-    };
-  };
 
   programs = {
     home-manager.enable = true;
