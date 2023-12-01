@@ -1,13 +1,16 @@
-{config, lib, pkgs, ...}: {
+{config, lib, pkgs, ...}: 
+let
+  user = "aitvaras";
+in {
   home = {
-    username = "aitvaras";
-    homeDirectory = "/home/aitvaras";
+    username = "${user}";
+    homeDirectory = "/home/${user}";
 
     stateVersion = "24.05";
     
     file = {
       ".config/background" = {
-        source = ./background1.jpg;
+        source = ../resources/wallpapers/background1.jpg;
       };
     };
   };
@@ -19,13 +22,13 @@
     };
     
 	  "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/aitvaras/.config/background";
-      picture-uri-dark = "file:///home/aitvaras/.config/background";
+      picture-uri = "file:///home/${user}/.config/background";
+      picture-uri-dark = "file:///home/${user}/.config/background";
       picture-options = "zoom";
     };
 
     "org/gnome/desktop/screensaver" = {
-      picture-uri = "file:///home/aitvaras/.config/background";
+      picture-uri = "file:///home/${user}/.config/background";
     };
 
     "org/gnome/desktop/interface" = {

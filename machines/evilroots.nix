@@ -1,4 +1,13 @@
-({lib, pkgs, ...}: {
+({config, lib, pkgs, ...}: 
+let
+  primaryUser = config.evilcfg.primaryUser;
+in {
+	home-manager = {
+	  useGlobalPkgs = true;
+	  useUserPackages = true;
+	  users.${primaryUser} = import ./home.nix;
+	};
+
   networking.hostName = "evilroots";
 
   nix = {
@@ -61,6 +70,13 @@
       #"rd.systemd.show_status=false"
     ];
   };
+
+            sops.defaultSopsFile = ../secrets/secrets.yaml;
+            sops.defaultSopsFormat = "yaml";
+            sops.secrets.example-key = { };
+            sops.secrets."myservice/my_subdir/my_secret" = { };
+            sops.age.keyFile = /home/${primaryUser}/.config/sops/age/keys.txt;
+            sops.gnupg.sshKeyPaths =  [];
 
             # Version of NixOS installed from live disk. Needed for backwards compatability.
   system.stateVersion = "24.05"; # Did you read the comment?

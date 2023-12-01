@@ -49,17 +49,9 @@
         modules = [
           # My nixos modules
           ./modules
-          # Secrets
-          sops-nix.nixosModules.sops
-          {
-            sops.defaultSopsFile = ./secrets/secrets.yaml;
-            sops.defaultSopsFormat = "yaml";
-            sops.secrets.example-key = { };
-            sops.secrets."myservice/my_subdir/my_secret" = { };
-            sops.age.keyFile = /home/aitvaras/.config/sops/age/keys.txt;
-            sops.gnupg.sshKeyPaths =  [];
-          }
 
+          sops-nix.nixosModules.sops
+	        home-manager.nixosModules.home-manager
 
           # Disk configuration
           disko.nixosModules.disko
@@ -74,15 +66,6 @@
           # machine configuration
           ./machines/evilroots.nix
 
-          # home configuration
-	        home-manager.nixosModules.home-manager
-	        {
-	          home-manager = {
-	            useGlobalPkgs = true;
-	            useUserPackages = true;
-	            users.aitvaras = import ./home.nix;
-	          };
-	        }
         ];
       };
     };
