@@ -29,6 +29,7 @@ in {
       gnome.gnome-tweaks
       gnome.dconf-editor
       dconf
+      gnome.gnome-sound-recorder
       #  fractal # doesn't compile
 
       # Electron apps
