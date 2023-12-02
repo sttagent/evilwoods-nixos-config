@@ -40,36 +40,23 @@
     in
     {
       nixosConfigurations = {
-        evilroots =
-          let
-            nixpkgs = nixpkgs-unstable;
-          in
-          nixpkgs.lib.nixosSystem {
-            system = evilLib.defaultSystem;
-            specialArgs = inputs;
+        evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
+          system = evilLib.defaultSystem;
+          specialArgs = inputs;
 
-            modules = [
-              # My nixos modules
-              ./modules
+          modules = [
+            # Nixos community modules
+            disko.nixosModules.disko
+            sops-nix.nixosModules.sops
+            home-manager.nixosModules.home-manager
 
-              sops-nix.nixosModules.sops
-              home-manager.nixosModules.home-manager
+            # My custom modules
+            ./modules
 
-              # Disk configuration
-              disko.nixosModules.disko
-              ./evilroots-partition-scheme.nix
-              {
-                _module.args.disks = [
-                  "/dev/disk/by-id/ata-SanDisk_Ultra_II_480GB_160807801275"
-                  "/dev/disk/by-id/ata-CT1000MX500SSD1_1950E22EEC2F"
-                ];
-              }
-
-              # machine configuration
-              ./machines/evilroots.nix
-
-            ];
-          };
+            # Machine configuration
+            ./machines/evilroots.nix
+          ];
+        };
       };
 
       formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixpkgs-fmt;
