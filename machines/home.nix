@@ -1,6 +1,6 @@
 { nixosConfig, lib, pkgs, ... }: # os configuration is reachable via nixosConfig
 let
-  user = "aitvaras";
+  primaryUser = nixosConfig.evilcfg.primaryUser;
 in
 {
   home = {
