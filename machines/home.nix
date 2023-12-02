@@ -36,12 +36,16 @@ in {
       gtk-theme = "Adwaita-dark";
     };
 
-    "org/gnome/settings-daemon/plugins/power" = {
-      sleep-inactive-ac-type = "nothing";
+    "org/gnome/desktop/session" = {
+      idle-delay = mkUint32 900;
     };
 
     "org/gnome/desktop/input-sources" = {
       sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "se" ]) ];
+    };
+
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-ac-type = "nothing";
     };
 
 
