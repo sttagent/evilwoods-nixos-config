@@ -78,7 +78,7 @@ in
   sops.secrets."myservice/my_subdir/my_secret" = { };
   sops.age.keyFile = /home/${primaryUser}/.config/sops/age/keys.txt;
   sops.gnupg.sshKeyPaths = [ ];
-  
+
   # Garbage collection
   boot.loader.systemd-boot.configurationLimit = 100;
   nix.gc = {
