@@ -4,8 +4,8 @@ let
 in
 {
   home = {
-    username = "${user}";
-    homeDirectory = "/home/${user}";
+    username = "${primaryUser}";
+    homeDirectory = "/home/${primaryUser}";
 
     stateVersion = "24.05";
 
@@ -23,13 +23,13 @@ in
     };
 
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///home/${user}/.config/background";
-      picture-uri-dark = "file:///home/${user}/.config/background";
+      picture-uri = "file:///home/${primaryUser}/.config/background";
+      picture-uri-dark = "file:///home/${primaryUser}/.config/background";
       picture-options = "zoom";
     };
 
     "org/gnome/desktop/screensaver" = {
-      picture-uri = "file:///home/${user}/.config/background";
+      picture-uri = "file:///home/${primaryUser}/.config/background";
     };
 
     "org/gnome/desktop/interface" = {
@@ -48,7 +48,6 @@ in
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
     };
-
 
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
