@@ -4,6 +4,7 @@ with lib;
 
 let
   desktop = config.evilcfg.desktop;
+  primaryUser = config.evilcfg.primaryUser;
 in
 {
   imports = [
@@ -29,7 +30,7 @@ in
 
     # Recommended for pipwire
     security.rtkit.enable = true;
-    security.pam.services.aitvaras.enableGnomeKeyring = true;
+    security.pam.services.${primaryUser}.enableGnomeKeyring = true;
 
     # Needs to be disabled if using pipwire
     hardware.pulseaudio.enable = false;
