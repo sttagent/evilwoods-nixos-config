@@ -1,4 +1,4 @@
-({ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
   primaryUser = config.evilcfg.primaryUser;
 in
@@ -81,4 +81,4 @@ in
 
   # Version of NixOS installed from live disk. Needed for backwards compatability.
   system.stateVersion = "24.05"; # Did you read the comment?
-})
+}
