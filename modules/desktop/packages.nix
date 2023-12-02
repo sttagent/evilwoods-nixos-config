@@ -1,11 +1,11 @@
-
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 with lib;
 
 let
   desktop = config.evilcfg.desktop;
-in {
+in
+{
   config = mkIf desktop {
     environment.systemPackages = with pkgs; [
       alacritty
@@ -42,22 +42,22 @@ in {
 
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
-	        eamodio.gitlens
+          eamodio.gitlens
           vscodevim.vim
-	        ms-vscode-remote.remote-containers
-	        ms-vscode-remote.remote-ssh
-	        asvetliakov.vscode-neovim
-	        github.copilot
-	        github.copilot-chat
-	        ms-python.python
-	        ms-python.vscode-pylance
-	        esbenp.prettier-vscode
-	        ms-azuretools.vscode-docker
-	        tailscale.vscode-tailscale
-	        jnoortheen.nix-ide
+          ms-vscode-remote.remote-containers
+          ms-vscode-remote.remote-ssh
+          asvetliakov.vscode-neovim
+          github.copilot
+          github.copilot-chat
+          ms-python.python
+          ms-python.vscode-pylance
+          esbenp.prettier-vscode
+          ms-azuretools.vscode-docker
+          tailscale.vscode-tailscale
+          jnoortheen.nix-ide
           arrterian.nix-env-selector
           jdinhlife.gruvbox
-	      ];
+        ];
       })
 
       # thunderbird-wayland

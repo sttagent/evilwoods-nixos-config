@@ -1,12 +1,13 @@
-({config, lib, pkgs, ...}: 
+({ config, lib, pkgs, ... }:
 let
   primaryUser = config.evilcfg.primaryUser;
-in {
-	home-manager = {
-	  useGlobalPkgs = true;
-	  useUserPackages = true;
-	  users.${primaryUser} = import ./home.nix;
-	};
+in
+{
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.${primaryUser} = import ./home.nix;
+  };
 
   networking.hostName = "evilroots";
 
@@ -15,7 +16,7 @@ in {
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-	};
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -26,9 +27,9 @@ in {
   evilcfg.zsa = true;
   evilcfg.podman = true;
 
-	# LTU VPN
-	services.strongswan.enable = true;
-	networking.networkmanager.enableStrongSwan = true;
+  # LTU VPN
+  services.strongswan.enable = true;
+  networking.networkmanager.enableStrongSwan = true;
 
   # docker setup
   virtualisation.docker = {
@@ -52,7 +53,7 @@ in {
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
   hardware.enableRedistributableFirmware = lib.mkDefault true;
-            # Use the systemd-boot EFI boot loader.
+  # Use the systemd-boot EFI boot loader.
   boot = {
     loader = {
       efi = {
@@ -76,8 +77,8 @@ in {
   sops.secrets.example-key = { };
   sops.secrets."myservice/my_subdir/my_secret" = { };
   sops.age.keyFile = /home/${primaryUser}/.config/sops/age/keys.txt;
-  sops.gnupg.sshKeyPaths =  [];
+  sops.gnupg.sshKeyPaths = [ ];
 
-            # Version of NixOS installed from live disk. Needed for backwards compatability.
+  # Version of NixOS installed from live disk. Needed for backwards compatability.
   system.stateVersion = "24.05"; # Did you read the comment?
 })

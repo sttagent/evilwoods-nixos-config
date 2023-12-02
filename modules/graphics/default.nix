@@ -1,11 +1,12 @@
-{config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
 let
   nvidia = config.evilcfg.nvidia;
   desktop = config.evilcfg.desktop;
-in {
+in
+{
   options.evilcfg.nvidia = mkEnableOption "nvidia";
 
   config = mkIf nvidia {
@@ -28,8 +29,8 @@ in {
         driSupport32Bit = true;
         extraPackages = with pkgs; [
           vaapiVdpau
-        ];          
+        ];
       };
-    };  
+    };
   };
 }

@@ -1,13 +1,14 @@
-{config, lib, pkgs, ...}: 
+{ config, lib, pkgs, ... }:
 let
   user = "aitvaras";
-in {
+in
+{
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
 
     stateVersion = "24.05";
-    
+
     file = {
       ".config/background" = {
         source = ../resources/wallpapers/background1.jpg;
@@ -20,8 +21,8 @@ in {
       remember-window-size = true;
 
     };
-    
-	  "org/gnome/desktop/background" = {
+
+    "org/gnome/desktop/background" = {
       picture-uri = "file:///home/${user}/.config/background";
       picture-uri-dark = "file:///home/${user}/.config/background";
       picture-options = "zoom";
@@ -56,7 +57,7 @@ in {
     };
 
     "org/gnome/shell" = {
-      favorite-apps = [ 
+      favorite-apps = [
         "firefox.desktop"
         "org.gnome.Nautilus.desktop"
         "com.raggesilver.BlackBox.desktop"
@@ -65,7 +66,8 @@ in {
         "com.yubico.authenticator.desktop"
         "code.desktop"
         "com.mattjakeman.ExtensionManager.desktop"
-        "org.gnome.Settings.desktop"];
+        "org.gnome.Settings.desktop"
+      ];
     };
 
     "org/gnome/nautilus/icon-view" = {
@@ -77,9 +79,9 @@ in {
     home-manager.enable = true;
 
     git = {
-     enable = true;
-     userName = "Arvydas Ramanauskas";
-     userEmail = "arvydas.ramanauskas@evilwoods.net";
+      enable = true;
+      userName = "Arvydas Ramanauskas";
+      userEmail = "arvydas.ramanauskas@evilwoods.net";
     };
 
     fish = {
@@ -103,7 +105,7 @@ in {
       enable = true;
       enableFishIntegration = true;
     };
-    
+
     nix-index = {
       enable = true;
       enableFishIntegration = true;

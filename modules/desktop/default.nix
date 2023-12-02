@@ -1,10 +1,11 @@
-{config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 with lib;
 
 let
-  desktop = config.evilcfg.desktop; 
-in {
+  desktop = config.evilcfg.desktop;
+in
+{
   imports = [
     ./packages.nix
     ./moonlander.nix
@@ -20,8 +21,8 @@ in {
   config = mkIf desktop {
     environment.systemPackages = with pkgs; [
       gnomeExtensions.appindicator
-	    gnomeExtensions.blur-my-shell
-	    # gnomeExtensions.valent
+      gnomeExtensions.blur-my-shell
+      # gnomeExtensions.valent
     ];
 
     zramSwap.enable = true;
@@ -35,10 +36,10 @@ in {
 
     programs = {
       xwayland.enable = true;
-	    gnupg.agent = {
-	      enable = true;
-	      enableSSHSupport = true;
-	    };
+      gnupg.agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
     };
 
     services = {
@@ -50,7 +51,7 @@ in {
         displayManager.gdm.enable = true;
         desktopManager.gnome.enable = true;
       };
-  
+
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -62,13 +63,13 @@ in {
       udev = {
         packages = [ pkgs.yubikey-personalization ];
         extraRules = ''
-            # Bitbox udev rules
-            SUBSYSTEM=="usb", SYMLINK+="bitbox02_%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403"
-            KERNEL=="hidraw*", SUBSYSTEM=="hidraw", SYMLINK+="bitbox02_%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403"
-            SUBSYSTEM=="usb", SYMLINK+="dbb%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
-            KERNEL=="hidraw*", SUBSYSTEM=="hidraw", SYMLINK+="dbbf%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
-            # Allow users to use the AVR avrisp2 programmer
-            SUBSYSTEM=="usb", ATTR{idVendor}=="03eb", ATTR{idProduct}=="2104", TAG+="uaccess", RUN{builtin}+="uaccess"
+          # Bitbox udev rules
+          SUBSYSTEM=="usb", SYMLINK+="bitbox02_%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403"
+          KERNEL=="hidraw*", SUBSYSTEM=="hidraw", SYMLINK+="bitbox02_%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2403"
+          SUBSYSTEM=="usb", SYMLINK+="dbb%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
+          KERNEL=="hidraw*", SUBSYSTEM=="hidraw", SYMLINK+="dbbf%n", GROUP="plugdev", MODE="0664", ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2402"
+          # Allow users to use the AVR avrisp2 programmer
+          SUBSYSTEM=="usb", ATTR{idVendor}=="03eb", ATTR{idProduct}=="2104", TAG+="uaccess", RUN{builtin}+="uaccess"
         '';
       };
 

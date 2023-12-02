@@ -6,7 +6,8 @@ with lib;
 
 let
   zsa = config.evilcfg.zsa;
-in {
+in
+{
 
   options.evilcfg.zsa = mkEnableOption "ZSA";
 

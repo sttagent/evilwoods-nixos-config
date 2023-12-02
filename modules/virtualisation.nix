@@ -1,10 +1,11 @@
-{config, lib, ...}:
+{ config, lib, ... }:
 
 with lib;
 let
   podman = config.evilcfg.podman;
   nvidia = config.evilcfg.nvidia;
-in {
+in
+{
   options.evilcfg.podman = mkEnableOption "podman";
 
   config = {

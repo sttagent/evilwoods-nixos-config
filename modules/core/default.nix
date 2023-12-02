@@ -1,18 +1,19 @@
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, ... }:
 
 with lib;
 
 let
   ssh = config.evilcfg.ssh;
   primaryUser = config.evilcfg.primaryUser;
-in {
+in
+{
   imports = [
     ./core-packages.nix
     ./users
   ];
 
   options.evilcfg.ssh = mkEnableOption "ssh";
-  
+
   config = {
     networking.networkmanager.enable = true;
 
@@ -29,9 +30,9 @@ in {
       };
       syncthing = {
         enable = true;
-	user = primaryUser;
-	dataDir = "/home/${primaryUser}/Sync";
-	configDir = "/home/${primaryUser}/Sync/.config/syncthing";
+        user = primaryUser;
+        dataDir = "/home/${primaryUser}/Sync";
+        configDir = "/home/${primaryUser}/Sync/.config/syncthing";
       };
     };
 
