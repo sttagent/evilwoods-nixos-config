@@ -58,6 +58,7 @@ in
           jnoortheen.nix-ide
           arrterian.nix-env-selector
           jdinhlife.gruvbox
+          redhat.vscode-yaml
         ];
       })
 
