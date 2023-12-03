@@ -109,5 +109,13 @@ in
       enable = true;
       enableFishIntegration = true;
     };
+    
+    neovim = {
+      enable = true;
+
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+    };
   };
 }
