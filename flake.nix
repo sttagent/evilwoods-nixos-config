@@ -61,10 +61,5 @@
 
       formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
-      devShells.x86_64-linux = let pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; in {
-        django = pkgs.mkShell {
-          buildInputs = with pkgs; [ python3 python3Packages.django python3Packages.flask ];
-        };
-      };
     };
 }
