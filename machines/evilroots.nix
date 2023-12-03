@@ -30,6 +30,19 @@ in
   #evilcfg.steam = true;
   evilcfg.zsa = true;
   evilcfg.podman = true;
+  
+  # Nameservers for DNS resolution
+  networking.nameservers = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
+
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
+    extraConfig = ''
+      DNSOverTLS=yes
+    '';
+  };
 
   # LTU VPN
   services.strongswan.enable = true;
