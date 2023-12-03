@@ -45,6 +45,10 @@ in
 
     storageDriver = "btrfs";
   };
+  
+  # Virtual manager setup
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   boot.initrd = {
     availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
