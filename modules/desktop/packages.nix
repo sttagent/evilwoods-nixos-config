@@ -20,7 +20,6 @@ in
       yubioath-flutter
       nil
       nixd
-      # valent # doesnt compile
 
       # Gnome apps
       newsflash
@@ -30,6 +29,8 @@ in
       gnome.dconf-editor
       dconf
       gnome.gnome-sound-recorder
+      fragments
+      # valent # doesnt compile
       #  fractal # doesn't compile
 
       # Electron apps
