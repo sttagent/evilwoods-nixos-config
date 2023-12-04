@@ -20,6 +20,7 @@ in
       yubioath-flutter
       nil
       nixd
+      nerdfonts
 
       # Gnome apps
       newsflash
