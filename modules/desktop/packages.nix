@@ -45,7 +45,6 @@ in
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
           eamodio.gitlens
-          vscodevim.vim
           ms-vscode-remote.remote-containers
           ms-vscode-remote.remote-ssh
           asvetliakov.vscode-neovim
