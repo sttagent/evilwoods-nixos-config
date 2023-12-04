@@ -76,6 +76,11 @@ in
 
   programs = {
     home-manager.enable = true;
+    
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     git = {
       enable = true;
@@ -103,6 +108,12 @@ in
     zoxide = {
       enable = true;
       enableFishIntegration = true;
+    };
+    
+    eza = {
+      enable = true;
+      enableAliases = true;
+      icons = true;
     };
 
     nix-index = {
