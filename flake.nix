@@ -26,15 +26,14 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    /*  */
-    # sops-nix is a tool for managing secrets
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, disko, home-manager, sops-nix, ... } @ inputs:
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, disko, home-manager, sops-nix, nixos-hardware, ... } @ inputs:
     let
       evilLib = import ./lib;
     in
