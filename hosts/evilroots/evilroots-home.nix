@@ -11,7 +11,7 @@ in
 
     file = {
       ".config/background" = {
-        source = ../resources/wallpapers/background1.jpg;
+        source = ../../resources/wallpapers/background1.jpg;
       };
     };
   };

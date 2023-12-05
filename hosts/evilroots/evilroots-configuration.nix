@@ -6,7 +6,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.${primaryUser} = import ./home.nix;
+    users.${primaryUser} = import ./evilroots-home.nix;
   };
 
   networking.hostName = "evilroots";
@@ -89,7 +89,7 @@ in
     ];
   };
 
-  sops.defaultSopsFile = ../secrets/secrets.yaml;
+  sops.defaultSopsFile = ../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
   sops.secrets.example-key = { };
   sops.secrets."myservice/my_subdir/my_secret" = { };
