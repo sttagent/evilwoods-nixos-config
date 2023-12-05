@@ -44,9 +44,10 @@
     , ...
     } @ inputs:
     let
-      evilLib = import ./lib;
+      evilLib = import ./lib {lib = nixpkgs-unstable.legacyPackages.x86_64-linux.lib;};
     in
     {
+      lib = evilLib;
       nixosConfigurations = {
         evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
           system = evilLib.defaultSystem;
