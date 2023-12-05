@@ -20,6 +20,7 @@
       git-crypt
       htop
       gnupg
+      bottom
     ];
   };
 }
