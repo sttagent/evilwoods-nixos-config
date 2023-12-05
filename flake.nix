@@ -33,7 +33,16 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, disko, home-manager, sops-nix, nixos-hardware, ... } @ inputs:
+  outputs =
+    { self
+    , nixpkgs-stable
+    , nixpkgs-unstable
+    , disko
+    , home-manager
+    , sops-nix
+    , nixos-hardware
+    , ...
+    } @ inputs:
     let
       evilLib = import ./lib;
     in

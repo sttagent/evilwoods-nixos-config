@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   imports = [
     ./evilroots-configuration.nix
