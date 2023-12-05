@@ -3,10 +3,6 @@ let
   primaryUser = config.evilcfg.primaryUser;
 in
 {
-  imports = [
-    ./evilroots-partition-scheme.nix
-  ];
-
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

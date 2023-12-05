@@ -53,7 +53,7 @@
             ./modules
 
             # Machine configuration
-            ./hosts/evilroots.nix
+            ./hosts
           ];
         };
       };
