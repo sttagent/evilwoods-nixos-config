@@ -59,6 +59,7 @@ in
           arrterian.nix-env-selector
           jdinhlife.gruvbox
           redhat.vscode-yaml
+          ms-vsliveshare.vsliveshare
         ];
       })
 
