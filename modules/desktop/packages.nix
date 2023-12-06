@@ -62,6 +62,7 @@ in
           ms-vsliveshare.vsliveshare
           mkhl.direnv
           github.vscode-github-actions
+          github.vscode-pull-request-github
         ];
       })
 
