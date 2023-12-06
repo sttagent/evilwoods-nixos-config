@@ -61,6 +61,7 @@ in
           redhat.vscode-yaml
           ms-vsliveshare.vsliveshare
           mkhl.direnv
+          github.vscode-github-actions
         ];
       })
 
