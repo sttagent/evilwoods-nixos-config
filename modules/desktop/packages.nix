@@ -60,6 +60,7 @@ in
           jdinhlife.gruvbox
           redhat.vscode-yaml
           ms-vsliveshare.vsliveshare
+          mkhl.direnv
         ];
       })
 
