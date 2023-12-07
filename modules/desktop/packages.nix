@@ -41,6 +41,7 @@ in
       signal-desktop
       obsidian
       zoom-us
+      vivaldi
 
       (vscode-with-extensions.override {
         vscodeExtensions = with vscode-extensions; [
