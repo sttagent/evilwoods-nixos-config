@@ -99,8 +99,17 @@ in
 
         fish = {
           enable = true;
+          functions = {
+            fish_user_key_bindings = {
+              body = ''
+                fish_default_key_bindings -M insert
+                fish_vi_key_bindings --no-erase insert
+              '';
+            };
+          };
           shellInit = ''
             set -U fish_greeting
+            fish_user_key_bindings
           '';
         };
         
