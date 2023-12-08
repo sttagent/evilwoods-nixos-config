@@ -73,6 +73,7 @@ in
             "com.yubico.authenticator.desktop"
             "code.desktop"
             "com.mattjakeman.ExtensionManager.desktop"
+            "com.github.tchx84.Flatseal.desktop"
             "org.gnome.Settings.desktop"
           ];
         };
