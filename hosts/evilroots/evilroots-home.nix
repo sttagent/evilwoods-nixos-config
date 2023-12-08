@@ -40,6 +40,7 @@ in
         "org/gnome/desktop/interface" = {
           color-scheme = "prefer-dark";
           gtk-theme = "Adwaita-dark";
+          monospace-font-name = "SauceCodePro Nerd Font 10";
         };
 
         "org/gnome/desktop/session" = {
