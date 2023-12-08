@@ -136,9 +136,15 @@ in
             };
           };
         };
+        
         alacritty = {
           enable = true;
           settings = {
+            window = {
+              startup_mode = "Maximized";
+              opacity = 0.95;
+              blur = true;
+            };
             colors = {
               # Default colors
               primary = {
