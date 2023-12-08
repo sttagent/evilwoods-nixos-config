@@ -68,6 +68,7 @@ in
             "com.raggesilver.BlackBox.desktop"
             "Alacritty.desktop"
             "io.gitlab.news_flash.NewsFlash.desktop"
+            "com.valvesoftware.Steam.desktop"
             "discord.desktop"
             "com.yubico.authenticator.desktop"
             "code.desktop"
