@@ -51,7 +51,7 @@
       nixosConfigurations = {
         evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
           system = evilLib.defaultSystem;
-          specialArgs = inputs;
+          specialArgs = { inherit inputs; };
 
           modules = [
             # Nixos community modules
