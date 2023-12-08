@@ -125,6 +125,7 @@ in
           enableFishIntegration = true;
           settings = {
             copy_command = "wl-copy";
+            mirror_session = true;
             theme = "gruvbox-dark";
             themes = {
               gruvbox-light = {
