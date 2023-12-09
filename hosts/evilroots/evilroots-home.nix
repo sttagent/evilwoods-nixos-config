@@ -238,6 +238,50 @@ in
           viAlias = true;
           vimAlias = true;
           vimdiffAlias = true;
+          
+          plugins = with pkgs.vimPlugins; [
+            nvim-web-devicons
+            plenary-nvim
+            nvim-lspconfig
+            lsp-zero-nvim
+            nvim-treesitter.withAllGrammars
+            nvim-treesitter-textobjects
+            nvim-treesitter-context
+            gruvbox-nvim
+            copilot-lua
+            telescope-nvim
+            telescope-fzf-native-nvim
+            neorg-telescope
+
+            copilot-cmp
+            nvim-cmp
+            cmp_luasnip
+            cmp-nvim-lsp
+            cmp-buffer
+            cmp-path
+            cmp-nvim-lua
+
+            luasnip
+            dashboard-nvim
+            gitsigns-nvim
+            indent-blankline-nvim
+            lualine-nvim
+            neo-tree-nvim
+            bufferline-nvim
+            neorg
+            nvim-autopairs
+            nvim-surround
+            comment-nvim
+            bufferline-nvim
+            popup-nvim
+          ];
+          
+          extraPackages = with pkgs; [
+            lua-language-server
+            yaml-language-server
+            pylyzer
+            ansible-language-server
+          ];
         };
       };
     };
