@@ -282,6 +282,13 @@ in
             pylyzer
             ansible-language-server
           ];
+          
+          extraLuaConfig = /* lua */ ''
+            if vim.g.vscode then
+              return
+            else
+            end
+          '';
         };
       };
     };
