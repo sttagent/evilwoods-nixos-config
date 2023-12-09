@@ -287,6 +287,7 @@ in
             if vim.g.vscode then
               return
             else
+              vim.cmd([[ colorscheme gruvbox ]])
             end
           '';
         };
