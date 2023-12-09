@@ -263,7 +263,16 @@ in
 
             luasnip
             dashboard-nvim
-            gitsigns-nvim
+            {
+              plugin = gitsigns-nvim;
+              type = "lua";
+              config = ''
+                require('gitsigns').setup({
+                  numhl = true,
+                  current_line_blame = true,
+                })
+              '';
+            }
             indent-blankline-nvim
             lualine-nvim
             neo-tree-nvim
