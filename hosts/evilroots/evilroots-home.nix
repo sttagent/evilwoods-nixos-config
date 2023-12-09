@@ -119,7 +119,7 @@ in
             # set -x ZELLIJ_SESSION_NAME evilroots-main
           '';
         };
-        
+
         zellij = {
           enable = true;
           enableFishIntegration = true;
@@ -157,7 +157,7 @@ in
             };
           };
         };
-        
+
         alacritty = {
           enable = true;
           settings = {
@@ -174,29 +174,29 @@ in
               };
 
               # Normal colors
-              normal =  {
-                black =   "0x586069";
-                red =     "0xea4a5a";
-                green =   "0x34d058";
-                yellow =  "0xffea7f";
-                blue =    "0x2188ff";
+              normal = {
+                black = "0x586069";
+                red = "0xea4a5a";
+                green = "0x34d058";
+                yellow = "0xffea7f";
+                blue = "0x2188ff";
                 magenta = "0xb392f0";
-                cyan =    "0x39c5cf";
-                white =   "0xd1d5da";
+                cyan = "0x39c5cf";
+                white = "0xd1d5da";
               };
-            
+
               # Bright colors
               bright = {
-                black =   "0x959da5";
-                red =     "0xf97583";
-                green =   "0x85e89d";
-                yellow =  "0xffea7f";
-                blue =    "0x79b8ff";
+                black = "0x959da5";
+                red = "0xf97583";
+                green = "0x85e89d";
+                yellow = "0xffea7f";
+                blue = "0x79b8ff";
                 magenta = "0xb392f0";
-                cyan =    "0x56d4dd";
-                white =   "0xfafbfc";
+                cyan = "0x56d4dd";
+                white = "0xfafbfc";
               };
-            
+
               indexed_colors = [
                 { index = 16; color = "0xd18616"; }
                 { index = 17; color = "0xf97583"; }
@@ -238,7 +238,7 @@ in
           viAlias = true;
           vimAlias = true;
           vimdiffAlias = true;
-          
+
           plugins = with pkgs.vimPlugins; [
             nvim-web-devicons
             plenary-nvim
@@ -275,7 +275,7 @@ in
             bufferline-nvim
             popup-nvim
           ];
-          
+
           extraPackages = with pkgs; [
             lua-language-server
             yaml-language-server

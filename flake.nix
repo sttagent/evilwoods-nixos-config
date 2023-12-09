@@ -47,11 +47,9 @@
     {
       formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
-      lib = import ./lib {lib = nixpkgs-unstable.legacyPackages.x86_64-linux.lib;};
+      lib = import ./lib { lib = nixpkgs-unstable.legacyPackages.x86_64-linux.lib; };
 
-      nixosModules = {
-        
-      };
+      nixosModules = { };
 
       nixosConfigurations = {
         evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
