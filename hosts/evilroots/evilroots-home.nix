@@ -288,6 +288,7 @@ in
               return
             else
               vim.cmd([[ colorscheme gruvbox ]])
+              vim.g.mapLeader = " "
             end
           '';
         };
