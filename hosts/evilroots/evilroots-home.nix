@@ -1,7 +1,7 @@
-{ config, lib, pkgs, home-manager, ... }: # os configuration is reachable via nixosConfig
+{ config, lib, pkgs, inputs, ... }: # os configuration is reachable via nixosConfig
 let
   primaryUser = config.evilcfg.primaryUser;
-  hmlib = home-manager.lib;
+  hmlib = inputs.home-manager.lib;
 in
 {
   home-manager = {
