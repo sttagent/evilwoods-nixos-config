@@ -64,6 +64,7 @@ in
           mkhl.direnv
           github.vscode-github-actions
           github.vscode-pull-request-github
+          sumneko.lua
         ];
       })
 
