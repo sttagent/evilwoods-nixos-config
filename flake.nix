@@ -16,6 +16,7 @@
 
   inputs = {
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
+
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
@@ -43,15 +44,19 @@
     , nixos-hardware
     , ...
     } @ inputs:
-    let
-      evilLib = import ./lib {lib = nixpkgs-unstable.legacyPackages.x86_64-linux.lib;};
-    in
     {
-      lib = evilLib;
+      formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixpkgs-fmt;
+
+      lib = import ./lib {lib = nixpkgs-unstable.legacyPackages.x86_64-linux.lib;};
+
+      nixosModules = {
+        
+      };
+
       nixosConfigurations = {
         evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
-          system = evilLib.defaultSystem;
-          specialArgs = { inherit inputs; };
+          system = self.lib.defaultSystem;
+          specialArgs = inputs;
 
           modules = [
             # Nixos community modules
@@ -67,8 +72,5 @@
           ];
         };
       };
-
-      formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixpkgs-fmt;
-
     };
 }
