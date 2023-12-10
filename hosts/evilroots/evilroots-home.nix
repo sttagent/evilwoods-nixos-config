@@ -122,7 +122,7 @@ in
 
         zellij = {
           enable = true;
-          enableFishIntegration = true;
+          # ableFishIntegration = true;
           settings = {
             copy_command = "wl-copy";
             mirror_session = true;
