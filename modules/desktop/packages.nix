@@ -31,8 +31,8 @@ in
       dconf
       gnome.gnome-sound-recorder
       fragments
+      fractal
       # valent # doesnt compile
-      fractal # doesn't compile
 
       # Electron apps
       element-desktop
