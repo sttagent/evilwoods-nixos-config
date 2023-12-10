@@ -116,7 +116,6 @@ in
             set fish_cursor_visual block
             set -x ZELLIJ_AUTO_ATTACH true
             # set -x ZELLIJ_AUTO_EXIT true
-            # set -x ZELLIJ_SESSION_NAME evilroots-main
           '';
         };
 
