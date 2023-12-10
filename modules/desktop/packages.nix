@@ -32,7 +32,7 @@ in
       gnome.gnome-sound-recorder
       fragments
       # valent # doesnt compile
-      #  fractal # doesn't compile
+      fractal # doesn't compile
 
       # Electron apps
       element-desktop
