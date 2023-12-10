@@ -230,6 +230,32 @@ in
           enable = true;
           enableFishIntegration = true;
         };
+        
+        vscode = {
+          enable = true;
+          extensions = with pkgs.vscode-extensions; [
+            eamodio.gitlens
+            ms-vscode-remote.remote-containers
+            ms-vscode-remote.remote-ssh
+            asvetliakov.vscode-neovim
+            github.copilot
+            github.copilot-chat
+            ms-python.python
+            ms-python.vscode-pylance
+            esbenp.prettier-vscode
+            ms-azuretools.vscode-docker
+            tailscale.vscode-tailscale
+            jnoortheen.nix-ide
+            arrterian.nix-env-selector
+            jdinhlife.gruvbox
+            redhat.vscode-yaml
+            ms-vsliveshare.vsliveshare
+            mkhl.direnv
+            github.vscode-github-actions
+            github.vscode-pull-request-github
+            sumneko.lua
+          ];
+        };
 
         neovim = {
           enable = true;
