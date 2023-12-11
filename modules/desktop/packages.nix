@@ -32,6 +32,7 @@ in
       gnome.gnome-sound-recorder
       fragments
       fractal
+      resources
       # valent # doesnt compile
 
       # Electron apps
