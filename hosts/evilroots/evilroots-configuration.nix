@@ -3,6 +3,9 @@ let
   primaryUser = config.evilcfg.primaryUser;
 in
 {
+  nixpkgs.config = {
+    permittedInsecurePackages = [ "electron-25.9.0" ];
+  };
   networking.hostName = "evilroots";
 
   nix = {
