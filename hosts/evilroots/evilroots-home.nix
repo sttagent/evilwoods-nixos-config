@@ -162,7 +162,7 @@ in
           settings = {
             window = {
               startup_mode = "Maximized";
-              opacity = 0.95;
+              opacity = 0.99;
               blur = true;
             };
             colors = {
