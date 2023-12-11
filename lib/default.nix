@@ -9,8 +9,10 @@
       config = cfg;
     };
 
+  # filter out null attributes
   filterNullHosts = hosts: lib.filterAttrs (name: value: value != null) hosts;
   
+  # filter out non-nix files and directories
   fitlerMapHosts = fn: hostDir:
     filterNullHosts (lib.mapAttrs' (name: value:
       let path = "${hostDir}/${name}"; in
@@ -25,5 +27,6 @@
 
   mkHost = hostPath: hostPath;
 
+  # make nixos systems from a directory of nix files
   mkHosts = hostDir: attrs: fitlerMapHosts mkHost hostDir; 
 }
