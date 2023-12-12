@@ -23,7 +23,7 @@ in
     environment.systemPackages = with pkgs; [
       gnomeExtensions.appindicator
       gnomeExtensions.blur-my-shell
-      # gnomeExtensions.valent
+      gnomeExtensions.valent
     ];
 
     zramSwap.enable = true;

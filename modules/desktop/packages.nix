@@ -33,7 +33,7 @@ in
       fragments
       fractal
       resources
-      # valent # doesnt compile
+      valent
 
       # Electron apps
       element-desktop
