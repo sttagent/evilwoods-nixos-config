@@ -257,7 +257,17 @@ in
             github.vscode-pull-request-github
             sumneko.lua
           ];
+          
+          userSettings = {
+            "extensions.experimental.affinity" = {
+              "asvetliakov.vscode-neovim" = 1;
+            };
+            "files.autoSave" = "afterDelay";
+            "window.titleBarStyle" = "custom";
+            "workbench.colorTheme" = "Gruvbox Dark Hard";
+          };
         };
+        
 
         neovim = {
           enable = true;
