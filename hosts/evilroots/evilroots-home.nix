@@ -343,6 +343,16 @@ in
             comment-nvim
             bufferline-nvim
             popup-nvim
+
+            {
+              plugin = which-key-nvim;
+              type = "lua";
+              config = ''
+                vim.o.timeout = true
+                vim.o.timeoutlen = 300
+                require("which-key").setup({})
+              '';
+            }
           ];
 
           extraPackages = with pkgs; [
