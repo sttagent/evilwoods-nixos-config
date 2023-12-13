@@ -17,9 +17,12 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  disko.devices.disk.data.content.partitions.home.content.subvolumes."/games" = {
-    mountOptions = [ "noatime" "nodatacow" ];
-    mountpoint = "/home/${primaryUser}/Games";
+  disko.devices.disk.data.content.partitions.home.content = {
+    type = "btrfs";
+    subvolumes."/games" = {
+      mountOptions = [ "noatime" "nodatacow" ];
+      mountpoint = "/home/${primaryUser}/Games";
+    }
   };
 
   evilcfg.ssh = true;
