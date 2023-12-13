@@ -23,8 +23,11 @@ in
 
       dconf.settings = with hmlib.hm.gvariant;{
         "com/raggesilver/BlackBox" = {
+          floating-controls = true;
+          floating-controls-hover-area = mkUint32 10;
           remember-window-size = true;
-
+          show-headerbar = false;
+          terminal-padding = mkTuple [ (mkUint32 10) (mkUint32 10) (mkUint32 10) (mkUint32 10) ];
         };
 
         "org/gnome/desktop/background" = {
