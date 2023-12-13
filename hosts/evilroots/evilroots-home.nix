@@ -266,6 +266,7 @@ in
             "files.autoSave" = "afterDelay";
             "window.titleBarStyle" = "custom";
             "workbench.colorTheme" = "Gruvbox Dark Hard";
+            "git.confirmSync" = false; 
           };
         };
         
