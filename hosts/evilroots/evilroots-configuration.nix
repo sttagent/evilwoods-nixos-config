@@ -22,7 +22,7 @@ in
     subvolumes."/games" = {
       mountOptions = [ "noatime" "nodatacow" ];
       mountpoint = "/home/${primaryUser}/Games";
-    }
+    };
   };
 
   evilcfg.ssh = true;
