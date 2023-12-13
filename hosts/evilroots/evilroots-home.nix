@@ -367,7 +367,7 @@ in
               return
             else
               vim.cmd([[ colorscheme gruvbox ]])
-              vim.g.mapLeader = " "
+              vim.g.mapleader = " "
               local cmd = vim.cmd
               local opt = vim.opt
 
