@@ -17,7 +17,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  fileSystems."/home/${primaryUser}/Games = {
+  fileSystems."/home/${primaryUser}/Games" = {
     label = "disk-data-home";
     fsType = "btrfs";
     options = [ "subvol=games"  "nocompress" "noatime" "nodatacow" ];
