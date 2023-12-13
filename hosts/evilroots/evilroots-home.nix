@@ -302,7 +302,21 @@ in
             nvim-treesitter-context
             gruvbox-nvim
             copilot-lua
-            telescope-nvim
+            {
+              plugin = telescope-nvim;
+              type = "lua";
+              config = ''
+                require('telescope').setup({})
+                require('telescope').load_extension('fzf')
+                local tb = require('telescope.builtin')
+                vim.keymap.set('n', '<leader>ff', tb.find_files, {})
+                vim.keymap.set('n', '<leader>fg', tb.live_grep, {})
+                vim.keymap.set('n', '<leader>fb', tb.buffers, {})
+                vim.keymap.set('n', '<leader>fh', tb.help_tags, {})
+                vim.keymap.set('n', '<leader>fo', tb.vim_options, {})
+                vim.keymap.set('n', '<leader>fs', tb.lsp_document_symbols, {})
+              '';
+            }
             telescope-fzf-native-nvim
             neorg-telescope
 
