@@ -66,10 +66,7 @@
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/home";
                   };
-                  "/games" = {
-                    mountOptions = [ "noatime" "nodatacow" ];
-                    mountpoint = "/home/${config.evilcfg.primaryUser}/Games";
-                  };
+                  "/games" = { };
                 };
               };
             };
