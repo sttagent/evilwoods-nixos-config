@@ -21,6 +21,7 @@ in
       nil
       nixd
       nerdfonts
+      wl-clipboard
 
       # Gnome apps
       newsflash
