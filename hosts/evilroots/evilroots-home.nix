@@ -343,6 +343,7 @@ in
             comment-nvim
             bufferline-nvim
             popup-nvim
+            diffview-nvim
 
             {
               plugin = which-key-nvim;
