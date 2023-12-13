@@ -7,6 +7,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "bak";
     users.${primaryUser} = {
       home = {
         username = "${primaryUser}";
@@ -313,7 +314,14 @@ in
             cmp-nvim-lua
 
             luasnip
-            dashboard-nvim
+            {
+              plugin = dashboard-nvim;
+              type = "lua";
+              config = ''
+                require("dashboard").setup()
+              '';
+            }
+
             {
               plugin = gitsigns-nvim;
               type = "lua";
