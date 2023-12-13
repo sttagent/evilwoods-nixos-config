@@ -268,6 +268,19 @@ in
           };
         };
         
+        firefox = {
+          enable = true;
+          profiles."${primaryUser}" = {
+            name = "${primaryUser}";
+            search.default = "DuckDuckGo";
+            settings =  {
+              "browser.contentblocking.category" = "strict";
+              "gfx.webrender.all" = true;
+              "media.ffmpeg.vaapi.enabled" = true;
+              "widget.dmabuf.force-enabled" = true;
+            };
+          };
+        };
 
         neovim = {
           enable = true;
