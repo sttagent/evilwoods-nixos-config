@@ -20,7 +20,7 @@ in
   fileSystems."/home/${primaryUser}/Games" = {
     device = "/dev/disk/by-partlabel/disk-data-home";
     fsType = "btrfs";
-    options = [ "subvol=games"  "nocompress" "noatime" "nodatacow" ];
+    options = [ "subvol=games" "nocompress" "noatime" "nodatacow" ];
   };
 
   evilcfg.ssh = true;
