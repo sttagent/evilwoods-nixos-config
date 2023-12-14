@@ -22,7 +22,11 @@ in
         };
       };
 
-      dconf.settings = with hmlib.hm.gvariant;{
+      dconf.settings = with hmlib.hm.gvariant; {
+        "system/locale" = {
+          region = "sv_SE.UTF-8";
+        };
+
         "com/raggesilver/BlackBox" = {
           floating-controls = true;
           floating-controls-hover-area = mkUint32 10;
