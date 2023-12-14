@@ -24,7 +24,8 @@ return {
 
             require('lspconfig').ansiblels.setup(lsp.nvim_lua_ls())
 
-            require('lspconfig').pylsp.setup(lsp.nvim_lua_ls())
+            require('lspconfig').pylyzer.setup(lsp.nvim_lua_ls())
+
         end
     }
 }
