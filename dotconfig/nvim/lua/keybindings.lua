@@ -33,9 +33,11 @@ vim.keymap.set('n','<A-r>', ':BufferLinePickClose<CR>')
 
 -- telescope.nvim
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fo', builtin.vim_options, {})
-vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Live Grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help Tags' })
+vim.keymap.set('n', '<leader>fo', builtin.vim_options, { desc = 'Vim Options' })
+vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {
+    desc = 'Document Symbols',
+})
