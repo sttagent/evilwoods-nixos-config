@@ -1,9 +1,7 @@
 return {
-    --[[
-    {
+    --[[ {
         'github/copilot.vim',
-    },
-    ]]
+    }, ]]
 
     {
         "sourcegraph/sg.nvim",
@@ -86,8 +84,19 @@ return {
     'ojroques/nvim-lspfuzzy',
 
     'machakann/vim-sandwich',
+    
+    {
+        'numToStr/Comment.nvim',
+        lazy = false,
 
-    'preservim/nerdcommenter',
+        config = function ()
+            require("Comment").setup({})
+        end,
+
+        ops = {
+            -- add options here
+        },
+    },
 
     {
         'lewis6991/gitsigns.nvim',
