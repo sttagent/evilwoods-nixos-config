@@ -26,6 +26,7 @@ return {
 
             require('lspconfig').pylyzer.setup(lsp.nvim_lua_ls())
 
+            require('lspconfig').nixd.setup(lsp.nvim_lua_ls())
         end
     }
 }
