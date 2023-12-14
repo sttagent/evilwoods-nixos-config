@@ -301,9 +301,8 @@ in
           plugins = with pkgs.vimPlugins; [
             nvim-web-devicons
             plenary-nvim
-            nvim-lspconfig
-            lsp-zero-nvim
-            nvim-treesitter.withAllGrammars
+            gruvbox-nvim
+
             {
               plugin = nvim-treesitter.withAllGrammars;
               type = "lua";
@@ -332,8 +331,10 @@ in
             }
             nvim-treesitter-textobjects
             nvim-treesitter-context
-            gruvbox-nvim
-            copilot-lua
+
+            nvim-lspconfig
+            lsp-zero-nvim
+
             {
               plugin = copilot-lua;
               type = "lua";
