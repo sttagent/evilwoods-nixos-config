@@ -357,7 +357,10 @@ in
               plugin = copilot-lua;
               type = "lua";
               config = ''
-                require('copilot').setup({})
+                require('copilot').setup({
+                  suggestion = { enabled = false },
+                  panep = { enabled = false },
+                })
               '';
             }
 
@@ -379,12 +382,18 @@ in
             telescope-fzf-native-nvim
             neorg-telescope
 
-            copilot-cmp
             cmp_luasnip
             cmp-nvim-lsp
             cmp-buffer
             cmp-path
             cmp-nvim-lua
+            {
+              plugin = copilot-cmp;
+              type = "lua";
+              config = ''
+                require('copilot_cmp').setup({})
+              '';
+            }
             {
               plugin = nvim-cmp;
               type = "lua";
@@ -416,7 +425,7 @@ in
                     { name = "path"},
                     { name = "nvim_lua"},
                     { name = "nvim_lsp"},
-                    { name = "copilot_cmp"},
+                    { name = "copilot"},
                   }),
                 })
               '';
