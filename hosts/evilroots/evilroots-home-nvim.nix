@@ -12,7 +12,7 @@
       {
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
-        config = ''
+        config = /* lua */ ''
           vim.opt.foldmethod = 'expr'
           vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
           vim.opt.foldenable = false
@@ -42,7 +42,7 @@
       {
         plugin = lsp-zero-nvim;
         type = "lua";
-        config = ''
+        config = /* lua */ ''
           local lsp = require('lsp-zero').preset()
 
           lsp.on_attach(function(client, bufnr)
@@ -73,7 +73,7 @@
       {
         plugin = telescope-nvim;
         type = "lua";
-        config = ''
+        config = /* lua */ ''
           require('telescope').setup({})
           require('telescope').load_extension('fzf')
           local tb = require('telescope.builtin')
@@ -103,7 +103,7 @@
       {
         plugin = nvim-cmp;
         type = "lua";
-        config = ''
+        config = /* lua */ ''
           local cmp = require('cmp')
           cmp.setup({
             snippet = {
@@ -171,7 +171,7 @@
       {
         plugin = which-key-nvim;
         type = "lua";
-        config = ''
+        config = /* lua */ ''
           vim.o.timeout = true
           vim.o.timeoutlen = 300
           require("which-key").setup({})
