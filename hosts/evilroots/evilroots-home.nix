@@ -79,6 +79,7 @@ in
             "code.desktop"
             "com.mattjakeman.ExtensionManager.desktop"
             "com.github.tchx84.Flatseal.desktop"
+            "net.nokyan.Resources.desktop"
             "org.gnome.Settings.desktop"
           ];
         };
