@@ -335,6 +335,14 @@ in
             gruvbox-nvim
             copilot-lua
             {
+              plugin = copilot-lua;
+              type = "lua";
+              config = ''
+                require('copilot').setup({})
+              '';
+            }
+
+            {
               plugin = telescope-nvim;
               type = "lua";
               config = ''
