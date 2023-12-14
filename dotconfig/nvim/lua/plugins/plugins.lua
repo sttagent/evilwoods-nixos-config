@@ -2,15 +2,14 @@ return {
     {
         'github/copilot.vim',
     },
-    {   -- gruvbox theme
-        'RRethy/nvim-base16',
-        lazy = false,
+
+    {
+        "ellisonleao/gruvbox.nvim",
         priority = 1000,
-        config = function()
-            -- vim.cmd([[ colorscheme base16-atelier-savanna ]])
-            vim.cmd([[ colorscheme base16-twilight ]])
-        end,
-    },
+        config = function ()
+            vim.o.background = "dark"
+            vim.cmd([[colorscheme gruvbox]])
+        end},
 
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
