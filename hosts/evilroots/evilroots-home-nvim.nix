@@ -33,7 +33,7 @@ with builtins; {
       } # End of nvim LSP configuration
 
       # Nvim cofilot configuration
-      {
+      /* {
         plugin = copilot-lua;
         type = "lua";
         config = ''
@@ -46,7 +46,7 @@ with builtins; {
         config = ''
           require('copilot_cmp').setup({})
         '';
-      } # End nvim copilot configuration
+      } # End nvim copilot configuration */
 
       {
         # Telescope configuration
@@ -147,6 +147,14 @@ with builtins; {
         config = ''
           ${readFile /${nvimConfigDir}/addon-which-key-nvim.lua}
         '';
+      }
+
+      {
+        plugin = sg-nvim;
+        type = "lua";
+        config = ''
+          require('sg').setup({})
+        ''; 
       }
     ];
 
