@@ -15,7 +15,7 @@ else
     opt.colorcolumn = '88'
     opt.cursorline = true
     -- opt.cursorcolumn = true
-    opt.wrap =  false
+    opt.wrap = false
     opt.autowrite = true
 
     -- tabs
@@ -39,4 +39,17 @@ else
     opt.splitbelow = true
     opt.splitright = true
     ---- UI end ----
+    --
+    -- custom keybindings
+    vim.keymap.set('n', 'gV', '`[v`]')
+
+    vim.keymap.set('', '<C-h>', '<C-w>h', { silent = true })
+    vim.keymap.set('', '<C-j>', '<C-w>j', { silent = true })
+    vim.keymap.set('', '<C-k>', '<C-w>k', { silent = true })
+    vim.keymap.set('', '<C-l>', '<C-w>l', { silent = true })
+
+    vim.keymap.set('', '<C-Left>', ':vertical resize +3<CR>', { silent = true })
+    vim.keymap.set('', '<C-Right>', ':vertical resize -3<CR>', { silent = true })
+    vim.keymap.set('', '<C-Up>', ':resize +3<CR>', { silent = true })
+    vim.keymap.set('', '<C-Down>', ':resize -3<CR>', { silent = true })
 end
