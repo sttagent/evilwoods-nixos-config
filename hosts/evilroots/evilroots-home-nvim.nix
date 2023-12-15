@@ -83,11 +83,8 @@ in with builtins; {
       {
         plugin = gitsigns-nvim;
         type = "lua";
-        config = /* lua */ ''
-          require('gitsigns').setup({
-            numhl = true,
-            current_line_blame = true,
-          })
+        config = ''
+          ${readFile /${nvimConfigDir}/addon-gitsigns-nvim.lua}
         '';
       }
 
