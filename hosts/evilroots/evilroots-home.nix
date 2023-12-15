@@ -311,12 +311,12 @@ in
         };
       };
       
-      xdg.configFile = {
+      /* xdg.configFile = {
         nvim = {
           source = ../../dotconfig/nvim;
           recursive = true;
         };
-      };
+      }; */
     };
   };
 }
