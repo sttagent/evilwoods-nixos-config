@@ -74,6 +74,7 @@ in with builtins; {
       } # End of nvim cmp configuration
 
       luasnip
+
       {
         plugin = dashboard-nvim;
         type = "lua";
@@ -85,7 +86,7 @@ in with builtins; {
       {
         plugin = gitsigns-nvim;
         type = "lua";
-        config = ''
+        config = /* lua */ ''
           require('gitsigns').setup({
             numhl = true,
             current_line_blame = true,
