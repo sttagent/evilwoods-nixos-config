@@ -136,7 +136,13 @@ with builtins; {
         '';
       }
 
-      comment-nvim
+      {
+        plugin = comment-nvim;
+        type = "lua";
+        config = ''
+          require('Comment').setup({})
+        '';
+      }
       bufferline-nvim
       popup-nvim
       diffview-nvim
