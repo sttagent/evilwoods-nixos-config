@@ -9,34 +9,16 @@ in with builtins; {
       plenary-nvim
       gruvbox-nvim
 
-      {
+      { # Treesitter configuration
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
-        config = /* lua */ ''
-          vim.opt.foldmethod = 'expr'
-          vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-          vim.opt.foldenable = false
-
-          require('nvim-treesitter.configs').setup({
-            highlight = {
-              enable = true,
-              additional_vim_regex_highlighting = false,
-            },
-
-            incremental_selection = {
-              enable = true,
-              keymaps = {
-                init_selection = "gnn", -- set to `false` to disable one of the mappings
-                node_incremental = "grn",
-                scope_incremental = "grc",
-                node_decremental = "grm",
-              },
-            },
-          })
+        config = ''
+            ${readFile /${nvimConfigDir}/addon-nvim-treesitter.lua}
         '';
       }
       nvim-treesitter-textobjects
       nvim-treesitter-context
+      # End of treesitter configuration
 
       nvim-lspconfig
       {
