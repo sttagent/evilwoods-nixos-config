@@ -1,19 +1,21 @@
-{ config, pkgs, lib, ...}: 
+{ config, pkgs, lib, ... }:
 let
-    primaryUser = config.evilcfg.primaryUser;
-    nvimConfigDir = ../../configfiles/nvim;
-in with builtins; {
+  primaryUser = config.evilcfg.primaryUser;
+  nvimConfigDir = ../../configfiles/nvim;
+in
+with builtins; {
   home-manager.users.${primaryUser}.programs.neovim = {
     plugins = with pkgs.vimPlugins; [
       nvim-web-devicons
       plenary-nvim
       gruvbox-nvim
 
-      { # Treesitter configuration
+      {
+        # Treesitter configuration
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
         config = ''
-            ${readFile /${nvimConfigDir}/addon-nvim-treesitter.lua}
+          ${readFile /${nvimConfigDir}/addon-nvim-treesitter.lua}
         '';
       }
       nvim-treesitter-textobjects
@@ -38,7 +40,8 @@ in with builtins; {
         '';
       }
 
-      { # Telescope configuration
+      {
+        # Telescope configuration
         plugin = telescope-nvim;
         type = "lua";
         config = ''
@@ -135,9 +138,9 @@ in with builtins; {
         '';
       }
     ];
-    
+
     extraLuaConfig = /* lua */ ''
-        ${readFile /${nvimConfigDir}/init.lua}
+      ${readFile /${nvimConfigDir}/init.lua}
     '';
   };
 }
