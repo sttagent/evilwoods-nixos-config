@@ -2,7 +2,7 @@
 let
     primaryUser = config.evilcfg.primaryUser;
     nvimConfigDir = ../../configfiles/nvim;
-in {
+in with builtins; {
   home-manager.users.${primaryUser}.programs.neovim = {
     plugins = with pkgs.vimPlugins; [
       nvim-web-devicons
