@@ -20,26 +20,15 @@ in with builtins; {
       nvim-treesitter-context
       # End of treesitter configuration
 
+      # Nvim LSP configuration
       nvim-lspconfig
       {
         plugin = lsp-zero-nvim;
         type = "lua";
-        config = /* lua */ ''
-          local lsp = require('lsp-zero').preset()
-
-          lsp.on_attach(function(client, bufnr)
-            lsp.default_keymaps({buffer = bufnr})
-          end)
-
-          require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-          require('lspconfig').nixd.setup(lsp.nvim_lua_ls())
-
-          require('lspconfig').ansiblels.setup(lsp.nvim_lua_ls())
-
-          require('lspconfig').pylyzer.setup(lsp.nvim_lua_ls())
+        config = ''
+          ${readFile /${nvimConfigDir}/addon-lsp-zero-nvim.lua}
         '';
-      }
+      } # End of nvim LSP configuration
 
       {
         plugin = copilot-lua;
