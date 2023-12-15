@@ -106,8 +106,22 @@ in with builtins; {
         '';
       }
       neorg
-      nvim-autopairs
-      nvim-surround
+      {
+        plugin = nvim-autopairs;
+        type = "lua";
+        config = ''
+          require('nvim-autopairs').setup({})
+        '';
+      }
+
+      {
+        plugin = nvim-surround;
+        type = "lua";
+        config = ''
+          require('nvim-surround').setup({})
+        '';
+      }
+
       comment-nvim
       bufferline-nvim
       popup-nvim
