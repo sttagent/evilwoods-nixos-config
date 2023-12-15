@@ -176,7 +176,17 @@ in {
 
       lualine-nvim
       neo-tree-nvim
-      bufferline-nvim
+      {
+        plugin = bufferline-nvim;
+        type = "lua";
+        config = /* lua */ ''
+            require('bufferline').setup({
+                options = {
+                    offsets = { {filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
+                }
+            })
+        '';
+      }
       neorg
       nvim-autopairs
       nvim-surround
