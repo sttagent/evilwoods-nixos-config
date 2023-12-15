@@ -32,6 +32,7 @@ with builtins; {
         '';
       } # End of nvim LSP configuration
 
+      # Nvim cofilot configuration
       {
         plugin = copilot-lua;
         type = "lua";
@@ -39,6 +40,13 @@ with builtins; {
           ${readFile /${nvimConfigDir}/addon-copilot-lua.lua}
         '';
       }
+      {
+        plugin = copilot-cmp;
+        type = "lua";
+        config = ''
+          require('copilot_cmp').setup({})
+        '';
+      } # End nvim copilot configuration
 
       {
         # Telescope configuration
@@ -58,13 +66,6 @@ with builtins; {
       cmp-buffer
       cmp-path
       cmp-nvim-lua
-      {
-        plugin = copilot-cmp;
-        type = "lua";
-        config = ''
-          require('copilot_cmp').setup({})
-        '';
-      }
       {
         plugin = nvim-cmp;
         type = "lua";
@@ -108,6 +109,7 @@ with builtins; {
       }
 
       neo-tree-nvim
+
       {
         plugin = bufferline-nvim;
         type = "lua";
@@ -115,7 +117,9 @@ with builtins; {
           ${readFile /${nvimConfigDir}/addon-bufferline-nvim.lua}
         '';
       }
+
       neorg
+
       {
         plugin = nvim-autopairs;
         type = "lua";
