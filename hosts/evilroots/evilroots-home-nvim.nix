@@ -131,10 +131,8 @@ in with builtins; {
       {
         plugin = which-key-nvim;
         type = "lua";
-        config = /* lua */ ''
-          vim.o.timeout = true
-          vim.o.timeoutlen = 300
-          require("which-key").setup({})
+        config = ''
+          ${readFile /${nvimConfigDir}/addon-which-key-nvim.lua}
         '';
       }
     ];
