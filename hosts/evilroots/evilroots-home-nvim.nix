@@ -116,12 +116,8 @@ in with builtins; {
       {
         plugin = bufferline-nvim;
         type = "lua";
-        config = /* lua */ ''
-            require('bufferline').setup({
-                options = {
-                    offsets = { {filetype = "NvimTree", text = "File Explorer", text_align = "center" } },
-                }
-            })
+        config = ''
+          ${readFile /${nvimConfigDir}/addon-bufferline-nvim.lua}
         '';
       }
       neorg
