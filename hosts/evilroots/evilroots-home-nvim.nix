@@ -34,10 +34,7 @@ in with builtins; {
         plugin = copilot-lua;
         type = "lua";
         config = ''
-          require('copilot').setup({
-            suggestion = { enabled = false },
-            panep = { enabled = false },
-          })
+          ${readFile /${nvimConfigDir}/addon-copilot-lua.lua}
         '';
       }
 
