@@ -310,7 +310,7 @@ in
           ];
         };
       };
-      
+
       /* xdg.configFile = {
         nvim = {
           source = ../../dotconfig/nvim;
