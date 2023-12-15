@@ -1,9 +1,9 @@
-{ config
-, pkgs
-, lib
-, ...
-}: {
-  home-manager.programs.neovim = {
+{ config, pkgs, lib, ...}: 
+let
+    primaryUser = config.evilcfg.primaryUser;
+    nvimConfigDir = ../../configfiles/nvim;
+in {
+  home-manager.users.${primaryUser}.programs.neovim = {
     plugins = with pkgs.vimPlugins; [
       nvim-web-devicons
       plenary-nvim
