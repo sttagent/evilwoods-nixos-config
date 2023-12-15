@@ -41,6 +41,7 @@ else
     ---- UI end ----
     --
     -- custom keybindings
+    vim.keymap.set('n', '<Leader><Space>', ':set nohlsearch<CR>')
     vim.keymap.set('n', 'gV', '`[v`]')
 
     vim.keymap.set('', '<C-h>', '<C-w>h', { silent = true })
