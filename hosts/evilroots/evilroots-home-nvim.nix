@@ -138,7 +138,7 @@ in with builtins; {
     ];
     
     extraLuaConfig = /* lua */ ''
-        ${builtins.readFile /${nvimConfigDir}/init.lua}
+        ${readFile /${nvimConfigDir}/init.lua}
     '';
   };
 }
