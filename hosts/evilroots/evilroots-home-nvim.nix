@@ -99,7 +99,14 @@ with builtins; {
         '';
       }
 
-      lualine-nvim
+      {
+        plugin = lualine-nvim;
+        type = "lua";
+        config = ''
+          require('lualine').setup({})
+        '';
+      }
+
       neo-tree-nvim
       {
         plugin = bufferline-nvim;
