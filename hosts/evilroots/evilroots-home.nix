@@ -273,6 +273,8 @@ in
             "window.titleBarStyle" = "custom";
             "workbench.colorTheme" = "Gruvbox Dark Hard";
             "git.confirmSync" = false;
+            "editor.inlineSuggest.suppressSuggestions" = true;
+            "cody.commandCodeLenses" = true;
           };
         };
 
@@ -286,7 +288,6 @@ in
               "gfx.webrender.all" = true;
               "media.ffmpeg.vaapi.enabled" = true;
               "widget.dmabuf.force-enabled" = true;
-              "editor.inlineSuggest.suppressSuggestions" = true;
             };
           };
         };
