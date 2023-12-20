@@ -7,6 +7,9 @@ let
 in
 {
   config = mkIf desktop {
+    fonts.packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
+    ];
     environment.systemPackages = with pkgs; [
       alacritty
       alacritty-theme
@@ -20,7 +23,6 @@ in
       yubioath-flutter
       nil
       nixd
-      nerdfonts
       wl-clipboard
 
       # Gnome apps
