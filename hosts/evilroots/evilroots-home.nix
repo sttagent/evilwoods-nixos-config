@@ -283,6 +283,9 @@ in
             "workbench.colorTheme" = "Gruvbox Material Dark";
             "gruvboxMaterial.lightContrast" = "hard";
             "gruvboxMaterial.darkContrast" = "hard";
+            "nix.enableLanguageServer" = true;
+            "nix.serverPath" = "nixd";
+            "[nix]"."editor.tabSize" = 2;
           };
         };
 
