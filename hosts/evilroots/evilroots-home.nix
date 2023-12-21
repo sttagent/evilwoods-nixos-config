@@ -86,6 +86,12 @@ in
             "net.nokyan.Resources.desktop"
             "org.gnome.Settings.desktop"
           ];
+
+          enabled-extentions = [
+            "valent@andyholmes.ca"
+            "blur-my-shell@aunetx"
+            "appindicatorsupport@rgcjonas.gmail.com"
+          ];
         };
 
         "org/gnome/nautilus/icon-view" = {
