@@ -47,6 +47,8 @@ in
       zoom-us
       vivaldi
 
+      vscode-fhs
+
       # thunderbird-wayland
       # protonmail-bridge
     ];
