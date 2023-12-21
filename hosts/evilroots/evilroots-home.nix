@@ -262,7 +262,6 @@ in
             tailscale.vscode-tailscale
             jnoortheen.nix-ide
             arrterian.nix-env-selector
-            jdinhlife.gruvbox
             redhat.vscode-yaml
             ms-vsliveshare.vsliveshare
             mkhl.direnv
