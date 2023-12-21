@@ -8,7 +8,7 @@ with builtins; {
     plugins = with pkgs.vimPlugins; [
       nvim-web-devicons
       plenary-nvim
-      gruvbox-nvim
+      gruvbox-material
 
       {
         # Treesitter configuration
@@ -104,7 +104,11 @@ with builtins; {
         plugin = lualine-nvim;
         type = "lua";
         config = ''
-          require('lualine').setup({})
+          require('lualine').setup({
+            options = {
+              theme = "gruvbox-material"
+            };
+          })
         '';
       }
 

@@ -1,10 +1,13 @@
 if vim.g.vscode then
     return
 else
-    vim.cmd([[ colorscheme gruvbox ]])
-    vim.g.mapleader = " "
     local cmd = vim.cmd
     local opt = vim.opt
+    vim.g.gruvbox_material_background = "hard"
+    -- vim.g.gruvbox_material_better_performance = 1
+    vim.opt.background = "dark"
+    vim.cmd([[ colorscheme gruvbox-material ]])
+    vim.g.mapleader = " "
 
     ---- UI start ----
     opt.number = true
