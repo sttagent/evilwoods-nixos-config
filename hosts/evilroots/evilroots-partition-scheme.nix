@@ -66,7 +66,7 @@
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/home";
                   };
-                  "/games" = { };
+                  "/storage" = { };
                 };
               };
             };

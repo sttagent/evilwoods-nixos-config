@@ -17,10 +17,10 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  fileSystems."/home/${primaryUser}/Games" = {
+  fileSystems."/home/${primaryUser}/Storage" = {
     device = "/dev/disk/by-partlabel/disk-data-home";
     fsType = "btrfs";
-    options = [ "subvol=games" "nocompress" "noatime" "nodatacow" ];
+    options = [ "subvol=storage" "nocompress" "noatime" "nodatacow" ];
   };
 
   evilcfg.ssh = true;
