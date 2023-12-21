@@ -271,15 +271,18 @@ in
           ];
 
           userSettings = {
+            "cody.commandCodeLenses" = true;
+            "cody.autocomplete.formatOnAccept" = true;
+            "editor.inlineSuggest.suppressSuggestions" = true;
             "extensions.experimental.affinity" = {
               "asvetliakov.vscode-neovim" = 1;
             };
             "files.autoSave" = "afterDelay";
-            "window.titleBarStyle" = "custom";
-            "workbench.colorTheme" = "Gruvbox Dark Hard";
             "git.confirmSync" = false;
-            "editor.inlineSuggest.suppressSuggestions" = true;
-            "cody.commandCodeLenses" = true;
+            "window.titleBarStyle" = "custom";
+            "workbench.colorTheme" = "Gruvbox Material Dark";
+            "gruvboxMaterial.lightContrast" = "hard";
+            "gruvboxMaterial.darkContrast" = "hard";
           };
         };
 
