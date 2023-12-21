@@ -290,7 +290,10 @@ in
           enable = true;
           profiles."${primaryUser}" = {
             name = "${primaryUser}";
-            search.default = "DuckDuckGo";
+            search = {
+              force = true;
+              default = "DuckDuckGo";
+            };
             settings = {
               "browser.contentblocking.category" = "strict";
               "gfx.webrender.all" = true;
