@@ -17,6 +17,10 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.nix-ld = {
+    enable = true;
+  };
+
   fileSystems."/home/${primaryUser}/Storage" = {
     device = "/dev/disk/by-partlabel/disk-data-home";
     fsType = "btrfs";
