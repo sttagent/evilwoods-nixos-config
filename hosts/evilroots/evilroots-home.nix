@@ -253,8 +253,8 @@ in
             ms-vscode-remote.remote-containers
             ms-vscode-remote.remote-ssh
             asvetliakov.vscode-neovim
-            github.copilot
-            github.copilot-chat
+            # github.copilot
+            # github.copilot-chat
             ms-python.python
             ms-python.vscode-pylance
             esbenp.prettier-vscode
