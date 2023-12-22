@@ -35,6 +35,8 @@ in
         configDir = "/home/${primaryUser}/Sync/.config/syncthing";
       };
     };
+    
+    programs.fish.enable = true;
 
     # Set your time zone.
     time.timeZone = "Europe/Stockholm";
