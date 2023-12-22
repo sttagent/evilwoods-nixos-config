@@ -70,6 +70,7 @@
           ];
         };
       };
+
       diskoConfigurations.evilroots = import ./hosts/evilroots/evilroots-partition-scheme.nix;
     };
 }
