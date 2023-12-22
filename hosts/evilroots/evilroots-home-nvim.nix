@@ -5,13 +5,17 @@ let
 in
 with builtins; {
   home-manager.users.${primaryUser}.programs.neovim = {
+    extraLuaConfig = /* lua */ ''
+      ${readFile /${nvimConfigDir}/init.lua}
+    '';
+
     plugins = with pkgs.vimPlugins; [
       nvim-web-devicons
       plenary-nvim
       gruvbox-material
 
+      # Treesitter configuration
       {
-        # Treesitter configuration
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
         config = ''
@@ -30,26 +34,11 @@ with builtins; {
         config = ''
           ${readFile /${nvimConfigDir}/addon-lsp-zero-nvim.lua}
         '';
-      } # End of nvim LSP configuration
-
-      # Nvim cofilot configuration
-      /* {
-        plugin = copilot-lua;
-        type = "lua";
-        config = ''
-          ${readFile /${nvimConfigDir}/addon-copilot-lua.lua}
-        '';
       }
-      {
-        plugin = copilot-cmp;
-        type = "lua";
-        config = ''
-          require('copilot_cmp').setup({})
-        '';
-      } # End nvim copilot configuration */
+      # End of nvim LSP configuration
 
+      # Telescope configuration
       {
-        # Telescope configuration
         plugin = telescope-nvim;
         type = "lua";
         config = ''
@@ -164,12 +153,24 @@ with builtins; {
         type = "lua";
         config = ''
           require('sg').setup({})
-        ''; 
+        '';
       }
-    ];
 
-    extraLuaConfig = /* lua */ ''
-      ${readFile /${nvimConfigDir}/init.lua}
-    '';
+      # Nvim cofilot configuration
+      /* {
+        plugin = copilot-lua;
+        type = "lua";
+        config = ''
+          ${readFile /${nvimConfigDir}/addon-copilot-lua.lua}
+        '';
+      }
+      {
+        plugin = copilot-cmp;
+        type = "lua";
+        config = ''
+          require('copilot_cmp').setup({})
+        '';
+      } # End nvim copilot configuration */
+    ];
   };
 }
