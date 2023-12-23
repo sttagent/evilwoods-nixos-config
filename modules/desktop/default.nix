@@ -8,7 +8,6 @@ let
 in
 {
   imports = [
-    ./packages.nix
     ./moonlander.nix
     ./steam.nix
   ];

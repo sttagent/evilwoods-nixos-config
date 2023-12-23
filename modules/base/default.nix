@@ -8,7 +8,6 @@ let
 in
 {
   imports = [
-    ./shared-packages.nix
     ./shared-configuration.nix
     ./main-user.nix
   ];
