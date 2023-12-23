@@ -1,5 +1,18 @@
-{ lib, pkgs, inputs, ... }: {
+{ config, lib, pkgs, inputs, ... }:
+let
+  mainUser = config.evilcfg.mainUser;
+in{
   config = {
+    nix = {
+      package = pkgs.nixFlakes;
+      extraOptions = ''
+        experimental-features = nix-command flakes
+        trusted-users = ${mainUser}
+      '';
+    };
+
+    nixpkgs.config.allowUnfree = true;
+
     # disable user creation. needed to disable root account
     users.mutableUsers = false;
     # disable root account

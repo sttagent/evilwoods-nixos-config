@@ -3,16 +3,6 @@ let
   mainUser = config.evilcfg.mainUser;
 in
 {
-  nix = {
-    package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      trusted-users = ${mainUser}
-    '';
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
   programs.nix-ld = {
     enable = true;
   };
