@@ -2,6 +2,7 @@
 let
   primaryUser = config.evilcfg.primaryUser;
   hmlib = inputs.home-manager.lib;
+  resourceDir = inputs.self.outPath + "/resources";
 in
 {
   home-manager = {
@@ -17,7 +18,7 @@ in
 
         file = {
           ".config/background" = {
-            source = ../../resources/wallpapers/background1.jpg;
+            source = resourceDir + "/wallpapers/background1.jpg";
           };
         };
       };

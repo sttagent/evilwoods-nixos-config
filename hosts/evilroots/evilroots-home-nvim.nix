@@ -1,12 +1,13 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   primaryUser = config.evilcfg.primaryUser;
-  nvimConfigDir = ../../configfiles/nvim;
+  
+  nvimConfigDir = inputs.self.outPath + "/configfiles/nvim";
 in
 with builtins; {
   home-manager.users.${primaryUser}.programs.neovim = {
-    extraLuaConfig = /* lua */ ''
-      ${readFile /${nvimConfigDir}/init.lua}
+    extraLuaConfig = ''
+      ${readFile (nvimConfigDir + "/init.lua")}
     '';
 
     plugins = with pkgs.vimPlugins; [
@@ -19,7 +20,7 @@ with builtins; {
         plugin = nvim-treesitter.withAllGrammars;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-nvim-treesitter.lua}
+          ${readFile (nvimConfigDir + "/addon-nvim-treesitter.lua")}
         '';
       }
       nvim-treesitter-textobjects
@@ -32,7 +33,7 @@ with builtins; {
         plugin = lsp-zero-nvim;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-lsp-zero-nvim.lua}
+          ${readFile (nvimConfigDir + "/addon-lsp-zero-nvim.lua")}
         '';
       }
       # End of nvim LSP configuration
@@ -42,7 +43,7 @@ with builtins; {
         plugin = telescope-nvim;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-telescope-nvim.lua}
+          ${readFile (nvimConfigDir + "/addon-telescope-nvim.lua")}
         '';
       }
       telescope-fzf-native-nvim
@@ -59,7 +60,7 @@ with builtins; {
         plugin = nvim-cmp;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-nvim-cmp.lua}
+          ${readFile (nvimConfigDir +  "/addon-nvim-cmp.lua")}
         '';
       } # End of nvim cmp configuration
 
@@ -77,7 +78,7 @@ with builtins; {
         plugin = gitsigns-nvim;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-gitsigns-nvim.lua}
+          ${readFile (nvimConfigDir + "/addon-gitsigns-nvim.lua")}
         '';
       }
 
@@ -85,7 +86,7 @@ with builtins; {
         plugin = indent-blankline-nvim;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-indent-blankline-nvim.lua}
+          ${readFile (nvimConfigDir + "/addon-indent-blankline-nvim.lua")}
         '';
       }
 
@@ -107,7 +108,7 @@ with builtins; {
         plugin = bufferline-nvim;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-bufferline-nvim.lua}
+          ${readFile (nvimConfigDir + "/addon-bufferline-nvim.lua")}
         '';
       }
 
@@ -144,7 +145,7 @@ with builtins; {
         plugin = which-key-nvim;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-which-key-nvim.lua}
+          ${readFile (nvimConfigDir + "/addon-which-key-nvim.lua")}
         '';
       }
 

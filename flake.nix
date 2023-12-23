@@ -47,28 +47,17 @@
     {
       formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
-      lib = import ./lib { lib = nixpkgs-unstable.legacyPackages.x86_64-linux.lib; };
+      lib = import ./lib { lib = nixpkgs-unstable.lib; };
 
       nixosModules = { };
 
-      nixosConfigurations = {
-        evilroots = let nixpkgs = nixpkgs-unstable; in nixpkgs.lib.nixosSystem {
-          system = self.lib.defaultSystem;
-          specialArgs = { inherit inputs; };
-
-          modules = [
-            # Nixos community modules
-            disko.nixosModules.disko
-            sops-nix.nixosModules.sops
-            home-manager.nixosModules.home-manager
-
-            # My custom modules
-            ./modules
-
-            # Machine configuration
-            ./hosts
-          ];
-        };
+      nixosConfigurations = import ./hosts {
+        inherit inputs;
+        extraModules = [
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+        ];
       };
 
       diskoConfigurations.evilroots = import ./hosts/evilroots/evilroots-partition-scheme.nix;
