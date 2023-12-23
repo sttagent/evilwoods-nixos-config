@@ -3,12 +3,6 @@
 }: rec {
   defaultSystem = "x86_64-linux";
 
-  mkPkgs = { channel, system ? defaultSystem, cfg ? { allowUnfree = true; } }:
-    import channel {
-      inherit system;
-      config = cfg;
-    };
-
   # filter out null attributes
   filterNullHosts = hosts: lib.filterAttrs (name: value: value != null) hosts;
 
