@@ -8,8 +8,9 @@ let
 in
 {
   imports = [
-    ./shared
-    ./users
+    ./shared-packages.nix
+    ./shared-configuration.nix
+    ./main-user.nix
   ];
 
   options.evilcfg.ssh = mkEnableOption "ssh";

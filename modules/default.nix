@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./shared
+    ./base
     ./desktop
     ./graphics
     ./virtualisation.nix
