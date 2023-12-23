@@ -18,12 +18,6 @@ in
       openssh = mkIf ssh {
         enable = true;
       };
-      syncthing = {
-        enable = true;
-        user = primaryUser;
-        dataDir = "/home/${primaryUser}/Sync";
-        configDir = "/home/${primaryUser}/Sync/.config/syncthing";
-      };
     };
   };
 }
