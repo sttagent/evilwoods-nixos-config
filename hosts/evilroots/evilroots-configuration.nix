@@ -5,8 +5,6 @@ in
 {
   nixpkgs.config = {
   };
-  networking.hostName = "evilroots";
-
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''

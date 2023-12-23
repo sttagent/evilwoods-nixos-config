@@ -28,8 +28,18 @@
     modules = [
       ../modules
       hostPath
+      {
+        networking.hostName = "${mkHostName hostPath}";
+      }
     ] ++ extraModules;
   };
+  
+  mkHostName = path:
+  let 
+    basename = "${baseNameOf path}";
+  in if (lib.hasSuffix ".nix" basename)
+    then (lib.removeSuffix ".nix" basename)
+    else basename;
 
   # make nixos systems from a directory of nix files
   mkHosts = hostDir: attrs: fitlerMapHosts hostDir attrs;
