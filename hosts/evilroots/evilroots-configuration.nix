@@ -3,8 +3,6 @@ let
   mainUser = config.evilcfg.mainUser;
 in
 {
-  nixpkgs.config = {
-  };
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
