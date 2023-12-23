@@ -4,7 +4,6 @@ let
 in
 {
   nixpkgs.config = {
-    permittedInsecurePackages = [ "electron-25.9.0" ];
   };
   networking.hostName = "evilroots";
 

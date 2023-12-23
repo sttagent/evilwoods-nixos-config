@@ -60,7 +60,7 @@ with lib; {
         discord
         spotify
         signal-desktop
-        obsidian
+        # obsidian # depends on EOP electron dependency
         zoom-us
         vivaldi
 
