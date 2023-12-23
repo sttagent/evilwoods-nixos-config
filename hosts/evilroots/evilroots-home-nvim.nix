@@ -1,7 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
 let
   mainUser = config.evilcfg.mainUser;
-  
+
   nvimConfigDir = "../../configfiles/nvim";
 in
 with builtins; {

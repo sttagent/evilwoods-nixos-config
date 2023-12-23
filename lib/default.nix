@@ -21,10 +21,10 @@
       (builtins.readDir hostDir));
 
   # make nixos system from a single nix file or directory
-  mkHost = hostPath: { system ? defaultSystem, inputs, extraModules, ...}: lib.nixosSystem {
+  mkHost = hostPath: { system ? defaultSystem, inputs, extraModules, ... }: lib.nixosSystem {
     inherit system;
     specialArgs = { inherit inputs; };
-    modules = [ 
+    modules = [
       ../modules
       hostPath
     ] ++ extraModules;

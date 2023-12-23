@@ -1,17 +1,17 @@
-{lib, pkgs, inputs, ...}: {
+{ lib, pkgs, inputs, ... }: {
   config = {
     # disable user creation. needed to disable root account
     users.mutableUsers = false;
     # disable root account
     users.users.root.hashedPassword = "!";
-    
+
     networking = {
       networkmanager.enable = true;
       firewall = {
         enable = true;
       };
     };
-    
+
     programs.fish.enable = true;
 
     # nextdns configuration
@@ -37,7 +37,7 @@
         useRoutingFeatures = "both";
       };
     };
-    
+
     time.timeZone = "Europe/Stockholm";
 
     i18n = {
