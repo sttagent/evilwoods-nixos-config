@@ -16,7 +16,7 @@
   fitlerMapHosts = hostDir: attrs:
     filterNullHosts (lib.mapAttrs'
       (name: value:
-        let path = "${hostDir}/${name}"; in
+        let path = "${builtins.toString hostDir}/${name}"; in
         if value == "directory" && builtins.pathExists "${path}/default.nix"
         then lib.nameValuePair name (mkHost path attrs)
         else if value == "regular" &&
