@@ -2,7 +2,7 @@
   config = {
     # disable user creation. needed to disable root account
     users.mutableUsers = false;
-    # Define a user account. Don't forget to set a password with ‘passwd’.
+    # disable root account
     users.users.root.hashedPassword = "!";
     
     networking = {
