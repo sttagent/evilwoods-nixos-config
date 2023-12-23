@@ -32,7 +32,7 @@
     specialArgs = { inherit inputs; };
     modules = [ 
       ../modules
-      ../shared
+      ../shared-configuration
       hostPath
     ] ++ extraModules;
   };
