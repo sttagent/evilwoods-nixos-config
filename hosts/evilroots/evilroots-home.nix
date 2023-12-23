@@ -1,6 +1,6 @@
 { config, lib, pkgs, inputs, ... }: # os configuration is reachable via nixosConfig
 let
-  primaryUser = config.evilcfg.primaryUser;
+  mainUser = config.evilcfg.mainUser;
   hmlib = inputs.home-manager.lib;
   resourceDir = inputs.self.outPath + "/resources";
 in
@@ -9,10 +9,10 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bak";
-    users.${primaryUser} = {
+    users.${mainUser} = {
       home = {
-        username = "${primaryUser}";
-        homeDirectory = "/home/${primaryUser}";
+        username = "${mainUser}";
+        homeDirectory = "/home/${mainUser}";
 
         stateVersion = "24.05";
 
@@ -37,13 +37,13 @@ in
         };
 
         "org/gnome/desktop/background" = {
-          picture-uri = "file:///home/${primaryUser}/.config/background";
-          picture-uri-dark = "file:///home/${primaryUser}/.config/background";
+          picture-uri = "file:///home/${mainUser}/.config/background";
+          picture-uri-dark = "file:///home/${mainUser}/.config/background";
           picture-options = "zoom";
         };
 
         "org/gnome/desktop/screensaver" = {
-          picture-uri = "file:///home/${primaryUser}/.config/background";
+          picture-uri = "file:///home/${mainUser}/.config/background";
         };
 
         "org/gnome/desktop/interface" = {
@@ -292,8 +292,8 @@ in
 
         firefox = {
           enable = true;
-          profiles."${primaryUser}" = {
-            name = "${primaryUser}";
+          profiles."${mainUser}" = {
+            name = "${mainUser}";
             search = {
               force = true;
               default = "DuckDuckGo";

@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  primaryUser = config.evilcfg.primaryUser;
+  mainUser = config.evilcfg.mainUser;
 in
 {
   nixpkgs.config = {
@@ -12,7 +12,7 @@ in
     package = pkgs.nixFlakes;
     extraOptions = ''
       experimental-features = nix-command flakes
-      trusted-users = ${primaryUser}
+      trusted-users = ${mainUser}
     '';
   };
 
@@ -22,7 +22,7 @@ in
     enable = true;
   };
 
-  fileSystems."/home/${primaryUser}/Storage" = {
+  fileSystems."/home/${mainUser}/Storage" = {
     device = "/dev/disk/by-partlabel/disk-data-home";
     fsType = "btrfs";
     options = [ "subvol=storage" "nocompress" "noatime" "nodatacow" ];
@@ -88,7 +88,7 @@ in
   # sops.defaultSopsFormat = "yaml";
   # sops.secrets.example-key = { };
   # sops.secrets."myservice/my_subdir/my_secret" = { };
-  # sops.age.keyFile = /home/${primaryUser}/.config/sops/age/keys.txt;
+  # sops.age.keyFile = /home/${mainUser}/.config/sops/age/keys.txt;
   # sops.gnupg.sshKeyPaths = [ ];
 
   # Garbage collection

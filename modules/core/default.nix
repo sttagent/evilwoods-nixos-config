@@ -4,7 +4,7 @@ with lib;
 
 let
   ssh = config.evilcfg.ssh;
-  primaryUser = config.evilcfg.primaryUser;
+  mainUser = config.evilcfg.mainUser;
 in
 {
   imports = [

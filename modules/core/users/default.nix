@@ -3,10 +3,10 @@
 with lib;
 
 let
-  primaryUser = config.evilcfg.primaryUser;
+  mainUser = config.evilcfg.mainUser;
 in
 {
-  options.evilcfg.primaryUser = mkOption {
+  options.evilcfg.mainUser = mkOption {
     type = types.str;
     default = "aitvaras";
     description = "The primary user of evilcfg.";
@@ -14,7 +14,7 @@ in
 
   config = {
     users.users = {
-      ${primaryUser} = {
+      ${mainUser} = {
         isNormalUser = true;
         description = "Arvydas Ramanauskas";
         hashedPassword = "$6$r5XosfFY6X0yH0kg$sPHtZm25ZWpsx86cdKUsjr8fMv6AU6Jmj26H9qBbRKVOJx5SUBw2sSIwXx5FxAvarWmukal0r7.Biy1wpClwd1";
