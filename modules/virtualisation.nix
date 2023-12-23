@@ -2,17 +2,16 @@
 
 with lib;
 let
-  podman = config.evilcfg.podman;
-  nvidia = config.evilcfg.nvidia;
+  cfg = config.evilcfg;
 in
 {
   options.evilcfg.podman = mkEnableOption "podman";
 
-  config = {
+  config = mkIf cfg.podman {
     virtualisation = {
-      podman = mkIf config.evilcfg.podman {
+      podman = {
         enable = true;
-        enableNvidia = mkIf nvidia true;
+        enableNvidia = mkIf cfg.nvidia true;
       };
     };
   };
