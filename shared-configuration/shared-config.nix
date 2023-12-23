@@ -1,5 +1,10 @@
 {lib, pkgs, inputs, ...}: {
   config = {
+    # disable user creation. needed to disable root account
+    users.mutableUsers = false;
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.users.root.hashedPassword = "!";
+    
     networking = {
       networkmanager.enable = true;
       firewall = {
