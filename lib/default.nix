@@ -12,7 +12,8 @@
       (name: value:
         let
           path = "${toString hostDir}/${name}";
-        in if value == "directory" && pathExists "${path}/default.nix"
+        in
+        if value == "directory" && pathExists "${path}/default.nix"
         then lib.nameValuePair name (mkHost path attrs)
         else if value == "regular" &&
           name != "default.nix" &&
@@ -33,11 +34,12 @@
       }
     ] ++ extraModules;
   };
-  
+
   mkHostName = path:
-  let 
-    basename = "${baseNameOf path}";
-  in if (lib.hasSuffix ".nix" basename)
+    let
+      basename = "${baseNameOf path}";
+    in
+    if (lib.hasSuffix ".nix" basename)
     then (lib.removeSuffix ".nix" basename)
     else basename;
 

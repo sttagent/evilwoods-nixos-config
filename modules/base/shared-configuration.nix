@@ -1,7 +1,8 @@
 { config, lib, pkgs, inputs, ... }:
 let
   mainUser = config.evilcfg.mainUser;
-in{
+in
+{
   config = {
     nix = {
       package = pkgs.nixFlakes;
