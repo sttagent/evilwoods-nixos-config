@@ -18,8 +18,15 @@ in
       (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
     ];
 
+    boot = {
+      kernelParams = [
+        "quiet"
+        "splash"
+      ];
+      plymouth.enable = true;
+    };
+
     environment.variables = {
-      MOZ_ENABLE_WAYLAND = "1";
       EDITOR = "nvim";
       NIXOS_OZONE_WL = "1";
     };

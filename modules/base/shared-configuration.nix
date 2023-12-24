@@ -2,7 +2,7 @@
 let
   mainUser = config.evilcfg.mainUser;
 in
-{
+with lib; {
   config = {
     nix = {
       package = pkgs.nixFlakes;
@@ -10,9 +10,22 @@ in
         experimental-features = nix-command flakes
         trusted-users = ${mainUser}
       '';
+
+      # Garbage collection
+      gc = {
+        automatic = mkDefault true;
+        dates = mkDefault "weekly";
+        options = mkDefault "--delete-older-than 30d";
+      };
     };
 
     nixpkgs.config.allowUnfree = true;
+    
+
+    boot = {
+      loader.systemd-boot.configurationLimit = mkDefault 100;
+      kernelPackages = pkgs.linuxPackages_latest;
+    };
 
     # disable user creation. needed to disable root account
     users.mutableUsers = false;
@@ -20,6 +33,7 @@ in
     users.users.root.hashedPassword = "!";
 
     networking = {
+      useDHCP = mkDefault true;
       networkmanager.enable = true;
       firewall = {
         enable = true;

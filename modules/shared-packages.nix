@@ -37,7 +37,7 @@ with lib; {
         appimage-run
         distrobox
         firefox
-        yubioath-flutter
+        # yubioath-flutter
         nil
         nixd
         wl-clipboard
