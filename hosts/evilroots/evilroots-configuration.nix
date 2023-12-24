@@ -3,6 +3,15 @@ let
   mainUser = config.evilcfg.mainUser;
 in
 {
+  evilcfg.ssh = true;
+  evilcfg.desktop = true;
+  evilcfg.nvidia = true;
+  #evilcfg.steam = true;
+  evilcfg.zsa = true;
+  evilcfg.podman = true;
+  evilcfg.docker = true;
+  evilcfg.libvirtd = true;
+
   programs.nix-ld = {
     enable = true;
   };
@@ -13,31 +22,9 @@ in
     options = [ "subvol=storage" "nocompress" "noatime" "nodatacow" ];
   };
 
-  evilcfg.ssh = true;
-  evilcfg.desktop = true;
-  evilcfg.nvidia = true;
-  #evilcfg.steam = true;
-  evilcfg.zsa = true;
-  evilcfg.podman = true;
-
   # LTU VPN
   services.strongswan.enable = true;
   networking.networkmanager.enableStrongSwan = true;
-
-  # docker setup
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-
-    storageDriver = "btrfs";
-  };
-
-  # Virtual manager setup
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
 
   boot.initrd = {
     availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
