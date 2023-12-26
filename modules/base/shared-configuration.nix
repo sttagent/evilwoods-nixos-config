@@ -34,7 +34,10 @@ with lib; {
 
     networking = {
       useDHCP = mkDefault true;
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = true;
+        dns = "none";
+      };
       firewall = {
         enable = true;
       };
@@ -43,11 +46,13 @@ with lib; {
     programs.fish.enable = true;
 
     # nextdns configuration
-    networking.nameservers = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
+    networking = {
+      nameservers = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
+    };
     services = {
       resolved = {
         enable = true;
-        dnssec = "true";
+        dnssec = "false";
         domains = [ "~." ];
         fallbackDns = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
         extraConfig = ''
@@ -62,7 +67,7 @@ with lib; {
     services = {
       tailscale = {
         enable = true;
-        useRoutingFeatures = "both";
+        useRoutingFeatures = "client";
       };
     };
 

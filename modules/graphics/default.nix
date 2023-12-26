@@ -22,6 +22,7 @@ in
       nvidia = mkIf (nvidia && desktop) {
         modesetting.enable = true;
         powerManagement.enable = true;
+        nvidiaSettings = false;
       };
       opengl = mkIf desktop {
         enable = true;
