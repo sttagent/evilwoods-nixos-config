@@ -28,8 +28,6 @@ with lib; {
     }
     (mkIf cfg.desktop {
       environment.systemPackages = with pkgs; [
-        alacritty
-        alacritty-theme
         nushell
         ffmpeg-full
         protonvpn-gui
@@ -37,7 +35,7 @@ with lib; {
         appimage-run
         distrobox
         firefox
-        # yubioath-flutter
+        yubioath-flutter
         nil
         nixd
         wl-clipboard

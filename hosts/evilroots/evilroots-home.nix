@@ -74,8 +74,8 @@ in
           favorite-apps = [
             "firefox.desktop"
             "org.gnome.Nautilus.desktop"
-            "com.raggesilver.BlackBox.desktop"
-            "Alacritty.desktop"
+            # "com.raggesilver.BlackBox.desktop"
+            "kitty.desktop"
             "io.gitlab.news_flash.NewsFlash.desktop"
             "org.gnome.Fractal.desktop"
             "com.valvesoftware.Steam.desktop"
@@ -174,52 +174,15 @@ in
           };
         };
 
-        alacritty = {
+        kitty = {
           enable = true;
+          shellIntegration.enableFishIntegration = true;
+          theme = "Gruvbox Material Dark Hard";
           settings = {
-            window = {
-              startup_mode = "Maximized";
-              opacity = 0.99;
-              blur = true;
-            };
-            colors = {
-              # Default colors
-              primary = {
-                background = "0x24292e";
-                foreground = "0xd1d5da";
-              };
-
-              # Normal colors
-              normal = {
-                black = "0x586069";
-                red = "0xea4a5a";
-                green = "0x34d058";
-                yellow = "0xffea7f";
-                blue = "0x2188ff";
-                magenta = "0xb392f0";
-                cyan = "0x39c5cf";
-                white = "0xd1d5da";
-              };
-
-              # Bright colors
-              bright = {
-                black = "0x959da5";
-                red = "0xf97583";
-                green = "0x85e89d";
-                yellow = "0xffea7f";
-                blue = "0x79b8ff";
-                magenta = "0xb392f0";
-                cyan = "0x56d4dd";
-                white = "0xfafbfc";
-              };
-
-              indexed_colors = [
-                { index = 16; color = "0xd18616"; }
-                { index = 17; color = "0xf97583"; }
-              ];
-            };
+            wayland_titlebar_color = "background";
           };
         };
+
 
         atuin = {
           enable = true;
