@@ -22,11 +22,15 @@ in
       ];
     };
 
-    environment.systemPackages = with pkgs; [
-      waybar
-    ];
+    environment =  {
+      systemPackages = with pkgs; [
+        waybar
+        wofi
+        ];
+
       sessionVariables = {
         WLR_NO_HARDWARE_CURSORS = "1";
       };
+    };
   };
 }
