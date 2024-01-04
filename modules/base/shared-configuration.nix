@@ -86,5 +86,9 @@ with lib; {
         LC_TIME = "sv_SE.UTF-8";
       };
     };
+
+    environment.variables = {
+      EDITOR = "nvim";
+    };
   };
 }

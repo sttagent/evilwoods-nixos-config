@@ -27,19 +27,8 @@ in
     };
 
     environment.variables = {
-      EDITOR = "nvim";
       NIXOS_OZONE_WL = "1";
     };
-
-    environment.gnome.excludePackages = with pkgs; [
-      epiphany
-    ];
-
-    environment.systemPackages = with pkgs; [
-      gnomeExtensions.appindicator
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.valent
-    ];
 
     zramSwap.enable = true;
 
@@ -66,7 +55,6 @@ in
       xserver = {
         enable = true;
         displayManager.gdm.enable = true;
-        desktopManager.gnome.enable = true;
       };
 
       pipewire = {
