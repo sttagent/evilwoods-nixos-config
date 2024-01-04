@@ -3,5 +3,6 @@
     ./shared-desktop-configuration.nix
     ./moonlander.nix
     ./steam.nix
+    ./hyprland.nix
   ];
 }

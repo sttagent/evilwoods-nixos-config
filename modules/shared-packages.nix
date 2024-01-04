@@ -54,6 +54,7 @@ with lib; {
         valent
 
         # Electron apps
+        # logseq
         element-desktop
         discord
         spotify

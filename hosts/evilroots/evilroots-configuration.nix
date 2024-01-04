@@ -11,6 +11,7 @@ in
   evilcfg.podman = true;
   evilcfg.docker = true;
   evilcfg.libvirtd = true;
+  evilcfg.enableHyprland = true;
 
   boot = {
     initrd = {
