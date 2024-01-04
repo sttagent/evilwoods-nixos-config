@@ -12,6 +12,7 @@ with builtins; {
         "HDMI-A-1 ,1920x10080@60, 2560x360, 1"
       ];
 
+      exec-once = "waybar &";
     };
     extraConfig = ''
       ${readFile ./${hyprConfigDir}/hyprland.conf}
