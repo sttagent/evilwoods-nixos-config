@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }: {
   imports = [
     ./shared-desktop-configuration.nix
-    ./moonlander.nix
-    ./steam.nix
+    ./gnome.nix
     ./hyprland.nix
+    ./steam.nix
+    ./moonlander.nix
   ];
 }
