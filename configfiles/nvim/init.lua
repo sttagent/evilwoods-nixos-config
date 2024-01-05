@@ -3,6 +3,7 @@ if vim.g.vscode then
 else
     local cmd = vim.cmd
     local opt = vim.opt
+    local caucmd = vim.api.nvim_create_autocmd
     vim.g.gruvbox_material_background = "hard"
     -- vim.g.gruvbox_material_better_performance = 1
     vim.opt.background = "dark"
@@ -56,4 +57,15 @@ else
     vim.keymap.set('', '<C-Right>', ':vertical resize -3<CR>', { silent = true })
     vim.keymap.set('', '<C-Up>', ':resize +3<CR>', { silent = true })
     vim.keymap.set('', '<C-Down>', ':resize -3<CR>', { silent = true })
+
+    -- autocommads
+    caucmd("FileType", {
+        pattern = "nix",
+        callback = function()
+            opt.tabstop = 2
+            opt.shiftwidth = 2
+            opt.softtabstop = 2
+        end
+    })
+    -- end autocommands
 end
