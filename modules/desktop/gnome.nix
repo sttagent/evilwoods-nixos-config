@@ -5,7 +5,7 @@ in
 with lib; {
   options.evilcfg.enableGnome = mkEnableOption "Gnome desktop environment";
 
-  config = mkIf cfg.desktop {
+  config = mkIf cfg.enableGnome {
     evilcfg.desktop = true;
 
     environment.gnome.excludePackages = with pkgs; [
