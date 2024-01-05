@@ -38,6 +38,10 @@ with builtins; {
 
     services.mako.enable = true;
     programs = {
+      ssh = {
+        enable = true;
+        addKeysToAgent = "yes";
+      };
       waybar = {
         enable = true;
         systemd = {
