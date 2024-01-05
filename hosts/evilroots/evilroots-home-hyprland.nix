@@ -27,6 +27,7 @@ with builtins; {
         ];
 
         exec-once = [
+          "dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY"
           "hyprctl dispatch workspace 1"
         ];
       };
