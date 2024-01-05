@@ -57,6 +57,7 @@ with lib; {
         # logseq
         element-desktop
         discord
+        vesktop
         spotify
         signal-desktop
         # obsidian # depends on EOP electron dependency
