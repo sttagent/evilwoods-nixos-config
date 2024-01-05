@@ -21,8 +21,14 @@ with builtins; {
           "HDMI-A-1 ,1920x10080@60, 2560x360, 1"
         ];
 
+        workspace = [
+          "9,monitor:HDMI-A-1,default:true"
+          "1,monitor:DP-3,default:true"
+        ];
+
         exec-once = [
           "waybar &"
+          "hyprctl dispatch workspace 1"
         ];
       };
       extraConfig = ''
