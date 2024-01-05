@@ -41,6 +41,15 @@ with builtins; {
       ssh = {
         enable = true;
         addKeysToAgent = "yes";
+        extraConfig = ''
+        Host gitlab.com
+            HostName gitlab.com
+            PreferredAuthentications publickey
+
+        Host github.com
+          HostName github.com
+          PreferredAuthentications publickey
+        '';
       };
       waybar = {
         enable = true;
