@@ -27,7 +27,6 @@ with builtins; {
         ];
 
         exec-once = [
-          "waybar &"
           "hyprctl dispatch workspace 1"
         ];
       };
@@ -38,7 +37,13 @@ with builtins; {
 
     services.mako.enable = true;
     programs = {
-      waybar.enable = true;
+      waybar = {
+        enable = true;
+        systemd = {
+          enable = true;
+          target = "hyprland-session.target";
+        };
+      };
       wofi.enable = true;
     };
   };
