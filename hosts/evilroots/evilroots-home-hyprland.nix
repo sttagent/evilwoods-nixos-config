@@ -43,6 +43,40 @@ with builtins; {
           enable = true;
           target = "hyprland-session.target";
         };
+        settings = {
+          mainBar = {
+            layer = "top";
+            position = "top";
+            height = 30;
+            output = [
+               "DP-3"
+            ];
+            modules-left = [
+              "hyprland/workspaces"
+              "hyprland/window"
+            ];
+            modules-center = [
+              "clock"
+            ];
+            modules-right = [
+              "tray"
+            ];
+
+            "hyprland/workspaces" = {
+              all-outputs = true;
+            };
+
+            clock = {
+              interval = 60;
+              format =  "{:%H:%M}";
+              max-length = 25;
+            };
+
+            tray = {
+              spacing = 10;
+            };
+          };
+        };
       };
       wofi.enable = true;
     };
