@@ -4,7 +4,7 @@ let
 in
 {
   evilcfg.ssh = true;
-  evilcfg.enableGnome = true;
+  # evilcfg.enableGnome = true;
   evilcfg.nvidia = true;
   #evilcfg.steam = true;
   evilcfg.zsa = true;
