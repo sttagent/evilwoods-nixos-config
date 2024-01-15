@@ -7,6 +7,6 @@
     ./evilroots-configuration.nix
     ./evilroots-home.nix
     ./evilroots-home-nvim.nix
-    ./evilroots-home-hyprland.nix
+    # ./evilroots-home-hyprland.nix
   ];
 }
