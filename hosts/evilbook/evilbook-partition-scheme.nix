@@ -1,6 +1,5 @@
 { disks ? [
-    "/dev/disk/by-id/ata-SanDisk_Ultra_II_480GB_160807801275"
-    "/dev/disk/by-id/ata-CT1000MX500SSD1_1950E22EEC2F"
+    "/dev/disk/by-id/nvme-Samsung_SSD_980_500GB_S64DNJ0R333660W"
   ]
 , ...
 }: {
