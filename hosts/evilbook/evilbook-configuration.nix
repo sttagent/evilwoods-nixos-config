@@ -13,7 +13,6 @@ in
 
   boot = {
     initrd = {
-      availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
       verbose = false;
     };
 
@@ -32,22 +31,12 @@ in
     enable = true;
   };
 
-  fileSystems."/home/${mainUser}/Storage" = {
-    device = "/dev/disk/by-partlabel/disk-data-home";
-    fsType = "btrfs";
-    options = [ "subvol=storage" "nocompress" "noatime" "nodatacow" ];
-  };
-
   # LTU VPN
-  services.strongswan.enable = true;
-  networking.networkmanager.enableStrongSwan = true;
+  # services.strongswan.enable = true;
+  # networking.networkmanager.enableStrongSwan = true;
 
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
-
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
-  hardware.enableRedistributableFirmware = lib.mkDefault true;
-  # Use the systemd-boot EFI boot loader.
 
   # sops.defaultSopsFile = ../../secrets/secrets.yaml;
   # sops.defaultSopsFormat = "yaml";
