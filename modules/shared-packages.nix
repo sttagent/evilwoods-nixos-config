@@ -65,6 +65,8 @@ with lib; {
         vivaldi
 
         vscode-fhs
+        
+        android-studio
 
         # thunderbird-wayland
         # protonmail-bridge
