@@ -22,9 +22,6 @@ in
       };
       systemd-boot.enable = true;
     };
-
-    kernelModules = [ "kvm-intel" ];
-    #kernelPackages = pkgs.linuxPackages_6_1; # nvidia incopatible with linuxPackages_latest
   };
 
   programs.nix-ld = {
