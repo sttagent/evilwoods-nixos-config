@@ -3,10 +3,10 @@
 , ...
 }: {
   imports = [
-    ./evilroots-partition-scheme.nix
-    ./evilroots-configuration.nix
-    ./evilroots-home.nix
-    ./evilroots-home-nvim.nix
-    # ./evilroots-home-hyprland.nix
+    ./evilbook-partition-scheme.nix
+    ./evilbook-configuration.nix
+    ./evilbook-home.nix
+    ./evilbook-home-nvim.nix
+    # ./evilbook-home-hyprland.nix
   ];
 }
