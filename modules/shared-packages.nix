@@ -24,6 +24,8 @@ with lib; {
         htop
         gnupg
         bottom
+        gh
+        github-copilot-cli
       ];
     }
     (mkIf cfg.desktop {
@@ -54,15 +56,15 @@ with lib; {
         # valent
 
         # Electron apps
-        # logseq
         element-desktop
         discord
         vesktop
         spotify
         signal-desktop
-        # obsidian # depends on EOP electron dependency
+        obsidian # depends on EOP electron dependency
         zoom-us
         vivaldi
+        github-desktop
 
         vscode-fhs
         
