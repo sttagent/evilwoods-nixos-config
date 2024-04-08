@@ -77,6 +77,7 @@ in
             # "com.raggesilver.BlackBox.desktop"
             "kitty.desktop"
             "io.gitlab.news_flash.NewsFlash.desktop"
+            "obsidian.desktop"
             "org.gnome.Fractal.desktop"
             "com.valvesoftware.Steam.desktop"
             "discord.desktop"
@@ -268,7 +269,7 @@ in
             name = "${mainUser}";
             search = {
               force = true;
-              default = "DuckDuckGo";
+              default = "Kagi";
             };
             settings = {
               "browser.contentblocking.category" = "strict";
