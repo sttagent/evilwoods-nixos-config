@@ -1,13 +1,9 @@
-{ disks ? [
-    "/dev/disk/by-id/nvme-Samsung_SSD_980_500GB_S64DNJ0R333660W"
-  ]
-, ...
-}: {
+{
   disko.devices = {
     disk = {
       nixos = {
         type = "disk";
-        device = builtins.elemAt disks 0;
+        device = "/dev/disk/by-id/nvme-Samsung_SSD_980_500GB_S64DNJ0R333660W";
         content = {
           type = "gpt";
           partitions = {
