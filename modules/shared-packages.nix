@@ -50,8 +50,8 @@ with lib; {
         gnome.gnome-sound-recorder
         fragments
         fractal
-        resources
-        valent
+        pika-backup
+        # valent
 
         # Electron apps
         # logseq
