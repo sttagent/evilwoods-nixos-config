@@ -25,7 +25,6 @@ with lib; {
         gnupg
         bottom
         gh
-        github-copilot-cli
       ];
     }
     (mkIf cfg.desktop {
