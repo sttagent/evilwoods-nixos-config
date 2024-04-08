@@ -62,7 +62,6 @@ with lib; {
         signal-desktop
         obsidian # depends on EOP electron dependency
         zoom-us
-        vivaldi
         github-desktop
 
         vscode-fhs
