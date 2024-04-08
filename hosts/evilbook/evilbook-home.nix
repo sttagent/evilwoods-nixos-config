@@ -102,6 +102,16 @@ in
 
       programs = {
         home-manager.enable = true;
+        
+        gh = {
+          enable = true;
+          extensions = [
+            "gh-copilot"
+          ];
+          settings = {
+            git_protocol = "ssh";
+          };
+        };
 
         direnv = {
           enable = true;
@@ -282,7 +292,7 @@ in
             gcc
             lua-language-server
             yaml-language-server
-            pylyzer
+            # pylyzer
             ansible-language-server
             nodejs_21
             nixd
