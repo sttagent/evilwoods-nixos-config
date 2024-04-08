@@ -7,7 +7,7 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
-
+  
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" "rtsx_usb_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
@@ -22,5 +22,13 @@
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    tuxedo-keyboard.enable = lib.mkDefault true;
+    tuxedo-rs = {
+      enable = lib.mkDefault true;
+      tailor-gui.enable = lib.mkDefault true;
+    };
+  };
 }
