@@ -60,6 +60,9 @@
         ];
       };
 
-      diskoConfigurations.evilroots = import ./hosts/evilroots/evilroots-partition-scheme.nix;
+      diskoConfigurations = {
+        evilroots = import ./hosts/evilroots/evilroots-partition-scheme.nix;
+        evilbook = import ./hosts/evilbook/evilbook-partition-scheme.nix;
+      };
     };
 }
