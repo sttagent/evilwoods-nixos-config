@@ -16,6 +16,8 @@ with lib; {
       gnomeExtensions.appindicator
       gnomeExtensions.blur-my-shell
       gnomeExtensions.valent
+      gnomeExtensions.battery-health-charging
+
     ];
 
 
