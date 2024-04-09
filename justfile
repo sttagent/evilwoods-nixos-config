@@ -6,3 +6,6 @@ switch:
 
 boot:
     nixos-rebuild boot --use-remote-sudo
+
+update:
+    just refresh boot
