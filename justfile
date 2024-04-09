@@ -13,7 +13,7 @@ switch:
 boot:
     nixos-rebuild boot --use-remote-sudo
 
-update:
+upgrade:
     just refresh boot
     
 diff:
