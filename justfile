@@ -1,3 +1,6 @@
+default:
+    just --list
+
 refresh:
     nix flake update --commit-lock-file
     
@@ -9,3 +12,6 @@ boot:
 
 update:
     just refresh boot
+    
+diff:
+    nix store diff-closures ./result /run/current-system
