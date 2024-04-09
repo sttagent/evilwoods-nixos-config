@@ -25,6 +25,7 @@ with lib; {
         gnupg
         bottom
         gh
+        just
       ];
     }
     (mkIf cfg.desktop {
