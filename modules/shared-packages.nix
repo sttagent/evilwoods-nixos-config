@@ -57,6 +57,7 @@ with lib; {
 
         # Electron apps
         element-desktop
+        standardnotes
         discord
         vesktop
         spotify
