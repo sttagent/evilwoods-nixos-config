@@ -20,4 +20,4 @@ upgrade:
     just refresh boot
     
 diff:
-    nix store diff-closures ./result /run/current-system
+    nix store diff-closures /run/current-system ./result/
