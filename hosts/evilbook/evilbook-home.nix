@@ -227,8 +227,8 @@ in
             ms-vscode-remote.remote-containers
             ms-vscode-remote.remote-ssh
             asvetliakov.vscode-neovim
-            # github.copilot
-            # github.copilot-chat
+            github.copilot
+            github.copilot-chat
             ms-python.python
             ms-python.vscode-pylance
             esbenp.prettier-vscode
@@ -268,6 +268,13 @@ in
           profiles."${mainUser}" = {
             name = "${mainUser}";
             search = {
+              engines = {
+                kagi = {
+                  name = "Kagi";
+                  shortName = "kagi";
+                  url = "https://kagi.com/search?q={searchTerms}";
+                };
+              };
               force = true;
               default = "Kagi";
             };
