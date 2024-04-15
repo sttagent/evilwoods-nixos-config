@@ -62,7 +62,6 @@ with lib; {
         vesktop
         spotify
         signal-desktop
-        obsidian # depends on EOP electron dependency
         zoom-us
         github-desktop
 
