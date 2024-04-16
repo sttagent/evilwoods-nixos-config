@@ -5,7 +5,6 @@
     ./base
     ./desktop
     ./graphics
-    ./shared-packages.nix
     ./virtualisation.nix
   ];
 }

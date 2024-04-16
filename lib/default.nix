@@ -13,7 +13,7 @@
         let
           path = "${toString hostDir}/${name}";
         in
-        if value == "directory" && pathExists "${path}/default.nix"
+        if value == "directory" && name != "common" && pathExists "${path}/default.nix"
         then lib.nameValuePair name (mkHost path attrs)
         else if value == "regular" &&
           name != "default.nix" &&
@@ -28,6 +28,7 @@
     specialArgs = { inherit inputs; };
     modules = [
       ../modules
+      ../hosts/common
       hostPath
       {
         networking.hostName = "${mkHostName hostPath}";
