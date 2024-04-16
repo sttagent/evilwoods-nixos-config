@@ -36,6 +36,8 @@
     ] ++ extraModules;
   };
 
+  mkHost' = {}: { };
+
   mkHostName = path:
     let
       basename = "${baseNameOf path}";

@@ -1,4 +1,4 @@
-{lib, pkgs, config, ...}:
+{ lib, pkgs, config, ... }:
 with lib;
 let
   cfg = config.evilcfg;
@@ -20,7 +20,7 @@ in
         polkit.enable = true;
       };
 
-      environment =  {
+      environment = {
         systemPackages = with pkgs; [
           hyprpaper
         ];

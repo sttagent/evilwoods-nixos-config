@@ -20,7 +20,7 @@ with lib; {
     };
 
     nixpkgs.config.allowUnfree = true;
-    
+
 
     boot = {
       loader.systemd-boot.configurationLimit = mkDefault 100;

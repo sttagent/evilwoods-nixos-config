@@ -1,14 +1,14 @@
-{lib, pkgs, config, ...}:
+{ lib, pkgs, config, ... }:
 let
   mainUser = config.evilcfg.mainUser;
   hyprConfigDir = "../../configfiles/hypr";
 in
 with builtins; {
-  home-manager.users.${mainUser} =  {
+  home-manager.users.${mainUser} = {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        env =   [
+        env = [
           "LIBVA_DRIVER_NAME,nvidia"
           "XDG_SESSION_TYPE,wayland"
           "GBM_BACKEND,nvidia-drm"
@@ -42,13 +42,13 @@ with builtins; {
         enable = true;
         addKeysToAgent = "yes";
         extraConfig = ''
-        Host gitlab.com
-            HostName gitlab.com
-            PreferredAuthentications publickey
+          Host gitlab.com
+              HostName gitlab.com
+              PreferredAuthentications publickey
 
-        Host github.com
-          HostName github.com
-          PreferredAuthentications publickey
+          Host github.com
+            HostName github.com
+            PreferredAuthentications publickey
         '';
       };
       waybar = {
@@ -63,7 +63,7 @@ with builtins; {
             position = "top";
             height = 30;
             output = [
-               "DP-3"
+              "DP-3"
             ];
             modules-left = [
               "hyprland/workspaces"
@@ -82,7 +82,7 @@ with builtins; {
 
             clock = {
               interval = 60;
-              format =  "{:%H:%M}";
+              format = "{:%H:%M}";
               max-length = 25;
             };
 

@@ -1,7 +1,7 @@
-{inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 let
   cfg = config.evilcfg;
-in 
+in
 {
   config.environment.systemPackages = with pkgs; [
     bottom
