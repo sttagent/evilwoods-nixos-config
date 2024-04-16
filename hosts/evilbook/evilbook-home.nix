@@ -191,6 +191,7 @@ in
           shellIntegration.enableFishIntegration = true;
           theme = "Gruvbox Material Dark Hard";
           settings = {
+            font_family = "SauceCodePro Nerd Font Mono";
             wayland_titlebar_color = "background";
           };
         };
