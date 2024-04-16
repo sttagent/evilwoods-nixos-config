@@ -4,6 +4,6 @@
     ./gnome.nix
     ./hyprland.nix
     ./steam.nix
-    ./moonlander.nix
+    ./zsa.nix
   ];
 }
