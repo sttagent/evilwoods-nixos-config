@@ -31,7 +31,6 @@ with lib; {
       environment.systemPackages = with pkgs; [
         nushell
         ffmpeg-full
-        protonvpn-gui
         cryptomator
         appimage-run
         distrobox
