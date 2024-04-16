@@ -7,7 +7,6 @@ in
     bottom
     zoxide
     neovim
-    lazygit
     zellij
     atuin
     ripgrep
