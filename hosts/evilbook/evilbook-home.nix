@@ -123,7 +123,7 @@ in
         git = {
           enable = true;
           userName = "Arvydas Ramanauskas";
-          userEmail = "arvydas.ramanauskas@evilwoods.net";
+          userEmail = "711261+sttagent@users.noreply.github.com";
         };
 
         fish = {
