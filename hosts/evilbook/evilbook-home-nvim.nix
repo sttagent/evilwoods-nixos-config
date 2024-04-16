@@ -162,7 +162,7 @@ with builtins; {
         plugin = copilot-lua;
         type = "lua";
         config = ''
-          ${readFile /${nvimConfigDir}/addon-copilot-lua.lua}
+          ${readFile ./${nvimConfigDir}/addon-copilot-lua.lua}
         '';
       }
       {
