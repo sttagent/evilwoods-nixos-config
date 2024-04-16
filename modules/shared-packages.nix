@@ -57,7 +57,6 @@ with lib; {
         element-desktop
         standardnotes
         discord
-        vesktop
         spotify
         signal-desktop
         zoom-us
