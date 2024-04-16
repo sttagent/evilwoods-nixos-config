@@ -67,5 +67,11 @@
         evilroots = import ./hosts/evilroots/evilroots-partition-scheme.nix;
         evilbook = import ./hosts/evilbook/evilbook-partition-scheme.nix;
       };
+
+      devShells.x86_64-linux.default = pkgs.mkShell {
+        nativeBuildInputs = with pkgs; [
+          nixd
+        ];
+      };
     };
 }
