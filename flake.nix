@@ -44,8 +44,11 @@
     , nixos-hardware
     , ...
     } @ inputs:
+    let
+      pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
+    in
     {
-      formatter.x86_64-linux = nixpkgs-unstable.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      formatter.x86_64-linux = pkgs.nixpkgs-fmt;
 
       lib = import ./lib { lib = nixpkgs-unstable.lib; };
 
