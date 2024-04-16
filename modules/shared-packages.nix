@@ -39,7 +39,6 @@ with lib; {
         nil
         nixd
         wl-clipboard
-        keymapp
 
         # Gnome apps
         newsflash
