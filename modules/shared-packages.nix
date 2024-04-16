@@ -65,9 +65,6 @@ with lib; {
         vscode-fhs
         
         android-studio
-
-        # thunderbird-wayland
-        # protonmail-bridge
       ];
     })
   ];
