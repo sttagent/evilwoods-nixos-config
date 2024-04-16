@@ -77,6 +77,7 @@ in
             # "com.raggesilver.BlackBox.desktop"
             "kitty.desktop"
             "io.gitlab.news_flash.NewsFlash.desktop"
+            "standard-notes.desktop"
             "obsidian.desktop"
             "org.gnome.Fractal.desktop"
             "com.valvesoftware.Steam.desktop"
