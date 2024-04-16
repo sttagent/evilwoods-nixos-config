@@ -31,8 +31,6 @@ in
     distrobox
     firefox
     yubioath-flutter
-    nil
-    nixd
     wl-clipboard
     element-desktop
     standardnotes
