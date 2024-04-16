@@ -149,16 +149,8 @@ with builtins; {
         '';
       }
 
-      {
-        plugin = sg-nvim;
-        type = "lua";
-        config = ''
-          require('sg').setup({})
-        '';
-      }
-
       # Nvim cofilot configuration
-      /* {
+      {
         plugin = copilot-lua;
         type = "lua";
         config = ''
