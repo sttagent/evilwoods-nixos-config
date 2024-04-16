@@ -16,7 +16,6 @@ with lib; {
         bat
         eza
         starship
-        zoxide
         fzf
         wget
         git
