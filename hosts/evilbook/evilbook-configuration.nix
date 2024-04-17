@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, thisHost, ... }:
 let
   mainUser = config.evilcfg.mainUser;
 in
@@ -10,6 +10,8 @@ in
   # evilcfg.docker = true;
   # evilcfg.libvirtd = true;
   # evilcfg.enableHyprland = true;
+  
+  networking.hostName = "${thisHost.hostname}";
 
   boot = {
     initrd = {
@@ -43,5 +45,5 @@ in
   # sops.gnupg.sshKeyPaths = [ ];
 
   # Version of NixOS installed from live disk. Needed for backwards compatability.
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = thisHost.stateVersion; # Did you read the comment?
 }
