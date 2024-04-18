@@ -14,10 +14,10 @@ boot:
     nixos-rebuild boot --use-remote-sudo
 
 build:
-    nixos-rebuild build 
+    nixos-rebuild build |& num
 
 upgrade:
     just refresh boot
     
 diff:
-    nix store diff-closures /run/current-system ./result/
+    nvd diff /run/current-system ./result/
