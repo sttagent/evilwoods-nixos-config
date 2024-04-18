@@ -9,11 +9,14 @@ let
       modules = [
         ../modules
         ./common
+        ../homes/common
+
+        ../homes/${evilib.mainUser}
         ./${hostname}
       ] ++ extraModules;
 
       specialArgs = {
-        inherit inputs thisHost;
+        inherit inputs thisHost evilib;
       };
     };
   };

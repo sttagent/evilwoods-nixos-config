@@ -13,7 +13,7 @@ in
   };
 
   config = {
-    users.users = {
+   /*  users.users = {
       ${mainUser} = {
         isNormalUser = true;
         description = "Arvydas Ramanauskas";
@@ -21,7 +21,7 @@ in
         extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
         shell = pkgs.fish;
       };
-    };
+    }; */
   };
 
 

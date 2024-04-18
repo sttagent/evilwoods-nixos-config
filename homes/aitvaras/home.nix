@@ -1,6 +1,6 @@
-{ config, lib, pkgs, inputs, ... }: # os configuration is reachable via nixosConfig
+{ config, lib, pkgs, inputs, evilLib, ... }: # os configuration is reachable via nixosConfig
 let
-  mainUser = config.evilcfg.mainUser;
+  thisUser = "aitvaras";
   hmlib = inputs.home-manager.lib;
   resourceDir = inputs.self.outPath + "/resources";
 in
@@ -9,10 +9,10 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bak";
-    users.${mainUser} = {
+    users.${thisUser} = {
       home = {
-        username = "${mainUser}";
-        homeDirectory = "/home/${mainUser}";
+        username = "${thisUser}";
+        homeDirectory = "/home/${thisUser}";
 
         stateVersion = "24.05";
 
@@ -37,13 +37,13 @@ in
         };
 
         "org/gnome/desktop/background" = {
-          picture-uri = "file:///home/${mainUser}/.config/background";
-          picture-uri-dark = "file:///home/${mainUser}/.config/background";
+          picture-uri = "file:///home/${thisUser}/.config/background";
+          picture-uri-dark = "file:///home/${thisUser}/.config/background";
           picture-options = "zoom";
         };
 
         "org/gnome/desktop/screensaver" = {
-          picture-uri = "file:///home/${mainUser}/.config/background";
+          picture-uri = "file:///home/${thisUser}/.config/background";
         };
 
         "org/gnome/desktop/interface" = {
@@ -204,7 +204,7 @@ in
           shellIntegration.enableFishIntegration = true;
           theme = "Gruvbox Material Dark Hard";
           settings = {
-            font_family = "SauceCodePro Nerd Font Mono";
+            font_family = "Hack Nerd Font";
             wayland_titlebar_color = "background";
           };
         };
@@ -280,8 +280,8 @@ in
 
         firefox = {
           enable = true;
-          profiles."${mainUser}" = {
-            name = "${mainUser}";
+          profiles."${thisUser}" = {
+            name = "${thisUser}";
             search = {
               engines = {
                 kagi = {

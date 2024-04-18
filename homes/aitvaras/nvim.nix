@@ -1,11 +1,11 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  mainUser = config.evilcfg.mainUser;
+  thisUser = "aitvaras";
 
   nvimConfigDir = "../../configfiles/nvim";
 in
 with builtins; {
-  home-manager.users.${mainUser}.programs.neovim = {
+  home-manager.users.${thisUser}.programs.neovim = {
     extraLuaConfig = ''
       ${readFile ./${nvimConfigDir}/init.lua}
     '';
