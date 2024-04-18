@@ -18,6 +18,7 @@ in
       (nerdfonts.override { fonts = [
       "SourceCodePro"
       "JetBrainsMono"
+      "Hack"
       ];})
     ];
 
