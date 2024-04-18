@@ -59,14 +59,7 @@
 
       nixosModules = { };
 
-      nixosConfigurations = import ./hosts {
-        inherit inputs;
-        extraModules = [
-          disko.nixosModules.disko
-          home-manager.nixosModules.home-manager
-          sops-nix.nixosModules.sops
-        ];
-      };
+      nixosConfigurations = import ./hosts { inherit inputs; };
 
       diskoConfigurations = {
         evilroots = import ./hosts/evilroots/evilroots-partition-scheme.nix;
