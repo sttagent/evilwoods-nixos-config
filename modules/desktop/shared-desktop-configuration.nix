@@ -15,7 +15,10 @@ in
 
   config = mkIf desktop {
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "SourceCodePro" ]; })
+      (nerdfonts.override { fonts = [
+      "SourceCodePro"
+      "JetBrainsMono"
+      ];})
     ];
 
     boot = {
