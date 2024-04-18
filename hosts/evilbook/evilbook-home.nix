@@ -125,6 +125,11 @@ in
           delta.enable = true;
           userName = "Arvydas Ramanauskas";
           userEmail = "711261+sttagent@users.noreply.github.com";
+          extraConfig = {
+            core = {
+              autocrlf = "input";
+            };
+          };
         };
         
         lazygit = {
