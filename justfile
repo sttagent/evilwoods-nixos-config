@@ -14,7 +14,7 @@ boot:
     nixos-rebuild boot --use-remote-sudo
 
 build:
-    nixos-rebuild build |& num
+    nixos-rebuild build |& nom
 
 upgrade:
     just refresh boot
