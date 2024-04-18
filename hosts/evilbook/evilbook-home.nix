@@ -108,7 +108,7 @@ in
         gh = {
           enable = true;
           extensions = with pkgs; [
-            # gh-copilot
+            gh-copilot
           ];
           settings = {
             git_protocol = "ssh";
