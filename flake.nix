@@ -15,10 +15,14 @@
   };
 
   inputs = {
-    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
+    nixpkgs-2311.url = "nixpkgs/nixos-23.11";
+
+    home-manager-2311 = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs-2311";
+    };
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -36,10 +40,11 @@
 
   outputs =
     { self
-    , nixpkgs-stable
+    , nixpkgs-2311
     , nixpkgs-unstable
     , disko
     , home-manager
+    , home-manager-2311
     , sops-nix
     , nixos-hardware
     , ...
