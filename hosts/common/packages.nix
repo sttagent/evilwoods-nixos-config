@@ -40,6 +40,7 @@ in
     github-desktop
     vscode-fhs
     android-studio
+    google-chrome
   ] ++ lib.optionals cfg.enableGnome [
     newsflash
     gnome-extension-manager
