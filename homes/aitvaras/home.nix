@@ -104,6 +104,32 @@ in
 
       programs = {
         home-manager.enable = true;
+        
+        helix = {
+          enable = true;
+          settings = {
+              theme = "gruvbox_dark_hard";
+              editor = {
+                whitespace = {
+                  render = "all";
+                };
+                line-number = "relative";
+                lsp.display-messages = true;
+                cursor-shape = {
+                  insert = "bar";
+                  normal = "block";
+                  select = "block";
+                };
+              };
+              keys.normal = {
+              C-g = [":new" ":insert-output lazygit" ":buffer-close" ":redraw"];
+              space.space = "file_picker";
+              space.w = ":w";
+              space.q = ":q";
+              esc = [ "collapse_selection" "keep_primary_selection" ];
+            };
+          };
+        };
 
         gh = {
           enable = true;
