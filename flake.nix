@@ -70,6 +70,7 @@
         name = "nixos-config";
         nativeBuildInputs = with pkgs; [
           nixd
+          nil
           nix-output-monitor
           nvd
         ];
