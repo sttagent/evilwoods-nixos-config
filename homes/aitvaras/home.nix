@@ -129,6 +129,19 @@ in
               esc = [ "collapse_selection" "keep_primary_selection" ];
             };
           };
+          languages = {
+            language = [
+              {
+                name = "nix";
+                indent = {
+                  tab-width = 2;
+                  unit = " ";
+                };
+                auto-format = true;
+                roots = [ "flake.lock" ];
+                formatter.command = "nixpkgs-fmt";
+            }];
+          };
         };
 
         gh = {
