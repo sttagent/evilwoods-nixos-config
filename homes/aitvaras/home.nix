@@ -250,7 +250,9 @@ in
 
         kitty = {
           enable = true;
-          shellIntegration.enableFishIntegration = true;
+          shellIntegration = {
+            enableFishIntegration = true;
+          };
           theme = "Gruvbox Material Dark Hard";
           settings = {
             font_family = "Hack Nerd Font";
