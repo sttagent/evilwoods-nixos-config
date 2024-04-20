@@ -171,6 +171,16 @@ in
           };
         };
         
+        jujutsu = {
+          enable = true;
+          settings = {
+            user = {
+              name = "Arvydas Ramanauskas";
+              email = "aram@ewmail.me";
+            };
+          };
+        };
+        
         lazygit = {
           enable = true;
           settings = {
