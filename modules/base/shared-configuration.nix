@@ -87,8 +87,5 @@ with lib; {
       };
     };
 
-    environment.variables = {
-      EDITOR = "nvim";
-    };
   };
 }
