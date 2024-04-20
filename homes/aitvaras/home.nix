@@ -107,9 +107,11 @@ in
         
         helix = {
           enable = true;
+          defaultEditor = true;
           settings = {
               theme = "gruvbox_dark_hard";
               editor = {
+                auto-save = true;
                 whitespace = {
                   render = "all";
                 };
@@ -122,7 +124,6 @@ in
                 };
               };
               keys.normal = {
-              C-g = [":new" ":insert-output lazygit" ":buffer-close" ":redraw"];
               space.space = "file_picker";
               space.w = ":w";
               space.q = ":q";
