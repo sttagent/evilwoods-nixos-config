@@ -111,12 +111,24 @@ in
           settings = {
               theme = "gruvbox_dark_hard";
               editor = {
+                cursorline = true;
+                bufferline = "multiple";
                 auto-save = true;
+                rulers = [ 120];
+                color-modes = true;
                 whitespace = {
                   render = "all";
                 };
+                indent-guides = {
+                  enable = true;
+                  character = "|";
+                };
                 line-number = "relative";
-                lsp.display-messages = true;
+                lsp = {
+                  display-messages = true;
+                  display-inlay-hints = true;
+                };
+
                 cursor-shape = {
                   insert = "bar";
                   normal = "block";
