@@ -346,17 +346,17 @@ in
           enable = true;
           profiles."${thisUser}" = {
             name = "${thisUser}";
-            search = {
-              engines = {
-                kagi = {
-                  name = "Kagi";
-                  shortName = "kagi";
-                  url = "https://kagi.com/search?q={searchTerms}";
-                };
-              };
-              force = true;
-              default = "Kagi";
-            };
+            # search = {
+            #   engines = {
+            #     kagi = {
+            #       name = "Kagi";
+            #       shortName = "kagi";
+            #       url = "https://kagi.com/search?q={searchTerms}";
+            #     };
+            #   };
+            #   force = true;
+            #   default = "Kagi";
+            # };
             settings = {
               "browser.contentblocking.category" = "strict";
               "gfx.webrender.all" = true;
