@@ -120,8 +120,7 @@ in
                   render = "all";
                 };
                 indent-guides = {
-                  enable = true;
-                  character = "|";
+                  render = true;
                 };
                 line-number = "relative";
                 lsp = {
