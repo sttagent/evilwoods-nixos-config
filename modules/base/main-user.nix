@@ -13,7 +13,7 @@ in
   };
 
   config = {
-   /*  users.users = {
+    /*  users.users = {
       ${mainUser} = {
         isNormalUser = true;
         description = "Arvydas Ramanauskas";

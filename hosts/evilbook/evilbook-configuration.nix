@@ -10,7 +10,7 @@ in
   # evilcfg.docker = true;
   # evilcfg.libvirtd = true;
   # evilcfg.enableHyprland = true;
-  
+
   networking.hostName = "${thisHost.hostname}";
 
   boot = {

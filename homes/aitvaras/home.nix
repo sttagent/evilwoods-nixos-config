@@ -104,37 +104,37 @@ in
 
       programs = {
         home-manager.enable = true;
-        
+
         helix = {
           enable = true;
           defaultEditor = true;
           settings = {
-              theme = "gruvbox_dark_hard";
-              editor = {
-                cursorline = true;
-                bufferline = "multiple";
-                auto-save = true;
-                rulers = [ 120];
-                color-modes = true;
-                whitespace = {
-                  render = "all";
-                };
-                indent-guides = {
-                  render = true;
-                };
-                line-number = "relative";
-                lsp = {
-                  display-messages = true;
-                  display-inlay-hints = true;
-                };
-
-                cursor-shape = {
-                  insert = "bar";
-                  normal = "block";
-                  select = "block";
-                };
+            theme = "gruvbox_dark_hard";
+            editor = {
+              cursorline = true;
+              bufferline = "multiple";
+              auto-save = true;
+              rulers = [ 120 ];
+              color-modes = true;
+              whitespace = {
+                render = "all";
               };
-              keys.normal = {
+              indent-guides = {
+                render = true;
+              };
+              line-number = "relative";
+              lsp = {
+                display-messages = true;
+                display-inlay-hints = true;
+              };
+
+              cursor-shape = {
+                insert = "bar";
+                normal = "block";
+                select = "block";
+              };
+            };
+            keys.normal = {
               space.space = "file_picker";
               space.w = ":w";
               space.q = ":q";
@@ -152,7 +152,8 @@ in
                 auto-format = true;
                 roots = [ "flake.lock" ];
                 formatter.command = "nixpkgs-fmt";
-            }];
+              }
+            ];
           };
         };
 
@@ -182,7 +183,7 @@ in
             };
           };
         };
-        
+
         jujutsu = {
           enable = true;
           settings = {
@@ -192,11 +193,11 @@ in
             };
           };
         };
-        
+
         lazygit = {
           enable = true;
           settings = {
-            git.paging.pager = "delta --dark --paging=never"; 
+            git.paging.pager = "delta --dark --paging=never";
           };
         };
 
@@ -224,7 +225,7 @@ in
 
         zellij = {
           enable = true;
-          # ableFishIntegration = true;
+          enableFishIntegration = true;
           settings = {
             copy_command = "wl-copy";
             mirror_session = true;

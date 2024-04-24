@@ -1,13 +1,13 @@
-{config, pkgs, ...}@args:
-let 
+{ config, pkgs, ... }@args:
+let
   thisUser = "aitvaras";
-in 
+in
 {
   imports = [
     ./home.nix
     ./nvim.nix
   ];
-  
+
   config = {
     users.users = {
       ${thisUser} = {
