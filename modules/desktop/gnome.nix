@@ -14,7 +14,6 @@ with lib; {
 
     environment.systemPackages = with pkgs; [
       gnomeExtensions.appindicator
-      gnomeExtensions.blur-my-shell
       gnomeExtensions.valent
       gnomeExtensions.battery-health-charging
 
