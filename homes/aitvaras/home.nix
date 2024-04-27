@@ -382,6 +382,7 @@ in
             # pylyzer
             ansible-language-server
             nixd
+            nodejs_22
           ];
         };
       };
