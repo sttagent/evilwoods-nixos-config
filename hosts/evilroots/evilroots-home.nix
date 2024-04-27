@@ -285,7 +285,6 @@ in
             yaml-language-server
             pylyzer
             ansible-language-server
-            nodejs_21
             nixd
           ];
         };
