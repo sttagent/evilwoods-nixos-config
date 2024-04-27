@@ -52,6 +52,6 @@ in
     fragments
     fractal
     pika-backup
-    # valent # doesn't build
+    valent # doesn't build
   ];
 }
