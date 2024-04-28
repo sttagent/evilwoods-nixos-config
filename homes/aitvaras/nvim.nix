@@ -14,6 +14,9 @@ with builtins; {
       nvim-web-devicons
       plenary-nvim
       gruvbox-material
+      bufferline-nvim
+      popup-nvim
+      diffview-nvim
 
       # Treesitter configuration
       {
@@ -137,9 +140,6 @@ with builtins; {
           require('Comment').setup({})
         '';
       }
-      bufferline-nvim
-      popup-nvim
-      diffview-nvim
 
       {
         plugin = which-key-nvim;
