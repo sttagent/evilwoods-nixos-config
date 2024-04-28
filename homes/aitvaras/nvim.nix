@@ -17,6 +17,7 @@ with builtins; {
       bufferline-nvim
       popup-nvim
       diffview-nvim
+      trouble-nvim
 
       # Treesitter configuration
       {
