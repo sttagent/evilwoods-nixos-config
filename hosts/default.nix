@@ -9,9 +9,10 @@ let
       modules = [
         ../modules
         ./common
-        ../homes/common
+        ../users/common
 
-        ../homes/${evilib.mainUser}
+        ../users/${evilib.mainUser}
+        ../users/${evilib.mainUser}-${hostname}
         ./${hostname}
       ] ++ extraModules;
 
