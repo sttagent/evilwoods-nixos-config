@@ -83,6 +83,7 @@ in
             "com.valvesoftware.Steam.desktop"
             "discord.desktop"
             "com.yubico.authenticator.desktop"
+            "android-studio.desktop"
             "code.desktop"
             "com.mattjakeman.ExtensionManager.desktop"
             "com.github.tchx84.Flatseal.desktop"
