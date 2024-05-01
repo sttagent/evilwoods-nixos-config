@@ -41,6 +41,7 @@ in
     vscode-fhs
     android-studio
     google-chrome
+    zed-editor
   ] ++ lib.optionals cfg.enableGnome [
     newsflash
     gnome-extension-manager
