@@ -1,7 +1,4 @@
 { config, lib, pkgs, thisHost, ... }:
-let
-  mainUser = config.evilcfg.mainUser;
-in
 {
   evilcfg.enableGnome = true;
   #evilcfg.steam = true;
@@ -12,6 +9,37 @@ in
   # evilcfg.enableHyprland = true;
 
   networking.hostName = "${thisHost.hostname}";
+
+  networking.networkmanager.ensureProfiles = {
+    environmentFiles = [ config.sops.secrets.wifi_pass.path ];
+    profiles = {
+      evilwoods-5G = {
+        connection = {
+          id = "evilwoods-5G";
+          uuid = "006294ff-83a7-44e1-ac14-49c08b44cc05";
+          type = "wifi";
+          interface-name = "wlp1s0";
+        };
+        wifi = {
+          mode = "infrastructure";
+          ssid = "evilwoods-5G";
+        };
+        wifi-security = {
+          auth-alg = "open";
+          key-mgmt = "wpa-psk";
+          psk = "@wifi_pass@";
+        };
+        ipv4 = {
+          method = "auto";
+        };
+        ipv6 = {
+          addr-gen-mode = "default";
+          method = "auto";
+        };
+        proxy = { };
+      };
+    };
+  };
 
   boot = {
     initrd = {
