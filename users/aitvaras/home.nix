@@ -3,6 +3,7 @@ let
   thisUser = "aitvaras";
   hmlib = inputs.home-manager.lib;
   resourceDir = inputs.self.outPath + "/resources";
+  configDir = inputs.self.outPath + "/configfiles";
 in
 {
   home-manager = {
@@ -19,6 +20,9 @@ in
         file = {
           ".config/background" = {
             source = resourceDir + "/wallpapers/background1.jpg";
+          };
+          ".config/monitors.xml" = {
+            source = configDir + "/monitors.xml";
           };
         };
       };
