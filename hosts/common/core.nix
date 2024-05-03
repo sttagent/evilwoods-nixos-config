@@ -8,7 +8,7 @@
     };
 
     secrets = {
-      "wifi_pass" = { };
+      "network-manager.env" = { };
     };
   };
 }

@@ -11,7 +11,7 @@
   networking.hostName = "${thisHost.hostname}";
 
   networking.networkmanager.ensureProfiles = {
-    environmentFiles = [ config.sops.secrets.wifi_pass.path ];
+    environmentFiles = [ config.sops.secrets."network-manager.env".path ];
     profiles = {
       evilwoods-5G = {
         connection = {
@@ -19,6 +19,7 @@
           uuid = "006294ff-83a7-44e1-ac14-49c08b44cc05";
           type = "wifi";
           interface-name = "wlp1s0";
+          autoconnect = true;
         };
         wifi = {
           mode = "infrastructure";
@@ -27,7 +28,7 @@
         wifi-security = {
           auth-alg = "open";
           key-mgmt = "wpa-psk";
-          psk = "@wifi_pass@";
+          psk = "$evilwoods_psk";
         };
         ipv4 = {
           method = "auto";
