@@ -47,7 +47,6 @@ in
     zed-editor
     protonmail-desktop
   ] ++ lib.optionals cfg.enableGnome [
-    newsflash
     gnome-extension-manager
     gnome.gnome-tweaks
     gnome.dconf-editor
