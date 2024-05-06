@@ -1,7 +1,8 @@
-{ config, lib, pkgs, inputs, evilLib, ... }: # os configuration is reachable via nixosConfig
+{ pkgs, inputs, ... }: # os configuration is reachable via nixosConfig
 let
   thisUser = "aitvaras";
   hmlib = inputs.home-manager.lib;
+  hmlibgv = hmlib.hm.gvariant;
   resourceDir = inputs.self.outPath + "/resources";
   configDir = inputs.self.outPath + "/configfiles";
 in
@@ -27,17 +28,17 @@ in
         };
       };
 
-      dconf.settings = with hmlib.hm.gvariant; {
+      dconf.settings = {
         "system/locale" = {
           region = "sv_SE.UTF-8";
         };
 
         "com/raggesilver/BlackBox" = {
           floating-controls = true;
-          floating-controls-hover-area = mkUint32 10;
+          floating-controls-hover-area = hmlibgv.mkUint32 10;
           remember-window-size = true;
           show-headerbar = false;
-          terminal-padding = mkTuple [ (mkUint32 10) (mkUint32 10) (mkUint32 10) (mkUint32 10) ];
+          terminal-padding = with hmlibgv; mkTuple [ (mkUint32 10) (mkUint32 10) (mkUint32 10) (mkUint32 10) ];
         };
 
         "org/gnome/desktop/background" = {
@@ -57,11 +58,11 @@ in
         };
 
         "org/gnome/desktop/session" = {
-          idle-delay = mkUint32 900;
+          idle-delay = hmlibgv.mkUint32 900;
         };
 
         "org/gnome/desktop/input-sources" = {
-          sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "se" ]) ];
+          sources = with hmlibgv; [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "se" ]) ];
         };
 
         "org/gnome/settings-daemon/plugins/power" = {
@@ -229,7 +230,6 @@ in
 
         zellij = {
           enable = true;
-          enableFishIntegration = true;
           settings = {
             copy_command = "wl-copy";
             mirror_session = true;
