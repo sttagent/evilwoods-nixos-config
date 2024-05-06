@@ -11,6 +11,7 @@ in
     atuin
     ripgrep
     fd
+    sd
     bat
     eza
     fzf
