@@ -1,9 +1,6 @@
 default:
     just --list
 
-init-shell:
-    nix shell nixpkgs#just nixpkgs#gum --experimental-features 'nix-command flakes'
-
 refresh:
     nix flake update --commit-lock-file
     
