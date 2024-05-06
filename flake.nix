@@ -74,6 +74,7 @@
           nix-output-monitor
           nvd
           sops
+          nixpkgs-fmt
           ssh-to-age
         ];
       };
