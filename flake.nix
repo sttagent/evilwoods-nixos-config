@@ -73,6 +73,8 @@
           nil
           nix-output-monitor
           nvd
+          sops
+          ssh-to-age
         ];
       };
     };
