@@ -8,6 +8,10 @@
   # evilcfg.libvirtd = true;
   # evilcfg.enableHyprland = true;
 
+  sops.secrets = {
+    "network-manager.env" = { };
+  };
+
   networking.hostName = "${thisHost.hostname}";
 
   networking.networkmanager.ensureProfiles = {
@@ -56,6 +60,10 @@
   };
 
   programs.nix-ld = {
+    enable = true;
+  };
+
+  services.openssh = {
     enable = true;
   };
 

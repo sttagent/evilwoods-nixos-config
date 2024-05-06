@@ -4,11 +4,9 @@
     defaultSopsFile = ../../secrets/secrets.yaml;
     validateSopsFiles = false;
     age = {
-      keyFile = "/home/aitvaras/.config/sops/age/keys.txt";
-    };
-
-    secrets = {
-      "network-manager.env" = { };
+      sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = true;
     };
   };
 }
