@@ -44,6 +44,7 @@ in
     android-studio
     google-chrome
     zed-editor
+    protonmail-desktop
   ] ++ lib.optionals cfg.enableGnome [
     newsflash
     gnome-extension-manager
