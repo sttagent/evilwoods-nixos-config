@@ -21,7 +21,9 @@ in
     gnupg
     bottom
     gh
+    dust
     just
+    pinentry-curses
   ] ++ lib.optionals cfg.desktop [
     nushell
     ffmpeg-full
@@ -45,7 +47,6 @@ in
   ] ++ lib.optionals cfg.enableGnome [
     newsflash
     gnome-extension-manager
-    blackbox-terminal
     gnome.gnome-tweaks
     gnome.dconf-editor
     dconf
