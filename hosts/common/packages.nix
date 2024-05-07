@@ -47,6 +47,7 @@ in
     zed-editor
     protonmail-desktop
   ] ++ lib.optionals cfg.enableGnome [
+    bottles
     flare-signal
     gnome-extension-manager
     gnome.gnome-tweaks
