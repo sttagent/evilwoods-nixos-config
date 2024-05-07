@@ -206,6 +206,9 @@ in
             git.paging.pager = "delta --dark --paging=never";
           };
         };
+        nushell = {
+          enable = true;
+        };
 
         fish = {
           enable = true;
@@ -282,16 +285,19 @@ in
         atuin = {
           enable = true;
           enableFishIntegration = true;
+          enableNushellIntegration = true;
         };
 
         starship = {
           enable = true;
           enableFishIntegration = true;
+          enableNushellIntegration = true;
         };
 
         zoxide = {
           enable = true;
           enableFishIntegration = true;
+          enableNushellIntegration = true;
         };
 
         eza = {
