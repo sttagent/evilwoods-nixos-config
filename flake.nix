@@ -68,7 +68,7 @@
 
       devShells.x86_64-linux.default = pkgs.mkShell {
         name = "nixos-config";
-        nativeBuildInputs = with pkgs; [
+        packages = with pkgs; [
           nixd
           nil
           nix-output-monitor
