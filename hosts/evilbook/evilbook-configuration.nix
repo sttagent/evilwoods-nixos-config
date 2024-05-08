@@ -63,10 +63,6 @@
     enable = true;
   };
 
-  services.openssh = {
-    enable = true;
-  };
-
   # LTU VPN
   # services.strongswan.enable = true;
   # networking.networkmanager.enableStrongSwan = true;

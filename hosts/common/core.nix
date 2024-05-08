@@ -12,4 +12,8 @@
   
   time.timeZone = "Europe/Stockholm";
   
+  services.openssh = {
+    enable = true;
+  };
+
 }

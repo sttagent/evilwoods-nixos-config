@@ -3,7 +3,6 @@ let
   mainUser = config.evilcfg.mainUser;
 in
 {
-  evilcfg.ssh = true;
   evilcfg.enableGnome = true;
   evilcfg.nvidia = true;
   #evilcfg.steam = true;
