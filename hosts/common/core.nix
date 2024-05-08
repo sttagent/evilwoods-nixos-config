@@ -9,4 +9,7 @@
       generateKey = true;
     };
   };
+  
+  time.timeZone = "Europe/Stockholm";
+  
 }
