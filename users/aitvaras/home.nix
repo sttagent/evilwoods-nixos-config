@@ -427,12 +427,12 @@ in
         };
       };
 
-      /* xdg.configFile = {
+      xdg.configFile = {
         nvim = {
-          source = ../../dotconfig/nvim;
+          source = ../../configfiles/lazynvim;
           recursive = true;
         };
-        }; */
+      };
     };
   };
 }

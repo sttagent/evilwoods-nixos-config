@@ -5,7 +5,7 @@ in
 {
   imports = [
     ./home.nix
-    ./nvim.nix
+    # ./nvim.nix
   ];
 
   sops.secrets.aitvaras-password.neededForUsers = true;
