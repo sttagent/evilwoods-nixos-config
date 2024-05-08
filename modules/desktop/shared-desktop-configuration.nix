@@ -3,11 +3,11 @@
 with lib;
 
 let
-  desktop = config.evilcfg.desktop;
-  mainUser = config.evilcfg.mainUser;
+  desktop = config.evilwoods.desktop;
+  mainUser = config.evilwoods.mainUser;
 in
 {
-  options.evilcfg = {
+  options.evilwoods = {
     # If machine will have a desktop or not
     desktop = mkEnableOption "Gnome Deskop";
   };

@@ -3,13 +3,13 @@
 with lib;
 
 let
-  mainUser = config.evilcfg.mainUser;
+  mainUser = config.evilwoods.mainUser;
 in
 {
-  options.evilcfg.mainUser = mkOption {
+  options.evilwoods.mainUser = mkOption {
     type = types.str;
     default = "aitvaras";
-    description = "The primary user of evilcfg.";
+    description = "The primary user of evilwoods.";
   };
 
   config = {

@@ -1,6 +1,6 @@
 { config, lib, pkgs, inputs, ... }: # os configuration is reachable via nixosConfig
 let
-  mainUser = config.evilcfg.mainUser;
+  mainUser = config.evilwoods.mainUser;
   hmlib = inputs.home-manager.lib;
   resourceDir = inputs.self.outPath + "/resources";
 in

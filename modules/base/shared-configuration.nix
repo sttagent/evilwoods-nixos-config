@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-  mainUser = config.evilcfg.mainUser;
+  mainUser = config.evilwoods.mainUser;
 in
 with lib; {
   config = {

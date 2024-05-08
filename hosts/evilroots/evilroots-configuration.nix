@@ -1,16 +1,16 @@
 { config, lib, pkgs, ... }:
 let
-  mainUser = config.evilcfg.mainUser;
+  mainUser = config.evilwoods.mainUser;
 in
 {
-  evilcfg.enableGnome = true;
-  evilcfg.nvidia = true;
-  #evilcfg.steam = true;
-  evilcfg.zsa = true;
-  evilcfg.podman = true;
-  evilcfg.docker = true;
-  evilcfg.libvirtd = true;
-  # evilcfg.enableHyprland = true;
+  evilwoods.enableGnome = true;
+  evilwoods.nvidia = true;
+  #evilwoods.steam = true;
+  evilwoods.zsa = true;
+  evilwoods.podman = true;
+  evilwoods.docker = true;
+  evilwoods.libvirtd = true;
+  # evilwoods.enableHyprland = true;
 
   boot = {
     initrd = {

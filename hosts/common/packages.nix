@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }:
 let
-  cfg = config.evilcfg;
+  cfg = config.evilwoods;
 in
 {
   config.environment.systemPackages = with pkgs; [

@@ -2,12 +2,12 @@
 
 with lib;
 let
-  cfg = config.evilcfg;
+  cfg = config.evilwoods;
 in
 {
-  options.evilcfg.podman = mkEnableOption "Podman setup";
-  options.evilcfg.docker = mkEnableOption "Docker setup";
-  options.evilcfg.libvirtd = mkEnableOption "Libvirtd and virt-manager";
+  options.evilwoods.podman = mkEnableOption "Podman setup";
+  options.evilwoods.docker = mkEnableOption "Docker setup";
+  options.evilwoods.libvirtd = mkEnableOption "Libvirtd and virt-manager";
 
   config = mkMerge [
     (mkIf cfg.podman {

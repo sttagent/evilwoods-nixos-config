@@ -5,11 +5,11 @@
 with lib;
 
 let
-  zsa = config.evilcfg.zsa;
+  zsa = config.evilwoods.zsa;
 in
 {
 
-  options.evilcfg.zsa = mkEnableOption "ZSA";
+  options.evilwoods.zsa = mkEnableOption "ZSA";
 
   config = mkIf zsa {
 

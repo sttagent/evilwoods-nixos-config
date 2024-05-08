@@ -1,12 +1,12 @@
 { config, pkgs, lib, ... }:
 let
-  cfg = config.evilcfg;
+  cfg = config.evilwoods;
 in
 with lib; {
-  options.evilcfg.enableGnome = mkEnableOption "Gnome desktop environment";
+  options.evilwoods.enableGnome = mkEnableOption "Gnome desktop environment";
 
   config = mkIf cfg.enableGnome {
-    evilcfg.desktop = true;
+    evilwoods.desktop = true;
 
     environment.gnome.excludePackages = with pkgs; [
       epiphany

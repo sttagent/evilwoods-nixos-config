@@ -1,6 +1,6 @@
 { lib, pkgs, config, ... }:
 let
-  mainUser = config.evilcfg.mainUser;
+  mainUser = config.evilwoods.mainUser;
   hyprConfigDir = "../../configfiles/hypr";
 in
 with builtins; {

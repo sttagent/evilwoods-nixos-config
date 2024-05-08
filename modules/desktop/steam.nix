@@ -3,11 +3,11 @@
 with lib;
 
 let
-  desktop = config.evilcfg.desktop;
-  steam = config.evilcfg.steam;
+  desktop = config.evilwoods.desktop;
+  steam = config.evilwoods.steam;
 in
 {
-  options.evilcfg.steam = mkEnableOption "Steam";
+  options.evilwoods.steam = mkEnableOption "Steam";
 
   config = mkIf (desktop && steam) {
     programs.steam.enable = true;

@@ -1,16 +1,16 @@
 { lib, pkgs, config, ... }:
 with lib;
 let
-  cfg = config.evilcfg;
+  cfg = config.evilwoods;
 in
 {
-  options.evilcfg = {
+  options.evilwoods = {
     enableHyprland = mkEnableOption "Hyprland window manager";
   };
 
   config = mkMerge [
     (mkIf cfg.enableHyprland {
-      evilcfg.desktop = true;
+      evilwoods.desktop = true;
       programs.hyprland = {
         enable = true;
         xwayland.enable = true;

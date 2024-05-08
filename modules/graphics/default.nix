@@ -3,11 +3,11 @@
 with lib;
 
 let
-  nvidia = config.evilcfg.nvidia;
-  desktop = config.evilcfg.desktop;
+  nvidia = config.evilwoods.nvidia;
+  desktop = config.evilwoods.desktop;
 in
 {
-  options.evilcfg.nvidia = mkEnableOption "nvidia";
+  options.evilwoods.nvidia = mkEnableOption "nvidia";
 
   config = mkIf nvidia {
     services.xserver = mkIf nvidia {
