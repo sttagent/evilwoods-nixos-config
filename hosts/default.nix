@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  evilib = import ../lib { inherit (inputs.nixpkgs-unstable) lib; };
+  evilib = inputs.self.lib;
 
   mkHost = { hostname, users ? [ ], nixpkgs, stateVersion, extraModules ? [ ], ... } @ thisHost: {
     name = "${hostname}";
