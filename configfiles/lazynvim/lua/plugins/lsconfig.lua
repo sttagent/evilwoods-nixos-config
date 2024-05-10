@@ -5,7 +5,10 @@ return {
       servers = {
         nixd = {
           mason = false,
-        }
+        },
+        hls = {
+          mason = false,
+        },
       }
     }
   }
