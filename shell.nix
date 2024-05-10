@@ -21,6 +21,7 @@
       age
       ssh-to-age
       sops
+      bitwarden-cli
     ];
 
     shellHook = ''
