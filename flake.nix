@@ -67,7 +67,7 @@
       };
 
       devShells.x86_64-linux.default = pkgs.mkShell {
-        name = "nixos-config";
+        name = "evilwoods-nixos-config-env";
         packages = with pkgs; [
           nixd
           nil
