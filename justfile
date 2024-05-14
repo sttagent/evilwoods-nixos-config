@@ -34,3 +34,7 @@ save-age-key:
     mkdir -p ~/.config/sops/age/
     touch ~/.config/sops/age/keys.txt
     bw get password evilwoods-nixos-sops | tee ~/.config/sops/age/keys.txt
+
+install-nixos host:
+    nixos-install --no-root-password --flake .#{{host}}
+
