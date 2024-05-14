@@ -3,7 +3,7 @@
     <logicalmonitor>
       <x>2560</x>
       <y>260</y>
-      <scale>1</scale>
+      <scale>1.25</scale>
       <monitor>
         <monitorspec>
           <connector>eDP-1</connector>
