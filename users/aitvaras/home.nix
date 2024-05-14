@@ -80,6 +80,9 @@ in
         };
 
         "org/gnome/shell" = {
+          app-switcher = {
+            current-workspace-only = true;
+          };
           favorite-apps = [
             "firefox.desktop"
             "org.gnome.Nautilus.desktop"
@@ -437,3 +440,4 @@ in
     };
   };
 }
+
