@@ -79,10 +79,11 @@ in
           workspaces-only-on-primary = true;
         };
 
+        "org/gnome/shell/app-switcher" = {
+          current-workspace-only = true;
+        };
+
         "org/gnome/shell" = {
-          app-switcher = {
-            current-workspace-only = true;
-          };
           favorite-apps = [
             "firefox.desktop"
             "org.gnome.Nautilus.desktop"
