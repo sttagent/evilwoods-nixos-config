@@ -70,6 +70,10 @@ in
         };
 
         "org/gnome/mutter" = {
+          experimental-features = [
+            "scale-monitor-framebuffer"
+            "variable-refresh-rate"
+          ];
           dynamic-workspaces = true;
           edge-tiling = true;
           workspaces-only-on-primary = true;
