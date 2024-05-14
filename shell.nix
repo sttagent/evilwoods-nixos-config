@@ -22,6 +22,7 @@
       ssh-to-age
       sops
       bitwarden-cli
+      neovim
     ];
 
     shellHook = ''
