@@ -27,3 +27,6 @@ gen-ssh-keys:
     ssh-keygen -A -f /mnt
     just gen-age-key
 
+gen-age-pub-key:
+    ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub
+
