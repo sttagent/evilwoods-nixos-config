@@ -18,3 +18,7 @@ upgrade:
     
 diff:
     nvd diff /run/current-system ./result/
+
+format-disk host:
+    nix run github:nix-community/disko -- --mode disko --flake .#{{host}}
+
