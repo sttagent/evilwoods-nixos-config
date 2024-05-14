@@ -22,3 +22,8 @@ diff:
 format-disk host:
     nix run github:nix-community/disko -- --mode disko --flake .#{{host}}
 
+gen-ssh-keys:
+    mkdir -p /mnt/etc/ssh
+    ssh-keygen -A -f /mnt
+    just gen-age-key
+
