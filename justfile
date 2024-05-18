@@ -25,7 +25,7 @@ format-disk host:
 gen-ssh-keys:
     mkdir -p /mnt/etc/ssh
     ssh-keygen -A -f /mnt
-    just gen-age-key
+    just gen-age-pub-key
 
 gen-age-pub-key:
     ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub
