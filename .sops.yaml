@@ -6,7 +6,7 @@ keys:
   - &users:
     - &aitvaras age1fkllez8yn8tnqyrkstysdu3sg8dumzxe3jt2mkz9ls8sm8c0ddjsd2rvaq
   - &hosts:
-    - &evilbook age1my4xh5mk3ajngyz3ac6wctjctujcvqc52ka36qva96p03pkceu2q8u0dt2
+    - &evilbook age16800jjer57aj5an0kqwl8q8l97w88ehlyjwc8pp3luaexvqnpe4suj503k
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
