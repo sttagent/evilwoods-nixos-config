@@ -42,7 +42,8 @@ in
     zoom-us
     github-desktop
     vscode-fhs
-    android-studio
+    # android-studio
+    androidStudioPackages.beta
     google-chrome
     zed-editor
     protonmail-desktop
