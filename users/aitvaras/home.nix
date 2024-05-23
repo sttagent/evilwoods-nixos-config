@@ -33,6 +33,10 @@ in
           region = "sv_SE.UTF-8";
         };
 
+        "org/gtk/gtk4/settings/file-chooser" = {
+          show-hidden = true;
+        };
+
         "com/raggesilver/BlackBox" = {
           floating-controls = true;
           floating-controls-hover-area = hmlibgv.mkUint32 10;
