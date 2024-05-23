@@ -423,10 +423,6 @@ in
             gnumake
             gcc
             lua-language-server
-            yaml-language-server
-            # pylyzer
-            ansible-language-server
-            nixd
             nodejs_22
           ];
         };
