@@ -38,3 +38,6 @@ save-age-key:
 install-nixos host:
     nixos-install --no-root-password --flake .#{{host}}
 
+config-git:
+    git config user.name "Arvydas Ramanauskas"
+    git config user.email "711261+sttagent@users.noreply.github.com"
