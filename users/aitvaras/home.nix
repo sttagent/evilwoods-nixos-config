@@ -20,7 +20,7 @@ in
 
         file = {
           ".config/background" = {
-            source = resourceDir + "/wallpapers/background1.jpg";
+            source = resourceDir + "/wallpapers/background2.jpg";
           };
           ".config/monitors.xml" = {
             source = configDir + "/monitors.xml";
