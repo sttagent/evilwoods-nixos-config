@@ -17,7 +17,7 @@ in
       gnomeExtensions.valent
       gnomeExtensions.battery-health-charging
       gnomeExtensions.blur-my-shell
-
+      gnomeExtensions.dash-to-dock
     ];
 
 
