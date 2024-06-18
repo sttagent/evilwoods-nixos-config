@@ -46,6 +46,7 @@ in
     google-chrome
     zed-editor
     protonmail-desktop
+    proton-pass
   ] ++ lib.optionals cfg.enableGnome [
     bottles
     flare-signal
