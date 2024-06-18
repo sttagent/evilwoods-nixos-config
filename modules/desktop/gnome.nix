@@ -2,10 +2,10 @@
 let
   cfg = config.evilwoods;
 in
-with lib; {
-  options.evilwoods.enableGnome = mkEnableOption "Gnome desktop environment";
+{
+  options.evilwoods.enableGnome = lib.mkEnableOption "Gnome desktop environment";
 
-  config = mkIf cfg.enableGnome {
+  config = lib.mkIf cfg.enableGnome {
     evilwoods.desktop = true;
 
     environment.gnome.excludePackages = with pkgs; [
