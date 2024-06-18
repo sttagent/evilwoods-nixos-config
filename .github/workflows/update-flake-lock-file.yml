@@ -14,3 +14,5 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@main
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@main
+        id: update
+      - run: "gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }}"
