@@ -30,10 +30,12 @@ gen-ssh-keys:
 gen-age-pub-key:
     ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub
 
-save-age-key:
+save-age-key username password:
+    #!/usr/bin/env bash
     mkdir -p ~/.config/sops/age/
     touch ~/.config/sops/age/keys.txt
-    bw get password evilwoods-nixos-sops | tee ~/.config/sops/age/keys.txt
+    session_key=$(bw login {{username}} {{password}} --raw)
+    bw get password evilwoods-nixos-sops --session "$session_key" | tee ~/.config/sops/age/keys.txt
 
 install-nixos host:
     nixos-install --no-root-password --flake .#{{host}}
