@@ -17,6 +17,7 @@ in
     fonts.packages = with pkgs; [
       (nerdfonts.override {
         fonts = [
+          "CommitMono"
           "SourceCodePro"
           "JetBrainsMono"
           "Hack"
@@ -49,7 +50,7 @@ in
       xwayland.enable = true;
       gnupg.agent = {
         enable = true;
-         enableSSHSupport = true;
+        enableSSHSupport = true;
       };
     };
 
