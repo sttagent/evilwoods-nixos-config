@@ -66,7 +66,7 @@ in
         };
 
         "org/gnome/desktop/input-sources" = {
-          sources = with hmlibgv; [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "se" ]) (mkTuple [ "xkb" "us+colemak_dh"])];
+          sources = with hmlibgv; [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "se" ]) (mkTuple [ "xkb" "us+colemak_dh" ]) ];
         };
 
         "org/gnome/settings-daemon/plugins/power" = {
