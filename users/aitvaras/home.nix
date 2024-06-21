@@ -286,7 +286,7 @@ in
           };
           theme = "Gruvbox Material Dark Hard";
           settings = {
-            font_family = "Hack Nerd Font";
+            font_family = "Commit Mono Nerd Font";
             wayland_titlebar_color = "background";
           };
         };
