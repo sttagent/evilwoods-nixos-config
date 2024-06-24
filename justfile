@@ -25,10 +25,12 @@ format-disk host:
 gen-ssh-keys:
     mkdir -p /mnt/etc/ssh
     ssh-keygen -A -f /mnt
-    just gen-age-pub-key
 
-gen-age-pub-key:
-    ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub
+gen-age-pub-key host:
+    #!/usr/bin/env bash
+    age_pub_key=$(ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub)
+    sed "s/\(^ \+- &{{host}} \).*/\1$age_pub_key/" -i .sops.yaml
+    sops updatekeys -y sescrets/secrets.yaml
 
 save-age-key username password:
     #!/usr/bin/env bash
