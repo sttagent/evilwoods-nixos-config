@@ -43,5 +43,11 @@ install-nixos host:
     nixos-install --no-root-password --flake .#{{host}}
 
 config-git:
+    #!/usr/bin/env bash
+    echo | tee ~/.ssh/config <<- EndOfMessage
+    Host *
+        IdentitiesOnly yes
+        IdentityFile ~/.ssh/id_ed25519_sk_rk_yubikey2
+    EndOfMessage
     git config user.name "Arvydas Ramanauskas"
     git config user.email "711261+sttagent@users.noreply.github.com"
