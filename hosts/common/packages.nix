@@ -42,8 +42,6 @@ in
     zoom-us
     github-desktop
     vscode-fhs
-    android-studio
-    jetbrains-toolbox
     google-chrome
     zed-editor
     protonmail-desktop
