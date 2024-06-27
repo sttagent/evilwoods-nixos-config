@@ -20,17 +20,17 @@ diff:
     nvd diff /run/current-system ./result/
 
 format-disk host:
-    nix run github:nix-community/disko -- --mode disko --flake .#{{host}}
+    sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko --flake .#{{host}}
 
 gen-ssh-keys:
-    mkdir -p /mnt/etc/ssh
-    ssh-keygen -A -f /mnt
+    sudo mkdir -p /mnt/etc/ssh
+    sudo ssh-keygen -A -f /mnt
 
 gen-age-pub-key host:
     #!/usr/bin/env bash
     age_pub_key=$(ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub)
     sed "s/\(^ \+- &{{host}} \).*/\1$age_pub_key/" -i .sops.yaml
-    sops updatekeys -y sescrets/secrets.yaml
+    sops updatekeys -y ./secrets/secrets.yaml
 
 save-age-key username password:
     #!/usr/bin/env bash
@@ -40,9 +40,18 @@ save-age-key username password:
     bw get password evilwoods-nixos-sops --session "$session_key" | tee ~/.config/sops/age/keys.txt
 
 install-nixos host:
-    nixos-install --no-root-password --flake .#{{host}}
+    sudo nixos-install --no-root-password --flake .#{{host}}
 
-config-git:
+setup-nixos host username password:
+    just config-env
+    just format-disk {{host}}
+    just gen-ssh-keys
+    just save-age-key {{username}} {{password}}
+    just gen-age-pub-key {{host}}
+    just install-nixos {{host}}
+
+
+config-env:
     #!/usr/bin/env bash
     echo | tee ~/.ssh/config <<- EndOfMessage
     Host *
