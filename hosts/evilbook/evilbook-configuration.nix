@@ -70,13 +70,6 @@
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 
-  # sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  # sops.defaultSopsFormat = "yaml";
-  # sops.secrets.example-key = { };
-  # sops.secrets."myservice/my_subdir/my_secret" = { };
-  # sops.age.keyFile = /home/${mainUser}/.config/sops/age/keys.txt;
-  # sops.gnupg.sshKeyPaths = [ ];
-
   # Version of NixOS installed from live disk. Needed for backwards compatability.
   system.stateVersion = thisHost.stateVersion; # Did you read the comment?
 }
