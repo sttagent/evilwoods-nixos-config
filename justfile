@@ -47,6 +47,7 @@ config-git:
     echo | tee ~/.ssh/config <<- EndOfMessage
     Host *
         IdentitiesOnly yes
+        IdentityAgent none
         IdentityFile ~/.ssh/id_ed25519_sk_rk_yubikey2
     EndOfMessage
     git config user.name "Arvydas Ramanauskas"
