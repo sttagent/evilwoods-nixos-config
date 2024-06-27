@@ -8,3 +8,10 @@ sudo nix --extra-experimental-features 'nix-command flakes' run github:nix-commu
 ```bash
 sudo nixos-install --no-root-password --flake github:sttagent/evilwoods-nixos-config#<host>
 ```
+
+### Notes
+```bash
+git -c core.sshCommand='ssh -o StrictHostKeyChecking=accept-new' clone ...
+```
+```
+```
