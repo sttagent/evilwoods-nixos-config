@@ -1,16 +1,10 @@
-{ config, lib, pkgs, ... }:
-let
-  mainUser = config.evilwoods.mainUser;
-in
+{ config, lib, pkgs, thisHost, ... }:
 {
-  evilwoods.enableGnome = true;
-  evilwoods.nvidia = true;
-  #evilwoods.steam = true;
-  evilwoods.zsa = true;
   evilwoods.podman = true;
   evilwoods.docker = true;
   evilwoods.libvirtd = true;
-  # evilwoods.enableHyprland = true;
+
+  networking.hostName = thisHost;
 
   boot = {
     initrd = {
@@ -33,29 +27,17 @@ in
     enable = true;
   };
 
-  fileSystems."/home/${mainUser}/Storage" = {
+  fileSystems."/home/aitvaras/Storage" = {
     device = "/dev/disk/by-partlabel/disk-data-home";
     fsType = "btrfs";
-    options = [ "subvol=storage" "nocompress" "noatime" "nodatacow" ];
+    options = [ "subvol=storage" "compress=1" ];
   };
-
-  # LTU VPN
-  services.strongswan.enable = true;
-  networking.networkmanager.enableStrongSwan = true;
-
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
   hardware.enableRedistributableFirmware = lib.mkDefault true;
   # Use the systemd-boot EFI boot loader.
-
-  # sops.defaultSopsFile = ../../secrets/secrets.yaml;
-  # sops.defaultSopsFormat = "yaml";
-  # sops.secrets.example-key = { };
-  # sops.secrets."myservice/my_subdir/my_secret" = { };
-  # sops.age.keyFile = /home/${mainUser}/.config/sops/age/keys.txt;
-  # sops.gnupg.sshKeyPaths = [ ];
 
   # Version of NixOS installed from live disk. Needed for backwards compatability.
   system.stateVersion = "24.05"; # Did you read the comment?

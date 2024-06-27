@@ -35,4 +35,15 @@ builtins.listToAttrs (mkHosts [
       inputs.sops-nix.nixosModules.sops
     ];
   }
+
+  {
+    hostname = "evilcloud";
+    nixpkgs = inputs.nixpkgs-2405;
+    stateVersion = "24.05";
+    extraModules = [
+      inputs.disko.nixosModules.disko
+      inputs.home-manager-2405.nixosModules.home-manager
+      inputs.sops-nix.nixosModules.sops
+    ];
+  }
 ])
