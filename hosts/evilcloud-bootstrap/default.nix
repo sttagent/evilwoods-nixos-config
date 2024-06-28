@@ -2,7 +2,7 @@
 {
   imports = [
     ../common/core.nix
-    ../evilcloud/evilcloud-partition-scheme.nix
+    (import ../evilcloud/evilcloud-partition-scheme.nix { })
     ../evilcloud/evilcloud-configuration.nix
   ];
 
