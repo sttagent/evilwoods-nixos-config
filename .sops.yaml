@@ -7,7 +7,7 @@ keys:
     - &aitvaras age1fkllez8yn8tnqyrkstysdu3sg8dumzxe3jt2mkz9ls8sm8c0ddjsd2rvaq
   - &hosts:
     - &evilbook age17kp4wasxmy3r0tz2au593pwh4s2lyt4z42vpwhler0jsrw2fh3vqz29psw
-    - &evilcloud age15ecems8vfqzqj0rwujg8uewtrtgege395d2cs9msucq7uvdw7saqs0nr2m
+    - &evilcloud age1vrsedwmyr3f4n7x8e0l9zedc9dukje9y03w6sdajkcp5gcd2sc2sna9aj6
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
