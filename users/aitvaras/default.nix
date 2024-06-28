@@ -14,6 +14,8 @@ in
   users.users = {
     ${thisUser} = {
       isNormalUser = true;
+      createHome = true;
+      home = "/home/${thisUser}";
       description = "Arvydas Ramanauskas";
       hashedPasswordFile = config.sops.secrets.aitvaras-password.path;
       extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
