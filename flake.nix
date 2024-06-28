@@ -21,6 +21,14 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-2405";
     };
+    disko-2405 = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs-2405";
+    };
+    sops-nix-2405 = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-2405";
+    };
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
@@ -43,9 +51,11 @@
     , nixpkgs-2405
     , nixpkgs-unstable
     , disko
+    , disko-2405
     , home-manager
     , home-manager-2405
     , sops-nix
+    , sops-nix-2405
     , nixos-hardware
     , ...
     } @ inputs:
