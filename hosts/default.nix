@@ -50,6 +50,7 @@ builtins.listToAttrs (mkHosts [
     stateVersion = "24.05";
     extraModules = [
       inputs.disko-2405.nixosModules.disko
+      inputs.sops-nix-2405.nixosModules.sops
     ];
   }
 ])
