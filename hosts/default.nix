@@ -38,9 +38,9 @@ builtins.listToAttrs (mkHosts [
     nixpkgs = inputs.nixpkgs-2405;
     stateVersion = "24.05";
     extraModules = [
-      inputs.disko.nixosModules.disko
+      inputs.disko-2405.nixosModules.disko
       inputs.home-manager-2405.nixosModules.home-manager
-      inputs.sops-nix.nixosModules.sops
+      inputs.sops-nix-2405.nixosModules.sops
     ];
   }
 ])
