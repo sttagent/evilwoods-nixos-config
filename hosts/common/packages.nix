@@ -20,7 +20,6 @@ in
     git-crypt
     htop
     gnupg
-    bottom
     gh
     dust
     just
