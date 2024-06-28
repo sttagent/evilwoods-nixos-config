@@ -8,10 +8,7 @@ let
       system = "x86_64-linux";
       modules = [
         ../modules
-        ./common
-        ../users/common
 
-        ../users/${evilib.mainUser}
         ../users/${evilib.mainUser}-${hostname}
         ./${hostname}
       ] ++ extraModules;

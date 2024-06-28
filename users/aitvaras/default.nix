@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ../common
     ./home.nix
     # ./nvim.nix
   ];
