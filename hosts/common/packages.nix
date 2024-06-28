@@ -46,6 +46,7 @@ in
     zed-editor
     protonmail-desktop
     proton-pass
+    bitwarden-cli
   ] ++ lib.optionals cfg.enableGnome [
     bottles
     flare-signal
