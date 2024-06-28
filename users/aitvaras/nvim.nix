@@ -1,6 +1,6 @@
 { config, pkgs, lib, inputs, ... }:
 let
-  thisUser = "aitvaras";
+  inherit (import ./vars.nix) thisUser;
 
   nvimConfigDir = "../../configfiles/nvim";
 in

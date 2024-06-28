@@ -1,6 +1,6 @@
 { config, pkgs, ... }@args:
 let
-  thisUser = "aitvaras";
+  inherit (import ./vars.nix) thisUser;
 in
 {
   imports = [

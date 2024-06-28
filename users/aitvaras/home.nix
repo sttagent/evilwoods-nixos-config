@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }: # os configuration is reachable via nixosConfig
 let
-  thisUser = "aitvaras";
+  inherit (import ./vars.nix) thisUser;
   hmlib = inputs.home-manager.lib;
   hmlibgv = hmlib.hm.gvariant;
   resourceDir = inputs.self.outPath + "/resources";
