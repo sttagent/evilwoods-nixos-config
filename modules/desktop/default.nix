@@ -2,7 +2,6 @@
   imports = [
     ./shared-desktop-configuration.nix
     ./gnome.nix
-    ./hyprland.nix
     ./steam.nix
     ./zsa.nix
   ];
