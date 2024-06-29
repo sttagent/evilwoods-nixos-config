@@ -9,5 +9,8 @@
     (import ./evilcloud-partition-scheme.nix { })
     ./evilcloud-hardware-configuration.nix
     ./evilcloud-configuration.nix
+
+    # Services
+    ./samba.nix
   ];
 }
