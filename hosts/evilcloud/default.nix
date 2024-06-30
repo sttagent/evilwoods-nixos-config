@@ -12,5 +12,6 @@
 
     # Services
     ./samba.nix
+    ./ntfy.nix
   ];
 }
