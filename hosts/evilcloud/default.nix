@@ -12,6 +12,7 @@
 
     # Services
     ./samba.nix
+    ./atuin.nix
     ./ntfy.nix
   ];
 }
