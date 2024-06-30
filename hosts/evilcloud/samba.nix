@@ -26,6 +26,7 @@
         "create mask" = "0644";
         "directory mask" = "0755";
         "force user" = "samba-guest";
+        "write list" = "aitvaras ryne";
       };
       aitvaras = {
         path = "/srv/external-backup/shares/private/aitvaras";
