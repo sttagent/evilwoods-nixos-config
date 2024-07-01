@@ -22,7 +22,6 @@ in
 
   boot = {
     loader.systemd-boot.configurationLimit = lib.mkDefault 100;
-    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   sops = {
