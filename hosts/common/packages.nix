@@ -47,6 +47,7 @@ in
     proton-pass
     bitwarden-cli
   ] ++ lib.optionals cfg.enableGnome [
+    notify-client
     bottles
     flare-signal
     gnome-extension-manager
