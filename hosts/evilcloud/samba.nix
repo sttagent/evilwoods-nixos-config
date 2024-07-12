@@ -4,7 +4,7 @@
     securityType = "user";
     openFirewall = true;
     extraConfig = ''
-      workgroup = WORKGROUP
+      workgroup = EVILWOODS
       server string = smbnix
       netbios name = smbnix
       security = user
@@ -18,7 +18,7 @@
     '';
     shares = {
       public = {
-        path = "/srv/external-backup/shares/public";
+        path = "/home/samba-guest/share";
         browseable = "yes";
         "read only" = "no";
         "guest ok" = "yes";
@@ -29,7 +29,7 @@
         "write list" = "aitvaras ryne";
       };
       aitvaras = {
-        path = "/srv/external-backup/shares/private/aitvaras";
+        path = "/home/aitvaras/share";
         browseable = "yes";
         "valid users" = "aitvaras";
         "read only" = "no";
@@ -39,7 +39,7 @@
         "force user" = "aitvaras";
       };
       ryne = {
-        path = "/srv/external-backup/shares/private/ryne";
+        path = "/home/ryne/share";
         browseable = "yes";
         "valid users" = "ryne";
         "read only" = "no";
@@ -57,20 +57,46 @@
   };
 
   users = {
-    groups.samba-guest = { };
     users = {
       samba-guest = {
-        uid = 1500;
         isSystemUser = true;
-        createHome = false;
-        group = "samba-guest";
+        uid = 1002;
+        group = "users";
+        createHome = true;
+        home = "/home/samba-guest";
       };
       ryne = {
-        uid = 2000;
         isSystemUser = true;
+        uid = 1001;
+        createHome = true;
         group = "users";
-        createHome = false;
+        home = "/home/ryne";
       };
     };
   };
+
+  fileSystems = {
+    "/home/aitvaras/share" = {
+      device = "/dev/disk/by-label/External-backup";
+      fsType = "btrfs";
+      options = [ "defaults" "compress=zstd" "subvol=shares/aitvaras" ];
+    };
+  };
+
+  fileSystems = {
+    "/home/ryne/share" = {
+      device = "/dev/disk/by-label/External-backup";
+      fsType = "btrfs";
+      options = [ "defaults" "compress=zstd" "subvol=shares/ryne" ];
+    };
+  };
+
+  fileSystems = {
+    "/home/samba-guest/share" = {
+      device = "/dev/disk/by-label/External-backup";
+      fsType = "btrfs";
+      options = [ "defaults" "compress=zstd" "subvol=shares/samba-guest" ];
+    };
+  };
+
 }

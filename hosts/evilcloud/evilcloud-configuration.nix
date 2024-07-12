@@ -23,14 +23,6 @@
     enable = true;
   };
 
-  fileSystems = {
-    "/srv/external-backup" = {
-      device = "/dev/disk/by-label/External-backup";
-      fsType = "btrfs";
-      options = [ "defaults" "compress=zstd" ];
-    };
-  };
-
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 
   # Version of NixOS installed from live disk. Needed for backwards compatability.
