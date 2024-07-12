@@ -3,10 +3,16 @@
 
   nixConfig = {
     experimental-features = [ "nix-command" "flakes" ];
+    allowed-users = [
+      "aitvaras"
+    ];
+    trusted-substituters = [
+      "https://nix-community.cachix.org/"
+    ];
 
     extra-substituters = [
       # Nix community's cache server
-      "https://nix-community.cachix.org"
+      "https://nix-community.cachix.org/"
     ];
 
     extra-trusted-public-keys = [
