@@ -56,7 +56,7 @@ in
     gnome.dconf-editor
     dconf
     gnome.gnome-sound-recorder
-    fragments
+    # fragments
     fractal
     pika-backup
     valent # doesn't build
