@@ -46,6 +46,7 @@ in
     protonmail-desktop
     proton-pass
     bitwarden-cli
+    onlyoffice-bin_latest
   ] ++ lib.optionals cfg.enableGnome [
     notify-client
     bottles
