@@ -5,13 +5,16 @@ refresh:
     nix flake update --commit-lock-file
     
 switch:
-    nixos-rebuild switch --use-remote-sudo
+    nixos-rebuild switch --flake .# --use-remote-sudo
 
-boot:
-    nixos-rebuild boot --use-remote-sudo
+switch-remote host-config remote-host:
+    nixos-rebuild switch --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}}
+
+boot-remote host-config remote-host:
+    nixos-rebuild boot --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}}
 
 build:
-    nixos-rebuild build |& nom
+    nixos-rebuild build --flake .# |& nom
 
 upgrade:
     just refresh boot
@@ -29,6 +32,12 @@ gen-ssh-keys:
 gen-age-pub-key host:
     #!/usr/bin/env bash
     age_pub_key=$(ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub)
+    sed "s/\(^ \+- &{{host}} \).*/\1$age_pub_key/" -i .sops.yaml
+    sops updatekeys -y ./secrets/secrets.yaml
+
+gen-age-pub-key-local host:
+    #!/usr/bin/env bash
+    age_pub_key=$(ssh-to-age -i /etc/ssh/ssh_host_ed25519_key.pub)
     sed "s/\(^ \+- &{{host}} \).*/\1$age_pub_key/" -i .sops.yaml
     sops updatekeys -y ./secrets/secrets.yaml
 
@@ -61,3 +70,7 @@ config-env:
     EndOfMessage
     git config user.name "Arvydas Ramanauskas"
     git config user.email "711261+sttagent@users.noreply.github.com"
+
+install-nixos-to-remote host-config remote-user-host:
+  nix run github:nix-community/nixos-anywhere -- --flake '.#{{host-config}}' {{remote-user-host}}
+
