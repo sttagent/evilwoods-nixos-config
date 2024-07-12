@@ -14,5 +14,6 @@
     ./samba.nix
     ./atuin.nix
     ./ntfy.nix
+    ./languagetool.nix
   ];
 }
