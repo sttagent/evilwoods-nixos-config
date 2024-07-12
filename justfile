@@ -8,10 +8,15 @@ switch:
     nixos-rebuild switch --flake .# --use-remote-sudo
 
 switch-remote host-config remote-host:
-    nixos-rebuild switch --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}}
+    nixos-rebuild switch --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}} --build-host {{remote-host}}
+
+
+boot:
+    nixos-rebuild boot --flake .# --use-remote-sudo
 
 boot-remote host-config remote-host:
-    nixos-rebuild boot --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}}
+    nixos-rebuild boot --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}} --build-host {{remote-host}}
+
 
 build:
     nixos-rebuild build --flake .# |& nom
