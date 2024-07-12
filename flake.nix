@@ -77,7 +77,7 @@
       };
 
       devShells.x86_64-linux.default = pkgs.mkShell {
-        name = "evilwoods-nixos-config-env";
+        name = "evilwoods-nixos-config";
         packages = with pkgs; [
           nixd
           nix-output-monitor
