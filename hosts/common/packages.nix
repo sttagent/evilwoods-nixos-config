@@ -48,12 +48,12 @@ in
     bitwarden-cli
     onlyoffice-bin_latest
   ] ++ lib.optionals cfg.enableGnome [
+    gnome-tweaks
+    dconf-editor
     notify-client
     bottles
     flare-signal
     gnome-extension-manager
-    gnome.gnome-tweaks
-    gnome.dconf-editor
     dconf
     gnome.gnome-sound-recorder
     # fragments
