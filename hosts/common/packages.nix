@@ -25,6 +25,7 @@ in
     just
     pinentry-curses
   ] ++ lib.optionals cfg.desktop [
+    prismlauncher
     nushell
     ffmpeg-full
     cryptomator
