@@ -62,6 +62,9 @@ in
           };
 
           languages = {
+            language-server.nixd = {
+              command = "nixd";
+            };
             language = [
               {
                 name = "nix";
@@ -69,6 +72,7 @@ in
                   tab-width = 2;
                   unit = " ";
                 };
+                language-servers = [ "nixd" ];
                 auto-format = true;
                 roots = [ "flake.lock" ];
                 formatter.command = "nixpkgs-fmt";
