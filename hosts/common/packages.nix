@@ -47,7 +47,7 @@ in
     protonmail-desktop
     proton-pass
     bitwarden-cli
-    onlyoffice-bin_latest
+    libreoffice-fresh
   ] ++ lib.optionals cfg.enableGnome [
     gnome-tweaks
     dconf-editor
