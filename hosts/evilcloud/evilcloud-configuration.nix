@@ -1,9 +1,5 @@
 { config, lib, pkgs, thisHost, ... }:
 {
-  evilwoods.podman = true;
-  # evilwoods.docker = true;
-  # evilwoods.libvirtd = true;
-
   networking.hostName = "${thisHost.hostname}";
 
   boot = {
@@ -21,6 +17,10 @@
 
   programs.nix-ld = {
     enable = true;
+  };
+
+  virtualisation.oci-containers = {
+    backend = "podman";
   };
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
