@@ -86,7 +86,6 @@
         name = "evilwoods-nixos-config";
         packages = with pkgs; [
           nixd
-          nil
           nix-output-monitor
           nvd
           sops
