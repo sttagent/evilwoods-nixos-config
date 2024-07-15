@@ -2,13 +2,12 @@
   description = "Evilwoods nixos config";
 
   nixConfig = {
-    experimental-features = [ "nix-command" "flakes" ];
-    allowed-users = [
-      "aitvaras"
+    experimental-features = [
+      "nix-command"
+      "flakes"
     ];
-    trusted-substituters = [
-      "https://nix-community.cachix.org/"
-    ];
+    allowed-users = [ "aitvaras" ];
+    trusted-substituters = [ "https://nix-community.cachix.org/" ];
 
     extra-substituters = [
       # Nix community's cache server
@@ -53,18 +52,19 @@
   };
 
   outputs =
-    { self
-    , nixpkgs-2405
-    , nixpkgs-unstable
-    , disko
-    , disko-2405
-    , home-manager
-    , home-manager-2405
-    , sops-nix
-    , sops-nix-2405
-    , nixos-hardware
-    , ...
-    } @ inputs:
+    {
+      self,
+      nixpkgs-2405,
+      nixpkgs-unstable,
+      disko,
+      disko-2405,
+      home-manager,
+      home-manager-2405,
+      sops-nix,
+      sops-nix-2405,
+      nixos-hardware,
+      ...
+    }@inputs:
     let
       pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
     in
