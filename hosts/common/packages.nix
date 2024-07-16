@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ config, pkgs, ... }:
 let
   cfg = config.evilwoods;
 in
@@ -24,42 +24,5 @@ in
     dust
     just
     pinentry-curses
-  ] ++ lib.optionals cfg.desktop [
-    prismlauncher
-    nushell
-    ffmpeg-full
-    cryptomator
-    appimage-run
-    distrobox
-    firefox
-    yubioath-flutter
-    wl-clipboard
-    element-desktop
-    standardnotes
-    discord
-    spotify
-    signal-desktop
-    zoom-us
-    github-desktop
-    vscode-fhs
-    google-chrome
-    zed-editor
-    protonmail-desktop
-    proton-pass
-    bitwarden-cli
-    libreoffice-fresh
-  ] ++ lib.optionals cfg.enableGnome [
-    gnome-tweaks
-    dconf-editor
-    notify-client
-    bottles
-    flare-signal
-    gnome-extension-manager
-    dconf
-    gnome.gnome-sound-recorder
-    # fragments
-    fractal
-    pika-backup
-    valent # doesn't build
   ];
 }
