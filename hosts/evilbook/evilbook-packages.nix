@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    # Desktop apps
     prismlauncher
     nushell
     ffmpeg-full
@@ -25,7 +26,7 @@
     bitwarden-cli
     libreoffice-fresh
 
-    # Gnome apps
+    # apps specific to Gnome
     gnome-tweaks
     dconf-editor
     notify-client
