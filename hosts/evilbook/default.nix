@@ -4,6 +4,8 @@
 }: {
   imports = [
     ../common/core
+    ../common/desktop
+
     ./evilbook-partition-scheme.nix
     ./evilbook-hardware-configuration.nix
     ./evilbook-configuration.nix
