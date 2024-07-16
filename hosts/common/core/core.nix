@@ -1,6 +1,7 @@
 { inputs, config, pkgs, lib, ... }:
 let
   mainUser = config.evilwoods.mainUser;
+  secretFilePath = inputs.self.outPath + "/secrets/secrets.yaml";
 in
 {
   nix = {
@@ -39,7 +40,7 @@ in
   };
 
   sops = {
-    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFile = secretFilePath;
     validateSopsFiles = false;
     age = {
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

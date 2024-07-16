@@ -3,7 +3,7 @@
 , ...
 }: {
   imports = [
-    ../common
+    ../common/core
     ./evilbook-partition-scheme.nix
     ./evilbook-hardware-configuration.nix
     ./evilbook-configuration.nix
