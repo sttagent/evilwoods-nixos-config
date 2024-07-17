@@ -25,7 +25,7 @@ in
 
         helix = {
           enable = true;
-          defaultEditor = true;
+          defaultEditor = false;
           settings = {
             theme = "gruvbox_dark_hard";
             editor = {
@@ -214,7 +214,7 @@ in
 
         neovim = {
           enable = true;
-          defaultEditor = false;
+          defaultEditor = true;
 
           viAlias = true;
           vimAlias = true;
