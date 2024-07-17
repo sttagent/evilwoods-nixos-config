@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 {
   imports = [
-    ../common/core.nix
+    ../common/core
     (import ../evilcloud/evilcloud-partition-scheme.nix { })
     ../evilcloud/evilcloud-configuration.nix
   ];

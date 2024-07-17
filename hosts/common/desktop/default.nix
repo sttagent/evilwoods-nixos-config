@@ -1,6 +1,6 @@
-{ config, ... }:
 {
   imports = [
-    ./desktop.nix
+    ./core.nix
+    ./packages.nix
   ];
 }

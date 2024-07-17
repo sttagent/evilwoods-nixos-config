@@ -1,8 +1,5 @@
 { config, lib, pkgs, thisHost, ... }:
 {
-  evilwoods.enableGnome = true;
-  evilwoods.zsa = true;
-
   sops.secrets = {
     "network-manager.env" = { };
   };

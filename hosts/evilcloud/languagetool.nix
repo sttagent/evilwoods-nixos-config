@@ -1,10 +1,10 @@
 { pkgs, lib, ... }: {
-  services.languagetool = {
-    enable = false;
-    public = true;
-    port = lib.mkDefault 8081;
-    allowOrigin = ""; # To allow access from browser addons
-  };
+  # services.languagetool = {
+  #   enable = false;
+  #   public = true;
+  #   port = lib.mkDefault 8081;
+  #   allowOrigin = ""; # To allow access from browser addons
+  # };
 
   virtualisation.oci-containers.containers = {
     languagetool-app = {
@@ -31,4 +31,6 @@
       ];
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ 8010 ];
 }
