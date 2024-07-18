@@ -2,6 +2,6 @@
 
 {
   imports = [
-    ./main-user.nix
+    ./options.nix
   ];
 }
