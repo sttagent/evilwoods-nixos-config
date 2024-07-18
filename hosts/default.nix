@@ -12,6 +12,11 @@ let
 
         ../users/${evilib.mainUser}-${hostname}
         ./${hostname}
+
+        {
+          networking.hostName = hostname;
+          system.stateVersion = stateVersion;
+        }
       ] ++ extraModules;
 
       specialArgs = {
