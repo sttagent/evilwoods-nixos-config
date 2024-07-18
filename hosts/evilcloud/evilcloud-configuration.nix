@@ -1,6 +1,5 @@
-{ config, lib, pkgs, thisHost, ... }:
+{ config, lib, pkgs, ... }:
 {
-  networking.hostName = "${thisHost.hostname}";
 
   boot = {
     initrd = {
@@ -24,7 +23,4 @@
   };
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
-
-  # Version of NixOS installed from live disk. Needed for backwards compatability.
-  system.stateVersion = "24.05"; # Did you read the comment?
 }

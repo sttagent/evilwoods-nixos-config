@@ -2,7 +2,8 @@
 let
   evilib = inputs.self.lib;
 
-  mkHost = { hostname, users ? [ ], nixpkgs, stateVersion, extraModules ? [ ], ... } @ thisHost: {
+  mkHost = { hostname, users ? [ ], nixpkgs, stateVersion, extraModules ? [ ], ... }:
+  {
     name = "${hostname}";
     value = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -14,7 +15,7 @@ let
       ] ++ extraModules;
 
       specialArgs = {
-        inherit inputs thisHost evilib;
+        inherit inputs evilib;
       };
     };
   };

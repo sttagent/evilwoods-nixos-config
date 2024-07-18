@@ -1,10 +1,8 @@
-{ config, lib, pkgs, thisHost, ... }:
+{ config, lib, pkgs, ... }:
 {
   sops.secrets = {
     "network-manager.env" = { };
   };
-
-  networking.hostName = "${thisHost.hostname}";
 
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ config.sops.secrets."network-manager.env".path ];
@@ -71,5 +69,4 @@
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 
   # Version of NixOS installed from live disk. Needed for backwards compatability.
-  system.stateVersion = thisHost.stateVersion; # Did you read the comment?
 }
