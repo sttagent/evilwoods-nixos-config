@@ -188,6 +188,11 @@ in
           enable = true;
           enableFishIntegration = true;
           enableNushellIntegration = true;
+          settings = {
+            auto_sync = true;
+            sync_frequency = "5m";
+            sync_address = "http://evilcloud:8888";
+          };
         };
 
         starship = {
