@@ -5,8 +5,8 @@
       host = "0.0.0.0";
       openRegistration = true;
     };
-  };
-  postgresqlBackup = {
-    databeses = [ "atuin" ];
+    postgresqlBackup = {
+      databases = [ "atuin" ];
+    };
   };
 }
