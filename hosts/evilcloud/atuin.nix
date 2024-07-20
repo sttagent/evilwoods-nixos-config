@@ -6,4 +6,7 @@
       openRegistration = true;
     };
   };
+  postgresqlBackup = {
+    databeses = [ "atuin" ];
+  };
 }
