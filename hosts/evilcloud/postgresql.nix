@@ -6,7 +6,6 @@
     postgresqlBackup = {
       enable = true;
       location = "/var/backups/postgresql";
-      backupAll = true;
     };
   };
 }
