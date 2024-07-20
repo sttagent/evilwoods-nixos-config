@@ -1,5 +1,5 @@
 {
-  sevrvices = {
+  services = {
     postgresql = {
       enable = true;
     };
