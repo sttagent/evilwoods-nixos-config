@@ -11,6 +11,7 @@
 
     # Services
     ./samba.nix
+    ./postgresql.nix
     ./atuin.nix
     ./ntfy.nix
     ./languagetool.nix
