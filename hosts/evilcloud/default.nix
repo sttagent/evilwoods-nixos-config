@@ -10,6 +10,7 @@
     ./evilcloud-configuration.nix
 
     # Services
+    ./blocky.nix
     ./samba.nix
     ./postgresql.nix
     ./atuin.nix
