@@ -10,7 +10,7 @@ let
       modules = [
         ../modules
 
-        ../users/${evilib.mainUser}-${hostname}
+        ../users/${evilib.defaults.mainUser}-${hostname}
         ./${hostname}
 
         {
