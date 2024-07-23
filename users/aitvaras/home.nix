@@ -189,6 +189,7 @@ in
           enableFishIntegration = true;
           enableNushellIntegration = true;
           settings = {
+            sync.records = true;
             auto_sync = true;
             sync_frequency = "5m";
             sync_address = "http://evilcloud:8888";
