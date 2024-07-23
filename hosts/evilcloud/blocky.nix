@@ -10,7 +10,10 @@
           dns = "100.100.53.98:53";
         };
         customDNS = {
-          mapping."domain.test" = "100.100.53.98";
+          mapping = {
+            "evilwoods.tail" = "100.100.53.98";
+            "evilwoods.lan" = "192.168.1.101";
+          };
         };
       };
     };
