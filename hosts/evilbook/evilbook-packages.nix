@@ -11,10 +11,8 @@
     firefox
     yubioath-flutter
     wl-clipboard
-    element-desktop
     standardnotes
     discord
-    spotify
     signal-desktop
     zoom-us
     github-desktop
