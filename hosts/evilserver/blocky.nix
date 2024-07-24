@@ -2,6 +2,7 @@
   services = {
     blocky = {
       enable = true;
+      # TODO: use block lists
       settings = {
         upstreams = {
           groups.default = [ "1.1.1.1" ];

@@ -4,7 +4,7 @@ This is my personal NixOS configuration.
 
 Hosts:
 - `evilbook` - My personal laptop
-- `evilcloud` - My personal home server
+- `evilserver` - My personal home server
 
 ## Notes
 

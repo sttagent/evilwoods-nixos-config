@@ -40,7 +40,7 @@ builtins.listToAttrs (mkHosts [
   }
 
   {
-    hostname = "evilcloud";
+    hostname = "evilserver";
     nixpkgs = inputs.nixpkgs-2405;
     stateVersion = "24.05";
     extraModules = [
@@ -51,7 +51,7 @@ builtins.listToAttrs (mkHosts [
   }
 
   {
-    hostname = "evilcloud-bootstrap";
+    hostname = "evilserver-bootstrap";
     nixpkgs = inputs.nixpkgs-2405;
     stateVersion = "24.05";
     extraModules = [

@@ -5,9 +5,9 @@
   imports = [
     ../common/core
 
-    (import ./evilcloud-partition-scheme.nix { })
-    ./evilcloud-hardware-configuration.nix
-    ./evilcloud-configuration.nix
+    (import ./evilserver-partition-scheme.nix { })
+    ./evilserver-hardware-configuration.nix
+    ./evilserver-configuration.nix
 
     # Services
     ./blocky.nix

@@ -2,8 +2,8 @@
 {
   imports = [
     ../common/core
-    (import ../evilcloud/evilcloud-partition-scheme.nix { })
-    ../evilcloud/evilcloud-configuration.nix
+    (import ../evilserver/evilserver-partition-scheme.nix { })
+    ../evilserver/evilserver-configuration.nix
   ];
 
   users.users.root.openssh.authorizedKeys.keys = [
