@@ -213,11 +213,6 @@ in
           icons = true;
         };
 
-        nix-index = {
-          enable = true;
-          enableFishIntegration = true;
-        };
-
         neovim = {
           enable = true;
           defaultEditor = true;
