@@ -33,27 +33,14 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs-2405,
-      nixpkgs-unstable,
-      disko,
-      disko-2405,
-      home-manager,
-      home-manager-2405,
-      sops-nix,
-      sops-nix-2405,
-      nixos-hardware,
-      ...
-    }@inputs:
+  outputs = inputs:
     let
-      pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux;
+      pkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
     in
     {
       formatter.x86_64-linux = pkgs.nixpkgs-fmt;
 
-      lib = import ./lib { lib = nixpkgs-unstable.lib; };
+      lib = import ./lib { lib = inputs.nixpkgs-unstable.lib; };
 
       nixosModules = { };
 
