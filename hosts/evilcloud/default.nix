@@ -9,5 +9,7 @@
     ./boot.nix
     (import ./partitions.nix { })
     ./configuration.nix
+
+    ./services/blocky.nix
   ];
 }
