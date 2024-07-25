@@ -35,7 +35,8 @@ let
         ../modules
         ./common/bootstrap
 
-        ./${hostname}/partitions.nix
+        (import ./${hostname}/partitions.nix {})
+        ./${hostname}/boot.nix
 
         {
           networking.hostName = hostname;

@@ -35,18 +35,6 @@ in
 
   nixpkgs.config.allowUnfree = lib.mkDefault true;
 
-  boot = {
-    loader = {
-      efi = {
-        canTouchEfiVariables = lib.mkDefault true;
-      };
-      systemd-boot = {
-        enable = true;
-        configurationLimit = lib.mkDefault 100;
-      };
-    };
-  };
-
   sops = {
     defaultSopsFile = secretFilePath;
     validateSopsFiles = false;

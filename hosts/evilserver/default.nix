@@ -1,10 +1,8 @@
-{ lib
-, pkgs
-, ...
-}: {
+{
   imports = [
     ../common/core
 
+    ./boot.nix
     (import ./partitions.nix { })
     ./hardware.nix
     ./configuration.nix

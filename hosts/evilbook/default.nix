@@ -6,6 +6,7 @@
 
     ../common/optional/zsa.nix
 
+    ./boot.nix
     ./partitions.nix
     ./hardware.nix
     ./configuration.nix
