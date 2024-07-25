@@ -33,10 +33,18 @@ in
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = lib.mkDefault true;
 
   boot = {
-    loader.systemd-boot.configurationLimit = lib.mkDefault 100;
+    loader = {
+      efi = {
+        canTouchEfiVariables = lib.mkDefault true;
+      };
+      systemd-boot = {
+        enable = true;
+        configurationLimit = lib.mkDefault 100;
+      };
+    };
   };
 
   sops = {
@@ -51,7 +59,7 @@ in
   networking = {
     useDHCP = lib.mkDefault true;
     networkmanager = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
     firewall = {
       enable = lib.mkDefault true;
@@ -62,7 +70,7 @@ in
 
   services = {
     openssh = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
   };
 

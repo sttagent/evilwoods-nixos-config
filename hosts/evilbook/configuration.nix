@@ -42,13 +42,6 @@
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
-
-    loader = {
-      efi = {
-        canTouchEfiVariables = true;
-      };
-      systemd-boot.enable = true;
-    };
   };
 
   virtualisation = {
@@ -61,12 +54,6 @@
     enable = true;
   };
 
-  # LTU VPN
-  # services.strongswan.enable = true;
-  # networking.networkmanager.enableStrongSwan = true;
-
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
-
-  # Version of NixOS installed from live disk. Needed for backwards compatability.
 }

@@ -75,11 +75,43 @@
 
       nixosModules = { };
 
-      nixosConfigurations = import ./hosts { inherit inputs; };
-
-      diskoConfigurations = {
-        evilroots = import ./hosts/evilroots/evilroots-partition-scheme.nix;
-        evilbook = import ./hosts/evilbook/evilbook-partition-scheme.nix;
+      nixosConfigurations = import ./hosts {
+        inherit inputs;
+        hosts = [
+          {
+            hostname = "evilbook";
+            bootstrap = false;
+            nixpkgs = inputs.nixpkgs-unstable;
+            stateVersion = "24.05";
+            extraModules = [
+              inputs.disko.nixosModules.disko
+              inputs.home-manager.nixosModules.home-manager
+              inputs.sops-nix.nixosModules.sops
+            ];
+          }
+          {
+            hostname = "evilserver";
+            bootstrap = true;
+            nixpkgs = inputs.nixpkgs-2405;
+            stateVersion = "24.05";
+            extraModules = [
+              inputs.disko-2405.nixosModules.disko
+              inputs.home-manager-2405.nixosModules.home-manager
+              inputs.sops-nix-2405.nixosModules.sops
+            ];
+          }
+          {
+            hostname = "evilcloud";
+            bootstrap = true;
+            nixpkgs = inputs.nixpkgs-2405;
+            stateVersion = "24.05";
+            extraModules = [
+              inputs.disko-2405.nixosModules.disko
+              inputs.home-manager-2405.nixosModules.home-manager
+              inputs.sops-nix-2405.nixosModules.sops
+            ];
+          }
+        ];
       };
 
       devShells.x86_64-linux.default = pkgs.mkShell {

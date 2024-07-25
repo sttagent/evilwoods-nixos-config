@@ -1,3 +1,5 @@
+# Evilbook configuration
+
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [

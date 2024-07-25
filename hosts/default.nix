@@ -1,8 +1,8 @@
-{ inputs, ... }:
+{ inputs, hosts, ... }:
 let
   evilib = inputs.self.lib;
 
-  mkHost = { hostname, users ? [ ], nixpkgs, stateVersion, extraModules ? [ ], ... }:
+  buildNormalConfig = { hostname, nixpkgs, stateVersion, extraUsers ? [ ], extraModules ? [ ], ... }:
   {
     name = "${hostname}";
     value = nixpkgs.lib.nixosSystem {
@@ -17,6 +17,7 @@ let
           networking.hostName = hostname;
           system.stateVersion = stateVersion;
         }
+
       ] ++ extraModules;
 
       specialArgs = {
@@ -25,59 +26,32 @@ let
     };
   };
 
+  buildBootstrapConfig = { hostname,  nixpkgs, stateVersion, extraUsers ? [ ], extraModules ? [ ], ... }:
+  {
+    name = "${hostname}-bootstrap";
+    value = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ../modules
+        ./common/bootstrap
+
+        ./${hostname}/partitions.nix
+
+        {
+          networking.hostName = hostname;
+          system.stateVersion = stateVersion;
+        }
+
+      ] ++ extraModules;
+
+      specialArgs = {
+        inherit inputs evilib;
+      };
+    };
+  };
+
+  mkHost = { bootstrap, ... }@host: [ (buildNormalConfig host) ] ++ (if bootstrap then [ (buildBootstrapConfig host) ] else []);
+
   mkHosts = hostList: builtins.map mkHost hostList;
 in
-builtins.listToAttrs (mkHosts [
-  {
-    hostname = "evilbook";
-    nixpkgs = inputs.nixpkgs-unstable;
-    stateVersion = "24.05";
-    extraModules = [
-      inputs.disko.nixosModules.disko
-      inputs.home-manager.nixosModules.home-manager
-      inputs.sops-nix.nixosModules.sops
-    ];
-  }
-
-  {
-    hostname = "evilserver";
-    nixpkgs = inputs.nixpkgs-2405;
-    stateVersion = "24.05";
-    extraModules = [
-      inputs.disko-2405.nixosModules.disko
-      inputs.home-manager-2405.nixosModules.home-manager
-      inputs.sops-nix-2405.nixosModules.sops
-    ];
-  }
-
-  {
-    hostname = "evilserver-bootstrap";
-    nixpkgs = inputs.nixpkgs-2405;
-    stateVersion = "24.05";
-    extraModules = [
-      inputs.disko-2405.nixosModules.disko
-      inputs.sops-nix-2405.nixosModules.sops
-    ];
-  }
-
-  {
-    hostname = "evilcloud";
-    nixpkgs = inputs.nixpkgs-2405;
-    stateVersion = "24.05";
-    extraModules = [
-      inputs.disko-2405.nixosModules.disko
-      inputs.home-manager-2405.nixosModules.home-manager
-      inputs.sops-nix-2405.nixosModules.sops
-    ];
-  }
-
-  {
-    hostname = "evilcloud-bootstrap";
-    nixpkgs = inputs.nixpkgs-2405;
-    stateVersion = "24.05";
-    extraModules = [
-      inputs.disko-2405.nixosModules.disko
-      inputs.sops-nix-2405.nixosModules.sops
-    ];
-  }
-])
+builtins.listToAttrs (builtins.concatLists (mkHosts hosts))

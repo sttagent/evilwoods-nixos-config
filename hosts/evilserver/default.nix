@@ -5,16 +5,16 @@
   imports = [
     ../common/core
 
-    (import ./evilserver-partition-scheme.nix { })
-    ./evilserver-hardware-configuration.nix
-    ./evilserver-configuration.nix
+    (import ./partitions.nix { })
+    ./hardware.nix
+    ./configuration.nix
 
     # Services
-    ./blocky.nix
-    ./samba.nix
-    ./postgresql.nix
-    ./atuin.nix
-    ./ntfy.nix
-    ./languagetool.nix
+    ./services/blocky.nix
+    ./services/samba.nix
+    ./services/postgresql.nix
+    ./services/atuin.nix
+    ./services/ntfy.nix
+    ./services/languagetool.nix
   ];
 }
