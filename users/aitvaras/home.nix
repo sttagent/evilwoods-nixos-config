@@ -24,7 +24,7 @@ in
         home-manager.enable = true;
 
         helix = {
-          enable = true;
+          enable = false;
           defaultEditor = false;
           settings = {
             theme = "gruvbox_dark_hard";
