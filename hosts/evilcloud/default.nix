@@ -9,6 +9,5 @@
     ./boot.nix
     (import ./partitions.nix { })
     ./configuration.nix
-    (modulesPath + "/profiles/qemu-guest.nix")
   ];
 }
