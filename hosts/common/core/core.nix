@@ -59,6 +59,9 @@ in
   services = {
     openssh = {
       enable = lib.mkDefault true;
+      settings = {
+        PasswordAuthentication = false;
+      };
     };
   };
 
