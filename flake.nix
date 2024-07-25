@@ -1,24 +1,6 @@
 {
   description = "Evilwoods nixos config";
 
-  nixConfig = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    allowed-users = [ "aitvaras" ];
-    trusted-substituters = [ "https://nix-community.cachix.org/" ];
-
-    extra-substituters = [
-      # Nix community's cache server
-      "https://nix-community.cachix.org/"
-    ];
-
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-  };
-
   inputs = {
     nixpkgs-2405.url = "nixpkgs/nixos-24.05";
 
