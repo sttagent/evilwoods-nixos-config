@@ -23,6 +23,5 @@ in
     gh
     dust
     just
-    pinentry-curses
   ];
 }
