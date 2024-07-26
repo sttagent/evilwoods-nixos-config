@@ -8,7 +8,6 @@
     ./configuration.nix
 
     # Services
-    ./services/blocky.nix
     ./services/samba.nix
     ./services/postgresql.nix
     ./services/atuin.nix
