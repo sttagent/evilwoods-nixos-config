@@ -17,6 +17,8 @@ boot:
 boot-remote host-config remote-host:
     nixos-rebuild boot --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}}
 
+reboot host:
+  ssh -t {{host}} "sudo systemctl reboot"
 
 build:
     nixos-rebuild build --flake .# |& nom
