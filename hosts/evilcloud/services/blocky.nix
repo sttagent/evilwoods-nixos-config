@@ -5,7 +5,21 @@
       # TODO: use block lists
       settings = {
         upstreams = {
-          groups.default = [ "1.1.1.1" ];
+          groups = {
+            default = [
+              # Clooudlare
+              "1.1.1.1"
+              "1.0.0.1"
+
+              # Quad9
+              "9.9.9.9"
+              "149.112.112.112"
+
+              # Google
+              "8.8.8.8"
+              "8.8.4.4"
+            ];
+          };
         };
         ports = {
           dns = ":53";
