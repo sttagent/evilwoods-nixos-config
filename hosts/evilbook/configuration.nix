@@ -48,6 +48,12 @@
     podman = {
       enable = true;
     };
+    vmVariant = {
+      virtualisation = {
+        memorySize = 4096;
+        cores = 2;
+      };
+    };
   };
 
   programs.nix-ld = {
