@@ -25,6 +25,19 @@
             ];
           };
         };
+        blocking = {
+          blacklists = {
+            ads = [
+              "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt"
+              "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+            ];
+          };
+          clientGroupBlock = {
+            default = [
+              "ads"
+            ];
+          };
+        };
         ports = {
           dns = ":53";
         };
