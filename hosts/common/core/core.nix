@@ -71,7 +71,7 @@ in
   };
   services = {
     resolved = {
-      enable = true;
+      enable = false;
       dnssec = "false";
       domains = [ "~." ];
       fallbackDns = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
