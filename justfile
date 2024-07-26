@@ -4,24 +4,17 @@ default:
 refresh:
     nix flake update --commit-lock-file
     
-switch:
-    nixos-rebuild switch --flake .# --use-remote-sudo
+switch host="":
+    nixos-rebuild switch --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host " + host } }}
 
-switch-remote host-config remote-host:
-    nixos-rebuild switch --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}}
-
-
-boot:
-    nixos-rebuild boot --flake .# --use-remote-sudo
-
-boot-remote host-config remote-host:
-    nixos-rebuild boot --flake .#{{host-config}} --use-remote-sudo --target-host {{remote-host}}
+boot host="":
+    nixos-rebuild boot --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host " + host } }}
 
 reboot host:
   ssh -t {{host}} "sudo systemctl reboot"
 
-build:
-    nixos-rebuild build --flake .# |& nom
+build host="":
+    nixos-rebuild build --flake .#{{host}} |& nom
 
 upgrade:
     just refresh boot
