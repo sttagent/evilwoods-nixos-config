@@ -1,5 +1,11 @@
 { config, lib, pkgs, ... }:
 {
+  nix.settings = {
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
+  };
 
   programs.nix-ld = {
     enable = true;
