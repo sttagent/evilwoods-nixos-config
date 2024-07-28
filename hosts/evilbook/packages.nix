@@ -39,5 +39,6 @@
     fractal
     pika-backup
     valent
+    fragments
   ];
 }
