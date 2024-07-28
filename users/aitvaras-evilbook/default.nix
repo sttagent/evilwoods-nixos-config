@@ -9,6 +9,10 @@ in
 {
   imports = [ ../aitvaras ];
 
+  users.users.${thisUser}.extraGroups = [
+    "libvirtd"
+  ];
+
   home-manager.users.${thisUser} = {
     home = {
       file = {
@@ -84,7 +88,6 @@ in
         favorite-apps = [
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
-          # "com.raggesilver.BlackBox.desktop"
           "kitty.desktop"
           "io.gitlab.news_flash.NewsFlash.desktop"
           "standard-notes.desktop"
