@@ -40,6 +40,8 @@
         };
         customDNS = {
           mapping = {
+            "dns.evilwoods.net" = "100.124.137.46";
+            "kitchenowl.evilwoods.net" = "100.100.53.98";
             "evilserver.tail" = "100.100.53.98";
             "evilserver.lan" = "192.168.1.101";
             "evilcloud.tail" = "100.124.137.46";
