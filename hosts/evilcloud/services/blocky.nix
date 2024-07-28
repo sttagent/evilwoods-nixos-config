@@ -8,20 +8,17 @@
           groups = {
             default = [
               # Clooudlare
-              "1.1.1.1"
-              "1.0.0.1"
+              "tcp-tls:1.1.1.1:853"
+              "tcp-tls:1.0.0.1:853"
 
               # Quad9
-              "9.9.9.9"
-              "149.112.112.112"
+              "tcp-tls:dns.quad9.net"
 
               # Google
-              "8.8.8.8"
-              "8.8.4.4"
+              "tcp-tls:8.8.8.8:853"
 
-              # OpenDNS
-              "208.67.222.222"
-              "208.67.220.220"
+              # dns0.eu
+              "tcp-tls:dns0.eu"
             ];
           };
         };
