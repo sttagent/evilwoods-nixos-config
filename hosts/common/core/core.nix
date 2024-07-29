@@ -57,7 +57,7 @@ in
     openssh = {
       enable = lib.mkDefault true;
       settings = {
-        PasswordAuthentication = false;
+        PasswordAuthentication = lib.mkDefault false;
       };
     };
   };
