@@ -9,6 +9,7 @@
 
     # Services
     ./services/samba.nix
+    ./services/caddy.nix
     ./services/postgresql.nix
     ./services/atuin.nix
     ./services/ntfy.nix
