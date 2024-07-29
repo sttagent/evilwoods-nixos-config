@@ -15,6 +15,7 @@ in
         dnsProvider = "cloudflare";
         dnsPropagationCheck = true;
         environmentFile = config.sops.secrets."acme-cloudflare.env".path;
+        reloadServices = [ "caddy.service" ];
       };
     };
   };
