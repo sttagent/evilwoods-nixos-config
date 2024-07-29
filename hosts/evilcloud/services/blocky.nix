@@ -27,6 +27,7 @@
             ads = [
               "https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt"
               "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+              "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_15_DnsFilter/filter.txt"
             ];
           };
           clientGroupsBlock = {
