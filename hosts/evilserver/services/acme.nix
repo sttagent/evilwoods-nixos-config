@@ -3,7 +3,11 @@ let
   secretsPath = builtins.toString inputs.evilsecrets;
 in 
 {
-  sops.secrets."acme-cloudflare.env" = {};
+  sops.secrets."acme-cloudflare.env" = {
+    mode = "0400";
+    owner = config.users.users.acme.name;
+    group = config.users.users.acme.group;
+  };
 
   security.acme = {
     acceptTerms = true;
