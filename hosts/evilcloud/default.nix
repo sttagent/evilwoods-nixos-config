@@ -12,5 +12,6 @@
 
     # services
     ./services/blocky.nix
+    ./services/fail2ban.nix
   ];
 }
