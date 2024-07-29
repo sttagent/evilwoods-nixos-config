@@ -12,7 +12,7 @@
   };
 
   virtualisation.oci-containers = {
-    backend = "podman";
+      backend = "docker";
   };
 
   fileSystems = {
