@@ -10,6 +10,7 @@
     (import ./partitions.nix { })
     ./configuration.nix
 
+    # services
     ./services/blocky.nix
   ];
 }

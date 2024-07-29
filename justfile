@@ -5,10 +5,10 @@ refresh:
     nix flake update --commit-lock-file
     
 switch host="":
-    nixos-rebuild switch --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host " + host } }}
+    nixos-rebuild switch --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
 boot host="":
-    nixos-rebuild boot --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host " + host } }}
+    nixos-rebuild boot --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
 reboot host:
   ssh -t {{host}} "sudo systemctl reboot"
