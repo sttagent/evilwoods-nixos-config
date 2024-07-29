@@ -11,8 +11,14 @@
     enable = true;
   };
 
-  virtualisation.oci-containers = {
+  virtualisation = {
+    oci-containers = {
       backend = "docker";
+    };
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+    };
   };
 
   fileSystems = {
