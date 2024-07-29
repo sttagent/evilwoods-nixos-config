@@ -40,6 +40,22 @@
         "type": "github"
       }
     },
+    "evilsecrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722256022,
+        "narHash": "sha256-S6HklSMx99Bju/F9R9XmV+re5ppgFSy9FVcn5r+BoHM=",
+        "ref": "refs/heads/main",
+        "rev": "0c6c6c906341060d1fd526eb54013e03ba37fcb6",
+        "revCount": 2,
+        "type": "git",
+        "url": "ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -162,6 +178,7 @@
       "inputs": {
         "disko": "disko",
         "disko-2405": "disko-2405",
+        "evilsecrets": "evilsecrets",
         "home-manager": "home-manager",
         "home-manager-2405": "home-manager-2405",
         "nixos-hardware": "nixos-hardware",
