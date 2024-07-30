@@ -20,6 +20,10 @@ in
         dnsPropagationCheck = true;
         environmentFile = config.sops.secrets."acme-cloudflare.env".path;
         reloadServices = [ "caddy.service" ];
+        postRun = ''
+          scp -pr . root@evilcloud:/var/lib/acme/
+          ssh -t root@evilcloud "chown -R acme: /var/lib/acme/evilwoods.net && systemctl restart caddy.service"
+        '';
       };
     };
   };
