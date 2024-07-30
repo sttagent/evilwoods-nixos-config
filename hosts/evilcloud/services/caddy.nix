@@ -1,3 +1,4 @@
+{
   services.caddy = {
     enable = true;
     virtualHosts = {
@@ -6,6 +7,9 @@
       '';
       "ntfy.evilwoods.net".extraConfig = ''
         reverse_proxy http://127.0.0.1:8080
+      '';
+      "dns.evilwoods.net".extraConfig = ''
+        reverse_proxy http://127.0.0.1:8053
       '';
     };
   };
