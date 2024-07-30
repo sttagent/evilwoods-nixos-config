@@ -14,6 +14,7 @@
     ./services/acme.nix
     ./services/caddy.nix
     ./services/blocky.nix
+    ./services/ntfy.nix
     ./services/fail2ban.nix
   ];
 }
