@@ -68,6 +68,10 @@
                     mountpoint = "/home";
                   };
                   "/storage" = { };
+                  "/snapshots" = {
+                    mountOptions = [ "defaults" "noatime" "compress=zstd" ];
+                    mountpoint = "/var/snapshots";
+                  };
                 };
               };
             };
