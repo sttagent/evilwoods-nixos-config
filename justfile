@@ -10,6 +10,9 @@ switch host="":
 boot host="":
     nixos-rebuild boot --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
+test host="":
+    nixos-rebuild test --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
+
 reboot host:
   ssh -t {{host}} "sudo systemctl reboot"
 
