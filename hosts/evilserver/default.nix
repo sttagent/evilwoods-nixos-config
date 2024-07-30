@@ -13,7 +13,6 @@
     ./services/acme.nix
     ./services/postgresql.nix
     ./services/atuin.nix
-    ./services/ntfy.nix
     ./services/languagetool.nix
     ./services/kitchenowl.nix
   ];
