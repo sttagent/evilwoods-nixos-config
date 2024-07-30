@@ -7,6 +7,7 @@
 
   environment.gnome.excludePackages = with pkgs; [
     epiphany
+    geary
   ];
 
   environment.systemPackages = with pkgs; [
