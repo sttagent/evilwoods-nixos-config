@@ -38,6 +38,7 @@
         };
         ports = {
           dns = ":53";
+          http = ":8053";
         };
         customDNS = {
           mapping = {
