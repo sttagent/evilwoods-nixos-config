@@ -12,6 +12,7 @@
 
     # services
     ./services/acme.nix
+    ./services/caddy.nix
     ./services/blocky.nix
     ./services/fail2ban.nix
   ];
