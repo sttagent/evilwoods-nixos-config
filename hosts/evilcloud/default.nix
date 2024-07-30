@@ -11,6 +11,7 @@
     ./configuration.nix
 
     # services
+    ./services/acme.nix
     ./services/blocky.nix
     ./services/fail2ban.nix
   ];
