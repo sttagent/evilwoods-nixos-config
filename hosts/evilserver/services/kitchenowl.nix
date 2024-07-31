@@ -25,7 +25,7 @@ in {
   systemd.timers."${snapshotServiceName}" = {
     enable = true;
     description = "${appName} backup timer";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = "daily";
       AccuracySec = "1s";
