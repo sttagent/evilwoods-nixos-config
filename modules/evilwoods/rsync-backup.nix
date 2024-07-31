@@ -128,7 +128,7 @@ in
         timerConfig = {
           OnCalendar = "daily";
           AccuracySec = "1s";
-          RandomizedDelaySec = "5h";
+          RandomizedDelaySec = "4h";
         };
       }
     ) cfg.backups;
