@@ -67,7 +67,10 @@
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/home";
                   };
-                  "/storage" = { };
+                  "/storage" = {
+                    mountOptions = [ "defaults" "noatime" "compress=zstd" ];
+                    mountpoint = "/var/storage";
+                  };
                   "/snapshots" = {
                     mountOptions = [ "defaults" "noatime" "compress=zstd" ];
                     mountpoint = "/var/snapshots";
