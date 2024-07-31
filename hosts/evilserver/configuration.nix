@@ -22,6 +22,10 @@
       daemon.settings = {
         data-root = "/var/storage/docker";
       };
+      autoPrune = {
+        enable = true;
+        flags = [ "--all" ];
+      };
     };
   };
 
