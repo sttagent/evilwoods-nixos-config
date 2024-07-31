@@ -15,5 +15,6 @@
     ./services/atuin.nix
     ./services/languagetool.nix
     ./services/kitchenowl.nix
+    ./services/restic-backup.nix
   ];
 }
