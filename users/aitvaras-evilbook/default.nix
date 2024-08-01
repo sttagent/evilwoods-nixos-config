@@ -107,6 +107,7 @@ in
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
           "kitty.desktop"
+          "dev.zed.Zed.desktop"
           "io.gitlab.news_flash.NewsFlash.desktop"
           "standard-notes.desktop"
           "obsidian.desktop"
