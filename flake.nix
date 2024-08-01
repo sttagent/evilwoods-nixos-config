@@ -97,6 +97,7 @@
           nvd
           sops
           nixfmt-rfc-style
+          nixpkgs-fmt
           ssh-to-age
         ];
       };
