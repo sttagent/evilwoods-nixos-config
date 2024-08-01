@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./options.nix
+    ./vars.nix
     ./rsync-backup.nix
   ];
 }
