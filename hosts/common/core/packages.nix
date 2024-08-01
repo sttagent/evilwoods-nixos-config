@@ -23,5 +23,6 @@ in
     gh
     dust
     just
+    difftastic
   ];
 }
