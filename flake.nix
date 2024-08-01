@@ -44,11 +44,9 @@
       pkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
     in
     {
-      formatter.x86_64-linux = pkgs.nixpkgs-fmt;
+      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
 
       lib = import ./lib { lib = inputs.nixpkgs-unstable.lib; };
-
-      nixosModules = { };
 
       nixosConfigurations = import ./hosts {
         inherit inputs;
