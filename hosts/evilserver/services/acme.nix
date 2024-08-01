@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 let
   secretsPath = builtins.toString inputs.evilsecrets;
-in 
+in
 {
   sops.secrets."acme-cloudflare.env" = {
     mode = "0400";

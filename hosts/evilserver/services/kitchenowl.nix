@@ -7,7 +7,8 @@ let
   snapshotServiceName = "snapshot-${appName}";
   srcPath = "/var/snapshots/${appName}/docker/volumes/${appVolume}";
   dstPath = "/var/backups/docker/volumes/${appVolume}";
-in {
+in
+{
   virtualisation.oci-containers.containers = {
     ${appName} = {
       autoStart = true;
@@ -16,9 +17,7 @@ in {
       environment = {
         JWT_SECRET_KEY = "satan_spawn";
       };
-      volumes = [
-        "${appVolume}:/data"
-      ];
+      volumes = [ "${appVolume}:/data" ];
     };
   };
 

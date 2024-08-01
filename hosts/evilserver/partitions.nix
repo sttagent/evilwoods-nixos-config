@@ -1,9 +1,11 @@
-{ disks ? [
+{
+  disks ? [
     "/dev/disk/by-id/ata-SanDisk_Ultra_II_480GB_160807801275"
     "/dev/disk/by-id/ata-CT1000MX500SSD1_1950E22EEC2F"
-  ]
-, ...
-}: {
+  ],
+  ...
+}:
+{
   disko.devices = {
     disk = {
       nixos = {
@@ -36,7 +38,10 @@
                     mountpoint = "/";
                   };
                   "/nix" = {
-                    mountOptions = [ "compress=zstd" "noatime" ];
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
                     mountpoint = "/nix";
                   };
                   "/swap" = {
@@ -68,11 +73,19 @@
                     mountpoint = "/home";
                   };
                   "/storage" = {
-                    mountOptions = [ "defaults" "noatime" "compress=zstd" ];
+                    mountOptions = [
+                      "defaults"
+                      "noatime"
+                      "compress=zstd"
+                    ];
                     mountpoint = "/var/storage";
                   };
                   "/snapshots" = {
-                    mountOptions = [ "defaults" "noatime" "compress=zstd" ];
+                    mountOptions = [
+                      "defaults"
+                      "noatime"
+                      "compress=zstd"
+                    ];
                     mountpoint = "/var/snapshots";
                   };
                 };

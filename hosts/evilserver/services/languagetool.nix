@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   # services.languagetool = {
   #   enable = false;
   #   public = true;
@@ -22,9 +23,7 @@
         langtool_languageModel = "/ngrams";
         langtool_fasttextModel = "/fasttext/lid.176.bin";
       };
-      ports = [
-        "8010:8010"
-      ];
+      ports = [ "8010:8010" ];
       volumes = [
         "languagetool_ngrams:/ngrams"
         "languagetool_fasttext:/fasttext"

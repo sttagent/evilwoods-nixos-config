@@ -18,7 +18,10 @@ in
       home = "/home/${thisUser}";
       description = "Arvydas Ramanauskas";
       hashedPasswordFile = config.sops.secrets.aitvaras-password.path;
-      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ]; # Enable ‘sudo’ for the user.
       shell = pkgs.fish;
     };
   };

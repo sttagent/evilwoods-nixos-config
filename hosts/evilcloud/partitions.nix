@@ -1,8 +1,8 @@
-{ disks ? [
-    "/dev/sda"
-  ]
-, ...
-}: {
+{
+  disks ? [ "/dev/sda" ],
+  ...
+}:
+{
   disko.devices = {
     disk.nixos = {
       device = builtins.elemAt disks 0;
@@ -46,9 +46,7 @@
               type = "filesystem";
               format = "ext4";
               mountpoint = "/";
-              mountOptions = [
-                "defaults"
-              ];
+              mountOptions = [ "defaults" ];
             };
           };
         };

@@ -1,10 +1,17 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 let
   inherit (import ./vars.nix) thisUser;
 
   nvimConfigDir = "../../configfiles/nvim";
 in
-with builtins; {
+with builtins;
+{
   home-manager.users.${thisUser}.programs.neovim = {
     extraLuaConfig = ''
       ${readFile ./${nvimConfigDir}/init.lua}

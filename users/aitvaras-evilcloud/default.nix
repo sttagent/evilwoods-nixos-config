@@ -3,9 +3,7 @@ let
   inherit (import ../aitvaras/vars.nix) thisUser;
 in
 {
-  imports = [
-    ../aitvaras
-  ];
+  imports = [ ../aitvaras ];
 
   sops.secrets.ssh-pub-key.neededForUsers = true;
 

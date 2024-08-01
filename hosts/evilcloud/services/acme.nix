@@ -7,7 +7,7 @@
     isSystemUser = true;
   };
 
-  users.groups.acme = {};
+  users.groups.acme = { };
 
   systemd.tmpfiles.rules = [ "d /var/lib/acme 0755 acme acme" ];
 }

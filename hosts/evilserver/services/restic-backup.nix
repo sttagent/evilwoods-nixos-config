@@ -1,15 +1,19 @@
 { config, pkgs, ... }:
 let
   snapshotPath = "/var/ext-hdd-snapshots";
-in {
+in
+{
   fileSystems."${snapshotPath}" = {
     device = "/dev/disk/by-label/External-backup";
     fsType = "btrfs";
-    options = [ "defaults" "noatime" "compress=zstd" "subvol=/snapshots"];
+    options = [
+      "defaults"
+      "noatime"
+      "compress=zstd"
+      "subvol=/snapshots"
+    ];
   };
-  systemd.tmpfiles.rules = [
-    "d ${snapshotPath} 0700 root root"
-  ];
+  systemd.tmpfiles.rules = [ "d ${snapshotPath} 0700 root root" ];
   sops.secrets = {
     "evilserver-restic-backup.env".mode = "0400";
     "evilserver-restic-backup-repo".mode = "0400";
@@ -19,8 +23,16 @@ in {
     ext-hdd-backblaze = {
       initialize = true;
       environmentFile = config.sops.secrets."evilserver-restic-backup.env".path;
-      timerConfig = { OnCalendar = "04:30"; Persistent = true; };
-      pruneOpts = [ "--keep-daily 7" "--keep-weekly 5" "--keep-monthly 12" "--keep-yearly 10" ];
+      timerConfig = {
+        OnCalendar = "04:30";
+        Persistent = true;
+      };
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 5"
+        "--keep-monthly 12"
+        "--keep-yearly 10"
+      ];
       paths = [ snapshotPath ];
       repositoryFile = config.sops.secrets."evilserver-restic-backup-repo".path;
       passwordFile = config.sops.secrets."evilserver-restic-backup-repo-pass".path;

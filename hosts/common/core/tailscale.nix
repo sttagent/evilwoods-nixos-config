@@ -10,7 +10,10 @@ in
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
-      extraUpFlags = [ "--ssh" "--operator=${mainUser}" ];
+      extraUpFlags = [
+        "--ssh"
+        "--operator=${mainUser}"
+      ];
       authKeyFile = config.sops.secrets.tailscale-auth-key.path;
     };
   };

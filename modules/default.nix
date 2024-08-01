@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./evilwoods
-  ];
-}
+{ imports = [ ./evilwoods ]; }

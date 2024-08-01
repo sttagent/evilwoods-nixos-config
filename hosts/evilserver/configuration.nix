@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   nix.settings = {
     trusted-users = [
@@ -11,7 +16,7 @@
     enable = true;
   };
 
-  systemd.tmpfiles.rules = [ "d /var/storage/docker 0700 root root"];
+  systemd.tmpfiles.rules = [ "d /var/storage/docker 0700 root root" ];
   virtualisation = {
     oci-containers = {
       backend = "docker";
@@ -33,7 +38,11 @@
     "/var/backups" = {
       device = "/dev/disk/by-label/External-backup";
       fsType = "btrfs";
-      options = [ "defaults" "noatime" "compress=zstd" ];
+      options = [
+        "defaults"
+        "noatime"
+        "compress=zstd"
+      ];
     };
   };
 

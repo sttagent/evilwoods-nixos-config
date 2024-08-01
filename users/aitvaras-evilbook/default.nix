@@ -9,9 +9,7 @@ in
 {
   imports = [ ../aitvaras ];
 
-  users.users.${thisUser}.extraGroups = [
-    "libvirtd"
-  ];
+  users.users.${thisUser}.extraGroups = [ "libvirtd" ];
 
   home-manager.users.${thisUser} = {
     home = {
@@ -39,7 +37,14 @@ in
         floating-controls-hover-area = hmlibgv.mkUint32 10;
         remember-window-size = true;
         show-headerbar = false;
-        terminal-padding = with hmlibgv; mkTuple [ (mkUint32 10) (mkUint32 10) (mkUint32 10) (mkUint32 10) ];
+        terminal-padding =
+          with hmlibgv;
+          mkTuple [
+            (mkUint32 10)
+            (mkUint32 10)
+            (mkUint32 10)
+            (mkUint32 10)
+          ];
       };
 
       "org/gnome/desktop/background" = {
@@ -63,7 +68,20 @@ in
       };
 
       "org/gnome/desktop/input-sources" = {
-        sources = with hmlibgv; [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "se" ]) (mkTuple [ "xkb" "us+colemak_dh" ]) ];
+        sources = with hmlibgv; [
+          (mkTuple [
+            "xkb"
+            "us"
+          ])
+          (mkTuple [
+            "xkb"
+            "se"
+          ])
+          (mkTuple [
+            "xkb"
+            "us+colemak_dh"
+          ])
+        ];
       };
 
       "org/gnome/settings-daemon/plugins/power" = {
@@ -181,33 +199,55 @@ in
           search = {
             engines = {
               "Nix Packages" = {
-                urls = [{
-                  template = "https://search.nixos.org/packages";
-                  params = [
-                    { name = "channel"; value = "unstable"; }
-                    { name = "type"; value = "packages"; }
-                    { name = "query"; value = "{searchTerms}"; }
-                  ];
-                }];
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                 definedAliases = [ "@np" ];
               };
 
               "Nix Options" = {
-                urls = [{
-                  template = "https://search.nixos.org/options";
-                  params = [
-                    { name = "channel"; value = "unstable"; }
-                    { name = "type"; value = "packages"; }
-                    { name = "query"; value = "{searchTerms}"; }
-                  ];
-                }];
+                urls = [
+                  {
+                    template = "https://search.nixos.org/options";
+                    params = [
+                      {
+                        name = "channel";
+                        value = "unstable";
+                      }
+                      {
+                        name = "type";
+                        value = "packages";
+                      }
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
                 icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
                 definedAliases = [ "@no" ];
               };
 
               "NixOS Wiki" = {
-                urls = [{ template = "https://wiki.nixos.org/index.php?search={searchTerms}"; }];
+                urls = [ { template = "https://wiki.nixos.org/index.php?search={searchTerms}"; } ];
                 iconUpdateURL = "https://wiki.nixos.org/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000; # every day
                 definedAliases = [ "@nw" ];

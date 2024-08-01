@@ -30,9 +30,7 @@
             ];
           };
           clientGroupsBlock = {
-            default = [
-              "ads"
-            ];
+            default = [ "ads" ];
           };
         };
         ports = {

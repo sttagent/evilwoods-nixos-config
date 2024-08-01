@@ -1,14 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./packages.nix
-  ];
-
-
-  environment.gnome.excludePackages = with pkgs; [
-    epiphany
-    geary
-  ];
+  imports = [ ./packages.nix ];
 
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
@@ -29,9 +21,7 @@
         btrfs_defaults = "compress=zstd";
       };
       udisks2 = {
-        modules = [
-          "*"
-        ];
+        modules = [ "*" ];
         modules_load_preference = "ondemand";
       };
     };

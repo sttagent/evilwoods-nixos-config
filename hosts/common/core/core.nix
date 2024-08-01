@@ -1,4 +1,10 @@
-{ inputs, config, pkgs, lib, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   mainUser = config.evilwoods.mainUser;
   secretsPath = builtins.toString inputs.evilsecrets;
@@ -7,13 +13,12 @@ in
   nix = {
     package = pkgs.nixFlakes;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      allowed-users = [
-        "@wheel"
+      experimental-features = [
+        "nix-command"
+        "flakes"
       ];
-      trusted-substituters = [
-        "https://nix-community.cachix.org/"
-      ];
+      allowed-users = [ "@wheel" ];
+      trusted-substituters = [ "https://nix-community.cachix.org/" ];
 
       extra-substituters = [
         # Nix community's cache server
@@ -64,14 +69,20 @@ in
 
   # nextdns configuration
   networking = {
-    nameservers = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
+    nameservers = [
+      "45.90.28.0#c9d65a.dns.nextdns.io"
+      "45.90.30.0#c9d65a.dns.nextdns.io"
+    ];
   };
   services = {
     resolved = {
       enable = false;
       dnssec = "false";
       domains = [ "~." ];
-      fallbackDns = [ "45.90.28.0#c9d65a.dns.nextdns.io" "45.90.30.0#c9d65a.dns.nextdns.io" ];
+      fallbackDns = [
+        "45.90.28.0#c9d65a.dns.nextdns.io"
+        "45.90.30.0#c9d65a.dns.nextdns.io"
+      ];
       extraConfig = ''
         DNSOverTLS=yes
       '';

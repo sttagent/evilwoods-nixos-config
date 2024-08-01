@@ -79,7 +79,11 @@
     "/home/aitvaras/share" = {
       device = "/dev/disk/by-label/External-backup";
       fsType = "btrfs";
-      options = [ "defaults" "compress=zstd" "subvol=shares/aitvaras" ];
+      options = [
+        "defaults"
+        "compress=zstd"
+        "subvol=shares/aitvaras"
+      ];
     };
   };
 
@@ -87,7 +91,11 @@
     "/home/ryne/share" = {
       device = "/dev/disk/by-label/External-backup";
       fsType = "btrfs";
-      options = [ "defaults" "compress=zstd" "subvol=shares/ryne" ];
+      options = [
+        "defaults"
+        "compress=zstd"
+        "subvol=shares/ryne"
+      ];
     };
   };
 
@@ -95,7 +103,11 @@
     "/home/samba-guest/share" = {
       device = "/dev/disk/by-label/External-backup";
       fsType = "btrfs";
-      options = [ "defaults" "compress=zstd" "subvol=shares/samba-guest" ];
+      options = [
+        "defaults"
+        "compress=zstd"
+        "subvol=shares/samba-guest"
+      ];
     };
   };
 

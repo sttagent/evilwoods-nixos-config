@@ -1,3 +1,1 @@
-{
-  thisUser = "aitvaras";
-}
+{ thisUser = "aitvaras"; }
