@@ -87,6 +87,7 @@
         ];
       };
 
+      # TODO: import shell enstead
       devShells.x86_64-linux.default = pkgs.mkShell {
         name = "evilwoods-nixos-config";
         packages = with pkgs; [
