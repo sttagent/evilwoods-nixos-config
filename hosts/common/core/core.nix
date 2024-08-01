@@ -17,6 +17,7 @@ in
         "nix-command"
         "flakes"
       ];
+      warn-dirty = false;
       allowed-users = [ "@wheel" ];
       trusted-substituters = [ "https://nix-community.cachix.org/" ];
 
