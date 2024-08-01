@@ -7,7 +7,6 @@
     prismlauncher
     nushell
     ffmpeg-full
-    cryptomator
     appimage-run
     distrobox
     firefox
@@ -18,8 +17,6 @@
     signal-desktop
     zoom-us
     github-desktop
-    vscode-fhs
-    google-chrome
     zed-editor
     protonmail-desktop
     proton-pass
