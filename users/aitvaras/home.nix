@@ -120,6 +120,9 @@ in
               name = "Arvydas Ramanauskas";
               email = "711261+sttagent@users.noreply.github.com";
             };
+            ui = {
+              default-command = [ "status" "--no-pager" ];
+            };
           };
         };
 
