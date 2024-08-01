@@ -118,7 +118,7 @@ in
           settings = {
             user = {
               name = "Arvydas Ramanauskas";
-              email = "aram@ewmail.me";
+              email = "711261+sttagent@users.noreply.github.com";
             };
           };
         };
