@@ -51,7 +51,7 @@ let
           ../modules
           ./common/bootstrap
 
-          (import ./${hostname}/partitions.nix { })
+          ./${hostname}/partitions.nix
           ./${hostname}/boot.nix
 
           {

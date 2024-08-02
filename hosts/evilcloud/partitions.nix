@@ -1,7 +1,6 @@
-{
-  disks ? [ "/dev/sda" ],
-  ...
-}:
+let
+  disks = [ "/dev/sda" ];
+in
 {
   disko.devices = {
     disk.nixos = {

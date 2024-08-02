@@ -1,11 +1,9 @@
-{
-  disks ? [
+let
+  disks = [
     "/dev/disk/by-id/ata-SanDisk_Ultra_II_480GB_160807801275"
     "/dev/disk/by-id/ata-CT1000MX500SSD1_1950E22EEC2F"
-  ],
-  ...
-}:
-{
+  ];
+in {
   disko.devices = {
     disk = {
       nixos = {
