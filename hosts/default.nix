@@ -73,4 +73,5 @@ let
 
   mkHosts = hostList: builtins.map mkHost hostList;
 in
+# TODO: use lib.concatMapAttrs instead?
 builtins.listToAttrs (builtins.concatLists (mkHosts hosts))
