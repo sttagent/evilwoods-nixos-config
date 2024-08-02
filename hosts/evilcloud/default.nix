@@ -16,5 +16,7 @@
     ./services/blocky.nix
     ./services/ntfy.nix
     ./services/fail2ban.nix
+    
+    ./testing.nix
   ];
 }
