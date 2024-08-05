@@ -1,8 +1,4 @@
-{ config, ... }:
+{ evilib, inputs, ... }:
 {
-  imports = [
-    ./packages.nix
-    ./core.nix
-    ./tailscale.nix
-  ];
+  imports = (evilib.mkImportList ./.) ++ [ ];
 }

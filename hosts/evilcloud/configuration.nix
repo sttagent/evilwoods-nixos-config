@@ -1,17 +1,18 @@
 {
+  inputs,
   config,
+  modulesPath,
   lib,
   pkgs,
   ...
 }:
 {
-
-  boot = {
-    initrd = {
-      verbose = false;
-    };
-  };
-
+  imports = [
+    ../common/optional/base
+    ../common/optional/server
+    inputs.sops-nix-2405.nixosModules.sops
+    inputs.home-manager-2405.nixosModules.home-manager
+  ];
   nix.settings = {
     trusted-users = [
       "root"
@@ -20,7 +21,6 @@
   };
 
   users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFc8oFtu7i4WBlbcDMB7ua9cHJW2bzeomrLFddokw7v aitvaras@evilbook"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMQa0ofDMxQ2x8WC8KkcsERfmmYa89tlhu11dJ0J9Pds root@evilcloud"
   ];
 

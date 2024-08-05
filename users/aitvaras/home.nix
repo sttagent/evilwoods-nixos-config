@@ -121,7 +121,10 @@ in
               email = "711261+sttagent@users.noreply.github.com";
             };
             ui = {
-              default-command = [ "status" "--no-pager" ];
+              default-command = [
+                "status"
+                "--no-pager"
+              ];
             };
           };
         };
@@ -307,9 +310,7 @@ in
         eza = {
           enable = true;
           icons = true;
-          extraOptions = [
-            "--group-directories-first"
-          ];
+          extraOptions = [ "--group-directories-first" ];
         };
 
         neovim = {

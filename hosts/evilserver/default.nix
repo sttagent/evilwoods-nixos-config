@@ -1,6 +1,4 @@
-{ evilib, ... }:
+{ evilib, inputs, ... }:
 {
-  imports = (evilib.scanPathForImports ./.) ++ [
-    ../common/core
-  ];
+  imports = (evilib.mkImportList ./.);
 }

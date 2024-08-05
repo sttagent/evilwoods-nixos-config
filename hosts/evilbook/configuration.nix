@@ -1,10 +1,20 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
   ...
 }:
 {
+  imports = [
+    ../common/optional/base
+    ../common/optional/desktop
+    ../common/optional/gnome
+    ../common/optional/zsa.nix
+
+    inputs.sops-nix.nixosModules.sops
+    inputs.home-manager.nixosModules.home-manager
+  ];
   sops.secrets = {
     "network-manager.env" = { };
   };

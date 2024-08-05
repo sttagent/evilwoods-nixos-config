@@ -1,4 +1,0 @@
-{ evilib, ... }:
-{
-  imports = (evilib.sacnPathForImoprts ./.);
-}

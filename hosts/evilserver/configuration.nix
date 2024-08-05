@@ -1,10 +1,18 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
   ...
 }:
 {
+  imports = [
+    ../common/optional/base
+    ../common/optional/server
+    inputs.sops-nix-2405.nixosModules.sops
+    inputs.home-manager-2405.nixosModules.home-manager
+  ];
+
   nix.settings = {
     trusted-users = [
       "root"

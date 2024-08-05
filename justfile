@@ -12,6 +12,9 @@ boot host="":
 
 test host="":
     nixos-rebuild test --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
+    
+dry-activate host="":
+    nixos-rebuild dry-activate --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
 reboot host:
   ssh -t {{host}} "sudo systemctl reboot"

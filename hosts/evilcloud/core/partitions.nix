@@ -1,3 +1,4 @@
+{ inputs, ... }:
 let
   disks = [ "/dev/sda" ];
 in

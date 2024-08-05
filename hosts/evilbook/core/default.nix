@@ -1,4 +1,4 @@
-{ evilib, inputs, ... }:
+{ inputs, evilib, ... }:
 {
   imports = (evilib.mkImportList ./.);
 }
