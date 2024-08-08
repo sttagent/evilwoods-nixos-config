@@ -69,22 +69,6 @@ rec {
       };
     }
 
-    // lib.optionalAttrs testHost {
-      "${hostName}-test" = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        modules = [
-          ../modules
-          {
-            networking.hostName = "${hostName}-test";
-            system.stateVersion = stateVersion;
-            evilwoods.isTestEnv = true;
-          }
-          (hostPath + "/test.nix")
-          ../users/${defaults.mainUser}-${hostName}
-        ];
-      };
-    }
-
     // lib.optionalAttrs bootstrapHost {
       "${hostName}-bootstrap" = nixpkgs.lib.nixosSystem {
         inherit system specialArgs;
