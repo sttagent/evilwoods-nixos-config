@@ -60,4 +60,6 @@
     allowedTCPPorts = [ 53 ];
     allowedUDPPorts = [ 53 ];
   };
+
+  systemd.services.blocky.after = [ "network-online.target" ];
 }
