@@ -28,6 +28,12 @@ upgrade:
 diff:
     nvd diff /run/current-system ./result/
 
+remote-diff host:
+    #!/usr/bin/env bash
+    closure=$(realpath ./result)
+    nix copy --substitute-on-destination --to ssh://root@{{host}} $closure
+    ssh root@{{host}} nix run nixpkgs#nvd diff /run/current-system/ $closure
+
 format-disk host:
     sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko --flake .#{{host}}
 
