@@ -1,4 +1,7 @@
-{ lib, ... }:
+{ inputs, ... }:
+let
+  lib = inputs.nixpkgs-unstable.legacyPackages."x86_64-linux".lib;
+in
 rec {
   sourcePath = ./.;
   defaults = {
