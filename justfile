@@ -30,7 +30,10 @@ diff:
 
 remote-diff host:
     #!/usr/bin/env bash
+    set -e
     closure=$(realpath ./result)
+    echo $closure
+    [[ $closure == *"{{host}}"* ]]
     nix copy --substitute-on-destination --to ssh://root@{{host}} $closure
     ssh root@{{host}} nix run nixpkgs#nvd diff /run/current-system/ $closure
 
