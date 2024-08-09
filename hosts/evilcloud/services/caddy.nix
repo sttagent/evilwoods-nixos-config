@@ -1,7 +1,11 @@
+{ config, lib, ... }:
+let
+  isNotTestEnv = !config.evilwoods.isTestEnv;
+in
 {
   services.caddy = {
     enable = true;
-    virtualHosts = {
+    virtualHosts = lib.mkIf isNotTestEnv {
       ":443".extraConfig = ''
         tls /var/lib/acme/evilwoods.net/cert.pem /var/lib/acme/evilwoods.net/key.pem
       '';
