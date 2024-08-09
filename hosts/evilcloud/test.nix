@@ -1,9 +1,10 @@
 # The file is not imported by default
 
-{ inputs, evilib, ... }:
+{ inputs, ... }:
 let
   lib = inputs.nixpkgs-2405.legacyPackages."x86_64-linux".lib;
   pkgs = inputs.nixpkgs-2405.legacyPackages."x86_64-linux";
+  evilib = inputs.self.lib;
 in
 {
   name = "Evilcloud host tests";
@@ -14,8 +15,10 @@ in
   nodes = {
     evilcloudtest = {
       imports = [ ./default.nix ../../modules ];
+      evilwoods.isTestEnv = true;
     };
   };
+
   interactive.nodes.evilcloudtest = {
     users.users.nixtest = {
       isNormalUser = true;
@@ -25,12 +28,10 @@ in
     };
   };
 
-
-
-
   testScript = ''
     evilcloudtest.wait_for_unit("default.target")
     evilcloudtest.succeed("systemctl is-active blocky")
     evilcloudtest.succeed("systemctl is-active caddy")
+    evilcloudtest.succeed("systemctl is-active ntfy-sh")
   '';
 }

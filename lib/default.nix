@@ -40,7 +40,20 @@ rec {
       )
     );
 
-  mkTest = host: { };
+  mkHostTest = inputs: hostName: attrs:
+    let
+      inherit (attrs) hostPath;
+      inherit (attrs.hostVars)
+        system
+        stateVersion
+        testHost
+        ;
+      nixpkgs = builtins.getAttr attrs.hostVars.nixpkgs inputs;
+      pkgs = nixpkgs.legacyPackages."${system}";
+    in
+    if testHost then {
+      "${system}"."${hostName}test" = pkgs.testers.runNixOSTest (import (hostPath + "/test.nix") { inherit inputs; });
+    } else { };
 
   mkHost =
     { inputs, ... }:
