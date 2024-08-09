@@ -2,7 +2,7 @@ default:
     just --list
 
 refresh:
-    nix flake update --commit-lock-file
+    nix flake update
     
 switch host="":
     nixos-rebuild switch --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
