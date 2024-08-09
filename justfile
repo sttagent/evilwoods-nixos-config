@@ -16,6 +16,12 @@ test host="":
 dry-activate host="":
     nixos-rebuild dry-activate --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
+run-tests-interactive host:
+    sudo sh -c "LD_LIBRARY_PATH= nix run -L .#packages.x86_64-linux.{{host}}-test.driverInteractive --option sandbox false"
+
+run-tests host:
+    sudo sh -c "LD_LIBRARY_PATH= nix run -L .#packages.x86_64-linux.{{host}}-test --option sandbox false"
+
 reboot host:
   ssh -t {{host}} "sudo systemctl reboot"
 
