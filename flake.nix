@@ -42,13 +42,17 @@
     inputs:
     let
       pkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+      pkgs-stable = inputs.nixpkgs-2405.legacyPackages.x86_64-linux;
+      evilib = import ./lib { inherit inputs; };
     in
     {
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
 
-      lib = import ./lib { lib = inputs.nixpkgs-unstable.lib; };
+      lib = evilib;
 
       nixosConfigurations = import ./hosts { inherit inputs; };
+      packages."x86_64-linux".evilcloud-test =
+        pkgs-stable.testers.runNixOSTest (import ./hosts/evilcloud/test.nix { inherit inputs evilib; });
 
       # TODO: import shell enstead
       devShells.x86_64-linux.default = pkgs.mkShell {

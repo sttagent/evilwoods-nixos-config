@@ -1,26 +1,36 @@
 # The file is not imported by default
 
-{ config, lib, pkgs, ... }:
+{ inputs, evilib, ... }:
+let
+  lib = inputs.nixpkgs-2405.legacyPackages."x86_64-linux".lib;
+  pkgs = inputs.nixpkgs-2405.legacyPackages."x86_64-linux";
+in
 {
-  imports = [ ./default.nix ];
-
-  sops.secrets.tailscale-ephemeral-auth-key = { };
-  services.tailscale.authKeyFile = lib.mkForce config.sops.secrets.tailscale-ephemeral-auth-key.path;
-  
-  users.users.nixostest = {
-    isNormalUser = true;
-    password = "test";
-    extraGroups = [ "wheel" ];
-    shell = pkgs.fish;
+  name = "Evilcloud host tests";
+  node = {
+    pkgsReadOnly = false;
+    specialArgs = { inherit inputs evilib; };
   };
-  
-  virtualisation.vmVariant.virtualisation = {
-    sharedDirectories = {
-        keys = {
-          source = "/etc/ssh";
-          target = "/etc/ssh";
-        };
+  nodes = {
+    evilcloudtest = {
+      imports = [ ./default.nix ../../modules ];
     };
   };
-  
+  interactive.nodes.evilcloudtest = {
+    users.users.nixtest = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+      password = "nixtest";
+      shell = pkgs.fish;
+    };
+  };
+
+
+
+
+  testScript = ''
+    evilcloudtest.wait_for_unit("default.target")
+    evilcloudtest.succeed("systemctl is-active blocky")
+    evilcloudtest.succeed("systemctl is-active caddy")
+  '';
 }
