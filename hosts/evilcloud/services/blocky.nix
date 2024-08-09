@@ -60,4 +60,5 @@
     };
   };
   systemd.services.blocky.after = [ "network-online.target" ];
+  systemd.services.blocky.wants = [ "network-online.target" ];
 }
