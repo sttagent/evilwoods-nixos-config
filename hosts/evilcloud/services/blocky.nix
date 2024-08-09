@@ -37,6 +37,9 @@
           dns = ":53";
           http = ":8053";
         };
+        fqdnOnly = {
+          enable = true;
+        };
         customDNS = {
           mapping = {
             "dns.evilwoods.net" = "100.124.137.46";
