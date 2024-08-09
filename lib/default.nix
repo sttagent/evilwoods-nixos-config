@@ -40,6 +40,8 @@ rec {
       )
     );
 
+  mkTest = host: { };
+
   mkHost =
     { inputs, ... }:
     hostName: attrs:
