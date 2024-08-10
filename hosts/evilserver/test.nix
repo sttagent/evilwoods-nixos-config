@@ -1,16 +1,37 @@
 # The file is not imported by default
 
-{ config, lib, ... }:
+{ inputs, ... }:
+let
+  lib = inputs.nixpkgs-2405.legacyPackages."x86_64-linux".lib;
+  pkgs = inputs.nixpkgs-2405.legacyPackages."x86_64-linux";
+  evilib = inputs.self.lib;
+in
 {
-  imports = [ ./default.nix ];
-
-  sops.secrets.tailscale-ephemeral-auth-key = { };
-  services.tailscale.authKeyFile = lib.mkForce config.config.sops.tailscale-ephemeral-auth-key.path;
-  
-  virtualisation.vmVariant.virtualisation.sharedDirectories = {
-    ssh-key = {
-        source = "/ect/ssh";
-        destination = "/ect/ssh";
+  name = "Evilserver host tests";
+  node = {
+    pkgsReadOnly = false;
+    specialArgs = { inherit inputs evilib; };
+  };
+  nodes = {
+    evilservertest = {
+      imports = [ ./default.nix ../../modules ];
+      evilwoods.isTestEnv = true;
     };
   };
+
+  interactive.nodes.evilservertest = {
+    users.users.nixtest = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+      password = "nixtest";
+      shell = pkgs.fish;
+    };
+  };
+
+  testScript = ''
+    evilservertestg.wait_for_unit("default.target")
+    evilservertestg.succeed("systemctl is-active docker-kitchenowl-app")
+    evilservertestg.succeed("systemctl is-active docker-languagetool-app")
+    evilservertestg.succeed("systemctl is-active caddy")
+  '';
 }

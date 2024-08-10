@@ -51,7 +51,7 @@ rec {
       pkgs = nixpkgs.legacyPackages."${system}";
     in
     if testHost then {
-      "${system}"."${hostName}test" = pkgs.testers.runNixOSTest (import (hostPath + "/test.nix") { inherit inputs; });
+      "${hostName}-test" = pkgs.testers.runNixOSTest (import (hostPath + "/test.nix") { inherit inputs; });
     } else { };
 
   mkHost =

@@ -52,7 +52,7 @@
       lib = evilib;
 
       nixosConfigurations = import ./hosts { inherit inputs; };
-      packages = mapHosts (mkHostTest inputs) (mkHostAttrs (findAllHosts ./hosts));
+      packages.x86_64-linux = mapHosts (mkHostTest inputs) (mkHostAttrs (findAllHosts ./hosts));
 
       # TODO: import shell enstead
       devShells.x86_64-linux.default = pkgs.mkShell {

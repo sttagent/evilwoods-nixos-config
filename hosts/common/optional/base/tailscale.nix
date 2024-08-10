@@ -1,6 +1,9 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
+  inherit (lib) mkIf;
+
   mainUser = config.evilwoods.mainUser;
+  isTestEnv = config.evilwoods.isTestEnv;
 in
 {
   # tailscale configuration
@@ -17,4 +20,7 @@ in
       authKeyFile = config.sops.secrets.tailscale-auth-key.path;
     };
   };
-}
+} // (mkIf isTestEnv {
+  sops.secrets.tailscale-ephemeral-auth-key = { };
+  services.tailscale.authKeyFile = lib.mkForce config.sops.secrets.tailscale-ephemeral-auth-key.path;
+})
