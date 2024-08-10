@@ -45,7 +45,6 @@ rec {
       inherit (attrs) hostPath;
       inherit (attrs.hostVars)
         system
-        stateVersion
         testHost
         ;
       nixpkgs = builtins.getAttr attrs.hostVars.nixpkgs inputs;
@@ -61,9 +60,7 @@ rec {
     let
       inherit (attrs.hostVars)
         system
-        stateVersion
         bootstrapHost
-        testHost
         ;
       inherit (attrs) hostPath;
       nixpkgs = builtins.getAttr attrs.hostVars.nixpkgs inputs;
@@ -79,7 +76,6 @@ rec {
           ../modules
           {
             networking.hostName = hostName;
-            system.stateVersion = stateVersion;
           }
           hostPath
           ../users/${defaults.mainUser}-${hostName}
@@ -94,7 +90,6 @@ rec {
           ../modules
           {
             networking.hostName = hostName;
-            system.stateVersion = stateVersion;
           }
           (hostPath + "/bootstrap.nix")
         ];
