@@ -22,6 +22,8 @@
     proton-pass
     bitwarden-cli
     libreoffice-fresh
+    vivaldi
+    vivaldi-ffmpeg-codecs
 
     # apps specific to Gnome
     gnome-tweaks
