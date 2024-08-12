@@ -55,12 +55,6 @@
   };
 
   # nextdns configuration
-  networking = {
-    nameservers = [
-      "45.90.28.0#c9d65a.dns.nextdns.io"
-      "45.90.30.0#c9d65a.dns.nextdns.io"
-    ];
-  };
 
   # disable user creation. needed to disable root account
   users.mutableUsers = false;
