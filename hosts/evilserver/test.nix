@@ -29,9 +29,9 @@ in
   };
 
   testScript = ''
-    evilservertestg.wait_for_unit("default.target")
-    evilservertestg.succeed("systemctl is-active docker-kitchenowl-app")
-    evilservertestg.succeed("systemctl is-active docker-languagetool-app")
-    evilservertestg.succeed("systemctl is-active caddy")
+    evilservertest.wait_for_unit("default.target")
+    evilservertest.succeed("systemctl is-active docker-kitchenowl-app")
+    evilservertest.succeed("systemctl is-active docker-languagetool-app")
+    evilservertest.succeed("systemctl is-active caddy")
   '';
 }

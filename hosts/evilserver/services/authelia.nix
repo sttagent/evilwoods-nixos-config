@@ -1,0 +1,3 @@
+{
+  secvices.authelia.enable = true;
+}
