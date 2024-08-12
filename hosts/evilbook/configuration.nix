@@ -1,9 +1,8 @@
-{
-  inputs,
-  config,
-  lib,
-  pkgs,
-  ...
+{ inputs
+, config
+, lib
+, pkgs
+, ...
 }:
 {
   imports = [
@@ -11,6 +10,7 @@
     ../common/optional/desktop
     ../common/optional/gnome
     ../common/optional/zsa.nix
+    ../common/optional/android.nix
 
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
