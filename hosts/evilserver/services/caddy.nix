@@ -2,9 +2,17 @@
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "kitchenowl.evilwoods.net".extraConfig = ''
+      "*.evilwoods.net".extraConfig = ''
         tls /var/lib/acme/evilwoods.net/cert.pem /var/lib/acme/evilwoods.net/key.pem
-        reverse_proxy http://127.0.0.1:8081
+
+        @kitchenowl host kitchenowl.evilwoods.net
+        handle @kitchenowl {
+          reverse_proxy http://127.0.0.1:8081
+        }
+
+        handle {
+          abort
+        }
       '';
     };
   };
