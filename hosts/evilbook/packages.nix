@@ -29,7 +29,6 @@
     gnome-tweaks
     dconf-editor
     notify-client
-    bottles
     flare-signal
     gnome-extension-manager
     dconf
