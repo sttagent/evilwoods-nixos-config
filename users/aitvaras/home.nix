@@ -135,6 +135,10 @@ in
         nushell = {
           enable = true;
         };
+        carapace = {
+          enable = true;
+          enableNushellIntegration = true;
+        };
 
         fish = {
           enable = true;
