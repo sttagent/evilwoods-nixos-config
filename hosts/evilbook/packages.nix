@@ -24,6 +24,7 @@
     vivaldi
     vivaldi-ffmpeg-codecs
     warp-terminal
+    vscode-fhs
 
     # apps specific to Gnome
     gnome-tweaks
