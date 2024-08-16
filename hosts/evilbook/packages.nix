@@ -24,6 +24,7 @@
     libreoffice-fresh
     vivaldi
     vivaldi-ffmpeg-codecs
+    warp-terminal
 
     # apps specific to Gnome
     gnome-tweaks
