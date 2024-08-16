@@ -314,6 +314,7 @@ in
 
         eza = {
           enable = true;
+          enableNushellIntegration = true;
           icons = true;
           extraOptions = [ "--group-directories-first" ];
         };
