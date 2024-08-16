@@ -103,7 +103,7 @@ in
 
         git = {
           enable = true;
-          delta.enable = true;
+          # delta.enable = true;
           userName = "Arvydas Ramanauskas";
           userEmail = "711261+sttagent@users.noreply.github.com";
           extraConfig = {
