@@ -15,6 +15,12 @@ in{
         default = false;
         description = "Enable or dirable testing environment";
       };
+      
+      tailscaleIP = mkOption {
+        type = types.nullOr types.str;
+        default = null;
+        description = "Tailscale IP address";
+      };
 
     };
   };
