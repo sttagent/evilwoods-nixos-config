@@ -10,6 +10,11 @@
           reverse_proxy http://127.0.0.1:8081
         }
 
+        @auth host auth.evilwoods.net
+        handle @auth {
+          reverse_proxy http://127.0.0.1:9091
+        }
+
         handle {
           abort
         }
