@@ -165,6 +165,7 @@ in
         zellij = {
           enable = true;
           settings = {
+            default_shell = "nu";
             copy_command = "wl-copy";
             mirror_session = true;
             theme = "gruvbox-dark";
