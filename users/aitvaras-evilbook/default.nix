@@ -107,6 +107,7 @@ in
       "org/gnome/shell" = {
         favorite-apps = [
           "firefox.desktop"
+          "vivaldi-stable.desktop"
           "org.gnome.Nautilus.desktop"
           "kitty.desktop"
           "dev.zed.Zed.desktop"
