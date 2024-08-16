@@ -16,7 +16,6 @@
     discord
     signal-desktop
     zoom-us
-    github-desktop
     zed-editor
     protonmail-desktop
     proton-pass
