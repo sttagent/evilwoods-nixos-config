@@ -31,13 +31,15 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    
+    nixos-cli.url = "github:water-sucks/nixos";
 
     evilsecrets = {
       url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
       flake = false;
     };
   };
-
+  
   outputs =
     inputs:
     let
