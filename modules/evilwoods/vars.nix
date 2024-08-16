@@ -1,15 +1,17 @@
 { lib, ... }:
-{
+let
+  inherit (lib) types mkOption;
+in{
   options = {
     evilwoods = {
-      mainUser = lib.mkOption {
-        type = lib.types.str;
+      mainUser = mkOption {
+        type = types.str;
         default = "aitvaras";
         description = "The primary user of evilwoods.";
       };
 
-      isTestEnv = lib.mkOption {
-        type = lib.types.bool;
+      isTestEnv = mkOption {
+        type = types.bool;
         default = false;
         description = "Enable or dirable testing environment";
       };
