@@ -7,7 +7,6 @@
     gnomeExtensions.valent
     gnomeExtensions.battery-health-charging
     gnomeExtensions.blur-my-shell
-    gnomeExtensions.dash-to-dock
   ];
 
   services.xserver.desktopManager.gnome.enable = true;
