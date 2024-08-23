@@ -3,7 +3,12 @@
     enable = true;
     host = "127.0.0.1";
     settings = {
+      language = "en";
+      theme = "auto";
       dns = {
+        bind_host = [ "0.0.0.0" ];
+        port = 53;
+        enable_dnssec = true;
         upstream_dns = [
           "https://unfiltered.adguard-dns.com/dns-query"
           "https://dns.nextdns.io"
@@ -90,7 +95,7 @@
             domain = "dns.evilwoods.net";
             answer = "100.124.137.46";
           }
-          
+
           {
             domain = "*.evilwoods.net";
             answer = "100.100.53.98";
@@ -103,7 +108,7 @@
       };
     };
   };
-  
+
   networking.firewall = {
     allowedTCPPorts = [ 53 ];
     allowedUDPPorts = [ 53 ];
