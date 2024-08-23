@@ -1,7 +1,8 @@
 { lib, ... }:
 let
   inherit (lib) types mkOption;
-in{
+in
+{
   options = {
     evilwoods = {
       mainUser = mkOption {
@@ -15,7 +16,7 @@ in{
         default = false;
         description = "Enable or dirable testing environment";
       };
-      
+
       tailscaleIP = mkOption {
         type = types.nullOr types.str;
         default = null;

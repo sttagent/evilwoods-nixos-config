@@ -31,7 +31,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    
+
     nixos-cli.url = "github:water-sucks/nixos";
 
     evilsecrets = {
@@ -39,14 +39,19 @@
       flake = false;
     };
   };
-  
+
   outputs =
     inputs:
     let
       pkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
       evilib = import ./lib { inherit inputs; };
 
-      inherit (evilib) mapHosts mkHostTest mkHostAttrs findAllHosts;
+      inherit (evilib)
+        mapHosts
+        mkHostTest
+        mkHostAttrs
+        findAllHosts
+        ;
     in
     {
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;

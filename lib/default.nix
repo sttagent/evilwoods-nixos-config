@@ -40,28 +40,28 @@ rec {
       )
     );
 
-  mkHostTest = inputs: hostName: attrs:
+  mkHostTest =
+    inputs: hostName: attrs:
     let
       inherit (attrs) hostPath;
-      inherit (attrs.hostVars)
-        system
-        testHost
-        ;
+      inherit (attrs.hostVars) system testHost;
       nixpkgs = builtins.getAttr attrs.hostVars.nixpkgs inputs;
       pkgs = nixpkgs.legacyPackages."${system}";
     in
-    if testHost then {
-      "${hostName}-test" = pkgs.testers.runNixOSTest (import (hostPath + "/test.nix") { inherit inputs; });
-    } else { };
+    if testHost then
+      {
+        "${hostName}-test" = pkgs.testers.runNixOSTest (
+          import (hostPath + "/test.nix") { inherit inputs; }
+        );
+      }
+    else
+      { };
 
   mkHost =
     { inputs, ... }:
     hostName: attrs:
     let
-      inherit (attrs.hostVars)
-        system
-        bootstrapHost
-        ;
+      inherit (attrs.hostVars) system bootstrapHost;
       inherit (attrs) hostPath;
       nixpkgs = builtins.getAttr attrs.hostVars.nixpkgs inputs;
       specialArgs = {
@@ -74,9 +74,7 @@ rec {
         inherit system specialArgs;
         modules = [
           ../modules
-          {
-            networking.hostName = hostName;
-          }
+          { networking.hostName = hostName; }
           hostPath
           ../users/${defaults.mainUser}-${hostName}
         ];
@@ -88,9 +86,7 @@ rec {
         inherit system specialArgs;
         modules = [
           ../modules
-          {
-            networking.hostName = hostName;
-          }
+          { networking.hostName = hostName; }
           (hostPath + "/bootstrap.nix")
         ];
       };

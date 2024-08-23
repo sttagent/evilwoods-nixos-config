@@ -10,11 +10,16 @@ in
   name = "Evilserver host tests";
   node = {
     pkgsReadOnly = false;
-    specialArgs = { inherit inputs evilib; };
+    specialArgs = {
+      inherit inputs evilib;
+    };
   };
   nodes = {
     evilservertest = {
-      imports = [ ./default.nix ../../modules ];
+      imports = [
+        ./default.nix
+        ../../modules
+      ];
       evilwoods.isTestEnv = true;
     };
   };

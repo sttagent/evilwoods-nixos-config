@@ -1,7 +1,9 @@
-{ inputs
-, config
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  pkgs,
+  modulesPath,
+  ...
 }:
 {
   imports = [
@@ -11,12 +13,14 @@
     ../common/optional/zsa.nix
     ../common/optional/android.nix
 
+    # (modulesPath + "/profiles/perlless.nix")
+
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
   ];
-  
+
   evilwoods.tailscaleIP = "100.109.91.8";
-  
+
   sops.secrets = {
     "network-manager.env" = { };
   };
@@ -63,12 +67,12 @@
       verbose = false;
       systemd.enable = true;
     };
-    
+
     tmp.useTmpfs = true;
 
     kernelPackages = pkgs.linuxPackages_latest;
   };
-  
+
   systemd.services.nix-deamon = {
     environment.TMPDIR = "/var/tmp";
   };

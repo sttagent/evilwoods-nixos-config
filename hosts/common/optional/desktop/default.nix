@@ -1,6 +1,7 @@
 { evilib, ... }:
 let
   inherit (evilib) mkImportList;
-in {
+in
+{
   imports = mkImportList ./.;
 }

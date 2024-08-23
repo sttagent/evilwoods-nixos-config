@@ -1,7 +1,8 @@
-{ pkgs,  lib, ... }:
+{ pkgs, lib, ... }:
 let
   inherit (lib) mkDefault;
-in {
+in
+{
   nix = {
     package = pkgs.nixFlakes;
     settings = {

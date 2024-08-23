@@ -1,4 +1,9 @@
-{ config, inputs, evilib, ... }:
+{
+  config,
+  inputs,
+  evilib,
+  ...
+}:
 let
   secretsPath = builtins.toString inputs.evilsecrets;
 in
@@ -13,6 +18,5 @@ in
       generateKey = true;
     };
   };
-  
 
 }

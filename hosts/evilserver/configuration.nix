@@ -19,7 +19,7 @@
       "@wheel"
     ];
   };
-  
+
   services.fstrim.enable = true;
 
   programs.nix-ld = {
