@@ -15,6 +15,9 @@
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
   ];
+  
+  evilwoods.tailscaleIP = "100.109.91.8";
+  
   sops.secrets = {
     "network-manager.env" = { };
   };
