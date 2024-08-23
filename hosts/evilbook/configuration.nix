@@ -62,8 +62,14 @@
       verbose = false;
       systemd.enable = true;
     };
+    
+    tmp.useTmpfs = true;
 
     kernelPackages = pkgs.linuxPackages_latest;
+  };
+  
+  systemd.services.nix-deamon = {
+    environment.TMPDIR = "/var/tmp";
   };
 
   virtualisation = {
