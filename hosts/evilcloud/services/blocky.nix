@@ -1,7 +1,7 @@
 {
   services = {
     blocky = {
-      enable = true;
+      enable = false;
       settings = {
         upstreams = {
           groups = {
