@@ -17,7 +17,6 @@ in
     fzf
     wget
     git
-    git-crypt
     htop
     gnupg
     gh
