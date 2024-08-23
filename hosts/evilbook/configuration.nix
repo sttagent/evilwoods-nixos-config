@@ -23,6 +23,7 @@
 
   networking.networkmanager = {
     enable = true;
+    wifi.backend = "iwd";
     ensureProfiles = {
       environmentFiles = [ config.sops.secrets."network-manager.env".path ];
       profiles = {
