@@ -1,10 +1,7 @@
-{ inputs
-, config
-, pkgs
-, lib
-, ...
-}:
-{
+{ pkgs,  lib, ... }:
+let
+  inherit (lib) mkDefault;
+in {
   nix = {
     package = pkgs.nixFlakes;
     settings = {
@@ -28,28 +25,30 @@
 
     # Garbage collection
     gc = {
-      automatic = lib.mkDefault true;
-      dates = lib.mkDefault "weekly";
-      options = lib.mkDefault "--delete-older-than 30d";
+      automatic = mkDefault true;
+      dates = mkDefault "weekly";
+      options = mkDefault "--delete-older-than 30d";
     };
   };
 
-  nixpkgs.config.allowUnfree = lib.mkDefault true;
+  nixpkgs.config.allowUnfree = mkDefault true;
 
   networking = {
-    useDHCP = lib.mkDefault true;
+    useDHCP = mkDefault true;
     firewall = {
-      enable = lib.mkDefault true;
+      enable = mkDefault true;
     };
   };
 
   time.timeZone = "Europe/Stockholm";
 
   services = {
+    dbus.implementation = "broker";
+
     openssh = {
-      enable = lib.mkDefault true;
+      enable = mkDefault true;
       settings = {
-        PasswordAuthentication = lib.mkDefault false;
+        PasswordAuthentication = mkDefault false;
       };
     };
   };
