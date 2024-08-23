@@ -1,6 +1,6 @@
-{
-  imports = [
-    ./core.nix
-    ./packages.nix
-  ];
+{ evilib, ... }:
+let
+  inherit (evilib) mkImportList;
+in {
+  imports = mkImportList ./.;
 }
