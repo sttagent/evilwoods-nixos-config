@@ -24,6 +24,8 @@
   sops.secrets = {
     "network-manager.env" = { };
   };
+  
+  programs.steam.enable = true;
 
   networking.wireless.iwd.enable = true;
   networking.networkmanager = {

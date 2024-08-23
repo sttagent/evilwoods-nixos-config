@@ -23,10 +23,15 @@
         handle @auth {
           reverse_proxy 127.0.0.1:9091
         }
-        
+
         @lt host lt.evilwoods.net
         handle @lt {
           reverse_proxy 127.0.0.1:8010
+        }
+        
+        @evilserverdns host evilserverdns.evilwoods.net
+        handle @evilserverdns {
+          reverse_proxy 127.0.0.1:3000
         }
 
         handle {

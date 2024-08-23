@@ -92,7 +92,7 @@
         safebrowsing_enabled = true;
         rewrites = [
           {
-            domain = "dns.evilwoods.net";
+            domain = "evilclouddns.evilwoods.net";
             answer = "100.124.137.46";
           }
 

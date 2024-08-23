@@ -21,8 +21,6 @@
     proton-pass
     bitwarden-cli
     libreoffice-fresh
-    vivaldi
-    vivaldi-ffmpeg-codecs
     warp-terminal
     vscode-fhs
 

@@ -12,6 +12,9 @@
     ../common/optional/server
     inputs.sops-nix-2405.nixosModules.sops
     inputs.home-manager-2405.nixosModules.home-manager
+    
+    # Services
+    ../common/optional/services/adguard.nix
   ];
   nix.settings = {
     trusted-users = [

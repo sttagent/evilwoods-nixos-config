@@ -12,7 +12,7 @@ in
       "ntfy.evilwoods.net".extraConfig = ''
         reverse_proxy http://127.0.0.1:8080
       '';
-      "dns.evilwoods.net".extraConfig = ''
+      "evilclouddns.evilwoods.net".extraConfig = ''
         reverse_proxy http://127.0.0.1:3000
       '';
     };
