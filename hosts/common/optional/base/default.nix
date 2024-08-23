@@ -1,6 +1,5 @@
 { config, inputs, evilib, ... }:
 let
-  mainUser = config.evilwoods.mainUser;
   secretsPath = builtins.toString inputs.evilsecrets;
 in
 {
@@ -14,5 +13,6 @@ in
       generateKey = true;
     };
   };
+  
 
 }

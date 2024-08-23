@@ -1,7 +1,4 @@
-{ config, pkgs, ... }:
-let
-  cfg = config.evilwoods;
-in
+{ pkgs, ... }:
 {
   config.environment.systemPackages = with pkgs; [
     bottom
