@@ -28,6 +28,7 @@ in {
       automatic = mkDefault true;
       dates = mkDefault "weekly";
       options = mkDefault "--delete-older-than 30d";
+      persistent = true;
     };
   };
 
