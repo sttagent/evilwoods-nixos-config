@@ -32,18 +32,7 @@
   systemd.tmpfiles.rules = [ "d /var/storage/docker 0700 root root" ];
   virtualisation = {
     oci-containers = {
-      backend = "docker";
-    };
-    docker = {
-      enable = true;
-      storageDriver = "btrfs";
-      daemon.settings = {
-        data-root = "/var/storage/docker";
-      };
-      autoPrune = {
-        enable = true;
-        flags = [ "--all" ];
-      };
+      backend = "podman";
     };
   };
 
