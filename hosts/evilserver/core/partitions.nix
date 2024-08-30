@@ -87,6 +87,14 @@ in
                     ];
                     mountpoint = "/var/snapshots";
                   };
+                  "/containers" = {
+                    mountOptions = [
+                      "defaults"
+                      "noatime"
+                      "compress=zstd"
+                    ];
+                    mountpoint = "/var/lib/containers";
+                  };
                 };
               };
             };
