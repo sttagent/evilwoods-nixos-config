@@ -2,6 +2,7 @@
   services.adguardhome = {
     enable = true;
     host = "127.0.0.1";
+    openFirewall = true;
     settings = {
       language = "en";
       theme = "auto";
@@ -23,7 +24,22 @@
           "46.162.126.31"
         ];
         refuse_any = true;
+        allowed_clients = [
+          "100.64.0.0/10"
+          "192.168.2.0/24"
+        ];
       };
+      dhcp = {
+        enabled = true;
+        interface_name = "enp2s0";
+        dhcpv4 = {
+          gateway_ip = "192.168.2.1";
+          subnet_mask = "255.255.255.0";
+          range_start = "192.168.2.3";
+          range_end = "192.168.2.254";
+        };
+      };
+      
       filters = [
         {
           name = "AdGuard DNS filter";
@@ -102,7 +118,7 @@
           }
           {
             domain = "evilserver.lan";
-            answer = "192.168.1.101";
+            answer = "192.168.1.2";
           }
         ];
       };
@@ -111,6 +127,6 @@
 
   networking.firewall = {
     allowedTCPPorts = [ 53 ];
-    allowedUDPPorts = [ 53 ];
+    allowedUDPPorts = [ 53 67 68];
   };
 }
