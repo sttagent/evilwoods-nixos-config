@@ -43,11 +43,11 @@
     "evilsecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1725049175,
-        "narHash": "sha256-JHE50qiOK577iznC8yqbFJhI5/nNs8k7OawcJJ1Z+a4=",
+        "lastModified": 1725103588,
+        "narHash": "sha256-RP2NXettag+FJb2YGFmJn02pIvwJCQyk8uQh67yaru8=",
         "ref": "refs/heads/main",
-        "rev": "a1e5a1f7775131ae24c2905434b89b333a4da1a7",
-        "revCount": 21,
+        "rev": "704013c3b6c165f847bef75c110ab41a27059a1a",
+        "revCount": 22,
         "type": "git",
         "url": "ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git"
       },
@@ -203,11 +203,11 @@
     },
     "nixpkgs-2405": {
       "locked": {
-        "lastModified": 1724855419,
-        "narHash": "sha256-WXHSyOF4nBX0cvHN3DfmEMcLOVdKH6tnMk9FQ8wTNRc=",
+        "lastModified": 1725001927,
+        "narHash": "sha256-eV+63gK0Mp7ygCR0Oy4yIYSNcum2VQwnZamHxYTNi+M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ae2fc9e0e42caaf3f068c1bfdc11c71734125e06",
+        "rev": "6e99f2a27d600612004fbd2c3282d614bfee6421",
         "type": "github"
       },
       "original": {
