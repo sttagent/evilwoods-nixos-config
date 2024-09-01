@@ -40,6 +40,7 @@
         };
       };
       
+      # TODO: block smart TVs telemetry
       filters = [
         {
           name = "AdGuard DNS filter";
@@ -106,6 +107,7 @@
         protection_enabled = true;
         filtering_enabled = true;
         safebrowsing_enabled = true;
+        safe_search.enabled = true;
         rewrites = [
           {
             domain = "evilclouddns.evilwoods.net";
