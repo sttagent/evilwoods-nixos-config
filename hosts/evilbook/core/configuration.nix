@@ -1,6 +1,7 @@
 { inputs, ... }:
 {
   imports = [
+    ../../common/hardware/boot/systemd-boot.nix
     ../../common/core
     inputs.disko.nixosModules.disko
   ];

@@ -2,6 +2,7 @@
 {
   imports = [
     ../../common/core
+    ../../common/hardware/boot/systemd-boot.nix
 
     inputs.disko-2405.nixosModules.disko
   ];
