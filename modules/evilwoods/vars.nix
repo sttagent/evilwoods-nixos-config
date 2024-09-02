@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ self, lib, ... }:
 let
   inherit (lib) types mkOption;
 in
@@ -21,6 +21,12 @@ in
         type = types.nullOr types.str;
         default = null;
         description = "Tailscale IP address";
+      };
+      
+      configPath = mkOption {
+        type = types.path;
+        default = self.outPath + "/hosts/config";
+        description = "Path to the configuration directory";
       };
 
     };

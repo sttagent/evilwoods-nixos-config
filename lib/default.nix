@@ -67,6 +67,7 @@ rec {
       specialArgs = {
         inherit inputs;
         evilib = inputs.self.lib;
+        configPath = inputs.self.outPath + "/hosts/config";
       };
     in
     {

@@ -1,8 +1,8 @@
-{ inputs, ... }:
+{ inputs, configPath, ... }:
 {
   imports = [
-    ../../common/hardware/boot/systemd-boot.nix
-    ../../common/core
+    (configPath + "/hardware/boot/systemd-boot.nix")
+    (configPath + "/common/core")
     inputs.disko.nixosModules.disko
   ];
 

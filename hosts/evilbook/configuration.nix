@@ -3,15 +3,16 @@
   config,
   pkgs,
   modulesPath,
+  configPath,
   ...
 }:
 {
   imports = [
-    ../common/optional/base
-    ../common/optional/desktop
-    ../common/optional/gnome
-    ../common/optional/zsa.nix
-    ../common/optional/android.nix
+    (configPath + "/common")
+    (configPath + "/desktop")
+    (configPath + "/gnome")
+    (configPath + "/optional/zsa.nix")
+    (configPath + "/optional/android.nix")
 
     # (modulesPath + "/profiles/perlless.nix")
 
