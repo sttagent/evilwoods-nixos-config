@@ -1,21 +1,20 @@
 {
   inputs,
-  config,
-  modulesPath,
-  lib,
-  pkgs,
+  configPath,
   ...
 }:
 {
   imports = [
-    ../common/optional/base
-    ../common/optional/server
+    (configPath + "/common/")
+    (configPath + "/server")
+    
     inputs.sops-nix-2405.nixosModules.sops
     inputs.home-manager-2405.nixosModules.home-manager
     
     # Services
-    ../common/optional/services/adguard.nix
+    (configPath + "/services/adguard.nix")
   ];
+  
   nix.settings = {
     trusted-users = [
       "root"
