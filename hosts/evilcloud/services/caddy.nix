@@ -4,7 +4,7 @@ let
 in
 {
   services.caddy = {
-    enable = true;
+    enable = false;
     virtualHosts = lib.mkIf isNotTestEnv {
       ":443".extraConfig = ''
         tls /var/lib/acme/evilwoods.net/cert.pem /var/lib/acme/evilwoods.net/key.pem
@@ -18,5 +18,5 @@ in
     };
   };
 
-  users.users.caddy.extraGroups = [ "acme" ];
+  # users.users.caddy.extraGroups = [ "acme" ];
 }
