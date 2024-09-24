@@ -1,7 +1,7 @@
 {
   services.adguardhome = {
     enable = true;
-    host = "127.0.0.1";
+    host = "0.0.0.0";
     openFirewall = true;
     settings = {
       language = "en";
@@ -26,20 +26,20 @@
         refuse_any = true;
         allowed_clients = [
           "100.64.0.0/10"
-          "192.168.2.0/24"
+          "192.168.1.0/24"
         ];
       };
       dhcp = {
-        enabled = false;
-        interface_name = "enp2s0";
+        enabled = true;
+        interface_name = "enp6s18";
         dhcpv4 = {
-          gateway_ip = "192.168.2.1";
+          gateway_ip = "192.168.1.1";
           subnet_mask = "255.255.255.0";
-          range_start = "192.168.2.3";
-          range_end = "192.168.2.254";
+          range_start = "192.168.1.100";
+          range_end = "192.168.1.254";
         };
       };
-      
+
       # TODO: block smart TVs telemetry
       filters = [
         {
@@ -110,7 +110,7 @@
         safe_search.enabled = true;
         rewrites = [
           {
-            domain = "evilclouddns.evilwoods.net";
+            domain = "dns.evilwoods.net";
             answer = "100.124.137.46";
           }
 
@@ -120,7 +120,7 @@
           }
           {
             domain = "evilserver.lan";
-            answer = "192.168.1.2";
+            answer = "192.168.1.4";
           }
         ];
       };
