@@ -1,6 +1,6 @@
 {
   services.ntfy-sh = {
-    enable = true;
+    enable = false;
     settings = {
       listen-http = ":8080";
       base-url = "https://ntfy.evilwoods.net";
