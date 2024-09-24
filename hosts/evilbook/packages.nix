@@ -32,8 +32,8 @@
     gnome-extension-manager
     dconf
     gnome.gnome-sound-recorder
-    # fragments
     tuba
+    fragments
     fractal
     pika-backup
     valent
