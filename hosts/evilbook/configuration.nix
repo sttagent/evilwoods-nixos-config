@@ -25,7 +25,7 @@
   sops.secrets = {
     "network-manager.env" = { };
   };
-  
+
   programs.steam.enable = true;
 
   networking.wireless.iwd.enable = true;
@@ -38,9 +38,8 @@
         evilwoods-5G = {
           connection = {
             id = "evilwoods-5G";
-            uuid = "006294ff-83a7-44e1-ac14-49c08b44cc05";
             type = "wifi";
-            interface-name = "wlp1s0";
+            interface-name = "wlan0";
             autoconnect = true;
           };
           wifi = {
