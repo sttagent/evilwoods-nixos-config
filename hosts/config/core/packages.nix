@@ -14,9 +14,7 @@
     fzf
     wget
     git
-    htop
     gnupg
-    gh
     dust
     just
     difftastic
