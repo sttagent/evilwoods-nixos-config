@@ -54,7 +54,6 @@ in
       };
     };
   };
-  programs.command-not-found.enable = true;
 
   # nextdns configuration
 
