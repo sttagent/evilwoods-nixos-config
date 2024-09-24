@@ -3,7 +3,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # Desktop apps
+
     prismlauncher
     nushell
     ffmpeg-full
@@ -23,6 +23,7 @@
     libreoffice-fresh
     warp-terminal
     vscode-fhs
+    gh
 
     # apps specific to Gnome
     gnome-tweaks
@@ -31,7 +32,7 @@
     flare-signal
     gnome-extension-manager
     dconf
-    gnome.gnome-sound-recorder
+    gnome-sound-recorder
     tuba
     fragments
     fractal
