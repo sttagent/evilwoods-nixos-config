@@ -33,6 +33,7 @@
     dconf
     gnome.gnome-sound-recorder
     # fragments
+    tuba
     fractal
     pika-backup
     valent
