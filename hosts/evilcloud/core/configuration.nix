@@ -3,7 +3,7 @@
   imports = [
     (configPath + "/core")
     (configPath + "/hardware/boot/systemd-boot.nix")
-    
+
     inputs.disko-2405.nixosModules.disko
   ];
 
@@ -12,7 +12,7 @@
   ];
 
   services.qemuGuest.enable = true;
-  
+
   networking = {
     useDHCP = false;
     defaultGateway = "192.168.1.1";
@@ -26,6 +26,6 @@
       ];
     };
   };
-  
+
   system.stateVersion = "24.05";
 }
