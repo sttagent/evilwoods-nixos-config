@@ -28,14 +28,14 @@
         handle @lt {
           reverse_proxy 127.0.0.1:8010
         }
-        
-        @evilserverdns host evilserverdns.evilwoods.net
-        handle @evilserverdns {
-          forward_auth 127.0.0.1:9091 {
-            uri /api/authz/forward-auth
-            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          }
-          reverse_proxy 127.0.0.1:3000
+
+        @dns host dns.evilwoods.net
+        handle @dns {
+          # forward_auth 127.0.0.1:9091 {
+          #  uri /api/authz/forward-auth
+          #  copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          #}
+          reverse_proxy 192.168.1.3:3000
         }
 
         handle {

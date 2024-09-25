@@ -33,14 +33,14 @@ in
   systemd.tmpfiles.rules = [ "d ${dataPath} 0775 authelia-${instanceName} authelia-${instanceName}" ];
 
   services.authelia.instances.${instanceName} = {
-    enable = true;
+    enable = false;
     package = pkgs-unstable.authelia;
     secrets = {
       storageEncryptionKeyFile = config.sops.secrets.authelia-encryption-key.path;
       jwtSecretFile = config.sops.secrets.authelia-jwtsecret.path;
       oidcIssuerPrivateKeyFile = config.sops.secrets.authelia-oidc-issuer-private-key.path;
     };
-    
+
     settings = {
       authentication_backend.file.path = "/etc/authelia/users_database.yml";
       access_control = {
@@ -63,8 +63,12 @@ in
             client_id = "o4D8yI0GB8GLNuM6ztuEQUaq2akyxWst_knlRIOkoL1J0r4Zz9WJokmKb2X4AM0MMCZnho~x";
             client_secret = "$pbkdf2-sha512$310000$u1DPeSCLJGCG8Z7bTfe23g$Bskdf6n188NAG/wmJtaSo/vr0hg9VTvpsiNvLtg8txRI2Mr29hYJtZpTFbZL.JZvfEQ2wZjK2T8twt1gCmxH7g";
             authorization_policy = "one_factor";
-            audience = [];
-            scopes = [ "openid" "profile" "email" ];
+            audience = [ ];
+            scopes = [
+              "openid"
+              "profile"
+              "email"
+            ];
             redirect_uris = [
               "https://kitchenowl.evilwoods.net/signin/redirect"
               "kitchinowl:///signin/redirect"

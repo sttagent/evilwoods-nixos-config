@@ -1,8 +1,7 @@
 {
   services.adguardhome = {
     enable = true;
-    host = "0.0.0.0";
-    openFirewall = true;
+    host = "192.168.1.3";
     settings = {
       language = "en";
       theme = "auto";
@@ -110,16 +109,11 @@
         safe_search.enabled = true;
         rewrites = [
           {
-            domain = "dns.evilwoods.net";
-            answer = "100.124.137.46";
-          }
-
-          {
             domain = "*.evilwoods.net";
-            answer = "100.100.53.98";
+            answer = "100.80.252.66";
           }
           {
-            domain = "evilserver.lan";
+            domain = "evilwoods.lan";
             answer = "192.168.1.4";
           }
         ];
@@ -128,7 +122,14 @@
   };
 
   networking.firewall = {
+    extraInputRules = ''
+      ip saddr 192.168.1.4 tcp dport 3000 accept
+    '';
     allowedTCPPorts = [ 53 ];
-    allowedUDPPorts = [ 53 67 68];
+    allowedUDPPorts = [
+      53
+      67
+      68
+    ];
   };
 }

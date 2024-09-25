@@ -1,19 +1,16 @@
 {
   inputs,
-  config,
-  lib,
-  pkgs,
+  configPath,
   ...
 }:
 {
   imports = [
-    ../common/optional/base
-    ../common/optional/server
+    (configPath + "/common")
+    (configPath + "/server")
+
     inputs.sops-nix-2405.nixosModules.sops
     inputs.home-manager-2405.nixosModules.home-manager
-    
-    # Services
-    ../common/optional/services/adguard.nix
+
   ];
 
   nix.settings = {
@@ -29,24 +26,23 @@
     enable = true;
   };
 
-  systemd.tmpfiles.rules = [ "d /var/storage/docker 0700 root root" ];
   virtualisation = {
     oci-containers = {
       backend = "podman";
     };
   };
 
-  fileSystems = {
-    "/var/backups" = {
-      device = "/dev/disk/by-label/External-backup";
-      fsType = "btrfs";
-      options = [
-        "defaults"
-        "noatime"
-        "compress=zstd"
-      ];
-    };
-  };
+  # fileSystems = {
+  #   "/var/backups" = {
+  #     device = "/dev/disk/by-label/External-backup";
+  #     fsType = "btrfs";
+  #     options = [
+  #       "defaults"
+  #       "noatime"
+  #       "compress=zstd"
+  #     ];
+  #   };
+  # };
 
   evilwoods = {
     rsyncBackup.defaults = {

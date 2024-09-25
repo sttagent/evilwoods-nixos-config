@@ -1,3 +1,11 @@
+let
+  share_device = "/dev/disk/by-label/external-hdd";
+  common_mount_options = [
+    "defaults"
+    "noatime"
+    "compress=zstd"
+  ];
+in
 {
   services.samba = {
     enable = true;
@@ -77,38 +85,31 @@
 
   fileSystems = {
     "/home/aitvaras/share" = {
-      device = "/dev/disk/by-label/External-backup";
+      device = "${share_device}";
       fsType = "btrfs";
       options = [
-        "defaults"
-        "compress=zstd"
         "subvol=shares/aitvaras"
-      ];
+      ] ++ common_mount_options;
     };
   };
 
   fileSystems = {
     "/home/ryne/share" = {
-      device = "/dev/disk/by-label/External-backup";
+      device = "${share_device}";
       fsType = "btrfs";
       options = [
-        "defaults"
-        "compress=zstd"
         "subvol=shares/ryne"
-      ];
+      ] ++ common_mount_options;
     };
   };
 
   fileSystems = {
     "/home/samba-guest/share" = {
-      device = "/dev/disk/by-label/External-backup";
+      device = "${share_device}";
       fsType = "btrfs";
       options = [
-        "defaults"
-        "compress=zstd"
         "subvol=shares/samba-guest"
-      ];
+      ] ++ common_mount_options;
     };
   };
-
 }

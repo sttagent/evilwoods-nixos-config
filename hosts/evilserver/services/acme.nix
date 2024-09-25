@@ -29,13 +29,6 @@ in
       };
     }
 
-    (mkIf (!isTestEnv) {
-      security.acme.certs."evilwoods.net".postRun = ''
-        scp -pr . root@evilcloud:/var/lib/acme/
-        ssh -t root@evilcloud "chown -R acme: /var/lib/acme/evilwoods.net && systemctl restart caddy.service"
-      '';
-    })
-
     (mkIf isTestEnv {
       security.acme.certs."evilwoods.net".server = "https://acme-staging-v02.api.letsencrypt.org/directory";
     })

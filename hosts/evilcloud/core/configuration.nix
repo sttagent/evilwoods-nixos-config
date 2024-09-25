@@ -11,8 +11,6 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFc8oFtu7i4WBlbcDMB7ua9cHJW2bzeomrLFddokw7v aitvaras@evilbook"
   ];
 
-  services.qemuGuest.enable = true;
-
   networking = {
     useDHCP = false;
     defaultGateway = "192.168.1.1";
