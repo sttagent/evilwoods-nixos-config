@@ -1,7 +1,6 @@
-{ modulesPath, ... }:
+{ configPath, ... }:
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-    (modulesPath + "/profiles/qemu-guest.nix")
+    (configPath + "/hardware/vm-guest.nix")
   ];
 }
