@@ -9,6 +9,7 @@
         bind_host = [ "0.0.0.0" ];
         port = 53;
         enable_dnssec = true;
+        aaaa_disabled = true;
         upstream_dns = [
           "https://unfiltered.adguard-dns.com/dns-query"
           "https://dns.nextdns.io"
