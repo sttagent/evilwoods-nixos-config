@@ -20,7 +20,7 @@
           "https://doh.libredns.gr/dns-query"
         ];
         ratelimit_whitelist = [
-          "100.109.91.8"
+          "100.68.177.122"
           "46.162.126.31"
         ];
         refuse_any = true;
