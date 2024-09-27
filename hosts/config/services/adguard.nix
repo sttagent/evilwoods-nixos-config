@@ -16,6 +16,9 @@
           "94.140.14.14"
           "94.140.15.15"
         ];
+        cache_size = 100000;
+        cache_optimistic = true;
+
         upstream_dns = [
           "https://unfiltered.adguard-dns.com/dns-query"
           "https://dns.nextdns.io"
