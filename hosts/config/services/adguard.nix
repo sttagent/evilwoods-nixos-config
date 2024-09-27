@@ -114,7 +114,7 @@
             answer = "100.80.252.66";
           }
           {
-            domain = "evilwoods.lan";
+            domain = "*.evilwoods.lan";
             answer = "192.168.1.4";
           }
         ];
