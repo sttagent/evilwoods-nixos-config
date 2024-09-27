@@ -107,7 +107,10 @@
         protection_enabled = true;
         filtering_enabled = true;
         safebrowsing_enabled = true;
-        safe_search.enabled = true;
+        safe_search = {
+          enabled = true;
+          youtube = false;
+        };
         rewrites = [
           {
             domain = "*.evilwoods.net";
