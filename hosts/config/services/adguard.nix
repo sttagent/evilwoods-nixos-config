@@ -25,6 +25,7 @@
           "https://dns.quad9.net/dns-query"
           "https://doh.libredns.gr/dns-query"
         ];
+        ratelimit = 0;
         ratelimit_whitelist = [
           "100.68.177.122"
           "46.162.126.31"
