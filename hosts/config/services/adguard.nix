@@ -10,6 +10,12 @@
         port = 53;
         enable_dnssec = true;
         aaaa_disabled = true;
+        bootstrap_dns = [
+          "1.1.1.1"
+          "1.0.0.1"
+          "94.140.14.14"
+          "94.140.15.15"
+        ];
         upstream_dns = [
           "https://unfiltered.adguard-dns.com/dns-query"
           "https://dns.nextdns.io"
