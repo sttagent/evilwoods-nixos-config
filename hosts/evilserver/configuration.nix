@@ -79,8 +79,8 @@ in
 
   evilwoods = {
     rsyncBackup.defaults = {
-      srcSubvol = "/var/storage/internal-ssh/storage";
-      snapshotSubvol = "/var/storage/internal-ssh/snapshots";
+      srcSubvol = "/var/storage/internal-ssd/storage";
+      snapshotSubvol = "/var/storage/internal-ssd/snapshots";
       dstSubvol = "/var/storage/external-hdd/backups";
       rsyncPrefix = "rsync";
       snapshotPrefix = "snapshot";

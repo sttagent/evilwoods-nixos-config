@@ -8,7 +8,7 @@ let
   inherit (lib) genAttrs;
   sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/authelia.yaml");
   instanceName = "evilwoods";
-  dataPath = "/var/storage/internal-ssh/storage/authelia";
+  dataPath = "/var/storage/internal-ssd/storage/authelia";
   pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
 
   genAutheliaSecrets =
