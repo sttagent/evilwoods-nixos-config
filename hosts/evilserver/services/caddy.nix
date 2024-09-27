@@ -31,10 +31,10 @@
 
         @dns host dns.evilwoods.net
         handle @dns {
-          # forward_auth 127.0.0.1:9091 {
-          #  uri /api/authz/forward-auth
-          #  copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-          #}
+            forward_auth 127.0.0.1:9091 {
+            uri /api/authz/forward-auth
+            copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
+          }
           reverse_proxy 192.168.1.3:3000
         }
 
