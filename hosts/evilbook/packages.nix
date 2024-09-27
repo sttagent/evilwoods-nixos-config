@@ -12,17 +12,13 @@
     firefox
     yubioath-flutter
     wl-clipboard
-    standardnotes
     discord
     signal-desktop
     zoom-us
     zed-editor
-    protonmail-desktop
-    proton-pass
     bitwarden-cli
     libreoffice-fresh
     warp-terminal
-    vscode-fhs
     gh
 
     # apps specific to Gnome
