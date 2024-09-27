@@ -20,6 +20,9 @@
     libreoffice-fresh
     warp-terminal
     gh
+    thunderbird
+    megasync
+    megacmd
 
     # apps specific to Gnome
     gnome-tweaks
