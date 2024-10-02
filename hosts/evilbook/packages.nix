@@ -42,5 +42,6 @@
     pika-backup
     valent
     fragments
+    papers
   ];
 }
