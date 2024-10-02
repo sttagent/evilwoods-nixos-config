@@ -43,5 +43,6 @@
     valent
     fragments
     papers
+    showtime
   ];
 }
