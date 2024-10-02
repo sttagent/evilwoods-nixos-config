@@ -6,6 +6,7 @@
     epiphany
     geary
     evince
+    totem
   ];
 
 }
