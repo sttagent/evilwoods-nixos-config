@@ -24,6 +24,9 @@
     megasync
     megacmd
     nextcloud-client
+    vivaldi
+    vivaldi-ffmpeg-codecs
+    widevine-cdm
 
     # apps specific to Gnome
     gnome-tweaks
