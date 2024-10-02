@@ -71,7 +71,7 @@ in
             ];
             redirect_uris = [
               "https://kitchenowl.evilwoods.net/signin/redirect"
-              "kitchinowl:///signin/redirect"
+              "kitchenowl:///signin/redirect"
             ];
             userinfo_signing_algorithm = "none";
             token_endpoint_auth_method = "client_secret_post";
