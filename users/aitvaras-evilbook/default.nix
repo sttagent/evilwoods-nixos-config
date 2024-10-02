@@ -144,7 +144,7 @@ in
         shellIntegration = {
           enableFishIntegration = true;
         };
-        theme = "Gruvbox Material Dark Hard";
+        themeFile = "GruvboxMaterialDarkHard";
         settings = {
           font_family = "Commit Mono Nerd Font";
           wayland_titlebar_color = "background";
