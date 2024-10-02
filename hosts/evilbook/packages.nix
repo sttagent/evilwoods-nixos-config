@@ -23,6 +23,7 @@
     thunderbird
     megasync
     megacmd
+    nextcloud-client
 
     # apps specific to Gnome
     gnome-tweaks
