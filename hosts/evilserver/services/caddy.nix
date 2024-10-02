@@ -53,22 +53,6 @@
           }
         '';
       };
-      "nextcloud.evilwoods.net:8080" = {
-        extraConfig = ''
-          redir https://{host}{uri}
-        '';
-      };
-      "nextcloud.evilwoods.net:8443" = {
-        useACMEHost = "evilwoods.net";
-        extraConfig = ''
-          encode gzip
-          reverse_proxy 127.0.0.1:8081 {
-            header_up X-Forwarded-For {remote_host}
-            header_up X-Forwarded-Proto {scheme}
-            header_up X-Forwarded-host {host}
-          }
-        '';
-      };
     };
   };
 
