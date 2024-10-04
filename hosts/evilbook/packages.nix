@@ -9,7 +9,7 @@
     ffmpeg-full
     appimage-run
     distrobox
-    firefox
+    # firefox
     yubioath-flutter
     wl-clipboard
     discord
@@ -18,31 +18,24 @@
     zed-editor
     bitwarden-cli
     libreoffice-fresh
-    warp-terminal
+    # warp-terminal
     gh
     thunderbird
-    megasync
-    megacmd
+    # megasync
+    # megacmd
     nextcloud-client
     vivaldi
     vivaldi-ffmpeg-codecs
     widevine-cdm
+    obsidian
 
     # apps specific to Gnome
-    gnome-tweaks
-    dconf-editor
     notify-client
     flare-signal
-    gnome-extension-manager
-    dconf
     gnome-sound-recorder
     tuba
     fragments
     fractal
-    pika-backup
-    valent
     fragments
-    papers
-    showtime
   ];
 }
