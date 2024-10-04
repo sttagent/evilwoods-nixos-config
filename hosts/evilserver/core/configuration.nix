@@ -13,11 +13,11 @@
   networking = {
     useDHCP = false;
     defaultGateway = "192.168.1.1";
-    interfaces.enp6s18 = {
+    interfaces.enp2s0 = {
       useDHCP = false;
       ipv4.addresses = [
         {
-          address = "192.168.1.4";
+          address = "192.168.1.2";
           prefixLength = 24;
         }
       ];

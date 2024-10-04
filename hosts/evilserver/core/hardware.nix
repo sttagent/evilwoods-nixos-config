@@ -7,5 +7,5 @@
 }:
 
 {
-  imports = [ (configPath + "/hardware/vm-guest.nix") ];
+  imports = [ (configPath + "/hardware/evilserver.nix") ];
 }
