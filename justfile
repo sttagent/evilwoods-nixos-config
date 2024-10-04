@@ -1,9 +1,9 @@
 default:
     just --list
 
-refresh:
-    nix flake update
-    
+update-inputs:
+    nix flake update --commit-lock-file
+
 switch host="":
     nixos-rebuild switch --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
@@ -12,7 +12,7 @@ boot host="":
 
 test host="":
     nixos-rebuild test --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
-    
+
 dry-activate host="":
     nixos-rebuild dry-activate --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
@@ -28,9 +28,6 @@ reboot host:
 build host="":
     nixos-rebuild build --flake .#{{host}} |& nom
 
-upgrade:
-    just refresh boot
-    
 diff:
     nvd diff /run/current-system ./result/
 
@@ -43,22 +40,9 @@ remote-diff host:
     nix copy --substitute-on-destination --to ssh://root@{{host}} $closure
     ssh root@{{host}} nix run nixpkgs#nvd diff /run/current-system/ $closure
 
-format-disk host:
-    sudo nix --extra-experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko --flake .#{{host}}
-
-gen-ssh-keys:
-    sudo mkdir -p /mnt/etc/ssh
-    sudo ssh-keygen -A -f /mnt
-
 gen-age-pub-key host:
     #!/usr/bin/env bash
     age_pub_key=$(ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub)
-    sed "s/\(^ \+- &{{host}} \).*/\1$age_pub_key/" -i .sops.yaml
-    sops updatekeys -y ./secrets/secrets.yaml
-
-gen-age-pub-key-local host:
-    #!/usr/bin/env bash
-    age_pub_key=$(ssh-to-age -i /etc/ssh/ssh_host_ed25519_key.pub)
     sed "s/\(^ \+- &{{host}} \).*/\1$age_pub_key/" -i .sops.yaml
     sops updatekeys -y ./secrets/secrets.yaml
 
@@ -72,14 +56,6 @@ save-age-key username password:
 install-nixos host:
     sudo nixos-install --no-root-password --flake .#{{host}}
 
-setup-nixos host username password:
-    just config-env
-    just format-disk {{host}}
-    just gen-ssh-keys
-    just save-age-key {{username}} {{password}}
-    just gen-age-pub-key {{host}}
-    just install-nixos {{host}}
-
 
 config-env:
     #!/usr/bin/env bash
@@ -91,7 +67,3 @@ config-env:
     EndOfMessage
     git config user.name "Arvydas Ramanauskas"
     git config user.email "711261+sttagent@users.noreply.github.com"
-
-install-nixos-to-remote host-config remote-user-host:
-  nix run github:nix-community/nixos-anywhere -- --flake '.#{{host-config}}' {{remote-user-host}}
-
