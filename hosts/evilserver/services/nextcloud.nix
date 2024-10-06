@@ -54,6 +54,8 @@ in
         tasks
         notes
         contacts
+        twofactor_webauthn
+        user_oidc
         ;
     };
   };
