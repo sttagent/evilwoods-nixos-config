@@ -106,6 +106,7 @@ in
         favorite-apps = [
           "firefox.desktop"
           "vivaldi-stable.desktop"
+          "thunderbird.desktop"
           "org.gnome.Nautilus.desktop"
           "kitty.desktop"
           "dev.zed.Zed.desktop"
