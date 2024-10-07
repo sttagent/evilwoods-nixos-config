@@ -57,4 +57,9 @@
   };
 
   users.users.caddy.extraGroups = [ "acme" ];
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 }
