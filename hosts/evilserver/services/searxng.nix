@@ -10,6 +10,7 @@
   services.searx = {
     enable = true;
     environmentFile = config.sops.secrets.searx-secret.path;
+    redisCreateLocally = true;
     settings = {
       general = {
         instance_name = "Evilwoods Search";
