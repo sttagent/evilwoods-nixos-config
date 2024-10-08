@@ -107,4 +107,50 @@ in
     };
   };
 
+  # Backup services
+  systemd.services.nextcloud-backup =
+    let
+      inherit (config.services.nextcloud.config) dbname;
+      backupPath = "/var/storage/external-hdd/backups/nextcloud";
+      srcPath = "${config.services.nextcloud.home}";
+      srcVolume = "/var/storage/internal-ssd/storage";
+      snapshotVolume = "/var/storage/internal-ssd/snapshots";
+
+      backupScript = pkgs.writeShellApplication {
+        name = "nextcloud-backup";
+        runtimeInputs = [
+          pkgs.btrfs-progs
+          pkgs.coreutils-full
+          config.services.postgresql.package
+          config.services.nextcloud.package
+        ];
+
+        text = ''
+          set -euo pipefail
+
+          mkdir -p ${backupPath}/db
+          chown nextcloud:nextcloud ${backupPath}
+          chmod 700 ${backupPath}
+
+          nextcloud-occ maintenance:mode --on
+          sleep 1
+          pg_dump ${dbname} | gzip > ${backupPath}/db/nextcloud.sql.gz
+          snapshotName="nextcloud-$(date +%Y-%m-%d-%H-%M-%S)"
+          btrfs subvolume snapshot -r ${srcVolume} "${snapshotVolume}/$snapshotName"
+          nextcloud-occ maintenance:mode --off
+
+          rsync -a "${snapshotVolume}/$snapshotName/nextcloud/data" ${backupPath}/
+          btrfs subvolume delete "${snapshotVolume}/$snapshotName"
+        '';
+      };
+    in
+    {
+      description = "Put nextcloud into maintenance mode and backup the database as well as the data directory";
+      serviceConfig = {
+        Type = "oneshot";
+      };
+      script = ''
+        ${backupScript}
+      '';
+    };
 }
