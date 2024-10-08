@@ -17,6 +17,8 @@
       server = {
         port = 8082;
         bind_address = "127.0.0.1";
+        base_url = "https://search.evilwoods.net";
+      };
       };
     };
   };
