@@ -36,6 +36,8 @@ in
     hostName = "localhost";
     home = "/var/storage/internal-ssd/storage/nextcloud";
     database.createLocally = true;
+    configureRedis = true;
+    caching.redis = true;
     config = {
       adminpassFile = config.sops.secrets.admin-pass.path;
       adminuser = "admin";
