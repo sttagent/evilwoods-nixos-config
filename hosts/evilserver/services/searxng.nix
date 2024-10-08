@@ -19,6 +19,9 @@
         bind_address = "127.0.0.1";
         base_url = "https://search.evilwoods.net";
       };
+      search = {
+        autocomplete = "duckduckgo";
+      };
       };
     };
   };
