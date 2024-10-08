@@ -69,6 +69,18 @@ in
     ];
   };
 
+  services.caddy.virtualHosts."nextcloud.evilwoods.net" = {
+    useACMEHost = "evilwoods.net";
+    extraConfig = ''
+      encode gzip
+      reverse_proxy 127.0.0.1:8081 {
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-host {host}
+      }
+    '';
+  };
+
   systemd.tmpfiles.rules = [
     "d /var/storage/internal-ssd/storage/nextcloud 0775 nextcloud nextcloud"
   ];

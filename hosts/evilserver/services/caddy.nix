@@ -38,16 +38,6 @@
             reverse_proxy 192.168.1.3:3000
           }
 
-          @nextcloud host nextcloud.evilwoods.net
-          handle @nextcloud {
-            encode gzip
-            reverse_proxy 127.0.0.1:8081 {
-              header_up X-Forwarded-For {remote_host}
-              header_up X-Forwarded-Proto {scheme}
-              header_up X-Forwarded-host {host}
-            }
-          }
-
           handle {
             abort
           }
