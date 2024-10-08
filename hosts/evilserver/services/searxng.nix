@@ -11,6 +11,9 @@
     enable = true;
     environmentFile = config.sops.secrets.searx-secret.path;
     settings = {
+      general = {
+        instance_name = "Evilwoods Search";
+      };
       server = {
         port = 8082;
         bind_address = "127.0.0.1";
