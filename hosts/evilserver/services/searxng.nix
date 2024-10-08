@@ -22,6 +22,8 @@
       search = {
         autocomplete = "duckduckgo";
       };
+      ui = {
+        hotkeys = "vim";
       };
     };
   };
