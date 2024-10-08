@@ -25,6 +25,7 @@
       };
       ui = {
         hotkeys = "vim";
+        infinate_scroll = true;
       };
     };
   };
