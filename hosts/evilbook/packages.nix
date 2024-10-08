@@ -28,6 +28,7 @@
     vivaldi-ffmpeg-codecs
     widevine-cdm
     obsidian
+    logseq
 
     # apps specific to Gnome
     notify-client
