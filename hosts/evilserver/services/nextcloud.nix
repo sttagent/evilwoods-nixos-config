@@ -64,6 +64,7 @@ in
       ];
 
     };
+    autoUpdateApps.enable = true;
     extraAppsEnable = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
