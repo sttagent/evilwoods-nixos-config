@@ -29,6 +29,7 @@
     widevine-cdm
     obsidian
     logseq
+    bitwarden-desktop
 
     # apps specific to Gnome
     notify-client
