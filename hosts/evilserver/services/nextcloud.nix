@@ -98,6 +98,8 @@ in
     '';
   };
 
+  environment.systemPackages = [ pkgs.ffmpeg-headless ];
+
   systemd.tmpfiles.rules = [
     "d /var/storage/internal-ssd/storage/nextcloud 0775 nextcloud nextcloud"
   ];
