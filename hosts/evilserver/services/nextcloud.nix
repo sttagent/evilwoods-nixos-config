@@ -6,6 +6,7 @@
 }:
 let
   sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/nextcloud.yaml");
+  backupServiceName = "nextcloud-backup";
 in
 {
   sops.secrets.admin-pass = {
@@ -32,7 +33,7 @@ in
   services.nextcloud = {
     enable = true;
     https = true;
-    package = pkgs.nextcloud29;
+    package = pkgs.nextcloud30;
     hostName = "localhost";
     home = "/var/storage/internal-ssd/storage/nextcloud";
     database.createLocally = true;
@@ -47,7 +48,6 @@ in
       trusted_domains = [ "nextcloud.evilwoods.net" ];
       trusted_proxies = [ "127.0.0.1" ];
       maintenance_window_start = 1;
-      log_type = "file";
     };
     extraAppsEnable = true;
     extraApps = {
@@ -108,49 +108,90 @@ in
   };
 
   # Backup services
-  systemd.services.nextcloud-backup =
+  systemd.services."${backupServiceName}" =
     let
       inherit (config.services.nextcloud.config) dbname;
+
+      pgsqlUser = "postgres";
+
+      backupScripsName = "nextcloud-backup";
+      postBackupScriptName = "post-${backupScripsName}";
+      preBackupScriptName = "pre-${backupScripsName}";
       backupPath = "/var/storage/external-hdd/backups/nextcloud";
       srcPath = "${config.services.nextcloud.home}";
       srcVolume = "/var/storage/internal-ssd/storage";
       snapshotVolume = "/var/storage/internal-ssd/snapshots";
 
       backupScript = pkgs.writeShellApplication {
-        name = "nextcloud-backup";
+        name = backupScripsName;
         runtimeInputs = [
           pkgs.btrfs-progs
           pkgs.coreutils-full
+          pkgs.gzip
+          pkgs.rsync
           config.services.postgresql.package
-          config.services.nextcloud.package
+          config.services.nextcloud.occ
         ];
 
         text = ''
-          set -euo pipefail
-
+          sleep 1
           mkdir -p ${backupPath}/db
           chown nextcloud:nextcloud ${backupPath}
           chmod 700 ${backupPath}
 
-          nextcloud-occ maintenance:mode --on
-          sleep 1
-          pg_dump ${dbname} | gzip > ${backupPath}/db/nextcloud.sql.gz
+          /run/wrappers/bin/sudo -u ${pgsqlUser} pg_dump ${dbname} | gzip > ${backupPath}/db/nextcloud.sql.gz
+
           snapshotName="nextcloud-$(date +%Y-%m-%d-%H-%M-%S)"
           btrfs subvolume snapshot -r ${srcVolume} "${snapshotVolume}/$snapshotName"
           nextcloud-occ maintenance:mode --off
 
-          rsync -a "${snapshotVolume}/$snapshotName/nextcloud/data" ${backupPath}/
-          btrfs subvolume delete "${snapshotVolume}/$snapshotName"
+          rsync -a --delete "${snapshotVolume}/$snapshotName/nextcloud/data" ${backupPath}/
+        '';
+      };
+
+      postBackupScript = pkgs.writeShellApplication {
+        name = postBackupScriptName;
+        runtimeInputs = [
+          pkgs.btrfs-progs
+          config.services.nextcloud.occ
+        ];
+        text = ''
+          nextcloud-occ maintenance:mode --off
+          btrfs subvolume delete ${snapshotVolume}/nextcloud-*
+        '';
+      };
+
+      preBackupScript = pkgs.writeShellApplication {
+        name = preBackupScriptName;
+        runtimeInputs = [
+          config.services.nextcloud.occ
+        ];
+        text = ''
+          nextcloud-occ maintenance:mode --on
         '';
       };
     in
     {
+      enable = true;
       description = "Put nextcloud into maintenance mode and backup the database as well as the data directory";
+      path = [
+        backupScript
+        postBackupScript
+        preBackupScript
+      ];
       serviceConfig = {
         Type = "oneshot";
       };
-      script = ''
-        ${backupScript}
+      preStart = ''
+        ${preBackupScriptName}
       '';
+      script = ''
+        ${backupScripsName}
+      '';
+      postStop = ''
+        ${postBackupScriptName}
+      '';
+    };
+
     };
 }
