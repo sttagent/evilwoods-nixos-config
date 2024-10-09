@@ -208,5 +208,12 @@ in
       '';
     };
 
+  systemd.timers."${backupServiceName}" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "1:00";
+      Persistent = true;
+      RandomizedDelaySec = "3h";
     };
+  };
 }
