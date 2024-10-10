@@ -140,6 +140,7 @@ in
       srcVolume = "/var/storage/internal-ssd/storage";
       snapshotVolume = "/var/storage/internal-ssd/snapshots";
 
+      # TODO: extract scripts to separate files and builtin.readFile from them heme.
       backupScript = pkgs.writeShellApplication {
         name = backupScripsName;
         runtimeInputs = [
