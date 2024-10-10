@@ -24,9 +24,6 @@
     # megasync
     # megacmd
     nextcloud-client
-    vivaldi
-    vivaldi-ffmpeg-codecs
-    widevine-cdm
     obsidian
     logseq
     bitwarden-desktop
