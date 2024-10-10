@@ -199,7 +199,15 @@ in
         enable = true;
         profiles."${thisUser}" = {
           name = "${thisUser}";
+          id = 0;
+          isDefault = true;
           search = {
+            force = true;
+            default = "Evilwoods";
+            order = [
+              "Evilwoods"
+              "Google"
+            ];
             engines = {
               "Nix Packages" = {
                 urls = [
@@ -256,12 +264,18 @@ in
                 definedAliases = [ "@nw" ];
               };
 
+              "Evilwoods" = {
+                urls = [ { template = "https://search.evilwoods.net/search?q={searchTerms}"; } ];
+                definedAliases = [ "@ew" ];
+              };
+
               "Bing".metaData.hidden = true;
               "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
             };
-            force = true;
           };
           settings = {
+            "browser.startup.homepage" = "https://search.evilwoods.net/";
+            "browser.search.defaultenginename" = "Evilwoods";
             "browser.contentblocking.category" = "strict";
             "gfx.webrender.all" = true;
             "media.ffmpeg.vaapi.enabled" = true;
