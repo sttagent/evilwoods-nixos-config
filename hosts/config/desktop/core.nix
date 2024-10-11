@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  mainUser = config.evilwoods.mainUser;
+  mainUser = config.evilwoods.vars.mainUser;
 in
 {
   boot = {

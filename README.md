@@ -1,10 +1,11 @@
 # Evilwoods NixOS Config
 
-This is my personal NixOS configuration.
+This is my personal very much work in progress NixOS configuration.
 
 Hosts:
 - `evilbook` - laptop
 - `evilserver` - home server
+- evilcloud - server (currently not used)
 
 ## Notes
 ### Installation notes

@@ -2,7 +2,7 @@
 let
   inherit (lib) mkIf mkMerge;
 
-  isTestEnv = config.evilwoods.isTestEnv;
+  isTestEnv = config.evilwoods.vars.isTestEnv;
 in
 {
   config = mkMerge [

@@ -2,8 +2,8 @@
 let
   inherit (lib) mkIf mkMerge;
 
-  mainUser = config.evilwoods.mainUser;
-  isTestEnv = config.evilwoods.isTestEnv;
+  mainUser = config.evilwoods.vars.mainUser;
+  isTestEnv = config.evilwoods.vars.isTestEnv;
 in
 {
   config = mkMerge [

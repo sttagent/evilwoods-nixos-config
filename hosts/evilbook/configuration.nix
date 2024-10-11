@@ -9,6 +9,7 @@
 {
   imports = [
     (configPath + "/common")
+    (configPath + "/hardware/boot/systemd-boot.nix")
     (configPath + "/desktop")
     (configPath + "/gnome")
     (configPath + "/optional/zsa.nix")
@@ -18,15 +19,25 @@
 
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
+    # (modulesPath + "/profiles/perlless.nix")
   ];
 
-  evilwoods.tailscaleIP = "100.109.91.8";
+  services.userborn.enable = true;
+  # system.etc.overlay.enable = true;
+
+  system.stateVersion = "24.05";
+
+  # host specific variables
+  evilwoods.vars = {
+    tailscaleIP = "100.68.177.122";
+  };
 
   sops.secrets = {
     "network-manager.env" = { };
   };
 
   programs.steam.enable = true;
+  programs.command-not-found.enable = false;
 
   networking.wireless.iwd.enable = true;
   networking.networkmanager = {

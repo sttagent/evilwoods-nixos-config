@@ -32,8 +32,6 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
-    nixos-cli.url = "github:water-sucks/nixos";
-
     evilsecrets = {
       url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
       flake = false;
@@ -45,21 +43,16 @@
     let
       pkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
       evilib = import ./lib { inherit inputs; };
-
-      inherit (evilib)
-        mapHosts
-        mkHostTest
-        mkHostAttrs
-        findAllHosts
-        ;
     in
     {
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
 
       lib = evilib;
 
-      nixosConfigurations = import ./hosts { inherit inputs; };
-      packages.x86_64-linux = mapHosts (mkHostTest inputs) (mkHostAttrs (findAllHosts ./hosts));
+      nixosConfigurations = import ./hosts {
+        inherit inputs;
+        inherit (pkgs) lib;
+      };
 
       # TODO: import shell enstead
       devShells.x86_64-linux.default = pkgs.mkShell {

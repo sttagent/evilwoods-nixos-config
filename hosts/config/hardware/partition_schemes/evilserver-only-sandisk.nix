@@ -1,3 +1,4 @@
+{ inputs, ... }:
 let
   disks = [
     "/dev/disk/by-id/ata-SanDisk_Ultra_II_480GB_160807801275"

@@ -3,6 +3,9 @@ let
   disks = [ "/dev/sda" ];
 in
 {
+  imports = [
+    inputs.disko-2405.nixosModules.disko
+  ];
   disko.devices = {
     disk.nixos = {
       device = builtins.elemAt disks 0;

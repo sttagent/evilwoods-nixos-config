@@ -1,4 +1,4 @@
-{ configPath, ... }:
+{ inputs, configPath, ... }:
 let
   common_mount_options = [
     "noatime"
@@ -7,7 +7,11 @@ let
   ];
 in
 {
-  imports = [ (configPath + "/hardware/partition_schemes/evilserver-only-sandisk.nix") ];
+  imports = [
+    inputs.disko-2405.nixosModules.disko
+
+    (configPath + "/hardware/partition_schemes/evilserver-only-sandisk.nix")
+  ];
 
   fileSystems = {
     "/var/storage/external-hdd/backups" = {

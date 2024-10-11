@@ -1,13 +1,7 @@
 {
-  config,
-  pkgs,
-  lib,
+  evilib,
   ...
 }:
-
 {
-  imports = [
-    ./vars.nix
-    ./rsync-backup.nix
-  ];
+  imports = (evilib.mkImportList ./.);
 }

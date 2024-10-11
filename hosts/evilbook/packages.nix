@@ -9,7 +9,7 @@
     ffmpeg-full
     appimage-run
     distrobox
-    # firefox
+    firefox
     yubioath-flutter
     wl-clipboard
     discord

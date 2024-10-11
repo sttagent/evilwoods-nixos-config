@@ -20,7 +20,7 @@ in
         ./default.nix
         ../../modules
       ];
-      evilwoods.isTestEnv = true;
+      evilwoods.vars.isTestEnv = true;
     };
   };
 
