@@ -4,7 +4,7 @@ let
 in
 {
   nix = {
-    package = pkgs.nixFlakes;
+    package = mkDefault pkgs.nixFlakes;
     settings = {
       experimental-features = [
         "nix-command"

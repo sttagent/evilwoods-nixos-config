@@ -132,13 +132,6 @@ in
         lazygit = {
           enable = true;
         };
-        nushell = {
-          enable = true;
-        };
-        carapace = {
-          enable = true;
-          enableNushellIntegration = true;
-        };
 
         fish = {
           enable = true;
@@ -165,8 +158,7 @@ in
         zellij = {
           enable = true;
           settings = {
-            default_shell = "fish";
-            copy_command = "wl-copy";
+            default_shell = "xonsh";
             mirror_session = true;
             theme = "gruvbox-dark";
             themes = {
@@ -291,7 +283,6 @@ in
         atuin = {
           enable = true;
           enableFishIntegration = true;
-          enableNushellIntegration = true;
           settings = {
             sync.records = true;
             auto_sync = true;
@@ -303,18 +294,15 @@ in
         starship = {
           enable = true;
           enableFishIntegration = true;
-          enableNushellIntegration = true;
         };
 
         zoxide = {
           enable = true;
           enableFishIntegration = true;
-          enableNushellIntegration = true;
         };
 
         eza = {
           enable = true;
-          enableNushellIntegration = true;
           icons = true;
           extraOptions = [ "--group-directories-first" ];
         };

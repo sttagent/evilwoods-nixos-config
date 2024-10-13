@@ -5,7 +5,6 @@
   environment.systemPackages = with pkgs; [
 
     prismlauncher
-    nushell
     ffmpeg-full
     appimage-run
     distrobox
@@ -18,14 +17,10 @@
     zed-editor
     bitwarden-cli
     libreoffice-fresh
-    # warp-terminal
     gh
     thunderbird
-    # megasync
-    # megacmd
     nextcloud-client
     obsidian
-    logseq
     bitwarden-desktop
 
     # apps specific to Gnome

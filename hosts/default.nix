@@ -7,29 +7,41 @@ let
     pathExists
     fromTOML
     readFile
+    dirOf
     ;
 
   inherit (lib)
     filterAttrs
+    mapAttrs
+    mapAttrs'
+    nameValuePair
+    genAttrs
+    listFilesRecursive
+    hasSuffix
     ;
 
   findAllHosts =
     let
       isDiretory = n: v: (v == "directory");
-      isHost = dirName: pathExists (./. + "/${dirName}/${dirName}.toml");
+      isHost = dirName: pathExists ./${dirName}/${dirName}.toml;
     in
     filter isHost (attrNames (filterAttrs isDiretory (readDir ./.)));
+
+  findAllHosts' =
+    let
+      isHostVarFile = path: hasSuffix ".toml" path;
+    in
+    map dirOf (filter isHostVarFile (listFilesRecursive ./.));
+
   hostListToHostAttrs =
     hosts:
-    builtins.listToAttrs (
-      lib.forEach hosts (
-        host:
-        lib.nameValuePair "${host}" {
-          "host" = ./${host};
-          "hostVars" = fromTOML (readFile (./. + "/${host}/${host}.toml"));
-        }
-      )
-    );
+    mapAttrs' (
+      host: _:
+      nameValuePair host {
+        host = ./${host};
+        hostVars = fromTOML (readFile ./${host}/${host}.toml);
+      }
+    ) (genAttrs hosts (host: null));
 
   mkHost =
     { inputs, ... }:
@@ -44,18 +56,15 @@ let
         configPath = inputs.self.outPath + "/hosts/config";
       };
     in
-    {
-      ${hostName} = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        modules = [
-          ../modules
-          { networking.hostName = hostName; }
-          host
-          ../users/aitvaras-${hostName}
-        ];
-      };
+    nixpkgs.lib.nixosSystem {
+      inherit system specialArgs;
+      modules = [
+        ../modules
+        { networking.hostName = hostName; }
+        host
+        ../users/aitvaras-${hostName}
+      ];
     };
 
-  mapHosts = f: hosts: lib.concatMapAttrs f hosts;
 in
-mapHosts (mkHost { inherit inputs; }) (hostListToHostAttrs findAllHosts)
+mapAttrs (mkHost { inherit inputs; }) (hostListToHostAttrs findAllHosts)

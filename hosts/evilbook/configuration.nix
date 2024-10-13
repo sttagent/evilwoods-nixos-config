@@ -2,7 +2,6 @@
   inputs,
   config,
   pkgs,
-  modulesPath,
   configPath,
   ...
 }:
@@ -22,8 +21,13 @@
     # (modulesPath + "/profiles/perlless.nix")
   ];
 
-  services.userborn.enable = true;
-  # system.etc.overlay.enable = true;
+  nix = {
+    package = pkgs.nixVersions.nix_2_24;
+    settings = {
+      max-jobs = "auto";
+      auto-optimise-store = true;
+    };
+  };
 
   system.stateVersion = "24.05";
 
@@ -31,6 +35,9 @@
   evilwoods.vars = {
     tailscaleIP = "100.68.177.122";
   };
+
+  services.userborn.enable = true;
+  # system.etc.overlay.enable = true;
 
   sops.secrets = {
     "network-manager.env" = { };
@@ -132,25 +139,22 @@
   };
 
   virtualisation = {
-    podman = {
+    libvirtd = {
       enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+      };
     };
+
     vmVariant = {
       virtualisation = {
         memorySize = 4096;
         cores = 2;
       };
     };
-  };
 
-  programs.nix-ld = {
-    enable = true;
-  };
-
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
+    podman = {
+      enable = true;
     };
   };
 

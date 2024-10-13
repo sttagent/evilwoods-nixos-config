@@ -5,6 +5,7 @@ let
   inherit (builtins)
     baseNameOf
     filter
+    elem
     ;
 
   inherit (lib)
@@ -26,9 +27,11 @@ in
           fileName = baseNameOf filePath;
         in
         (hasSuffix ".nix" fileName)
-        && (fileName != "default.nix")
-        && (fileName != "host-vars.nix")
-        && (fileName != "test.nix");
+        && !(elem fileName [
+          "default.nix"
+          "host-vars.nix"
+          "test.nix"
+        ]);
     in
     filter isValidImportFile (listFilesRecursive path);
 }

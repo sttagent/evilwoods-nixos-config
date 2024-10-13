@@ -24,5 +24,6 @@ in
       ]; # Enable ‘sudo’ for the user.
       shell = pkgs.fish;
     };
+
   };
 }
