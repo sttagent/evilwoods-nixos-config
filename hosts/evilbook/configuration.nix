@@ -36,8 +36,49 @@
     "network-manager.env" = { };
   };
 
-  programs.steam.enable = true;
-  programs.command-not-found.enable = false;
+  programs = {
+    steam.enable = true;
+    command-not-found.enable = false;
+    nix-ld = {
+      enable = true;
+    };
+
+    xonsh = {
+      enable = true;
+      package = pkgs.xonsh.override {
+        extraPackages = ps: [
+          (ps.buildPythonPackage rec {
+            name = "xonsh-direnv";
+            version = "1.6.4";
+            # format = "pyproject";
+            src = pkgs.fetchFromGitHub {
+              owner = "74th";
+              repo = "${name}";
+              rev = "${version}";
+              sha256 = "1SLb4gx73NSUG1Fshmvj+21hD9j2UnK+RcTolq1zJiI=";
+            };
+            nativeBuildInputs = [
+              pkgs.python3Packages.pip
+              # pkgs.python3Packages.poetry-core
+            ];
+            meta = {
+              homepage = "https://github.com/74th/xonsh-direnv";
+              description = "direnv support for the xonsh shell";
+              license = pkgs.lib.licenses.mit;
+              maintainers = [ ];
+            };
+          })
+          ps.requests
+        ];
+      };
+      config = ''
+        xontrib load direnv
+        execx($(starship init xonsh))
+        execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+        execx($(atuin init xonsh))
+      '';
+    };
+  };
 
   networking.wireless.iwd.enable = true;
   networking.networkmanager = {
