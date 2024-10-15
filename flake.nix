@@ -66,6 +66,7 @@
           nixpkgs-fmt
           ssh-to-age
           jq
+          gum
         ];
       };
     };
