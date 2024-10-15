@@ -65,6 +65,7 @@
           nixfmt-rfc-style
           nixpkgs-fmt
           ssh-to-age
+          jq
         ];
       };
     };
