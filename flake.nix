@@ -67,6 +67,9 @@
           ssh-to-age
           jq
           gum
+          python312Packages.python-lsp-server
+          python312Packages.questionary
+          lua-language-server
         ];
       };
     };
