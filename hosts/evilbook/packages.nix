@@ -22,6 +22,7 @@
     nextcloud-client
     obsidian
     # bitwarden-desktop # doesnt build
+    vscode-fhs
 
     # apps specific to Gnome
     notify-client
