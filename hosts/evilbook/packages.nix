@@ -21,7 +21,7 @@
     thunderbird
     nextcloud-client
     obsidian
-    bitwarden-desktop
+    # bitwarden-desktop # doesnt build
 
     # apps specific to Gnome
     notify-client
