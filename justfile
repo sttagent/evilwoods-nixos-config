@@ -4,17 +4,9 @@ default:
 update-inputs:
     nix flake update --commit-lock-file
 
-switch host="":
-    nixos-rebuild switch --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
+nixos action config="":
+    ./scripts/evilnixos {{action}} {{config}}
 
-boot host="":
-    nixos-rebuild boot --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
-
-test host="":
-    nixos-rebuild test --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
-
-dry-activate host="":
-    nixos-rebuild dry-activate --flake .#{{host}} --use-remote-sudo {{ if host == "" { "" } else { "--target-host root@" + host } }}
 
 run-tests-interactive host:
     sudo sh -c "LD_LIBRARY_PATH= nix run -L .#packages.x86_64-linux.{{host}}-test.driverInteractive --option sandbox false"
@@ -27,18 +19,6 @@ reboot host:
 
 build host="":
     nixos-rebuild build --flake .#{{host}} |& nom
-
-diff:
-    nvd diff /run/current-system ./result/
-
-remote-diff host:
-    #!/usr/bin/env bash
-    set -e
-    closure=$(realpath ./result)
-    echo $closure
-    [[ "$closure" == *"{{host}}"* ]]
-    nix copy --substitute-on-destination --to ssh://root@{{host}} $closure
-    ssh root@{{host}} nix run nixpkgs#nvd diff /run/current-system/ $closure
 
 gen-age-pub-key host:
     #!/usr/bin/env bash
