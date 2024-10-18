@@ -5,6 +5,7 @@
   ...
 }: # os configuration is reachable via nixosConfig
 let
+  inherit (lib) mkDefault;
   inherit (import ./vars.nix) thisUser;
   hmlib = inputs.home-manager.lib;
   resourceDir = inputs.self.outPath + "/resources";
@@ -28,6 +29,7 @@ in
         home-manager.enable = true;
 
         helix = {
+
           enable = false;
           defaultEditor = false;
           settings = {
