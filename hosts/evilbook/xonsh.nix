@@ -5,6 +5,7 @@
       enable = true;
       package = pkgs.xonsh.override {
         extraPackages = ps: [
+          ps.questionary
           (ps.buildPythonPackage rec {
             name = "xonsh-direnv";
             version = "1.6.4";
