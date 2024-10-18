@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }: # os configuration is reachable via nixosConfig
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: # os configuration is reachable via nixosConfig
 let
   inherit (import ./vars.nix) thisUser;
   hmlib = inputs.home-manager.lib;
