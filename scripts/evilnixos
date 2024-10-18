@@ -6,7 +6,7 @@ import questionary
 
 def get_args():
     arg_parser = argparse.ArgumentParser(description = "Apply nixosConfigurations to local or remote hosts")
-    arg_parser.add_argument('-t', '--target-host', action='store_true', help="the host is remote")
+    arg_parser.add_argument('-t', '--target-host', type=str, help="the host is remote")
     arg_parser.add_argument('nixos_rebuild_action', choices=["build", "diff", "test", "switch", "boot"] , help="nixos-rebuild action to perform")
     arg_parser.add_argument('nixos_config', nargs='?', help="the nixos configuration to apply", default=None)
     return arg_parser.parse_args()
