@@ -1,24 +1,26 @@
 {
-  pkgs ? import <nixpkgs> { },
-  ...
+  lib,
+  buildPythonPackage,
+  pip,
+  fetchFromGitHub,
 }:
-pkgs.python3Packages.buildPythonPackage rec {
+buildPythonPackage rec {
   name = "xonsh-direnv";
   version = "1.6.4";
   # format = "pyproject";
-  src = pkgs.fetchFromGitHub {
+  src = fetchFromGitHub {
     owner = "74th";
     repo = "${name}";
     rev = "${version}";
     sha256 = "1SLb4gx73NSUG1Fshmvj+21hD9j2UnK+RcTolq1zJiI=";
   };
   nativeBuildInputs = [
-    pkgs.python3Packages.pip
+    pip
   ];
   meta = {
     homepage = "https://github.com/74th/xonsh-direnv";
     description = "direnv support for the xo}nsh shell";
-    license = pkgs.lib.licenses.mit;
+    license = lib.licenses.mit;
     maintainers = [ ];
   };
 }
