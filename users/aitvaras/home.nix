@@ -318,7 +318,6 @@ in
           extraPackages = with pkgs; [
             gnumake
             gcc
-            lua-language-server
             nodejs_22
           ];
         };
