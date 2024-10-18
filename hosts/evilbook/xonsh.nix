@@ -7,8 +7,8 @@
       package = pkgs.xonsh.override {
         extraPackages = ps: [
           ps.questionary
-          pkgs.xontrib-fish-completer
-          pkgs.xonsh-direnv
+          ps.xontrib-fish-completer
+          ps.xonsh-direnv
         ];
       };
       config = ''

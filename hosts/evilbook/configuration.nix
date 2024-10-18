@@ -37,7 +37,7 @@
   };
 
   nixpkgs.overlays = [
-    (import ../../overlays/packages.nix pkgs)
+    (import ../../overlays/packages.nix)
   ];
 
   services.userborn.enable = true;
