@@ -148,6 +148,7 @@ in
         };
         themeFile = "GruvboxMaterialDarkHard";
         settings = {
+          shell = "xonsh";
           font_family = "Commit Mono Nerd Font";
           wayland_titlebar_color = "background";
         };
