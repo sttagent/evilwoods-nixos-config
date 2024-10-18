@@ -36,6 +36,10 @@
     tailscaleIP = "100.68.177.122";
   };
 
+  nixpkgs.overlays = [
+    (import ../../overlays/packages.nix pkgs)
+  ];
+
   services.userborn.enable = true;
   # system.etc.overlay.enable = true;
 
