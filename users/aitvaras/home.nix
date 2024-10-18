@@ -303,7 +303,7 @@ in
 
         eza = {
           enable = true;
-          icons = true;
+          icons = mkDefault true;
           extraOptions = [ "--group-directories-first" ];
         };
 

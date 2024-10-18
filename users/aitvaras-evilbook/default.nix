@@ -140,9 +140,11 @@ in
 
     programs = {
       home-manager.enable = true;
+      eza.icons = "auto";
 
       kitty = {
         enable = true;
+
         shellIntegration = {
           enableFishIntegration = true;
         };
