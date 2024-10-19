@@ -8,6 +8,7 @@ import questionary
 def get_args():
     arg_parser = argparse.ArgumentParser(description = "Apply nixosConfigurations to local or remote hosts")
     arg_parser.add_argument('-t', '--target-host', type=str, help="the host is remote")
+    arg_parser.add_argument('--diff', action='store_true', help="perform a diff after build")
     arg_parser.add_argument('nixos_rebuild_action', choices=["build", "diff", "test", "switch", "boot"] , help="nixos-rebuild action to perform")
     arg_parser.add_argument('nixos_config', nargs='?', help="the nixos configuration to apply", default=None)
     return arg_parser.parse_args()
@@ -16,8 +17,8 @@ def build_nvd_cmd(args, remote=False):
     if remote:
         return (
             "closure = $(realpath ./result);"
-            f" nix copy --substitute-on-destination --to ssh://root@{args.nixos_config} @(closure)"
-            f" and ssh root@@(nixos_config) nix run nixpkgs#nvn -- diff /run/current-system/ @(clIosure)"
+            f" nix copy --substitute-on-destination --to ssh://root@{args.target_host} @(closure)"
+            f" and ssh root@{args.target_host} nix run nixpkgs#nvn -- diff /run/current-system/ @(closure)"
         )
     else:
         return "nvd diff /run/current-system ./result/"
@@ -27,22 +28,25 @@ def build_nixos_rebuild_cmd(args, remote=False):
         args.nixos_rebuild_action,
         "--use-remote-sudo" if not remote else "",
         args.nixos_config,
-        f"--target-host root@{args.nixos_config}" if remote else ""
+        f"--target-host root@{args.target_host}" if remote else ""
     )
     return cmd
 
 def build_cmd(args):
+    cmds = []
     is_remote = $(hostname) != args.nixos_config
     match args.nixos_rebuild_action:
         case "diff":
-            return build_nvd_cmd(args, is_remote)
+            cmds.append(build_nvd_cmd(args, is_remote))
         case "build":
-            return build_nixos_rebuild_cmd(args, is_remote) + " err>out | nom"
+            cmds.append(build_nixos_rebuild_cmd(args, is_remote) + " err>out | nom")
+            if args.diff:
+                cmds.append(build_nvd_cmd(args, is_remote))
         case _:
-            return build_nixos_rebuild_cmd(args, is_remote)
-    return f"echo {args.nixos_rebuild_action} {args.nixos_config}"
+            cmds.append(build_nixos_rebuild_cmd(args, is_remote))
+    return cmds
 
-def chooose_nixos_config():
+def choose_nixos_config():
     nixos_configurations = !(@thread nix flake show --json)
     nixos_configurations.rtn
     config_name_list = json.loads(nixos_configurations.output)["nixosConfigurations"].keys()
@@ -52,10 +56,14 @@ def chooose_nixos_config():
 def main():
     args = get_args()
 
-    args.nixos_config = chooose_nixos_config() if args.nixos_config is None else args.nixos_config
+    args.nixos_config = choose_nixos_config() if args.nixos_config is None else args.nixos_config
+    args.target_host = args.nixos_config if args.target_host is None else args.target_host
 
-    cmd = build_cmd(args)
-    execx(cmd)
+    cmds = build_cmd(args)
+    for cmd in cmds:
+        print(cmd)
+        execx(cmd)
+
 
 if __name__ == '__main__':
     main()
