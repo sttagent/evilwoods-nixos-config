@@ -6,6 +6,8 @@ let
     baseNameOf
     filter
     elem
+    readFile
+    fromTOML
     ;
 
   inherit (lib)
@@ -16,6 +18,7 @@ let
 
 in
 {
+  readInVarFile = path: fromTOML (readFile path);
 
   mkImportList =
     # Scan dir for all files recusevily that have .nix suffix and are not default file.
