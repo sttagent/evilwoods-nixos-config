@@ -4,8 +4,8 @@ default:
 update-inputs:
     nix flake update --commit-lock-file
 
-os action config="":
-    ./scripts/evilnixos {{action}} {{config}}
+os *FLAGS:
+    ./scripts/evilnixos {{FLAGS}}
 
 
 run-tests-interactive host:
