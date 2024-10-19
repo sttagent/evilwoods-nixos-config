@@ -1,6 +1,11 @@
-{ pkgs, inputs, ... }:
+{
+  evilib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
-  inherit (import ../aitvaras/vars.nix) thisUser;
+  inherit (evilib.readInVarFile ../aitvaras/vars.toml) thisUser;
   hmlib = inputs.home-manager.lib;
   hmlibgv = hmlib.hm.gvariant;
   resourceDir = inputs.self.outPath + "/resources";

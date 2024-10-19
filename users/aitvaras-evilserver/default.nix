@@ -1,6 +1,6 @@
-{ config, ... }:
+{ evilib, config, ... }:
 let
-  inherit (import ../aitvaras/vars.nix) thisUser;
+  inherit (evilib.readInVarFile ../aitvaras/vars.toml) thisUser;
 in
 {
   imports = [ ../aitvaras ];
