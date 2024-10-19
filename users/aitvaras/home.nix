@@ -1,4 +1,6 @@
 {
+  config,
+  evilib,
   pkgs,
   lib,
   inputs,
@@ -12,6 +14,24 @@ let
   configDir = inputs.self.outPath + "/configfiles";
 in
 {
+  sops.secrets.aitvaras-password.neededForUsers = true;
+
+  users.users = {
+    ${thisUser} = {
+      isNormalUser = true;
+      createHome = true;
+      home = "/home/${thisUser}";
+      description = "Arvydas Ramanauskas";
+      hashedPasswordFile = config.sops.secrets.aitvaras-password.path;
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ]; # Enable ‘sudo’ for the user.
+      shell = pkgs.fish;
+    };
+
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
