@@ -18,7 +18,7 @@ def build_nvd_cmd(args, remote=False):
         return (
             "closure = $(realpath ./result);"
             f" nix copy --substitute-on-destination --to ssh://root@{args.target_host} @(closure)"
-            f" and ssh root@{args.target_host} nix run nixpkgs#nvn -- diff /run/current-system/ @(closure)"
+            f" and ssh root@{args.target_host} nix run 'nixpkgs#nvd' -- diff /run/current-system/ @(closure)"
         )
     else:
         return "nvd diff /run/current-system ./result/"
