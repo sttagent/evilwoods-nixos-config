@@ -4,7 +4,7 @@ default:
 update-inputs:
     nix flake update --commit-lock-file
 
-nixos action config="":
+os action config="":
     ./scripts/evilnixos {{action}} {{config}}
 
 
