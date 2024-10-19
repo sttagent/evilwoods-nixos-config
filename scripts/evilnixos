@@ -24,7 +24,7 @@ def build_nvd_cmd(args, remote=False):
         return "nvd diff /run/current-system ./result/"
 
 def build_nixos_rebuild_cmd(args, remote=False):
-    cmd = "nixos-rebuild {} {} --flake .#{} {}".format(
+    cmd = "nixos-rebuild {} {} --flake '.#{}' {}".format(
         args.nixos_rebuild_action,
         "--use-remote-sudo" if not remote else "",
         args.nixos_config,
@@ -39,7 +39,7 @@ def build_cmd(args):
         case "diff":
             cmds.append(build_nvd_cmd(args, is_remote))
         case "build":
-            cmds.append(build_nixos_rebuild_cmd(args, is_remote) + " err>out | nom")
+            cmds.append(build_nixos_rebuild_cmd(args) + " err>out | nom")
             if args.diff:
                 cmds.append(build_nvd_cmd(args, is_remote))
         case _:
