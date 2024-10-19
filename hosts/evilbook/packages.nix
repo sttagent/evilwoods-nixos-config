@@ -8,7 +8,7 @@
     ffmpeg-full
     appimage-run
     distrobox
-    firefox
+    # firefox # inastalled by home-manager
     yubioath-flutter
     wl-clipboard
     discord
