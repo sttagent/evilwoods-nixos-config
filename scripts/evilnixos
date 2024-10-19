@@ -4,6 +4,7 @@ import argparse
 import json
 import questionary
 
+# TODO: add build --diff flag
 def get_args():
     arg_parser = argparse.ArgumentParser(description = "Apply nixosConfigurations to local or remote hosts")
     arg_parser.add_argument('-t', '--target-host', type=str, help="the host is remote")
@@ -11,49 +12,50 @@ def get_args():
     arg_parser.add_argument('nixos_config', nargs='?', help="the nixos configuration to apply", default=None)
     return arg_parser.parse_args()
 
-def get_nixosConfigurations():
-    return json.loads($(nix --quiet flake show --json))["nixosConfigurations"].keys()
-
-def run_nvd_cmds(nixos_config, remote=False):
+def build_nvd_cmd(args, remote=False):
     if remote:
-        closure = $(realpath ./result)
-        nix copy --substitute-on-destination --to ssh://root@@(nixos_config) @(closure) \
-        and ssh root@@(nixos_config) nix run "nixpkgs#nvd" -- diff /run/current-system/ @(closure)
+        return (
+            "closure = $(realpath ./result);"
+            f" nix copy --substitute-on-destination --to ssh://root@{args.nixos_config} @(closure)"
+            f" and ssh root@@(nixos_config) nix run nixpkgs#nvn -- diff /run/current-system/ @(clIosure)"
+        )
     else:
-        nvd diff /run/current-system ./result/
+        return "nvd diff /run/current-system ./result/"
 
-def run_nxoos_rebuild_cmds(nixos_rebuild_action, nixos_config, remote=False):
-    if nixos_rebuild_action == "build":
-        nixos-rebuild build --flake @(f".#{nixos_config}") err>out | nom
-    else:
-        if remote:
-            nixos-rebuild @(nixos_rebuild_action) --flake @(f".#{nixos_config}") --target-host root@@(nixos_config)
-        else:
-            nixos-rebuild @(nixos_rebuild_action) --flake @(f".#{nixos_config}") --use-remote-sudo
+def build_nixos_rebuild_cmd(args, remote=False):
+    cmd = "nixos-rebuild {} {} --flake .#{} {}".format(
+        args.nixos_rebuild_action,
+        "--use-remote-sudo" if not remote else "",
+        args.nixos_config,
+        f"--target-host root@{args.nixos_config}" if remote else ""
+    )
+    return cmd
 
-def build_nixos_rebuild_cmd(nixos_rebuild_action, nixos_config, remote=False):
-    cmd = ""
-    if nixos_rebuild_action == "diff":
-        run_nvd_cmds(nixos_config, remote)
-    else:
-        run_nxoos_rebuild_cmds(nixos_rebuild_action, nixos_config, remote)
+def build_cmd(args):
+    is_remote = $(hostname) != args.nixos_config
+    match args.nixos_rebuild_action:
+        case "diff":
+            return build_nvd_cmd(args, is_remote)
+        case "build":
+            return build_nixos_rebuild_cmd(args, is_remote) + " err>out | nom"
+        case _:
+            return build_nixos_rebuild_cmd(args, is_remote)
+    return f"echo {args.nixos_rebuild_action} {args.nixos_config}"
 
-
-def parse_flake_json(flake_json):
-    flake_json.rtn
-    return json.loads(flake_json.output)["nixosConfigurations"].keys()
+def chooose_nixos_config():
+    nixos_configurations = !(@thread nix flake show --json)
+    nixos_configurations.rtn
+    config_name_list = json.loads(nixos_configurations.output)["nixosConfigurations"].keys()
+    choice = questionary.select("Select a configuration", choices=config_name_list).ask()
+    return choice
 
 def main():
     args = get_args()
 
-    choice = args.nixos_config
-    if choice is None:
-        nixos_configurations = !(@thread nix flake show --json)
-        config_list = parse_flake_json(nixos_configurations)
-        choice = questionary.select("Select a configuration", choices=config_list).ask()
-    
-    is_local = lambda host: $(hostname) == host
-    build_nixos_rebuild_cmd(args.nixos_rebuild_action, choice, remote=(not is_local(choice)))
+    args.nixos_config = chooose_nixos_config() if args.nixos_config is None else args.nixos_config
+
+    cmd = build_cmd(args)
+    execx(cmd)
 
 if __name__ == '__main__':
     main()
