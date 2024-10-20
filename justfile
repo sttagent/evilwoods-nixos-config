@@ -17,9 +17,6 @@ run-tests host:
 reboot host:
   ssh -t {{host}} "sudo systemctl reboot"
 
-build host="":
-    nixos-rebuild build --flake .#{{host}} |& nom
-
 gen-age-pub-key host:
     #!/usr/bin/env bash
     age_pub_key=$(ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub)
