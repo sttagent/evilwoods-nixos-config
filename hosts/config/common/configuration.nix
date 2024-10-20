@@ -40,6 +40,7 @@ in
     firewall = {
       enable = mkDefault true;
     };
+    enableIPv6 = mkDefault false;
   };
 
   time.timeZone = "Europe/Stockholm";

@@ -57,7 +57,6 @@
   };
 
   networking.wireless.iwd.enable = true;
-  networking.enableIPv6 = false;
   networking.nftables.enable = true;
   networking.networkmanager = {
     enable = true;
