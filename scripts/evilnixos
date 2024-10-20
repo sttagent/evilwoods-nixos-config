@@ -12,13 +12,18 @@ def get_args():
     common_parser = argparse.ArgumentParser(add_help=False)
     common_parser.add_argument('-t', '--target-host', type=str, help="the host is remote")
     common_parser.add_argument('nixos_config', nargs='?', help="the nixos configuration to apply", default=None)
+
     sub_parsers = arg_parser.add_subparsers(title="subcommands", dest="subcommand", help="sub-command help")
     build_parser = sub_parsers.add_parser('build', aliases=['b'], help="build the nixos configuration", parents=[common_parser])
     build_parser.add_argument('--diff', action='store_true', help="perform a diff after build")
+
     diff_parser = sub_parsers.add_parser('diff', aliases=["d"], help="diff the new nixos configuration with the old", parents=[common_parser])
     test_parser = sub_parsers.add_parser('test', aliases=["t"], help="test the nixos configuration", parents=[common_parser])
     switch_parser = sub_parsers.add_parser('switch', aliases=["s"], help="switch to the new nixos configuration", parents=[common_parser])
+
     boot_parser = sub_parsers.add_parser('boot', aliases=["bo"], help="boot to the new nixos configuration", parents=[common_parser])
+    boot_parser.add_argument('--reboot', action='store_true', help="reboot after applying the new configuration")
+
     return arg_parser.parse_args()
 
 def build_nvd_cmd(args, remote=False):
@@ -40,6 +45,12 @@ def build_nixos_rebuild_cmd(args, remote=False):
     )
     return cmd
 
+def build_reboot_cmd(args, remote=False):
+    if remote:
+        return f"ssh root@{args.target_host} systemctl reboot"
+    else:
+        return "sudo systemctl reboot"
+
 def build_cmd(args):
     cmds = []
     is_remote = $(hostname) != args.nixos_config
@@ -50,6 +61,10 @@ def build_cmd(args):
             cmds.append(build_nixos_rebuild_cmd(args) + " err>out | nom")
             if args.diff:
                 cmds.append(build_nvd_cmd(args, is_remote))
+        case "boot":
+            cmds.append(build_nixos_rebuild_cmd(args, is_remote))
+            if args.reboot:
+                cmds.append(build_reboot_cmd(args, is_remote))
         case _:
             cmds.append(build_nixos_rebuild_cmd(args, is_remote))
     return cmds
