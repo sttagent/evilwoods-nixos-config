@@ -7,6 +7,7 @@ import questionary
 # TODO: add build --diff flag
 def get_args():
     arg_parser = argparse.ArgumentParser(description = "Apply nixosConfigurations to local or remote hosts")
+    arg_parser.add_argument('--debug', action='store_true', help="dry run")
 
     common_parser = argparse.ArgumentParser(add_help=False)
     common_parser.add_argument('-t', '--target-host', type=str, help="the host is remote")
@@ -66,10 +67,14 @@ def main():
     args.nixos_config = choose_nixos_config() if args.nixos_config is None else args.nixos_config
     args.target_host = args.nixos_config if args.target_host is None else args.target_host
 
+    if args.debug:
+        print(args)
+
     cmds = build_cmd(args)
     for cmd in cmds:
         print(cmd)
-        execx(cmd)
+        if not args.debug:
+            execx(cmd)
 
 
 if __name__ == '__main__':
