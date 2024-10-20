@@ -7,7 +7,7 @@
         sha256 = lock.narHash;
       };
     in
-    import nixpkgs { overlays = [ ]; },
+    import nixpkgs { overlays = [ ./overlays.nix/packages.nix ]; },
   ...
 }:
 {
@@ -16,6 +16,7 @@
     NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
     nativeBuildInputs = with pkgs; [
       fish
+      xonsh
       nix
       home-manager
       git
@@ -28,7 +29,7 @@
     ];
 
     shellHook = ''
-      exec fish
+      exec xonsh
     '';
   };
 }
