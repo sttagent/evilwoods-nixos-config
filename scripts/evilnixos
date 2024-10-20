@@ -7,10 +7,17 @@ import questionary
 # TODO: add build --diff flag
 def get_args():
     arg_parser = argparse.ArgumentParser(description = "Apply nixosConfigurations to local or remote hosts")
-    arg_parser.add_argument('-t', '--target-host', type=str, help="the host is remote")
-    arg_parser.add_argument('--diff', action='store_true', help="perform a diff after build")
-    arg_parser.add_argument('nixos_rebuild_action', choices=["build", "diff", "test", "switch", "boot"] , help="nixos-rebuild action to perform")
-    arg_parser.add_argument('nixos_config', nargs='?', help="the nixos configuration to apply", default=None)
+
+    common_parser = argparse.ArgumentParser(add_help=False)
+    common_parser.add_argument('-t', '--target-host', type=str, help="the host is remote")
+    common_parser.add_argument('nixos_config', nargs='?', help="the nixos configuration to apply", default=None)
+    sub_parsers = arg_parser.add_subparsers(title="subcommands", dest="subcommand", help="sub-command help")
+    build_parser = sub_parsers.add_parser('build', aliases=['b'], help="build the nixos configuration", parents=[common_parser])
+    build_parser.add_argument('--diff', action='store_true', help="perform a diff after build")
+    diff_parser = sub_parsers.add_parser('diff', aliases=["d"], help="diff the new nixos configuration with the old", parents=[common_parser])
+    test_parser = sub_parsers.add_parser('test', aliases=["t"], help="test the nixos configuration", parents=[common_parser])
+    switch_parser = sub_parsers.add_parser('switch', aliases=["s"], help="switch to the new nixos configuration", parents=[common_parser])
+    boot_parser = sub_parsers.add_parser('boot', aliases=["bo"], help="boot to the new nixos configuration", parents=[common_parser])
     return arg_parser.parse_args()
 
 def build_nvd_cmd(args, remote=False):
@@ -25,7 +32,7 @@ def build_nvd_cmd(args, remote=False):
 
 def build_nixos_rebuild_cmd(args, remote=False):
     cmd = "nixos-rebuild {} {} --flake '.#{}' {}".format(
-        args.nixos_rebuild_action,
+        args.subcommand,
         "--use-remote-sudo" if not remote else "",
         args.nixos_config,
         f"--target-host root@{args.target_host}" if remote else ""
@@ -35,7 +42,7 @@ def build_nixos_rebuild_cmd(args, remote=False):
 def build_cmd(args):
     cmds = []
     is_remote = $(hostname) != args.nixos_config
-    match args.nixos_rebuild_action:
+    match args.subcommand:
         case "diff":
             cmds.append(build_nvd_cmd(args, is_remote))
         case "build":
