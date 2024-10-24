@@ -5,7 +5,6 @@
 }:
 {
   imports = [
-    (configPath + "/common")
     (configPath + "/hardware/boot/systemd-boot.nix")
     (configPath + "/server")
 

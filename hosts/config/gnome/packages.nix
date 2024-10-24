@@ -7,7 +7,7 @@
     showtime
     gnome-extension-manager
     dconf
-    valent
+    # valent
     pika-backup
   ];
 

@@ -7,14 +7,9 @@
 }:
 {
   imports = [
-    (configPath + "/common")
     (configPath + "/hardware/boot/systemd-boot.nix")
     (configPath + "/desktop")
     (configPath + "/gnome")
-    (configPath + "/optional/zsa.nix")
-    (configPath + "/optional/android.nix")
-
-    # (modulesPath + "/profiles/perlless.nix")
 
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
@@ -32,8 +27,14 @@
   system.stateVersion = "24.05";
 
   # host specific variables
-  evilwoods.vars = {
-    tailscaleIP = "100.68.177.122";
+  evilwoods = {
+    config = {
+      hyprland.enable = true;
+      zsa.enable = true;
+    };
+    vars = {
+      tailscaleIP = "100.68.177.122";
+    };
   };
 
   nixpkgs.overlays = [
@@ -42,6 +43,10 @@
 
   services.userborn.enable = true;
   # system.etc.overlay.enable = true;
+  services.xserver.xkb = {
+    layout = "us,us,se";
+    variant = "colemak_dh_iso";
+  };
 
   sops.secrets = {
     "network-manager.env" = { };
@@ -53,7 +58,6 @@
     nix-ld = {
       enable = true;
     };
-
   };
 
   networking.wireless.iwd.enable = true;

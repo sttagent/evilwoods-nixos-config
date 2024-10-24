@@ -7,16 +7,15 @@
 
 # Config for moonlander keyboard.
 
-with lib;
-
 let
-  zsa = config.evilwoods.zsa;
+  inherit (lib) mkEnableOption mkIf;
+  zsa = config.evilwoods.config.zsa;
 in
 {
 
-  options.evilwoods.zsa = mkEnableOption "ZSA";
+  options.evilwoods.config.zsa.enable = mkEnableOption "ZSA";
 
-  config = mkIf zsa {
+  config = mkIf zsa.enable {
 
     hardware.keyboard.zsa.enable = true;
 

@@ -1,7 +1,0 @@
-{
-  evilib,
-  ...
-}:
-{
-  imports = evilib.mkImportList ./.;
-}

@@ -12,7 +12,10 @@ let
   configDir = inputs.self.outPath + "/configfiles";
 in
 {
-  imports = [ ../aitvaras ];
+  imports = [
+    ../aitvaras
+    ./hyprland.nix
+  ];
 
   users.users.${thisUser}.extraGroups = [ "libvirtd" ];
 
@@ -168,6 +171,7 @@ in
           "just"
           "lua"
           "toml"
+          "python"
         ];
         userSettings = {
           theme = {
@@ -183,7 +187,7 @@ in
               provider = "zed.dev";
               model = "claude-3-5-sonnet-20240620";
             };
-            version = 2;
+            version = "2";
           };
           autosave = "on_focus_change";
           vim_mode = true;
@@ -211,51 +215,9 @@ in
         };
       };
 
-      vscode = {
-        enable = false;
-        extensions = with pkgs.vscode-extensions; [
-          eamodio.gitlens
-          ms-vscode-remote.remote-containers
-          ms-vscode-remote.remote-ssh
-          asvetliakov.vscode-neovim
-          github.copilot
-          github.copilot-chat
-          ms-python.python
-          ms-python.vscode-pylance
-          esbenp.prettier-vscode
-          ms-azuretools.vscode-docker
-          tailscale.vscode-tailscale
-          jnoortheen.nix-ide
-          arrterian.nix-env-selector
-          redhat.vscode-yaml
-          ms-vsliveshare.vsliveshare
-          mkhl.direnv
-          github.vscode-github-actions
-          github.vscode-pull-request-github
-          sumneko.lua
-        ];
-
-        userSettings = {
-          "cody.commandCodeLenses" = true;
-          "cody.autocomplete.formatOnAccept" = true;
-          "editor.inlineSuggest.suppressSuggestions" = true;
-          "extensions.experimental.affinity" = {
-            "asvetliakov.vscode-neovim" = 1;
-          };
-          "files.autoSave" = "afterDelay";
-          "git.confirmSync" = false;
-          "window.titleBarStyle" = "custom";
-          "workbench.colorTheme" = "Gruvbox Material Dark";
-          "gruvboxMaterial.lightContrast" = "hard";
-          "gruvboxMaterial.darkContrast" = "hard";
-          "nix.enableLanguageServer" = true;
-          "nix.serverPath" = "nixd";
-          "[nix]"."editor.tabSize" = 2;
-        };
-      };
-
       firefox = {
         enable = true;
+        nativeMessagingHosts = [ pkgs.tridactyl-native ];
         profiles."${thisUser}" = {
           name = "${thisUser}";
           id = 0;
