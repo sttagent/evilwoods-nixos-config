@@ -8,13 +8,23 @@
 {
   imports = [
     (configPath + "/hardware/boot/systemd-boot.nix")
-    (configPath + "/desktop")
-    (configPath + "/gnome")
 
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
     # (modulesPath + "/profiles/perlless.nix")
   ];
+
+  # host specific variables
+  evilwoods = {
+    config = {
+      gnome.enable = true;
+      hyprland.enable = true;
+      zsa.enable = true;
+    };
+    vars = {
+      tailscaleIP = "100.68.177.122";
+    };
+  };
 
   nix = {
     package = pkgs.nixVersions.nix_2_24;
@@ -25,17 +35,6 @@
   };
 
   system.stateVersion = "24.05";
-
-  # host specific variables
-  evilwoods = {
-    config = {
-      hyprland.enable = true;
-      zsa.enable = true;
-    };
-    vars = {
-      tailscaleIP = "100.68.177.122";
-    };
-  };
 
   nixpkgs.overlays = [
     (import ../../overlays/packages.nix)
