@@ -13,6 +13,8 @@
       };
       config = ''
         xontrib load coreutils direnv fish_completer
+
+        $EDITOR = 'nvim'
         #
         # aliases["ls"] = "eza"
         aliases["ll"] = "eza -l"
