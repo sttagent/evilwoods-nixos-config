@@ -25,8 +25,13 @@ in
         hyprland.enable = true;
         hyprlock.enable = true;
         waybar.enable = true;
+      };
+
+      services = {
+        hypridle.enable = true;
 
       };
+
 
       environment.systemPackages = with pkgs; [
         wofi
