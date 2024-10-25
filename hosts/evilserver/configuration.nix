@@ -6,7 +6,6 @@
 {
   imports = [
     (configPath + "/hardware/boot/systemd-boot.nix")
-    (configPath + "/server")
 
     inputs.sops-nix-2405.nixosModules.sops
     inputs.home-manager-2405.nixosModules.home-manager
