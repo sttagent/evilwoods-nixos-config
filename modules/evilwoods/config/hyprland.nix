@@ -23,6 +23,7 @@ in
     (mkIf cfg.enable {
       programs = {
         hyprland.enable = true;
+        hyprlock.enable = true;
         waybar.enable = true;
 
       };
