@@ -5,20 +5,9 @@
 }:
 {
   imports = [
-    (configPath + "/hardware/boot/systemd-boot.nix")
-
     inputs.sops-nix-2405.nixosModules.sops
     inputs.home-manager-2405.nixosModules.home-manager
   ];
-
-  system.stateVersion = "24.05";
-
-  nix.settings = {
-    trusted-users = [
-      "root"
-      "@wheel"
-    ];
-  };
 
   evilwoods = {
     vars = {
@@ -37,6 +26,27 @@
       dstSubvol = "/var/storage/external-hdd/backups";
       rsyncPrefix = "rsync";
       snapshotPrefix = "snapshot";
+    };
+  };
+
+  system.stateVersion = "24.05";
+
+  nix.settings = {
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
+  };
+
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 100;
+      };
     };
   };
 
@@ -70,5 +80,50 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFc8oFtu7i4WBlbcDMB7ua9cHJW2bzeomrLFddokw7v aitvaras@evilbook"
   ];
 
+  fileSystems =
+    let
+      common_mount_options = [
+        "noatime"
+        "defaults"
+        "compress=zstd"
+      ];
+    in
+    {
+      "/var/storage/external-hdd/backups" = {
+        device = "/dev/disk/by-label/external-hdd";
+        fsType = "btrfs";
+        options = [
+          "subvol=backups"
+        ] ++ common_mount_options;
+      };
+      "/var/storage/external-hdd/snapshots" = {
+        device = "/dev/disk/by-label/external-hdd";
+        fsType = "btrfs";
+        options = [
+          "subvol=snapshots"
+        ] ++ common_mount_options;
+      };
+      "/var/lib/containers" = {
+        device = "/dev/disk/by-label/internal-ssd";
+        fsType = "btrfs";
+        options = [
+          "subvol=containers/system"
+        ] ++ common_mount_options;
+      };
+      "/var/storage/internal-ssd/storage" = {
+        device = "/dev/disk/by-label/internal-ssd";
+        fsType = "btrfs";
+        options = [
+          "subvol=storage"
+        ] ++ common_mount_options;
+      };
+      "/var/storage/internal-ssd/snapshots" = {
+        device = "/dev/disk/by-label/internal-ssd";
+        fsType = "btrfs";
+        options = [
+          "subvol=snapshots"
+        ] ++ common_mount_options;
+      };
+    };
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }

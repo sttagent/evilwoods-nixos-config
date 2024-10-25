@@ -12,7 +12,7 @@ let
     mkEnableOption
     ;
   cfg = config.evilwoods.config.hyprland;
-  gnome = true;
+  gnome = config.evilwoods.config.gnome;
 in
 {
   options = {
@@ -40,7 +40,7 @@ in
       ];
     })
 
-    (mkIf (cfg.enable && !gnome) {
+    (mkIf (cfg.enable && !gnome.enable) {
       services.xserver.displayManager.gdm.enable = true;
     })
   ];

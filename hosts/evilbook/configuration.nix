@@ -7,8 +7,6 @@
 }:
 {
   imports = [
-    (configPath + "/hardware/boot/systemd-boot.nix")
-
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
     # (modulesPath + "/profiles/perlless.nix")
@@ -23,6 +21,18 @@
     };
     vars = {
       tailscaleIP = "100.68.177.122";
+    };
+  };
+
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 100;
+      };
     };
   };
 

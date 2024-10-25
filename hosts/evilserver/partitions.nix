@@ -1,53 +1,64 @@
 { inputs, configPath, ... }:
 let
-  common_mount_options = [
-    "noatime"
-    "defaults"
-    "compress=zstd"
+  disks = [
+    "/dev/disk/by-id/ata-SanDisk_Ultra_II_480GB_160807801275"
   ];
 in
 {
   imports = [
     inputs.disko-2405.nixosModules.disko
-
-    (configPath + "/hardware/partition_schemes/evilserver-only-sandisk.nix")
   ];
 
-  fileSystems = {
-    "/var/storage/external-hdd/backups" = {
-      device = "/dev/disk/by-label/external-hdd";
-      fsType = "btrfs";
-      options = [
-        "subvol=backups"
-      ] ++ common_mount_options;
-    };
-    "/var/storage/external-hdd/snapshots" = {
-      device = "/dev/disk/by-label/external-hdd";
-      fsType = "btrfs";
-      options = [
-        "subvol=snapshots"
-      ] ++ common_mount_options;
-    };
-    "/var/lib/containers" = {
-      device = "/dev/disk/by-label/internal-ssd";
-      fsType = "btrfs";
-      options = [
-        "subvol=containers/system"
-      ] ++ common_mount_options;
-    };
-    "/var/storage/internal-ssd/storage" = {
-      device = "/dev/disk/by-label/internal-ssd";
-      fsType = "btrfs";
-      options = [
-        "subvol=storage"
-      ] ++ common_mount_options;
-    };
-    "/var/storage/internal-ssd/snapshots" = {
-      device = "/dev/disk/by-label/internal-ssd";
-      fsType = "btrfs";
-      options = [
-        "subvol=snapshots"
-      ] ++ common_mount_options;
+  disko.devices = {
+    disk = {
+      nixos = {
+        type = "disk";
+        device = builtins.elemAt disks 0;
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              priority = 1;
+              name = "ESP";
+              start = "1M";
+              end = "5G";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
+              };
+            };
+            root = {
+              size = "100%";
+              content = {
+                type = "btrfs";
+                extraArgs = [ "-f" ];
+                subvolumes = {
+                  "/root" = {
+                    mountOptions = [ "compress=zstd" ];
+                    mountpoint = "/";
+                  };
+                  "/nix" = {
+                    mountOptions = [
+                      "compress=zstd"
+                      "noatime"
+                    ];
+                    mountpoint = "/nix";
+                  };
+                  "/swap" = {
+                    mountOptions = [ "noatime" ];
+                    mountpoint = "/.swapvol";
+                    swap.swapfile.size = "8G";
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
     };
   };
+
 }
