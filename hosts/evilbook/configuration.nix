@@ -45,7 +45,8 @@
   # system.etc.overlay.enable = true;
   services.xserver.xkb = {
     layout = "us,us,se";
-    variant = "colemak_dh_iso";
+    variant = "colemak_dh_iso,,";
+    options = "grp:alt_shift_toggle";
   };
 
   sops.secrets = {
