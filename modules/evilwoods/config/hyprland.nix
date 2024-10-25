@@ -30,8 +30,10 @@ in
       services = {
         hypridle.enable = true;
 
+        gnome.gnome-keyring.enable = true;
       };
 
+      security.pam.services.gdm-password.enableGnomeKeyring = true;
 
       environment.systemPackages = with pkgs; [
         wofi
