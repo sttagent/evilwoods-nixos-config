@@ -38,8 +38,8 @@ let
     mapAttrs' (
       host: _:
       nameValuePair host {
-        host = ./${host};
-        hostVars = fromTOML (readFile ./${host}/${host}.toml);
+        hostPath = ./${host};
+      inherit (fromTOML (readFile ./${host}/${host}.toml)) system nixpkgs mainUser;
       }
     ) (genAttrs hosts (host: null));
 
@@ -47,9 +47,8 @@ let
     { inputs, ... }:
     hostName: attrs:
     let
-      inherit (attrs.hostVars) system mainUser;
-      inherit (attrs) host;
-      nixpkgs = builtins.getAttr attrs.hostVars.nixpkgs inputs;
+      inherit (attrs) hostPath system mainUser;
+      nixpkgs = builtins.getAttr attrs.nixpkgs inputs;
       specialArgs = {
         inherit inputs;
         evilib = inputs.self.lib;
@@ -61,7 +60,7 @@ let
       modules = [
         ../modules
         { networking.hostName = hostName; }
-        host
+        hostPath
         ../users/${mainUser}-${hostName}
       ];
     };
