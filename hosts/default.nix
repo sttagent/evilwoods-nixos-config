@@ -47,7 +47,7 @@ let
     { inputs, ... }:
     hostName: attrs:
     let
-      inherit (attrs.hostVars) system;
+      inherit (attrs.hostVars) system mainUser;
       inherit (attrs) host;
       nixpkgs = builtins.getAttr attrs.hostVars.nixpkgs inputs;
       specialArgs = {
@@ -62,7 +62,7 @@ let
         ../modules
         { networking.hostName = hostName; }
         host
-        ../users/aitvaras-${hostName}
+        ../users/${mainUser}-${hostName}
       ];
     };
 
