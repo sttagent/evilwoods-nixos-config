@@ -34,6 +34,8 @@ let
     map dirOf (filter isHostVarFile (listFilesRecursive ./.));
 
   hostListToHostAttrs =
+    # reads the toml file with the same name as host in host folder
+    # and make an attrset with host vars
     hosts:
     mapAttrs' (
       host: _:
@@ -58,10 +60,17 @@ let
     nixpkgs.lib.nixosSystem {
       inherit system specialArgs;
       modules = [
+        # optional config options
         ../modules
-        { networking.hostName = hostName; }
-        hostPath
+        # users
         ../users/${mainUser}-${hostName}
+        # hosts path in hosts folder
+        hostPath
+
+        { 
+            networking.hostName = hostName;
+            evilwoods.vars.mainUser = mainUser;
+        }
       ];
     };
 
