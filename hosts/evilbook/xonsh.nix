@@ -14,6 +14,9 @@
       config = ''
         xontrib load coreutils direnv fish_completer
 
+        # TODO: figure out why xonsh doesn't pick up the env vars
+        # set by home-manager
+
         $EDITOR = 'nvim'
         #
         # aliases["ls"] = "eza"
