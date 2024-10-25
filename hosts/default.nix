@@ -39,7 +39,7 @@ let
       host: _:
       nameValuePair host {
         hostPath = ./${host};
-      inherit (fromTOML (readFile ./${host}/${host}.toml)) system nixpkgs mainUser;
+        inherit (fromTOML (readFile ./${host}/${host}.toml)) system channel mainUser;
       }
     ) (genAttrs hosts (host: null));
 
@@ -47,8 +47,8 @@ let
     { inputs, ... }:
     hostName: attrs:
     let
-      inherit (attrs) hostPath system mainUser;
-      nixpkgs = builtins.getAttr attrs.nixpkgs inputs;
+      inherit (attrs) hostPath system mainUser channel;
+      nixpkgs = builtins.getAttr channel inputs;
       specialArgs = {
         inherit inputs;
         evilib = inputs.self.lib;
