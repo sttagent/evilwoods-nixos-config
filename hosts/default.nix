@@ -55,6 +55,8 @@ let
         inherit inputs;
         evilib = inputs.self.lib;
         configPath = inputs.self.outPath + "/hosts/config";
+        dotConfigPath = inputs.self.outPath + "/configfiles";
+        resourcesPath = inputs.self.outPath + "/resources";
       };
     in
     nixpkgs.lib.nixosSystem {
@@ -67,7 +69,7 @@ let
         # hosts path in hosts folder
         hostPath
 
-        { 
+        {
             networking.hostName = hostName;
             evilwoods.vars.mainUser = mainUser;
         }

@@ -10,9 +10,9 @@ let
   cfg = config.evilwoods.config.steam;
 in
 {
-  options.evilwoods.steam.enable = mkEnableOption "Steam";
+  options.evilwoods.config.steam.enable = mkEnableOption "Steam";
 
-  config = mkIf (desktop && cfg.enable) {
+  config = mkIf (desktop.enable && cfg.enable) {
     programs.steam.enable = true;
 
     nixpkgs.config.packageOverrides = pkgs: {

@@ -16,7 +16,7 @@
   evilwoods = {
     config = {
       gnome.enable = true;
-      hyprland.enable = true;
+      hyprland.enable = false;
       zsa.enable = true;
     };
     vars = {

@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption;
+  inherit (lib) mkIf mkEnableOption mkDefault;
   mainUser = config.evilwoods.vars.mainUser;
   cfg = config.evilwoods.config.desktop;
 in
@@ -18,10 +18,11 @@ in
         "quiet"
         "splash"
       ];
-      plymouth.enable = true;
+      plymouth.enable = mkDefault true;
     };
 
     fonts.packages = with pkgs; [
+      font-awesome
       (nerdfonts.override {
         fonts = [
           "CommitMono"
@@ -58,7 +59,10 @@ in
     security.pam.services.${mainUser}.enableGnomeKeyring = true;
 
     # Needs to be disabled if using pipwire
-    hardware.pulseaudio.enable = false;
+    hardware = {
+      bluetooth.enable = true;
+      pulseaudio.enable = false;
+    };
 
     programs = {
       xwayland.enable = true;
@@ -75,7 +79,6 @@ in
       # Enable the X11 windowing system.
       xserver = {
         enable = true;
-        displayManager.gdm.enable = true;
       };
 
       pipewire = {
