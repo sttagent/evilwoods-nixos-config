@@ -18,7 +18,6 @@
     bitwarden-cli
     libreoffice-fresh
     gh
-    thunderbird
     nextcloud-client
     obsidian
     # bitwarden-desktop # doesnt build
