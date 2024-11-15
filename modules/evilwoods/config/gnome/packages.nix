@@ -19,6 +19,7 @@ in
       dconf
       # valent
       pika-backup
+      evolution
     ];
 
     environment.gnome.excludePackages = with pkgs; [
@@ -27,6 +28,8 @@ in
       evince
       totem
     ];
+
+    programs.evolution.enable = true;
 
   };
 }
