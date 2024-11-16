@@ -114,6 +114,7 @@ in
         favorite-apps = [
           "firefox.desktop"
           "vivaldi-stable.desktop"
+          "org.gnome.Evolution.desktop"
           "thunderbird.desktop"
           "org.gnome.Nautilus.desktop"
           "kitty.desktop"
@@ -122,6 +123,7 @@ in
           "io.gitlab.news_flash.NewsFlash.desktop"
           "standard-notes.desktop"
           "obsidian.desktop"
+          "dev.geopjr.Tuba.desktop"
           "org.gnome.Fractal.desktop"
           "com.valvesoftware.Steam.desktop"
           "discord.desktop"
