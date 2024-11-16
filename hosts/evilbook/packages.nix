@@ -14,7 +14,7 @@
     discord
     signal-desktop
     zoom-us
-    zed-editor
+    # zed-editor
     bitwarden-cli
     libreoffice-fresh
     gh

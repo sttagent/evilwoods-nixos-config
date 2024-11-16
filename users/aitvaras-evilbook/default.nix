@@ -258,7 +258,7 @@ in
       };
 
       zed-editor = {
-        enable = true;
+        enable = false;
         extensions = [
           "nix"
           "just"
