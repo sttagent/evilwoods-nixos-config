@@ -37,7 +37,6 @@
   };
 
   nix = {
-    package = pkgs.nixVersions.nix_2_24;
     settings = {
       max-jobs = "auto";
       auto-optimise-store = true;

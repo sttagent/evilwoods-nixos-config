@@ -52,7 +52,6 @@ in
     ];
 
     nix = {
-      package = mkDefault pkgs.nixFlakes;
       settings = {
         experimental-features = [
           "nix-command"
