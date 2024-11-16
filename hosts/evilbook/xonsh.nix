@@ -19,6 +19,7 @@
 
         $EDITOR = 'nvim'
         $VI_MODE = True
+        $CASE_SENSITIVE_COMPLETIONS = False
         #
         # aliases["ls"] = "eza"
         aliases["ll"] = "eza -l"
