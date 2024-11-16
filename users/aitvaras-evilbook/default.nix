@@ -69,6 +69,7 @@ in
         color-scheme = "prefer-dark";
         gtk-theme = "Adwaita-dark";
         monospace-font-name = "SauceCodePro Nerd Font 10";
+        accent-color = "green";
       };
 
       "org/gnome/desktop/session" = {
