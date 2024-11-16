@@ -18,6 +18,7 @@
         # set by home-manager
 
         $EDITOR = 'nvim'
+        $VI_MODE = True
         #
         # aliases["ls"] = "eza"
         aliases["ll"] = "eza -l"
