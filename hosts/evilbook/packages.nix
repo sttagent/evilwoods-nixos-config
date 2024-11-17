@@ -22,7 +22,7 @@
     obsidian
     # bitwarden-desktop # doesnt build
     semeru-jre-bin-17
-    code-cursor
+    vscode-fhs
 
     # apps specific to Gnome
     notify-client
