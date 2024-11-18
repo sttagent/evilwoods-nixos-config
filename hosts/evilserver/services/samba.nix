@@ -9,22 +9,22 @@ in
 {
   services.samba = {
     enable = true;
-    securityType = "user";
     openFirewall = true;
-    extraConfig = ''
-      workgroup = EVILWOODS
-      server string = smbnix
-      netbios name = smbnix
-      security = user
-      #use sendfile = yes
-      #max protocol = smb2
-      # note: localhost is the ipv6 localhost ::1
-      hosts allow = 192.168.1. 127.0.0.1 100. localhost
-      hosts deny = 0.0.0.0/0
-      guest account = samba-guest
-      map to guest = bad user
-    '';
-    shares = {
+    settings = {
+      global = {
+        security = "user";
+        workgroup = "EVILWOODS";
+        "server string" = "smbnix";
+        "netbios name" = "smbnix";
+        security = "user";
+        #use sendfile = yes
+        #max protocol = smb2
+        # note: localhost is the ipv6 localhost ::1
+        "hosts allow" = [ "192.168.1." "127.0.0.1" "100." "localhost" ];
+        "hosts deny" = "0.0.0.0/0";
+        "guest account" = "samba-guest";
+        "map to guest" = "bad user";
+      };
       public = {
         path = "/home/samba-guest/share";
         browseable = "yes";

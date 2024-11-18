@@ -103,10 +103,17 @@ def main():
         print(args)
 
     cmds = build_cmd(args)
+    $RAISE_SUBPROC_ERROR = True
     for cmd in cmds:
         print(cmd)
         if not args.debug:
-            execx(cmd)
+            try:
+                execx(cmd)
+            except Exception as e:
+                print("Command failed:")
+                print(cmd)
+                print(e)
+                break
 
 
 if __name__ == '__main__':

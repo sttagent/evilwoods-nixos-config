@@ -126,7 +126,7 @@ in
 
         eza = {
           enable = true;
-          icons = mkDefault true;
+          icons = "auto";
           extraOptions = [ "--group-directories-first" ];
         };
 

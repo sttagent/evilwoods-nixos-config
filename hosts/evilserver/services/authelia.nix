@@ -9,7 +9,6 @@ let
   sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/authelia.yaml");
   instanceName = "evilwoods";
   dataPath = "/var/storage/internal-ssd/storage/authelia";
-  pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
 
   genAutheliaSecrets =
     secretList:
@@ -34,7 +33,6 @@ in
 
   services.authelia.instances.${instanceName} = {
     enable = true;
-    package = pkgs-unstable.authelia;
     secrets = {
       storageEncryptionKeyFile = config.sops.secrets.authelia-encryption-key.path;
       jwtSecretFile = config.sops.secrets.authelia-jwtsecret.path;

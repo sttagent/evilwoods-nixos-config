@@ -17,6 +17,21 @@
       inputs.nixpkgs.follows = "nixpkgs-2405";
     };
 
+    nixpkgs-2411.url = "nixpkgs/nixos-24.11";
+
+    home-manager-2411 = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs-2411";
+    };
+    disko-2411 = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs-2411";
+    };
+    sops-nix-2411 = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-2411";
+    };
+
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";

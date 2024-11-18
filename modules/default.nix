@@ -1,1 +1,7 @@
-{ imports = [ ./evilwoods ]; }
+{
+  evilib,
+  ...
+}:
+{
+  imports = (evilib.mkImportList ./.);
+}
