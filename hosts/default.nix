@@ -49,7 +49,12 @@ let
     { inputs, ... }:
     hostName: attrs:
     let
-      inherit (attrs) hostPath system mainUser channel;
+      inherit (attrs)
+        hostPath
+        system
+        mainUser
+        channel
+        ;
       nixpkgs = builtins.getAttr channel inputs;
       specialArgs = {
         inherit inputs;
@@ -70,8 +75,8 @@ let
         hostPath
 
         {
-            networking.hostName = hostName;
-            evilwoods.vars.mainUser = mainUser;
+          networking.hostName = hostName;
+          evilwoods.vars.mainUser = mainUser;
         }
       ];
     };

@@ -25,9 +25,6 @@ in
         ".config/background" = {
           source = resourceDir + "/wallpapers/background2.jpg";
         };
-        ".config/monitors.xml" = {
-          source = configDir + "/monitors.xml";
-        };
       };
     };
 
