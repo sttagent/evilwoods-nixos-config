@@ -2,23 +2,7 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixpkgs-2405.url = "nixpkgs/nixos-24.05";
-
-    home-manager-2405 = {
-      url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs-2405";
-    };
-    disko-2405 = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs-2405";
-    };
-    sops-nix-2405 = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs-2405";
-    };
-
     nixpkgs-2411.url = "nixpkgs/nixos-24.11";
-
     home-manager-2411 = {
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs-2411";
