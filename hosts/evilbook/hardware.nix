@@ -46,7 +46,7 @@
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-    tuxedo-drivers.enable = lib.mkDefault true;
+    tuxedo-drivers.enable = lib.mkDefault false;
     tuxedo-rs = {
       enable = lib.mkDefault false;
       tailor-gui.enable = lib.mkDefault true;
