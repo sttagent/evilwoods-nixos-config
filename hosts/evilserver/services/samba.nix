@@ -16,7 +16,6 @@ in
         workgroup = "EVILWOODS";
         "server string" = "smbnix";
         "netbios name" = "smbnix";
-        security = "user";
         #use sendfile = yes
         #max protocol = smb2
         # note: localhost is the ipv6 localhost ::1
