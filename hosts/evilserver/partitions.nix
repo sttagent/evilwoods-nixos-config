@@ -6,7 +6,7 @@ let
 in
 {
   imports = [
-    inputs.disko-2405.nixosModules.disko
+    inputs.disko-2411.nixosModules.disko
   ];
 
   disko.devices = {
