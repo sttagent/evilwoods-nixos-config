@@ -23,14 +23,10 @@ in
 
     fonts.packages = with pkgs; [
       font-awesome
-      (nerdfonts.override {
-        fonts = [
-          "CommitMono"
-          "SourceCodePro"
-          "JetBrainsMono"
-          "Hack"
-        ];
-      })
+      nerd-fonts.commit-mono
+      nerd-fonts.sauce-code-pro
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.hack
     ];
 
     i18n = {
