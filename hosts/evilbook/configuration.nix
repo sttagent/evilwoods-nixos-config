@@ -44,6 +44,7 @@
   };
 
   system.stateVersion = "24.11";
+  system.rebuild.enableNg = true;
 
   nixpkgs.overlays = [
     (import ../../overlays/packages.nix)
