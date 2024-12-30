@@ -15,9 +15,9 @@ in
       dconf-editor
       papers
       showtime
-      gnome-extension-manager
+      # gnome-extension-manager
       dconf
-      # valent
+      valent
       pika-backup
     ];
 
@@ -26,6 +26,7 @@ in
       geary
       evince
       totem
+      gnome-software
     ];
 
     programs.evolution.enable = true;
