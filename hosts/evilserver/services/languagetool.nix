@@ -10,7 +10,7 @@
   virtualisation.oci-containers.containers = {
     languagetool-app = {
       autoStart = true;
-      image = "meyay/languagetool:6.4";
+      image = "meyay/languagetool:6.5";
       extraOptions = [
         "--cap-drop=ALL"
         "--cap-add=CAP_SETUID"
