@@ -56,7 +56,7 @@ def build_nvd_cmd(args, remote=False):
 def build_nixos_rebuild_cmd(args, remote=False):
     cmd = "nixos-rebuild {} {} --flake '.#{}' {}".format(
         args.subcommand,
-        "--use-remote-sudo" if not remote else "",
+        "--sudo" if not remote else "",
         args.nixos_config,
         f"--target-host root@{args.target_host}" if remote else ""
     )
