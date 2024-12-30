@@ -23,6 +23,7 @@
     # bitwarden-desktop # doesnt build
     semeru-jre-bin-17
     vscode-fhs
+    code-cursor
 
     # apps specific to Gnome
     notify-client
