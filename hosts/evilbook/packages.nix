@@ -12,7 +12,6 @@
     yubioath-flutter
     wl-clipboard
     discord
-    signal-desktop
     zoom-us
     zed-editor
     bitwarden-cli
@@ -20,15 +19,11 @@
     gh
     nextcloud-client
     obsidian
-    # bitwarden-desktop # doesnt build
     semeru-jre-bin-17
     vscode-fhs
-    code-cursor
 
     # apps specific to Gnome
     notify-client
-    flare-signal
-    gnome-sound-recorder
     tuba
     fragments
     fractal
