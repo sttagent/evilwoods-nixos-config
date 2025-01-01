@@ -115,6 +115,7 @@ in
           "org.gnome.Evolution.desktop"
           "thunderbird.desktop"
           "org.gnome.Nautilus.desktop"
+          "com.mitchellh.ghostty.desktop"
           "kitty.desktop"
           "org.codeberg.dnkl.foot.desktop"
           "dev.zed.Zed.desktop"
@@ -394,6 +395,12 @@ in
         };
       };
 
+    };
+    xdg.configFile = {
+      ghostty = {
+        source = configDir + "/ghostty";
+        recursive = true;
+      };
     };
   };
 }
