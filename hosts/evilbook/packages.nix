@@ -21,6 +21,7 @@
     obsidian
     semeru-jre-bin-17
     vscode-fhs
+    ghostty
 
     # apps specific to Gnome
     notify-client
