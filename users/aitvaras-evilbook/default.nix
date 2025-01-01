@@ -151,7 +151,7 @@ in
       home-manager.enable = true;
 
       kitty = {
-        enable = true;
+        enable = false;
 
         shellIntegration = {
           enableFishIntegration = true;
