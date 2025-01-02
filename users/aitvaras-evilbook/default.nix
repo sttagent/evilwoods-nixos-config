@@ -150,6 +150,16 @@ in
     programs = {
       home-manager.enable = true;
 
+      ghostty = {
+        enable = true;
+        settings = {
+          font-family = "CommitMono Nerd Font Mono";
+          theme = "GruvboxDarkHard";
+          command = "xonsh";
+          window-padding-x = 2;
+        };
+      };
+
       kitty = {
         enable = false;
 
@@ -393,13 +403,6 @@ in
             "widget.dmabuf.force-enabled" = true;
           };
         };
-      };
-
-    };
-    xdg.configFile = {
-      ghostty = {
-        source = configDir + "/ghostty";
-        recursive = true;
       };
     };
   };
