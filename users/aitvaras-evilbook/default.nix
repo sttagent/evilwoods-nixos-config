@@ -155,8 +155,10 @@ in
         settings = {
           font-family = "CommitMono Nerd Font Mono";
           theme = "GruvboxDarkHard";
+          window-theme = "ghostty";
           command = "xonsh";
           window-padding-x = 2;
+          adw-toolbar-style = "flat";
         };
       };
 
