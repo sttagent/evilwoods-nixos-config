@@ -9,7 +9,7 @@
 let
   inherit (evilib.readInVarFile ./vars.toml) thisUser;
 
-  nvimConfigDir = "../../configfiles/nvim";
+  nvimConfigDir = "../../dotfiles/nvim";
 in
 with builtins;
 {

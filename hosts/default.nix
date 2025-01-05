@@ -60,7 +60,7 @@ let
         inherit inputs;
         evilib = inputs.self.lib;
         configPath = inputs.self.outPath + "/hosts/config";
-        dotConfigPath = inputs.self.outPath + "/configfiles";
+        dotFilesPath = inputs.self.outPath + "/dotfiles";
         resourcesPath = inputs.self.outPath + "/resources";
       };
     in

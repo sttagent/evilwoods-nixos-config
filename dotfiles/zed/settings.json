@@ -1,0 +1,96 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "autosave": "on_focus_change",
+
+  // AI settings
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
+    },
+    "version": "2"
+  },
+  "features": {
+    "inline_completion_provider": "copilot"
+  },
+
+  // vim mode settings
+  "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": true
+  },
+
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "buffer_font_family": "CommitMono Nerd Font",
+  "buffer_line_height": "standard",
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "terminal": {
+    "shell": {
+      "program": "xonsh"
+    },
+    "font_family": "CommitMono Nerd Font",
+    "line_height": "standard"
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Dark Soft",
+    "dark": "Gruvbox Dark Hard"
+  },
+  "file_types": {
+    "Ansible": [
+      "**.ansible.yml",
+      "**/defaults/**.yml",
+      "**/defaults/**.yaml",
+      "**/meta/**.yml",
+      "**/meta/**.yaml",
+      "**/tasks/**.yml",
+      "**/tasks/*.yml",
+      "**/tasks/*.yaml",
+      "**/handlers/*.yml",
+      "**/handlers/*.yaml",
+      "**/group_vars/**.yml",
+      "**/group_vars/**.yaml",
+      "**playbook*.yaml",
+      "**playbook*.yml"
+    ]
+  },
+  "languages": {
+    "Nix": {
+      "language_servers": ["nixd"]
+    }
+  },
+
+  "lsp": {
+    "ansible-language-server": {
+      "settings": {
+        "ansible": {
+          "path": "ansible"
+        },
+        "executionEnvironment": {
+          "enabled": false
+        },
+        "python": {
+          "interpreterPath": "python3"
+        },
+        "validation": {
+          "enabled": true,
+          "lint": {
+            "enabled": true,
+            "path": "ansible-lint"
+          }
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       extraConfig = ''
-        ${readFile ../../configfiles/hypr/hyprland.conf}
+        ${readFile ../../dotfiles/hypr/hyprland.conf}
       '';
     };
 
@@ -146,7 +146,7 @@ in
             };
           };
         };
-        style = ../../configfiles/waybar/gruv-box.css;
+        style = ../../dotfiles/waybar/gruv-box.css;
       };
     };
 

@@ -9,7 +9,7 @@ let
   hmlib = inputs.home-manager.lib;
   hmlibgv = hmlib.hm.gvariant;
   resourceDir = inputs.self.outPath + "/resources";
-  configDir = inputs.self.outPath + "/configfiles";
+  configDir = inputs.self.outPath + "/dotfiles";
 in
 {
   imports = [
@@ -157,6 +157,7 @@ in
           theme = "GruvboxDarkHard";
           window-theme = "ghostty";
           command = "xonsh";
+          window-save-state = "always";
           window-padding-x = 2;
           adw-toolbar-style = "flat";
         };
