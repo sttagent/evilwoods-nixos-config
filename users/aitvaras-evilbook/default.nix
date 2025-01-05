@@ -10,7 +10,6 @@ let
   hmlib = inputs.home-manager.lib;
   hmlibgv = hmlib.hm.gvariant;
   resourceDir = inputs.self.outPath + "/resources";
-  configDir = inputs.self.outPath + "/dotfiles";
 in
 {
   imports = [
