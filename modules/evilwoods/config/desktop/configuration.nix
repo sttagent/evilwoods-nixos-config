@@ -57,7 +57,6 @@ in
     # Needs to be disabled if using pipwire
     hardware = {
       bluetooth.enable = true;
-      pulseaudio.enable = false;
     };
 
     programs = {
