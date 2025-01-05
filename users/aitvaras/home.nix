@@ -92,13 +92,12 @@ in
         };
 
         zellij = {
-          enable = true;
+          enable = false;
           settings = {
             default_mode = "locked";
             default_shell = "xonsh";
             mirror_session = true;
             theme = "gruvbox-dark";
-            copy_clipboard = "primary";
             attach_to_session = true;
           };
         };
@@ -147,6 +146,10 @@ in
       };
 
       xdg.configFile = {
+        zellij = {
+          source = ../../configfiles/zellij;
+          recursive = true;
+        };
         nvim = {
           source = ../../configfiles/lazynvim;
           recursive = true;
