@@ -147,11 +147,11 @@ in
 
       xdg.configFile = {
         zellij = {
-          source = dotFilesPath + /zellij;
+          source = dotFilesPath + "/zellij";
           recursive = true;
         };
         nvim = {
-          source = dotFilesPath + /lazynvim;
+          source = dotFilesPath + "/lazynvim";
           recursive = true;
         };
       };
