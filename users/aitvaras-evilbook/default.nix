@@ -2,6 +2,7 @@
   evilib,
   pkgs,
   inputs,
+  dotFilesPath,
   ...
 }:
 let
@@ -406,6 +407,13 @@ in
             "widget.dmabuf.force-enabled" = true;
           };
         };
+      };
+    };
+
+    xdg.configFile = {
+      zed = {
+        source = dotFilesPath + "/zed";
+        recursive = true;
       };
     };
   };
