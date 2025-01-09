@@ -24,6 +24,7 @@
     ghostty
 
     # apps specific to Gnome
+    newsflash
     notify-client
     tuba
     fragments
