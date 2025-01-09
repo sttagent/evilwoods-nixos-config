@@ -135,6 +135,7 @@ in
           "org.gnome.Settings.desktop"
         ];
 
+        disable-user-extensions = false;
         enabled-extentions = [
           "valent@andyholmes.ca"
           "blur-my-shell@aunetx"
