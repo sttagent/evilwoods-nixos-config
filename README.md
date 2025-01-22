@@ -13,9 +13,14 @@ Hosts:
 ### Installation notes
 
 - clone repo with custom ssh command.
-GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ssh_key -o IdentityAgent=none" git clone
-```
+
 ```bash
+GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519_sk_rk_yubikey2 -o IdentityAgent=none" \
+git clone git@github.com:sttagent/evilwoods-nixos-config.gita && \
+GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519_sk_rk_yubikey2 -o IdentityAgent=none" \
+git clone git@github.com:sttagent/evilwoods-nixos-config-secrets.git
+```
+
 - Setup host ssh keys.
   - Generate new ones with the script in secrets repo or point to old ones
   - Update re-encrypt sops secrets
