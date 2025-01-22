@@ -11,10 +11,11 @@ Hosts:
 ## Notes
 
 ### Installation notes
+
 - clone repo with custom ssh command.
-```
 GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ssh_key -o IdentityAgent=none" git clone
 ```
+```bash
 - Setup host ssh keys.
   - Generate new ones with the script in secrets repo or point to old ones
   - Update re-encrypt sops secrets
