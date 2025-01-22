@@ -39,11 +39,6 @@
                     ];
                     mountpoint = "/nix";
                   };
-                  "/swap" = {
-                    mountOptions = [ "noatime" ];
-                    mountpoint = "/.swapvol";
-                    swap.swapfile.size = "8G";
-                  };
                   "home" = {
                     mountOptions = [ "compress=zstd" ];
                     mountpoint = "/home";
