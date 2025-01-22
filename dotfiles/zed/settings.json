@@ -9,6 +9,8 @@
 {
   "autosave": "on_focus_change",
 
+  "load_direnv": "shell_hook",
+
   // AI settings
   "assistant": {
     "default_model": {
