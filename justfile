@@ -42,5 +42,5 @@ config-env:
         IdentityAgent none
         IdentityFile ~/.ssh/id_ed25519_sk_rk_yubikey2
     EndOfMessage
-    git config user.name "Arvydas Ramanauskas"
-    git config user.email "711261+sttagent@users.noreply.github.com"
+    git config --global user.name "Arvydas Ramanauskas"
+    git config --global user.email "711261+sttagent@users.noreply.github.com"
