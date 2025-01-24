@@ -29,6 +29,5 @@
     tuba
     fragments
     fractal
-    fragments
   ];
 }
