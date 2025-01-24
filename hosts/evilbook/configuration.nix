@@ -132,25 +132,5 @@
     environment.TMPDIR = "/var/tmp";
   };
 
-  virtualisation = {
-    libvirtd = {
-      enable = true;
-      qemu = {
-        package = pkgs.qemu_kvm;
-      };
-    };
-
-    vmVariant = {
-      virtualisation = {
-        memorySize = 4096;
-        cores = 2;
-      };
-    };
-
-    podman = {
-      enable = true;
-    };
-  };
-
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }

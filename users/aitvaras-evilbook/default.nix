@@ -17,8 +17,6 @@ in
     ./hyprland.nix
   ];
 
-  users.users.${thisUser}.extraGroups = [ "libvirtd" ];
-
   home-manager.users.${thisUser} = {
     home = {
       file = {
