@@ -60,12 +60,10 @@
           nixd
           nix-output-monitor
           nvd
-          sops
           nixfmt-rfc-style
           nixpkgs-fmt
           ssh-to-age
           jq
-          gum
           python312Packages.python-lsp-server
           lua-language-server
         ];
