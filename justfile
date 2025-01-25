@@ -7,21 +7,11 @@ update-inputs:
 os *FLAGS:
     ./scripts/evilnixos {{FLAGS}}
 
-
 run-tests-interactive host:
     sudo sh -c "LD_LIBRARY_PATH= nix run -L .#packages.x86_64-linux.{{host}}-test.driverInteractive --option sandbox false"
 
 run-tests host:
     sudo sh -c "LD_LIBRARY_PATH= nix run -L .#packages.x86_64-linux.{{host}}-test --option sandbox false"
-
-reboot host:
-  ssh -t {{host}} "sudo systemctl reboot"
-
-gen-age-pub-key host:
-    #!/usr/bin/env bash
-    age_pub_key=$(ssh-to-age -i /mnt/etc/ssh/ssh_host_ed25519_key.pub)
-    sed "s/\(^ \+- &{{host}} \).*/\1$age_pub_key/" -i .sops.yaml
-    sops updatekeys -y ./secrets/secrets.yaml
 
 save-age-key username password:
     #!/usr/bin/env bash
@@ -32,7 +22,6 @@ save-age-key username password:
 
 install-nixos host:
     sudo nixos-install --no-root-password --flake .#{{host}}
-
 
 config-env:
     #!/usr/bin/env bash
