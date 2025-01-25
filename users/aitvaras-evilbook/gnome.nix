@@ -16,6 +16,10 @@ in
     };
 
     dconf.settings = {
+      "ca/andyholmes/valent" = {
+        name = "Evilbook";
+      };
+
       "system/locale" = {
         region = "sv_SE.UTF-8";
       };
