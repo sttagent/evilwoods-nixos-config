@@ -129,6 +129,7 @@ in
             email = "711261+sttagent@users.noreply.github.com";
           };
           ui = {
+            merge-editor = "meld";
             default-command = [
               "status"
               "--no-pager"

@@ -64,6 +64,7 @@
           nixpkgs-fmt
           ssh-to-age
           jq
+          meld
           python312Packages.python-lsp-server
           lua-language-server
         ];
