@@ -27,6 +27,7 @@ in
       evince
       totem
       gnome-software
+      gnome-tour
     ];
 
     programs.evolution.enable = true;
