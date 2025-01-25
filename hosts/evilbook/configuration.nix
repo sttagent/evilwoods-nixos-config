@@ -20,7 +20,7 @@
       zsa.enable = true;
     };
     vars = {
-      tailscaleIP = "100.125.57.31";
+      tailscaleIP = "100.79.120.120";
     };
   };
 
