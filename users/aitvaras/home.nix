@@ -2,16 +2,11 @@
   config,
   evilib,
   pkgs,
-  lib,
-  inputs,
   dotFilesPath,
   ...
 }: # os configuration is reachable via nixosConfig
 let
-  inherit (lib) mkDefault;
   inherit (evilib.readInVarFile ./vars.toml) currentUser;
-  hmlib = inputs.home-manager.lib;
-  resourceDir = inputs.self.outPath + "/resources";
 in
 {
   sops.secrets.aitvaras-password.neededForUsers = true;
