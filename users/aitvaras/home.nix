@@ -27,7 +27,6 @@ in
         "wheel"
         "networkmanager"
       ]; # Enable ‘sudo’ for the user.
-      shell = pkgs.fish;
     };
 
   };
