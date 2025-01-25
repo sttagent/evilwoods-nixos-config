@@ -2,3 +2,6 @@
 /.direnv
 /*.qcow2
 .nixos-test-history
+
+# xonsh and python
+**/__pycache__

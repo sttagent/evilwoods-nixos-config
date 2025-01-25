@@ -67,6 +67,7 @@
           nixfmt-rfc-style
           nixpkgs-fmt
           ssh-to-age
+          sops
           jq
           meld
           python312Packages.python-lsp-server
