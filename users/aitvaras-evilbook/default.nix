@@ -134,7 +134,7 @@ in
         ];
 
         disable-user-extensions = false;
-        enabled-extentions = [
+        enabled-extensions = [
           "valent@andyholmes.ca"
           "blur-my-shell@aunetx"
           "appindicatorsupport@rgcjonas.gmail.com"
