@@ -14,7 +14,7 @@ in
 {
   imports = [
     ../aitvaras
-    ./hyprland.nix
+    # ./hyprland.nix
   ];
 
   home-manager.users.${thisUser} = {
