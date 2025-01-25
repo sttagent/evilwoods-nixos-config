@@ -7,13 +7,13 @@
   ...
 }:
 let
-  inherit (evilib.readInVarFile ./vars.toml) thisUser;
+  inherit (evilib.readInVarFile ./vars.toml) currentUser;
 
   nvimConfigDir = "../../dotfiles/nvim";
 in
 with builtins;
 {
-  home-manager.users.${thisUser}.programs.neovim = {
+  home-manager.users.${currentUser}.programs.neovim = {
     extraLuaConfig = ''
       ${readFile ./${nvimConfigDir}/init.lua}
     '';

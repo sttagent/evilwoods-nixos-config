@@ -9,7 +9,7 @@
 }: # os configuration is reachable via nixosConfig
 let
   inherit (lib) mkDefault;
-  inherit (evilib.readInVarFile ./vars.toml) thisUser;
+  inherit (evilib.readInVarFile ./vars.toml) currentUser;
   hmlib = inputs.home-manager.lib;
   resourceDir = inputs.self.outPath + "/resources";
 in
@@ -17,10 +17,10 @@ in
   sops.secrets.aitvaras-password.neededForUsers = true;
 
   users.users = {
-    ${thisUser} = {
+    ${currentUser} = {
       isNormalUser = true;
       createHome = true;
-      home = "/home/${thisUser}";
+      home = "/home/${currentUser}";
       description = "Arvydas Ramanauskas";
       hashedPasswordFile = config.sops.secrets.aitvaras-password.path;
       extraGroups = [
@@ -35,10 +35,10 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bak";
-    users.${thisUser} = {
+    users.${currentUser} = {
       home = {
-        username = "${thisUser}";
-        homeDirectory = "/home/${thisUser}";
+        username = "${currentUser}";
+        homeDirectory = "/home/${currentUser}";
 
         stateVersion = "24.05";
 

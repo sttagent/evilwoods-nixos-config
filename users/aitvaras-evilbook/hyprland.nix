@@ -2,10 +2,10 @@
 let
   inherit (builtins) readFile;
   inherit (evilib) readInVarFile;
-  inherit (readInVarFile ../aitvaras/vars.toml) thisUser;
+  inherit (readInVarFile ../aitvaras/vars.toml) currentUser;
 in
 {
-  home-manager.users.${thisUser} = {
+  home-manager.users.${currentUser} = {
     wayland.windowManager.hyprland = {
       enable = true;
       extraConfig = ''

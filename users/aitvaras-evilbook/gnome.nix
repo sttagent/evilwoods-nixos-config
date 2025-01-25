@@ -1,12 +1,12 @@
 { evilib, inputs, ... }:
 let
-  inherit (evilib.readInVarFile ../aitvaras/vars.toml) thisUser;
+  inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
   hmlib = inputs.home-manager.lib;
   hmlibgv = hmlib.hm.gvariant;
   resourceDir = inputs.self.outPath + "/resources";
 in
 {
-  home-manager.users.${thisUser} = {
+  home-manager.users.${currentUser} = {
     home = {
       file = {
         ".config/background" = {
@@ -29,13 +29,13 @@ in
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = "file:///home/${thisUser}/.config/background";
-        picture-uri-dark = "file:///home/${thisUser}/.config/background";
+        picture-uri = "file:///home/${currentUser}/.config/background";
+        picture-uri-dark = "file:///home/${currentUser}/.config/background";
         picture-options = "zoom";
       };
 
       "org/gnome/desktop/screensaver" = {
-        picture-uri = "file:///home/${thisUser}/.config/background";
+        picture-uri = "file:///home/${currentUser}/.config/background";
       };
 
       "org/gnome/desktop/interface" = {

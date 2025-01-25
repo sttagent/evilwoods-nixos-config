@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (evilib.readInVarFile ../aitvaras/vars.toml) thisUser;
+  inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
 in
 {
   imports = [
@@ -15,7 +15,7 @@ in
     # ./hyprland.nix
   ];
 
-  home-manager.users.${thisUser} = {
+  home-manager.users.${currentUser} = {
 
     programs = {
       home-manager.enable = true;
@@ -191,8 +191,8 @@ in
       firefox = {
         enable = true;
         nativeMessagingHosts = [ pkgs.tridactyl-native ];
-        profiles."${thisUser}" = {
-          name = "${thisUser}";
+        profiles."${currentUser}" = {
+          name = "${currentUser}";
           id = 0;
           isDefault = true;
           search = {
