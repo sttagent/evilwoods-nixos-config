@@ -10,8 +10,6 @@ let
   cfg = config.evilwoods.config.desktop;
 in
 {
-  config =
-    mkIf cfg.enable
-      {
-      };
+  config = mkIf cfg.enable {
+  };
 }
