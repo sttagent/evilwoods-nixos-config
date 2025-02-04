@@ -132,8 +132,8 @@ in
             merge-editor = "meld";
             default-command = [
               "status"
-              "--no-pager"
             ];
+            paginate = "never";
           };
         };
       };
