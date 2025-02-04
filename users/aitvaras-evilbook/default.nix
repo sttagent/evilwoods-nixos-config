@@ -134,6 +134,12 @@ in
               "status"
             ];
             paginate = "never";
+            diff.tool = [
+              "difft"
+              "--color=always"
+              "$left"
+              "$right"
+            ];
           };
         };
       };
