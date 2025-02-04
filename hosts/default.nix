@@ -5,45 +5,40 @@ let
     filter
     attrNames
     pathExists
+    listToAttrs
     fromTOML
     readFile
+    toString
+    baseNameOf
     dirOf
     ;
 
   inherit (lib)
-    filterAttrs
     mapAttrs
-    mapAttrs'
     nameValuePair
-    genAttrs
-    listFilesRecursive
     hasSuffix
     ;
 
+  inherit (lib.filesystem) listFilesRecursive;
+
   findAllHosts =
     let
-      isDiretory = n: v: (v == "directory");
-      isHost = dirName: pathExists ./${dirName}/${dirName}.toml;
+      isHostVarFile = path: path |> baseNameOf |> toString |> hasSuffix ".toml";
     in
-    filter isHost (attrNames (filterAttrs isDiretory (readDir ./.)));
-
-  findAllHosts' =
-    let
-      isHostVarFile = path: hasSuffix ".toml" path;
-    in
-    map dirOf (filter isHostVarFile (listFilesRecursive ./.));
+    filter isHostVarFile (listFilesRecursive ./.);
 
   hostListToHostAttrs =
     # reads the toml file with the same name as host in host folder
     # and make an attrset with host vars
-    hosts:
-    mapAttrs' (
-      host: _:
-      nameValuePair host {
-        hostPath = ./${host};
-        inherit (fromTOML (readFile ./${host}/${host}.toml)) system channel mainUser;
-      }
-    ) (genAttrs hosts (host: null));
+    let
+      mkAttr =
+        path:
+        nameValuePair (path |> dirOf |> baseNameOf) {
+          hostPath = dirOf path;
+          inherit (path |> readFile |> fromTOML) system channel mainUser;
+        };
+    in
+    hostVarFilePathList: hostVarFilePathList |> map mkAttr |> listToAttrs;
 
   mkHost =
     { inputs, ... }:
