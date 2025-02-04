@@ -13,7 +13,7 @@
 {
   default = pkgs.mkShell {
     name = "evilwoods-nixos-config-env";
-    NIX_CONFIG = "extra-experimental-features = nix-command flakes repl-flake";
+    NIX_CONFIG = "extra-experimental-features = nix-command flak";
     nativeBuildInputs = with pkgs; [
       fish
       xonsh
