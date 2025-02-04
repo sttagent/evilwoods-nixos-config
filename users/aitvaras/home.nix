@@ -105,6 +105,7 @@ in
             sync_frequency = "5m";
             sync_address = "http://evilserver:8888";
             style = "full";
+            inline_height = 0;
           };
         };
 
