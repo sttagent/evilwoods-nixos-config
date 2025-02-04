@@ -4,8 +4,8 @@ default:
 update-inputs:
     nix flake update --commit-lock-file
 
-os *FLAGS:
-    ./scripts/evilnixos {{FLAGS}}
+evilosctl *FLAGS:
+    ./scripts/evilosctl {{FLAGS}}
 
 run-tests-interactive host:
     sudo sh -c "LD_LIBRARY_PATH= nix run -L .#packages.x86_64-linux.{{host}}-test.driverInteractive --option sandbox false"
