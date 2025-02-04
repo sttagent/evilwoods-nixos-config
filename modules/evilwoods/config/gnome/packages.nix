@@ -19,6 +19,7 @@ in
       dconf
       valent
       pika-backup
+      endeavour
     ];
 
     environment.gnome.excludePackages = with pkgs; [
