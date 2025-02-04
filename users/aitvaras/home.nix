@@ -148,6 +148,10 @@ in
           source = dotFilesPath + "/lazynvim";
           recursive = true;
         };
+        xonsh = {
+          source = dotFilesPath + "/xonsh";
+          recursive = true;
+        };
       };
     };
   };
