@@ -93,13 +93,12 @@ def choose_nixos_config():
     choice = questionary.select("Select a configuration", choices=config_name_list).ask()
     return choice
 
-def print_commands(cmds):
+def print_commands(cmds: [str]) -> None:
     print(
         "\nDEBUG:--------- Command to be run: ---------\n"
         f"{cmds}\n"
         "DEBUG:--------------------------------------\n"
     )
-
 
 def main():
     args = get_args()
@@ -108,7 +107,7 @@ def main():
     args.target_host = args.nixos_config if args.target_host is None else args.target_host
 
     if args.debug:
-        print(args)
+        print(f"\nDEBUG: ARGS: {args}\n")
 
     cmds = build_cmd(args)
     $RAISE_SUBPROC_ERROR = True
