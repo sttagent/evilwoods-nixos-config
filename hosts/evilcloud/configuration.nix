@@ -25,5 +25,10 @@
     useDHCP = true;
   };
 
+  virtualisation = {
+    oci-containers = {
+      backend = "podman";
+    };
+  };
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }
