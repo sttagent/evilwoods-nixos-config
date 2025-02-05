@@ -30,6 +30,10 @@ def get_args():
         'boot', aliases=["bo"], help="boot to the new nixos configuration", parents=[common_parser])
     boot_parser.add_argument('--reboot', action='store_true', help="reboot after applying the new configuration")
 
+    install_parser = sub_parsers.add_parser(
+        'install', aliases=["i"], help="install the nixos configuration", parents=[common_parser])
+    install_parser.add_argument('--reboot', action='store_true', help="reboot after applying the new configuration")
+
     return arg_parser.parse_args()
 
 def build_nvd_cmd(args, remote=False):
@@ -82,6 +86,8 @@ def build_cmd(args):
             cmds.append(build_nixos_rebuild_cmd(args, is_remote))
             if args.reboot:
                 cmds.append(build_reboot_cmd(args, is_remote))
+        case "install":
+            pass
         case _:
             cmds.append(build_nixos_rebuild_cmd(args, is_remote))
     return cmds
