@@ -30,5 +30,12 @@
       backend = "podman";
     };
   };
+  services.openssh = {
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
+  };
+
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }
