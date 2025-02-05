@@ -45,7 +45,7 @@ def build_nvd_cmd(args, remote=False):
                 nix copy --substitute-on-destination --to ssh://root@{args.target_host} @(closure)
                 ssh root@{args.target_host} nix run 'nixpkgs#nvd' -- diff /run/current-system/ @(closure)
             else:
-                print("config closure missmatch")
+                print("config closure mismatch")
         """
         )
     else:
