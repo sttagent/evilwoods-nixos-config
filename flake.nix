@@ -53,7 +53,7 @@
         inherit (pkgs) lib;
       };
 
-      # TODO: import shell enstead
+      # TODO: import shell instead
       devShells.x86_64-linux.default = pkgs.mkShell {
         name = "evilwoods-nixos-config";
         packages = with pkgs; [
