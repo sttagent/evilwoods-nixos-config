@@ -93,6 +93,14 @@ def choose_nixos_config():
     choice = questionary.select("Select a configuration", choices=config_name_list).ask()
     return choice
 
+def print_commands(cmds):
+    print(
+        "\nDEBUG:--------- Command to be run: ---------\n"
+        f"{cmds}\n"
+        "DEBUG:--------------------------------------\n"
+    )
+
+
 def main():
     args = get_args()
 
@@ -105,15 +113,15 @@ def main():
     cmds = build_cmd(args)
     $RAISE_SUBPROC_ERROR = True
     for cmd in cmds:
-        print(cmd)
-        if not args.debug:
-            try:
-                execx(cmd)
-            except Exception as e:
-                print("Command failed:")
-                print(cmd)
-                print(e)
-                break
+        if args.debug:
+            print_commands(cmd)
+        try:
+            execx(cmd)
+        except Exception as e:
+            print("Command failed:")
+            print(cmd)
+            print(e)
+            break
 
 
 if __name__ == '__main__':
