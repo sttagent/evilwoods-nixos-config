@@ -48,6 +48,10 @@
 
       lib = evilib;
 
+      overlays = {
+        myPackages = import ./overlays/pythonPackages.nix;
+      };
+
       nixosConfigurations = import ./hosts {
         inherit inputs;
         inherit (pkgs) lib;

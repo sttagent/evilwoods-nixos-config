@@ -60,7 +60,7 @@ let
       };
     in
     nixpkgs.lib.nixosSystem {
-      inherit system specialArgs;
+      inherit specialArgs;
       modules = [
         # optional config options
         ../modules
@@ -70,6 +70,7 @@ let
         hostPath
 
         {
+          nixpkgs.hostPlatform = system;
           networking.hostName = hostName;
           evilwoods.vars.mainUser = mainUser;
         }
