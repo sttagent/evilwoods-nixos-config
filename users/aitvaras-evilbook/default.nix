@@ -1,8 +1,6 @@
 {
   evilib,
   pkgs,
-  inputs,
-  dotFilesPath,
   ...
 }:
 let
