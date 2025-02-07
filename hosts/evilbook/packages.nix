@@ -14,7 +14,7 @@
     discord
     zoom-us
     zed-editor
-    bitwarden-cli
+    # bitwarden-cli
     libreoffice-fresh
     gh
     nextcloud-client
