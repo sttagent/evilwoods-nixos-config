@@ -7,7 +7,7 @@
         sha256 = lock.narHash;
       };
     in
-    import nixpkgs { overlays = [ (import ./overlays/packages.nix) ]; },
+    import nixpkgs { overlays = [ (import ./overlays/pythonPackages.nix) ]; },
   ...
 }:
 {

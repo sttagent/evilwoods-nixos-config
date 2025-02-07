@@ -35,7 +35,7 @@
   };
 
   nixpkgs.overlays = [
-    (import ../../overlays/packages.nix)
+    (import ../../overlays/pythonPackages.nix)
   ];
 
   boot = {
