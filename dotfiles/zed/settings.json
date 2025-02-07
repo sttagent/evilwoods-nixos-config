@@ -14,13 +14,13 @@
   // AI settings
   "assistant": {
     "default_model": {
-      "provider": "copilot_chat",
+      "provider": "zed.dev",
       "model": "claude-3-5-sonnet"
     },
     "version": "2"
   },
   "features": {
-    "inline_completion_provider": "copilot"
+    "inline_completion_provider": "supermaven"
   },
 
   // vim mode settings
