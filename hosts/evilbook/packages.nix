@@ -15,7 +15,7 @@
     zoom-us
     zed-editor
     bitwarden-cli
-    # libreoffice-fresh
+    libreoffice-fresh
     gh
     nextcloud-client
     obsidian
