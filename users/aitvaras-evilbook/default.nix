@@ -285,10 +285,10 @@ in
     };
 
     xdg.configFile = {
-      zed = {
-        source = dotFilesPath + "/zed";
-        recursive = true;
-      };
+      # zed = {
+      #   source = dotFilesPath + "/zed";
+      #   recursive = true;
+      # };
     };
   };
 }
