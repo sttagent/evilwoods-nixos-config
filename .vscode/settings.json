@@ -15,6 +15,7 @@
         "lazyvim",
         "matchit",
         "matchparen",
+        "nargs",
         "netrw",
         "nftables",
         "nixfmt",
