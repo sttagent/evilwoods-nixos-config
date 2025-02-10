@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   configPath,
   ...
 }:
@@ -30,6 +31,7 @@
       backend = "podman";
     };
   };
+
   services.openssh = {
     settings = {
       PermitRootLogin = "no";
@@ -48,5 +50,6 @@
       };
     };
   };
+
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }
