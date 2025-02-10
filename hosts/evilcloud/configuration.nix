@@ -37,5 +37,16 @@
     };
   };
 
+  boot = {
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 100;
+      };
+    };
+  };
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }

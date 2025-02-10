@@ -1,6 +1,6 @@
 { inputs, ... }:
 let
-  disks = [ "/dev/sda" ];
+  disks = [ "/dev/vda" ];
 in
 {
   imports = [

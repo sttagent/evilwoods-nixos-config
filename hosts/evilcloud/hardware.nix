@@ -1,3 +1,3 @@
-{ configPath, ... }:
+{ modulesPath, ... }:
 {
 }
