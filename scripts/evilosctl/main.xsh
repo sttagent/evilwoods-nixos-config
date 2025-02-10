@@ -51,14 +51,19 @@ def get_args():
 
 def reboot_system(args, is_remote=False):
     if is_remote:
-        ssh root@@(args.target_host) systemctl reboot
+        print("Rebooting system...")
+        ssh -t @(args.target_host) "sudo systemctl reboot"
     else:
         sudo systemctl reboot
 
 
 def diff_result_with_current(args, is_remote=False):
     closure = $(realpath ./result);
-    hostname = $(hostname)
+    hostname = ""
+    if is_remote:
+       hostname = $(ssh @(args.target_host) hostname)
+    else:
+       hostname = $(hostname)
 
     if hostname not in closure:
         print("result does not match target host")
