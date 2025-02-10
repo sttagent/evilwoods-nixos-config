@@ -35,7 +35,7 @@ def get_args():
 
     boot_parser = sub_parsers.add_parser(
         'boot', aliases=["bo"], help="boot to the new nixos configuration", parents=[common_parser])
-    boot_parser.add_argument('--reboot', action='store_true', help="reboot after applying the new configuration")
+    boot_parser.add_argument('--reboot', action='store_true', help="reboot after applying the new configuration", default=False)
 
     gen_host_keys_parser = sub_parsers.add_parser(
         'gen-host-keys', aliases=["ghk"], help="generate new host keys", parents=[common_parser])
