@@ -20,9 +20,6 @@ save-age-key username password:
     session_key=$(bw login {{username}} {{password}} --raw)
     bw get password evilwoods-nixos-sops --session "$session_key" | tee ~/.config/sops/age/keys.txt
 
-install-nixos host:
-    sudo nixos-install --no-root-password --flake .#{{host}}
-
 config-env:
     #!/usr/bin/env bash
     echo | tee ~/.ssh/config <<- EndOfMessage
