@@ -65,8 +65,8 @@ def diff_result_with_current(args, is_remote=False):
         return
 
     if is_remote:
-        nix copy --substitute-on-destination --to ssh://root@@(args.target_host) @(closure)
-        ssh root@@(args.target_host) nix run 'nixpkgs#nvd' -- diff /run/current-system/ @(closure)
+        nix copy --substitute-on-destination --to ssh://@(args.target_host) @(closure)
+        ssh @(args.target_host) nix run 'nixpkgs#nvd' -- diff /run/current-system/ @(closure)
     else:
         nvd diff /run/current-system ./result/
 
@@ -84,7 +84,7 @@ def apply_nixos_config(args, is_remote=False):
             --ask-sudo-password \
             --no-reexec \
             --flake @(f".#{args.nixos_config}") \
-            --target-host root@@(args.target_host)
+            --target-host @(args.target_host)
     else:
         nixos-rebuild @(args.subcommand) --sudo --flake @(f".#{args.nixos_config}")
 
