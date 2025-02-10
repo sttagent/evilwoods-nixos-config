@@ -88,7 +88,7 @@ def apply_nixos_config(args, is_remote=False):
     else:
         nixos-rebuild @(args.subcommand) --sudo --flake @(f".#{args.nixos_config}")
 
-    if args.boot && args.reboot:
+    if args.subcommand == "boot" && args.reboot:
         reboot_system(args, is_remote)
 
 
