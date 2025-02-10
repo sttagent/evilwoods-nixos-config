@@ -18,15 +18,15 @@ in
 
   sops.secrets.cloudflared-creds = {
     sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/cloudflared.yaml");
-    owner = "cloudflared";
-    group = "cloudflared";
+    owner = config.services.cloudflared.user;
+    group = config.services.cloudflared.group;
     mode = "0600";
   };
 
   sops.secrets.cloudflared-tunnel-creds = {
     sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/cloudflared.yaml");
-    owner = "cloudflared";
-    group = "cloudflared";
+    owner = config.services.cloudflared.user;
+    group = config.services.cloudflared.group;
     mode = "0600";
   };
 
@@ -107,8 +107,8 @@ in
 
   environment.etc."cloudflared/cert.pem" = {
     source = config.sops.secrets.cloudflared-creds.path;
-    user = "cloudflared";
-    group = "cloudflared";
+    user = config.services.cloudflared.user;
+    group = config.services.cloudflared.group;
     mode = "0600";
   };
 
