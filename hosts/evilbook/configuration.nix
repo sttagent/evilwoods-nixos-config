@@ -17,6 +17,7 @@
       gnome.enable = true;
       hyprland.enable = false;
       zsa.enable = true;
+      android.enable = true;
     };
     vars = {
       tailscaleIP = "100.79.120.120";
