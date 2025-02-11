@@ -20,9 +20,6 @@
       "5c5360ae-6911-41e2-bbcb-b5b78954349c" = {
         credentialsFile = config.sops.secrets.cloudflared-evilcloud-tunnel-id.path;
         default = "http_status:404";
-        ingress = {
-          "evilwoods.net" = "http://127.0.0.1:8081";
-        };
       };
     };
   };
