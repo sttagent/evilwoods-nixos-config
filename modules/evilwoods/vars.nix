@@ -30,6 +30,12 @@ in
           description = "Tailscale IP address";
         };
 
+        domain = mkOption {
+          type = types.str;
+          default = "evilwoods.net";
+          description = "Domain name";
+        };
+
       };
     };
   };
