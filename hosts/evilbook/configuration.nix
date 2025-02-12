@@ -26,12 +26,21 @@
 
   sops.secrets = {
     "network-manager.env" = { };
+    evilwoods-nix-key = {
+      sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/nix-key.yaml");
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
   };
 
   nix = {
     settings = {
       max-jobs = "auto";
       auto-optimise-store = true;
+      secret-key-files = [
+        "${config.sops.secrets."evilwoods-nix-key".path}"
+      ];
     };
   };
 
