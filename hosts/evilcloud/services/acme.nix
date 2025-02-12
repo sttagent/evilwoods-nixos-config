@@ -23,7 +23,7 @@ in
       services.cloudflared.tunnels."5c5360ae-6911-41e2-bbcb-b5b78954349c" = {
         ingress = {
           "evilwoods.net" = "http://127.0.0.1:${listenHTTPPort}";
-          "search.evilwoods.net" = "http://127.0.0.1:${listenHTTPPort}";
+          "*.evilwoods.net" = "http://127.0.0.1:${listenHTTPPort}";
         };
       };
     }

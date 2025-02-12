@@ -1,0 +1,25 @@
+{ lib, ... }:
+let
+  inherit (lib) mkOption types;
+in
+{
+  options = {
+    evilwoods.host.vars = {
+      storagePath = mkOption {
+        type = types.str;
+        default = "/var/storage";
+        description = ''
+          Path to the directory where the all data will be stored.
+        '';
+      };
+
+      dataPath = mkOption {
+        type = types.str;
+        default = "/var/storage/data";
+        description = ''
+          Path to the directory where the service data will be stored.
+        '';
+      };
+    };
+  };
+}
