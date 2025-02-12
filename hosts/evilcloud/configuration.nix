@@ -1,7 +1,5 @@
 {
   inputs,
-  config,
-  configPath,
   ...
 }:
 {
@@ -13,13 +11,6 @@
   evilwoods.config.vmGuest.enable = true;
 
   system.stateVersion = "24.11";
-
-  nix.settings = {
-    trusted-users = [
-      "root"
-      "@wheel"
-    ];
-  };
 
   networking = {
     nftables.enable = true;

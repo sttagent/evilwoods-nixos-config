@@ -2,7 +2,6 @@
 
 { inputs, ... }:
 let
-  lib = inputs.nixpkgs-2405.legacyPackages."x86_64-linux".lib;
   pkgs = inputs.nixpkgs-2405.legacyPackages."x86_64-linux";
   evilib = inputs.self.lib;
 in

@@ -1,7 +1,5 @@
 {
-  modulesPath,
   evilib,
-  inputs,
   ...
 }:
 {
