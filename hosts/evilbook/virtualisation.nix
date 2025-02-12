@@ -3,6 +3,8 @@ let
   inherit (config.evilwoods.vars) mainUser;
 in
 {
+  evilwoods.config.virtualisation.podman.enable = true;
+
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -18,9 +20,6 @@ in
       };
     };
 
-    podman = {
-      enable = true;
-    };
   };
 
   networking.firewall.trustedInterfaces = [ "virbr0" ];
