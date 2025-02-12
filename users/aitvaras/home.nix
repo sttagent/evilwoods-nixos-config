@@ -103,7 +103,7 @@ in
             sync.records = true;
             auto_sync = true;
             sync_frequency = "5m";
-            sync_address = "http://evilserver:8888";
+            sync_address = "http://evilcloud:8888";
             style = "full";
             inline_height = 0;
           };
