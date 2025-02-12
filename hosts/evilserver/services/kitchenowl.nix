@@ -27,7 +27,7 @@ in
   virtualisation.oci-containers.containers = {
     ${appName} = {
       autoStart = true;
-      image = "docker.io/tombursch/kitchenowl:v0.6.9";
+      image = "docker.io/tombursch/kitchenowl:v0.6.10";
       # ports = [ "8082:8080" ];
       environmentFiles = [
         config.sops.secrets."kitchenowl-secrets.env".path
