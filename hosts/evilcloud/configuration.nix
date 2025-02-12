@@ -42,5 +42,7 @@
     };
   };
 
+  systemd.tmpfiles.rules = [ "d /var/storage/data 755 root root" ];
+
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }
