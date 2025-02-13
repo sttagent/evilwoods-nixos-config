@@ -1,14 +1,24 @@
-{ pkgs, lib, ... }:
-{
-  services.languagetool = {
-    enable = false;
-    public = true;
-    port = lib.mkDefault 8081;
-    allowOrigin = ""; # To allow access from browser addons
-  };
+# This file contains configuration for the languagetool service.
+# It spins up a container image.
+{ config, lib, ... }:
+let
+  inherit (config.evilwoods.host.vars) dataPath;
+  inherit (config.evilwoods.vars) domain;
 
+  appName = "languagetool";
+  languagetoolDataPath = "${dataPath}/${appName}";
+  languagetoolUrl = "languagetool.${domain}";
+
+  legoListenHTTP = "1360";
+
+in
+{
+  systemd.tmpfiles.rules = [
+    "d ${languagetoolDataPath}/ngrams 755 root root"
+    "d ${languagetoolDataPath}/fasttext 755 root root"
+  ];
   virtualisation.oci-containers.containers = {
-    languagetool-app = {
+    "${appName}" = {
       autoStart = true;
       image = "meyay/languagetool:6.5";
       extraOptions = [
@@ -25,11 +35,22 @@
       };
       ports = [ "8010:8010" ];
       volumes = [
-        "languagetool_ngrams:/ngrams"
-        "languagetool_fasttext:/fasttext"
+        "${languagetoolDataPath}/ngrams:/ngrams"
+        "${languagetoolDataPath}/fasttext:/fasttext"
       ];
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8010 ];
+  services.caddy.virtualHosts."${languagetoolUrl}" = {
+    useACMEHost = "${languagetoolUrl}";
+    extraConfig = ''
+      reverse_proxy http://localhost:8010
+    '';
+  };
+
+  security.acme.certs.${languagetoolUrl} = {
+    domain = languagetoolUrl;
+    listenHTTP = ":${legoListenHTTP}";
+    reloadServices = [ "caddy.service" ];
+  };
 }
