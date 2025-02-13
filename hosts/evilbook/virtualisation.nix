@@ -3,7 +3,7 @@ let
   inherit (config.evilwoods.vars) mainUser;
 in
 {
-  evilwoods.config.virtualisation.podman.enable = true;
+  evilwoods.config.podman.enable = true;
 
   virtualisation = {
     libvirtd = {
