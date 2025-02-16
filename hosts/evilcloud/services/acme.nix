@@ -4,6 +4,7 @@ let
 
   isTestEnv = config.evilwoods.vars.isTestEnv;
   listenHTTPPort = "1360";
+  nextcloudPort = "8081";
 in
 {
   config = mkMerge [
@@ -20,9 +21,14 @@ in
         };
       };
 
+      # The tunnel is managed by cloudflare tunnel dashboard
       services.cloudflared.tunnels."5c5360ae-6911-41e2-bbcb-b5b78954349c" = {
         ingress = {
           "evilwoods.net" = "http://127.0.0.1:${listenHTTPPort}";
+          "nextcloud.evilwoods.net" = {
+            path = "/.well-known/acme-challenge";
+            service = "http://127.0.0.1:${listenHTTPPort}";
+          };
           "*.evilwoods.net" = "http://127.0.0.1:${listenHTTPPort}";
         };
       };
