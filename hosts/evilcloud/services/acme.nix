@@ -4,7 +4,6 @@ let
 
   isTestEnv = config.evilwoods.vars.isTestEnv;
   listenHTTPPort = "1360";
-  nextcloudPort = "8081";
 in
 {
   config = mkMerge [
