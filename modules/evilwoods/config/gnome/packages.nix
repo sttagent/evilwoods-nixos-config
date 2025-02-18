@@ -15,11 +15,17 @@ in
       dconf-editor
       papers
       showtime
-      # gnome-extension-manager
+      gnome-extension-manager
+      gsettings-desktop-schemas
       dconf
       valent
       pika-backup
       endeavour
+
+      gnomeExtensions.appindicator
+      gnomeExtensions.valent
+      gnomeExtensions.battery-health-charging
+      gnomeExtensions.blur-my-shell
     ];
 
     environment.gnome.excludePackages = with pkgs; [
@@ -31,7 +37,10 @@ in
       gnome-tour
     ];
 
-    programs.evolution.enable = true;
+    programs = {
+      dconf.enable = true;
+      evolution.enable = true;
+    };
 
   };
 }

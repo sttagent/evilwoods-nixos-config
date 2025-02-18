@@ -14,19 +14,10 @@ in
   config = mkIf cfg.enable {
     evilwoods.config.desktop.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      gnomeExtensions.appindicator
-      gnomeExtensions.valent
-      gnomeExtensions.battery-health-charging
-      gnomeExtensions.blur-my-shell
-    ];
-
     services.xserver = {
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
     };
-
-    programs.dconf.enable = true;
 
     services.udisks2.settings = {
       "udisks2.conf" = {
