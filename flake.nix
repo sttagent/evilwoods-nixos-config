@@ -40,7 +40,10 @@
   outputs =
     inputs:
     let
-      pkgs = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux;
+      pkgs = import inputs.nixpkgs-unstable {
+        system = "x86_64-linux";
+        overlay = import ./overlays/pythonPackages.nix;
+      };
       evilib = import ./lib { inherit inputs; };
     in
     {
@@ -58,23 +61,8 @@
       };
 
       # TODO: import shell instead
-      devShells.x86_64-linux.default = pkgs.mkShell {
-        name = "evilwoods-nixos-config";
-        packages = with pkgs; [
-          nixd
-          nix-output-monitor
-          nvd
-          nixfmt-rfc-style
-          nixpkgs-fmt
-          ssh-to-age
-          sops
-          jq
-          meld
-          python312Packages.python-lsp-server
-          lua-language-server
-          nixos-option
-          nix-tree
-        ];
+      devShells.x86_64-linux.default = import ./shell.nix {
+        inherit pkgs;
       };
     };
 }
