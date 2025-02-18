@@ -20,8 +20,6 @@
     nextcloud-client
     obsidian
     semeru-jre-bin-17
-    vscode-fhs
-    code-cursor
     ghostty
 
     # apps specific to Gnome
