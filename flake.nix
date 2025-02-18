@@ -60,7 +60,6 @@
         inherit (pkgs) lib;
       };
 
-      # TODO: import shell instead
       devShells.x86_64-linux.default = import ./shell.nix {
         inherit pkgs;
       };
