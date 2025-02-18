@@ -49,6 +49,8 @@ in
       dust
       just
       difftastic
+      nix-tree
+      nixos-option
     ];
 
     nix = {
