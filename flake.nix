@@ -72,6 +72,8 @@
           meld
           python312Packages.python-lsp-server
           lua-language-server
+          nixos-option
+          nix-tree
         ];
       };
     };
