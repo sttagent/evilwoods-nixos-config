@@ -21,6 +21,7 @@
     obsidian
     semeru-jre-bin-17
     ghostty
+    bws
 
     # apps specific to Gnome
     newsflash
