@@ -8,33 +8,91 @@ let
     elem
     readFile
     fromTOML
+    listToAttrs
     ;
 
   inherit (lib)
     hasSuffix
+    nameValuePair
+    mapAttrs
     ;
 
   inherit (lib.filesystem) listFilesRecursive;
 
 in
-{
-  readInVarFile = path: fromTOML (readFile path);
+rec {
+  readInVarFile = path: path |> readFile |> fromTOML;
 
   mkImportList =
-    # Scan dir for all files recusevily that have .nix suffix and are not default file.
     path:
+    path
+    |> listFilesRecursive
+    |> filter (filePath: hasSuffix ".nix" (baseNameOf filePath))
+    |> filter (
+      filePath:
+      !elem (baseNameOf filePath) [
+        "default.nix"
+        "test.nix"
+      ]
+    );
+
+  findAllHosts =
+    hostsPath:
     let
-      isValidImportFile =
-        filePath:
-        let
-          fileName = baseNameOf filePath;
-        in
-        (hasSuffix ".nix" fileName)
-        && !(elem fileName [
-          "default.nix"
-          "host-vars.nix"
-          "test.nix"
-        ]);
+      isHostVarFile = path: path |> baseNameOf |> toString |> hasSuffix ".toml";
     in
-    filter isValidImportFile (listFilesRecursive path);
+    filter isHostVarFile (listFilesRecursive hostsPath);
+
+  hostListToHostAttrs =
+    # reads the toml file with the same name as host in host folder
+    # and make an attrset with host vars
+    let
+      mkAttr =
+        path:
+        nameValuePair (path |> dirOf |> baseNameOf) {
+          hostPath = dirOf path;
+          inherit (path |> readFile |> fromTOML) system channel mainUser;
+        };
+    in
+    hostVarFilePathList: hostVarFilePathList |> map mkAttr |> listToAttrs;
+
+  mkHost =
+    { inputs, ... }:
+    hostName: attrs:
+    let
+      inherit (attrs)
+        hostPath
+        system
+        mainUser
+        channel
+        ;
+      nixpkgs = builtins.getAttr channel inputs;
+      specialArgs = {
+        inherit inputs;
+        evilib = inputs.self.lib;
+        configPath = inputs.self.outPath + "/hosts/config";
+        dotFilesPath = inputs.self.outPath + "/dotfiles";
+        resourcesPath = inputs.self.outPath + "/resources";
+      };
+    in
+    nixpkgs.lib.nixosSystem {
+      inherit specialArgs;
+      modules = [
+        # optional config options
+        ../modules
+        # users
+        ../users/${mainUser}-${hostName}
+        # hosts path in hosts folder
+        hostPath
+
+        {
+          nixpkgs.hostPlatform = system;
+          networking.hostName = hostName;
+          evilwoods.vars.mainUser = mainUser;
+        }
+      ];
+    };
+
+  mkHosts =
+    hostsPath: mapAttrs (mkHost { inherit inputs; }) (hostListToHostAttrs (findAllHosts hostsPath));
 }

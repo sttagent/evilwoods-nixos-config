@@ -44,6 +44,10 @@
         system = "x86_64-linux";
         overlay = import ./overlays/pythonPackages.nix;
       };
+      pkgs-stable = import inputs.nixpkgs-2411 {
+        system = "x86_64-linux";
+        overlay = import ./overlays/pythonPackages.nix;
+      };
       evilib = import ./lib { inherit inputs; };
     in
     {
@@ -51,14 +55,11 @@
 
       lib = evilib;
 
-      overlays = {
-        myPackages = import ./overlays/pythonPackages.nix;
-      };
+      checks.x86_64-linux.evilserver_test = pkgs-stable.testers.runNixOSTest (
+        import ./hosts/evilserver/test.nix { inherit inputs; }
+      );
 
-      nixosConfigurations = import ./hosts {
-        inherit inputs;
-        inherit (pkgs) lib;
-      };
+      nixosConfigurations = evilib.mkHosts ./hosts;
 
       devShells.x86_64-linux.default = import ./shell.nix {
         inherit pkgs;
