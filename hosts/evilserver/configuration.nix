@@ -51,17 +51,7 @@
   };
 
   networking = {
-    useDHCP = false;
-    defaultGateway = "192.168.1.1";
-    interfaces.enp2s0 = {
-      useDHCP = false;
-      ipv4.addresses = [
-        {
-          address = "192.168.1.2";
-          prefixLength = 24;
-        }
-      ];
-    };
+    useDHCP = true;
   };
 
   services.fstrim.enable = true;
