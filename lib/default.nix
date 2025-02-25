@@ -43,7 +43,7 @@ rec {
     in
     filter isHostVarFile (listFilesRecursive hostsPath);
 
-  hostListToHostAttrs =
+  mkHostAttrs =
     # reads the toml file with the same name as host in host folder
     # and make an attrset with host vars
     let
@@ -57,7 +57,6 @@ rec {
     hostVarFilePathList: hostVarFilePathList |> map mkAttr |> listToAttrs;
 
   mkHost =
-    { inputs, ... }:
     hostName: attrs:
     let
       inherit (attrs)
@@ -93,6 +92,5 @@ rec {
       ];
     };
 
-  mkHosts =
-    hostsPath: mapAttrs (mkHost { inherit inputs; }) (hostListToHostAttrs (findAllHosts hostsPath));
+  mkHosts = hostsPath: mapAttrs mkHost (mkHostAttrs (findAllHosts hostsPath));
 }
