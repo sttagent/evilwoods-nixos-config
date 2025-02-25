@@ -77,7 +77,7 @@ def diff_result_with_current(args, is_remote=False):
 
 
 def build_nixos_system(args, is_remote=False):
-    nixos-rebuild build --flake @(f".#{args.nixos_config}")
+    nixos-rebuild build --flake @(f".#{args.nixos_config}") err>out | nom
 
     if args.diff:
         diff_result_with_current(args, is_remote)
