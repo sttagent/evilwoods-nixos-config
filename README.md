@@ -2,11 +2,25 @@
 
 This is my personal very much work in progress NixOS configuration.
 
+## Folder Structure
+
+### dotfiles
+
+Various configuration files managed by home-manager I was not able to configure through home-manager module system.
+
+### Hosts
+
+NixOS system configuration folder.
+
 Hosts:
 
 - `evilbook` - laptop
-- `evilserver` - home server
-- `evilcloud` - server (currently not used)
+- `evilserver` - home server (currently not used)
+- `evilcloud` - server
+
+### scripts
+
+Various helper scripts specific to this configuration.
 
 ## Notes
 
