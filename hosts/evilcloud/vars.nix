@@ -21,5 +21,13 @@ in
         '';
       };
     };
+
+    legoHTTPPort = mkOption {
+      type = types.int;
+      default = 1360;
+      description = ''
+        Port to listen on for HTTP requests.
+      '';
+    };
   };
 }
