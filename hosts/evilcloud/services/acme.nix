@@ -34,8 +34,7 @@ in
     }
 
     (mkIf isTestEnv {
-      security.acme.certs."evilwoods.net".server =
-        "https://acme-staging-v02.api.letsencrypt.org/directory";
+      security.acme.certs.defaults.server = "https://acme-staging-v02.api.letsencrypt.org/directory";
     })
   ];
 }
