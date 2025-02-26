@@ -2,7 +2,7 @@
 let
   inherit (lib) mkIf mkMerge;
 
-  isTestEnv = config.evilwoods.vars.isTestEnv;
+  inherit (config.evilwoods.vars) isTestEnv;
   listenHTTPPort = "1360";
 in
 {
