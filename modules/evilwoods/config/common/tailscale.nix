@@ -3,9 +3,7 @@ let
   inherit (lib)
     mkIf
     mkMerge
-    mkOption
     mkEnableOption
-    types
     ;
 
   mainUser = config.evilwoods.vars.mainUser;
