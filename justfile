@@ -1,8 +1,8 @@
 default:
     just --list
 
-update-inputs:
-    nix flake update --commit-lock-file
+update-inputs *INPUTS:
+    nix flake update --commit-lock-file {{INPUTS}}
 
 evilosctl *FLAGS:
     ./scripts/evilosctl/main.xsh {{FLAGS}}
