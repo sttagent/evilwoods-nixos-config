@@ -4,7 +4,7 @@ default:
 update-inputs *INPUTS:
     nix flake update --commit-lock-file {{INPUTS}}
 
-evilosctl *FLAGS:
+osctl *FLAGS:
     ./scripts/evilosctl/main.xsh {{FLAGS}}
 
 run-tests-interactive host:
