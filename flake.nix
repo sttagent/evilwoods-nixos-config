@@ -31,6 +31,11 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    cachix-deploy = {
+      url = "github:cachix/cachix-deploy-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     evilsecrets = {
       url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
       flake = false;
@@ -48,6 +53,7 @@
     let
       pkgs = nixpkgs-unstable.legacyPackages.${system}.extend (import ./overlays/pythonPackages.nix);
       evilib = import ./lib { inherit inputs; };
+      cachix-deploy-lib = cachix-deploy.lib pkgs;
     in
     {
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
@@ -59,6 +65,14 @@
       );
 
       nixosConfigurations = evilib.mkHosts ./hosts;
+
+      packages.${system} = {
+        cachix-deploy-spec = cachix-deploy-lib.spec {
+          agents = {
+            evilcloud = self.nixosConfigurations.evilcloud.config.system.build.toplevel;
+          };
+        };
+      };
 
       devShells.x86_64-linux.default = import ./shell.nix {
         inherit pkgs;
