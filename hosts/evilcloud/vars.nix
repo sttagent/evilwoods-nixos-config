@@ -20,14 +20,15 @@ in
           Path to the directory where the service data will be stored.
         '';
       };
+
+      legoHTTPPort = mkOption {
+        type = types.int;
+        default = 1360;
+        description = ''
+          Port to listen on for HTTP requests.
+        '';
+      };
     };
 
-    legoHTTPPort = mkOption {
-      type = types.int;
-      default = 1360;
-      description = ''
-        Port to listen on for HTTP requests.
-      '';
-    };
   };
 }
