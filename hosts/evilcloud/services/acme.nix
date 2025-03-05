@@ -3,11 +3,13 @@ let
   inherit (lib) mkIf mkMerge;
 
   inherit (config.evilwoods.vars) isTestEnv;
+  inherit (config.evilwoods.host.vars) legoHTTPPort;
   listenHTTPPort = "1360";
 in
 {
   config = mkMerge [
     {
+      evilwoods.host.vars.legoHTTPPort = 1360;
       security.acme = {
         acceptTerms = true;
         defaults.email = "acme.kpo9e@ewmail.me";
