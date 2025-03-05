@@ -62,7 +62,7 @@ in
         ];
         warn-dirty = false;
         allowed-users = [ "@wheel" ];
-        trusted-substituters = [
+        substituters = [
           "https://nix-community.cachix.org/"
           "https://evilwoods.cachix.org/"
         ];
