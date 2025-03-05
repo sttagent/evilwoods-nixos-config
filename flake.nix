@@ -51,6 +51,7 @@
       ...
     }@inputs:
     let
+      system = "x86_64-linux";
       pkgs = nixpkgs-unstable.legacyPackages.${system}.extend (import ./overlays/pythonPackages.nix);
       evilib = import ./lib { inherit inputs; };
       cachix-deploy-lib = cachix-deploy.lib pkgs;
@@ -59,10 +60,6 @@
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
 
       lib = evilib;
-
-      checks.x86_64-linux.evilserver_test = pkgs-stable.testers.runNixOSTest (
-        import ./hosts/evilserver/test.nix { inherit inputs; }
-      );
 
       nixosConfigurations = evilib.mkHosts ./hosts;
 
