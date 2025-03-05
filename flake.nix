@@ -38,16 +38,15 @@
   };
 
   outputs =
-    inputs:
+    {
+      self,
+      nixpkgs-unstable,
+      nixpkgs-2411,
+      cachix-deploy,
+      ...
+    }@inputs:
     let
-      pkgs = import inputs.nixpkgs-unstable {
-        system = "x86_64-linux";
-        overlay = import ./overlays/pythonPackages.nix;
-      };
-      pkgs-stable = import inputs.nixpkgs-2411 {
-        system = "x86_64-linux";
-        overlay = import ./overlays/pythonPackages.nix;
-      };
+      pkgs = nixpkgs-unstable.legacyPackages.${system}.extend (import ./overlays/pythonPackages.nix);
       evilib = import ./lib { inherit inputs; };
     in
     {
