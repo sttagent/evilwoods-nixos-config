@@ -126,8 +126,6 @@ in
           extraOptions = [ "--group-directories-first" ];
         };
 
-        carapace.enable = true;
-
         neovim = {
           enable = true;
           defaultEditor = true;
