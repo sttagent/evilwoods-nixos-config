@@ -113,6 +113,7 @@ in
         starship = {
           enable = true;
           enableFishIntegration = true;
+          enableTransience = true;
         };
 
         zoxide = {
