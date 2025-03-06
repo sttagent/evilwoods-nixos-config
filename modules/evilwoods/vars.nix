@@ -36,6 +36,11 @@ in
           description = "Domain name";
         };
 
+        shell = mkOption {
+          type = types.str;
+          default = "fish";
+          description = "Default shell";
+        };
       };
     };
   };

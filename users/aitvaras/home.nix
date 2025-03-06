@@ -7,6 +7,7 @@
 }: # os configuration is reachable via nixosConfig
 let
   inherit (evilib.readInVarFile ./vars.toml) currentUser;
+  inherit (config.evilwoods.vars) shell;
 in
 {
   sops.secrets.aitvaras-password.neededForUsers = true;
@@ -89,7 +90,7 @@ in
           enable = false;
           settings = {
             default_mode = "locked";
-            default_shell = "xonsh";
+            default_shell = shell;
             mirror_session = true;
             theme = "gruvbox-dark";
             attach_to_session = true;
