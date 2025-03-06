@@ -5,7 +5,7 @@ in
 {
   home-manager.users.${currentUser} = {
     programs.zed-editor = {
-      enable = false;
+      enable = true;
       extensions = [
         "nix"
         "just"
