@@ -4,14 +4,11 @@
   ...
 }:
 let
+  inherit (evilib) mkImportList;
   inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
 in
 {
-  imports = [
-    ../aitvaras
-    ./gnome.nix
-    # ./hyprland.nix
-  ];
+  imports = [ ../aitvaras ] ++ (mkImportList ./.);
 
   home-manager.users.${currentUser} = {
 
