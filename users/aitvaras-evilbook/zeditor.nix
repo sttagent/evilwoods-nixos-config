@@ -20,7 +20,7 @@ in
           dark = "Gruvbox Dark Hard";
         };
         features = {
-          inline_completion_provider = "zed";
+          edit_prediction_provider = "zed";
         };
         assistant = {
           default_model = {
