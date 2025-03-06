@@ -3,7 +3,7 @@ let
   inherit (lib) mkIf mkMerge;
 
   inherit (config.evilwoods.vars) isTestEnv;
-  inherit (config.evilwoods.host.vars) legoHTTPPort;
+  # inherit (config.evilwoods.host.vars) legoHTTPPort;
   listenHTTPPort = "1360";
 in
 {
