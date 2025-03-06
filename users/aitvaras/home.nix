@@ -36,7 +36,7 @@ in
         username = "${currentUser}";
         homeDirectory = "/home/${currentUser}";
 
-        stateVersion = "24.05";
+        stateVersion = config.system.stateVersion;
 
       };
 
