@@ -141,6 +141,14 @@ in
             nodejs_22
           ];
         };
+
+        broot = {
+          enable = true;
+          enableFishIntegration = true;
+          settings = {
+            modal = true;
+          };
+        };
       };
 
       xdg.configFile = {
