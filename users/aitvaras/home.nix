@@ -38,6 +38,11 @@ in
 
         stateVersion = config.system.stateVersion;
 
+        shell = {
+          enableFishIntegration = true;
+          enableNushellIntegration = true;
+        };
+
       };
 
       programs = {
@@ -86,6 +91,28 @@ in
           '';
         };
 
+        nushell = {
+          enable = false;
+          settings = {
+            show_banner = false;
+          };
+          extraConfig = ''
+            let fish_completer = {|spans|
+                fish --command $'complete "--do-complete=($spans | str join " ")"'
+                | from tsv --flexible --noheaders --no-infer
+                | rename value description
+            }
+            $env.config = {
+                completions: {
+                    external: {
+                        enable: true
+                        completer: $fish_completer
+                    }
+                }
+            }
+          '';
+        };
+
         zellij = {
           enable = false;
           settings = {
@@ -99,7 +126,6 @@ in
 
         atuin = {
           enable = true;
-          enableFishIntegration = true;
           settings = {
             sync.records = true;
             auto_sync = true;
@@ -112,13 +138,11 @@ in
 
         starship = {
           enable = true;
-          enableFishIntegration = true;
           enableTransience = true;
         };
 
         zoxide = {
           enable = true;
-          enableFishIntegration = true;
         };
 
         eza = {
@@ -144,7 +168,6 @@ in
 
         broot = {
           enable = true;
-          enableFishIntegration = true;
           settings = {
             modal = true;
           };
