@@ -93,9 +93,6 @@ in
 
         nushell = {
           enable = false;
-          settings = {
-            show_banner = false;
-          };
           extraConfig = ''
             let fish_completer = {|spans|
                 fish --command $'complete "--do-complete=($spans | str join " ")"'
