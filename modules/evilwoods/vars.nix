@@ -38,7 +38,7 @@ in
 
         shell = mkOption {
           type = types.str;
-          default = "fish";
+          default = "xonsh";
           description = "Default shell";
         };
       };
