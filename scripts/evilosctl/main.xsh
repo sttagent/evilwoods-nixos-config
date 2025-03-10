@@ -50,8 +50,8 @@ def get_args():
 
 
 def reboot_system(args, is_remote=False):
+    print("Rebooting system...")
     if is_remote:
-        print("Rebooting system...")
         ssh -t @(args.target_host) "sudo systemctl reboot"
     else:
         sudo systemctl reboot
