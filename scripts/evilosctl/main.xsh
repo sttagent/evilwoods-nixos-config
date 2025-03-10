@@ -54,6 +54,7 @@ def reboot_system(args, is_remote=False):
     if is_remote:
         ssh -t @(args.target_host) "sudo systemctl reboot"
     else:
+        sleep(1)
         sudo systemctl reboot
 
 
