@@ -31,6 +31,11 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     cachix-deploy = {
       url = "github:cachix/cachix-deploy-flake";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -47,6 +52,7 @@
       self,
       nixpkgs-unstable,
       nixpkgs-2411,
+      nixos-generators,
       cachix-deploy,
       ...
     }@inputs:
@@ -69,6 +75,8 @@
             evilcloud = self.nixosConfigurations.evilcloud.config.system.build.toplevel;
           };
         };
+
+        # bootStrapISO = nixos-generators.nixosGenerate { };
       };
 
       devShells.x86_64-linux.default = import ./shell.nix {
