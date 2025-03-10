@@ -6,13 +6,13 @@
 }:
 buildPythonPackage rec {
   name = "xonsh-direnv";
-  version = "1.6.4";
+  version = "1.6.5";
   # format = "pyproject";
   src = fetchFromGitHub {
     owner = "74th";
     repo = "${name}";
     rev = "${version}";
-    sha256 = "1SLb4gx73NSUG1Fshmvj+21hD9j2UnK+RcTolq1zJiI=";
+    sha256 = "huBJ7WknVCk+WgZaXHlL+Y1sqsn6TYqMP29/fsUPSyU=";
   };
   nativeBuildInputs = [
     pip
