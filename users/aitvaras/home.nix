@@ -37,12 +37,6 @@ in
         homeDirectory = "/home/${currentUser}";
 
         stateVersion = config.system.stateVersion;
-
-        shell = {
-          enableFishIntegration = true;
-          enableNushellIntegration = true;
-        };
-
       };
 
       programs = {
