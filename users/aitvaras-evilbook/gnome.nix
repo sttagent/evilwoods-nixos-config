@@ -122,6 +122,9 @@ in
       "org/gnome/nautilus/icon-view" = {
         default-zoom-level = "small-plus";
       };
+      "org/gnome/shell/extensions/blur-my-shell/panel" = {
+        override-background-dynamically = true;
+      };
     };
   };
 }
