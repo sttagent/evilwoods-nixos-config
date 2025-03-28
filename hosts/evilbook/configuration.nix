@@ -72,7 +72,7 @@
   system = {
     rebuild.enableNg = true;
 
-    stateVersion = "24.11";
+    stateVersion = "25.05";
   };
 
   networking = {
