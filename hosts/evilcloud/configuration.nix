@@ -8,9 +8,14 @@
     inputs.home-manager-2411.nixosModules.home-manager
   ];
 
-  evilwoods.config = {
-    vmGuest.enable = true;
-    podman.enable = true;
+  evilwoods = {
+    vars = {
+      role = "server";
+    };
+    config = {
+      vmGuest.enable = true;
+      podman.enable = true;
+    };
   };
 
   system.stateVersion = "24.11";

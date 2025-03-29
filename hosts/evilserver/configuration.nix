@@ -11,6 +11,7 @@
 
   evilwoods = {
     vars = {
+      role = "server";
       tailscaleIP = "100.94.134.11";
     };
     storage = {
