@@ -20,15 +20,12 @@ pkgs.mkShell {
     age
     ssh-to-age
     sops
-    bitwarden-cli
     neovim
     nixd
     cachix
     nix-output-monitor
     nvd
     nixfmt-rfc-style
-    ssh-to-age
-    sops
     jq
     python312Packages.python-lsp-server
     lua-language-server
