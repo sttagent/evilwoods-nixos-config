@@ -17,7 +17,7 @@ in
             default = "Evilwoods";
             order = [
               "Evilwoods"
-              "Google"
+              "google"
             ];
             engines = {
               "Nix Packages" = {
@@ -70,7 +70,7 @@ in
 
               "NixOS Wiki" = {
                 urls = [ { template = "https://wiki.nixos.org/w/index.php?search={searchTerms}"; } ];
-                iconUpdateURL = "https://wiki.nixos.org/favicon.png";
+                icon = "https://wiki.nixos.org/favicon.png";
                 updateInterval = 24 * 60 * 60 * 1000; # every day
                 definedAliases = [ "@nw" ];
               };
@@ -80,8 +80,8 @@ in
                 definedAliases = [ "@ew" ];
               };
 
-              "Bing".metaData.hidden = true;
-              "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+              bing.metaData.hidden = true;
+              google.metaData.alias = "@g"; # builtin engines only support specifying one additional alias
             };
           };
           settings = {
