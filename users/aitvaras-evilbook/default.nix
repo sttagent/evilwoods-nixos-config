@@ -6,6 +6,7 @@
 let
   inherit (evilib) mkImportList;
   inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
+  # inherit (options.evilwoods.vars) shell;
 in
 {
   imports = [ ../aitvaras ] ++ (mkImportList ./.);
@@ -21,7 +22,7 @@ in
           font-family = "CommitMono Nerd Font Mono";
           theme = "GruvboxDarkHard";
           window-theme = "ghostty";
-          command = "xonsh";
+          command = "fish";
           window-save-state = "always";
           window-padding-x = 2;
           adw-toolbar-style = "flat";
