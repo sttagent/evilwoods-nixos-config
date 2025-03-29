@@ -20,6 +20,7 @@
       android.enable = true;
     };
     vars = {
+      role = "desktop";
       tailscaleIP = "100.79.120.120";
     };
   };
@@ -120,11 +121,6 @@
   services = {
     userborn.enable = true;
 
-    xserver.xkb = {
-      layout = "us,us,se";
-      variant = "colemak_dh_iso,,";
-      options = "grp:alt_shift_toggle";
-    };
   };
 
   programs = {

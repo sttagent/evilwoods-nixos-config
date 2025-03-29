@@ -79,6 +79,7 @@ rec {
       modules = [
         # optional config options
         ../modules
+        ../hosts/common
         # users
         ../users/${mainUser}-${hostName}
         # hosts path in hosts folder

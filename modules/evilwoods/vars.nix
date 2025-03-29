@@ -1,6 +1,9 @@
-{ self, lib, ... }:
+{ self, config, lib, ... }:
 let
   inherit (lib) types mkOption;
+  inherit (builtins) concatStringsSep;
+
+  roles = [ "server" "desktop" ];
 in
 {
   options = {
@@ -41,7 +44,25 @@ in
           default = "fish";
           description = "Default shell";
         };
+
+        role = mkOption {
+          type = types.nullOr (types.enum roles);
+          default = null;
+          description = ''
+            Role of the host.
+            One of: ${concatStringsSep ", " roles}.
+          '';
+        };
       };
     };
+  };
+
+  config = {
+    assertions = [
+      {
+        assertion = config.evilwoods.vars.role != null;
+        message = "evilwoods.vars.role must be set to one of ${concatStringsSep ", " roles}";
+      }
+    ];
   };
 }
