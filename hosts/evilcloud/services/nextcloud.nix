@@ -23,7 +23,7 @@ in
   services.nextcloud = {
     enable = true;
     https = true;
-    package = pkgs.nextcloud30;
+    package = pkgs.nextcloud31;
     hostName = "localhost";
     home = "${nextcloudDataPath}";
     database.createLocally = true;
