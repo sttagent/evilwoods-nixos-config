@@ -7,6 +7,10 @@ let
 
   mainUser = config.evilwoods.vars.mainUser;
   isTestEnv = config.evilwoods.vars.isTestEnv;
+  tailscaleExtraUpFlags = [
+    "--ssh"
+    "--operator=${mainUser}"
+  ];
 in
 {
 
@@ -19,10 +23,7 @@ in
           tailscale = {
             enable = true;
             useRoutingFeatures = "client";
-            extraUpFlags = [
-              "--ssh"
-              "--operator=${mainUser}"
-            ];
+            extraUpFlags = tailscaleExtraUpFlags;
           };
         };
       }
