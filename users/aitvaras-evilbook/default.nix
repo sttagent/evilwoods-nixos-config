@@ -22,7 +22,6 @@ in
           font-family = "CommitMono Nerd Font Mono";
           theme = "GruvboxDarkHard";
           window-theme = "ghostty";
-          command = "fish";
           window-save-state = "always";
           window-padding-x = 2;
           adw-toolbar-style = "flat";

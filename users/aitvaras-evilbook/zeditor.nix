@@ -59,9 +59,6 @@ in
           };
         };
         terminal = {
-          shell = {
-            program = "fish";
-          };
           line_height = "standard";
         };
       };
