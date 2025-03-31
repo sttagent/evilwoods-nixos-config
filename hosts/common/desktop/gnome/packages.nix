@@ -6,10 +6,11 @@
 }:
 let
   inherit (lib) mkIf;
-  cfg = config.evilwoods.config.gnome;
+  inherit (builtins) elem;
+  inherit (config.evilwoods.vars) desktopEnvironments;
 in
 {
-  config = mkIf cfg.enable {
+  config = mkIf (elem "gnome" desktopEnvironments) {
     environment.systemPackages = with pkgs; [
       gnome-keyring
       dconf-editor

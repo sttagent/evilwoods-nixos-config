@@ -14,14 +14,13 @@
   # host specific variables
   evilwoods = {
     config = {
-      gnome.enable = true;
-      hyprland.enable = false;
       zsa.enable = true;
       android.enable = true;
     };
     vars = {
       role = "desktop";
       tailscaleIP = "100.79.120.120";
+      desktopEnvironments = [ "gnome" ];
     };
   };
 

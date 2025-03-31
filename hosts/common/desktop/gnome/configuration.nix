@@ -5,14 +5,13 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption;
-  cfg = config.evilwoods.config.gnome;
+  inherit (lib) mkIf;
+  inherit (builtins) elem;
+  inherit (config.evilwoods.vars) desktopEnvironments;
 in
 {
-  options.evilwoods.config.gnome.enable = mkEnableOption "gnome config";
 
-  config = mkIf cfg.enable {
-    evilwoods.config.desktop.enable = true;
+  config = mkIf (elem "gnome" desktopEnvironments) {
 
     services.xserver = {
       displayManager.gdm.enable = true;

@@ -1,9 +1,22 @@
-{ self, config, lib, ... }:
+{
+  self,
+  config,
+  lib,
+  ...
+}:
 let
   inherit (lib) types mkOption;
   inherit (builtins) concatStringsSep;
 
-  roles = [ "server" "desktop" ];
+  roles = [
+    "server"
+    "desktop"
+  ];
+
+  desktopEnvironments = [
+    "gnome"
+    "hyprland"
+  ];
 in
 {
   options = {
@@ -53,6 +66,15 @@ in
             One of: ${concatStringsSep ", " roles}.
           '';
         };
+
+        desktopEnvironments = mkOption {
+          type = types.listOf (types.enum desktopEnvironments);
+          default = [ ];
+          description = ''
+            Role of the host.
+            One of: ${concatStringsSep ", " roles}.
+          '';
+        };
       };
     };
   };
@@ -61,7 +83,13 @@ in
     assertions = [
       {
         assertion = config.evilwoods.vars.role != null;
-        message = "evilwoods.vars.role must be set to one of ${concatStringsSep ", " roles}";
+        message = "evilwoods.vars.role must be set to one of: ${concatStringsSep ", " roles}";
+      }
+
+      {
+        assertion =
+          config.evilwoods.vars.desktopEnvironments != [ ] -> config.evilwoods.vars.role == "desktop";
+        message = "evilwoods.vars.role must be set to 'desktop' when desktopEnvironments is not empty";
       }
     ];
   };
