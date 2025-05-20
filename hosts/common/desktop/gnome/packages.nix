@@ -40,7 +40,7 @@ in
 
     programs = {
       dconf.enable = true;
-      evolution.enable = true;
+      # evolution.enable = true;
     };
 
   };

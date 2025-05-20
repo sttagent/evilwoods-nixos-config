@@ -15,18 +15,16 @@
     zoom-us
     zed-editor
     # bitwarden-cli
-    libreoffice-fresh
     gh
-    nextcloud-client
     obsidian
     semeru-jre-bin-17
     ghostty
     bws
+    filen-cli
+    filen-desktop
 
     # apps specific to Gnome
-    newsflash
     notify-client
-    tuba
     fragments
     fractal
   ];
