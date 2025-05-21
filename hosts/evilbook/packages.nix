@@ -22,6 +22,7 @@
     bws
     filen-cli
     filen-desktop
+    google-chrome
 
     # apps specific to Gnome
     notify-client
