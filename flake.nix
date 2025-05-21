@@ -2,18 +2,18 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixpkgs-2411.url = "nixpkgs/nixos-24.11";
-    home-manager-2411 = {
-      url = "github:nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs-2411";
+    nixpkgs-2505.url = "nixpkgs/nixos-25.05";
+    home-manager-2505 = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs-2505";
     };
-    disko-2411 = {
+    disko-2505 = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs-2411";
+      inputs.nixpkgs.follows = "nixpkgs-2505";
     };
-    sops-nix-2411 = {
+    sops-nix-2505 = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs-2411";
+      inputs.nixpkgs.follows = "nixpkgs-2505";
     };
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
@@ -51,7 +51,7 @@
     {
       self,
       nixpkgs-unstable,
-      nixpkgs-2411,
+      nixpkgs-2505,
       nixos-generators,
       cachix-deploy,
       ...
