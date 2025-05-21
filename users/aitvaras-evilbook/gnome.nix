@@ -10,7 +10,7 @@ in
     home = {
       file = {
         ".config/background" = {
-          source = resourceDir + "/wallpapers/background.webp";
+          source = resourceDir + "/wallpapers/background.jpg";
         };
       };
     };
