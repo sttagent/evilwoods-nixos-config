@@ -66,10 +66,10 @@
         "type": "github"
       }
     },
-    "disko-2411": {
+    "disko-2505": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-2411"
+          "nixpkgs-2505"
         ]
       },
       "locked": {
@@ -165,23 +165,23 @@
         "type": "github"
       }
     },
-    "home-manager-2411": {
+    "home-manager-2505": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-2411"
+          "nixpkgs-2505"
         ]
       },
       "locked": {
-        "lastModified": 1747688870,
-        "narHash": "sha256-ypL9WAZfmJr5V70jEVzqGjjQzF0uCkz+AFQF7n9NmNc=",
+        "lastModified": 1747556831,
+        "narHash": "sha256-Qb84nbYFFk0DzFeqVoHltS2RodAYY5/HZQKE8WnBDsc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d5f1f641b289553927b3801580598d200a501863",
+        "rev": "d0bbd221482c2713cccb80220f3c9d16a6e20a33",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-24.11",
+        "ref": "release-25.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -329,18 +329,18 @@
         "type": "github"
       }
     },
-    "nixpkgs-2411": {
+    "nixpkgs-2505": {
       "locked": {
-        "lastModified": 1747676747,
-        "narHash": "sha256-LXkWBVqilgx7Pohwqu/ABxDVw+Cmi5/Mj2S2mpUH0Fw=",
+        "lastModified": 1747610100,
+        "narHash": "sha256-rpR5ZPMkWzcnCcYYo3lScqfuzEw5Uyfh+R0EKZfroAc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "72841a4a8761d1aed92ef6169a636872c986c76d",
+        "rev": "ca49c4304acf0973078db0a9d200fd2bae75676d",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "ref": "nixos-24.11",
+        "ref": "nixos-25.05",
         "type": "indirect"
       }
     },
@@ -363,16 +363,16 @@
       "inputs": {
         "cachix-deploy": "cachix-deploy",
         "disko": "disko_2",
-        "disko-2411": "disko-2411",
+        "disko-2505": "disko-2505",
         "evilsecrets": "evilsecrets",
         "home-manager": "home-manager_2",
-        "home-manager-2411": "home-manager-2411",
+        "home-manager-2505": "home-manager-2505",
         "nixos-generators": "nixos-generators",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs-2411": "nixpkgs-2411",
+        "nixpkgs-2505": "nixpkgs-2505",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "sops-nix": "sops-nix",
-        "sops-nix-2411": "sops-nix-2411"
+        "sops-nix-2505": "sops-nix-2505"
       }
     },
     "sops-nix": {
@@ -395,10 +395,10 @@
         "type": "github"
       }
     },
-    "sops-nix-2411": {
+    "sops-nix-2505": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs-2411"
+          "nixpkgs-2505"
         ]
       },
       "locked": {
