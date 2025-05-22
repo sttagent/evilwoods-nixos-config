@@ -18,15 +18,11 @@ in
 
   sops.secrets.cloudflared-creds = {
     sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/cloudflared.yaml");
-    owner = config.services.cloudflared.user;
-    group = config.services.cloudflared.group;
     mode = "0600";
   };
 
   sops.secrets.cloudflared-tunnel-creds = {
     sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/cloudflared.yaml");
-    owner = config.services.cloudflared.user;
-    group = config.services.cloudflared.group;
     mode = "0600";
   };
 

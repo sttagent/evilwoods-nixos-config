@@ -24,10 +24,4 @@
     };
   };
 
-  environment.etc."cloudflared/cert.pem" = {
-    source = config.sops.secrets.cloudflared-evilcloud-tunnel-cert.path;
-    user = config.services.cloudflared.user;
-    group = config.services.cloudflared.group;
-    mode = "0600";
-  };
 }
