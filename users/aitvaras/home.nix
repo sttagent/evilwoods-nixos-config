@@ -44,6 +44,9 @@ in
         home-manager.enable = true;
 
         direnv = {
+          config = {
+            warn_timeout = 0;
+          };
           enable = true;
           nix-direnv.enable = true;
         };
