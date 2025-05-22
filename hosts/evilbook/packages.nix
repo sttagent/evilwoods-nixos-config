@@ -23,6 +23,7 @@
     filen-cli
     filen-desktop
     google-chrome
+    fh
 
     # apps specific to Gnome
     notify-client

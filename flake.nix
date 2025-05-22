@@ -33,18 +33,13 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
     # cachix-deploy = {
     #   url = "github:cachix/cachix-deploy-flake";
     #   inputs.nixpkgs.follows = "nixpkgs-unstable";
     # };
 
     evilsecrets = {
-      url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
+      url = "https://flakehub.com/f/sttagent/evilwoods-nixos-config-secrets/0.1";
       flake = false;
     };
   };
@@ -54,7 +49,6 @@
       self,
       nixpkgs-unstable,
       nixpkgs-2505,
-      nixos-generators,
       # cachix-deploy,
       ...
     }@inputs:
