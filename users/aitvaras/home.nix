@@ -45,6 +45,12 @@ in
 
         direnv = {
           config = {
+            whitelist = {
+              exact = [
+                "/home/${currentUser}/Source/private/evilwoods-nixos-config"
+                "/home/${currentUser}/Source/private/evilwoods-nixos-config-secrets"
+              ];
+            };
             warn_timeout = 0;
           };
           enable = true;
