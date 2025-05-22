@@ -4,8 +4,8 @@
 }:
 {
   imports = [
-    inputs.sops-nix-2411.nixosModules.sops
-    inputs.home-manager-2411.nixosModules.home-manager
+    inputs.sops-nix-2505.nixosModules.sops
+    inputs.home-manager-2505.nixosModules.home-manager
   ];
 
   evilwoods = {
@@ -18,7 +18,7 @@
     };
   };
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
   networking = {
     nftables.enable = true;
