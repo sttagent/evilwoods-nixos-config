@@ -22,7 +22,6 @@ pkgs.mkShell {
     sops
     neovim
     nixd
-    cachix
     nix-output-monitor
     nvd
     nixfmt-rfc-style

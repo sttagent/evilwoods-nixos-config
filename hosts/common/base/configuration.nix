@@ -31,6 +31,7 @@ in
     difftastic
     nix-tree
     nixos-option
+    cachix
   ];
 
   nix = {
