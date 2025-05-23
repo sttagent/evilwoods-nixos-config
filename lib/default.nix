@@ -15,6 +15,9 @@ let
     hasSuffix
     nameValuePair
     mapAttrs
+    concatMapAttrs
+    mkIf
+    optionalAttrs
     ;
 
   inherit (lib.filesystem) listFilesRecursive;
@@ -51,7 +54,12 @@ rec {
         path:
         nameValuePair (path |> dirOf |> baseNameOf) {
           hostPath = dirOf path;
-          inherit (path |> readFile |> fromTOML) system channel mainUser;
+          inherit (path |> readFile |> fromTOML)
+            system
+            channel
+            mainUser
+            makeTestHost
+            ;
         };
     in
     hostVarFilePathList: hostVarFilePathList |> map mkAttr |> listToAttrs;
@@ -64,6 +72,7 @@ rec {
         system
         mainUser
         channel
+        makeTestHost
         ;
       nixpkgs = builtins.getAttr channel inputs;
       specialArgs = {
@@ -73,9 +82,6 @@ rec {
         dotFilesPath = inputs.self.outPath + "/dotfiles";
         resourcesPath = inputs.self.outPath + "/resources";
       };
-    in
-    nixpkgs.lib.nixosSystem {
-      inherit specialArgs;
       modules = [
         # optional config options
         ../modules
@@ -84,14 +90,24 @@ rec {
         ../users/${mainUser}-${hostName}
         # hosts path in hosts folder
         hostPath
-
         {
           nixpkgs.hostPlatform = system;
-          networking.hostName = hostName;
+          networking.hostName = if makeTestHost then "${hostName}-test" else hostName;
           evilwoods.vars.mainUser = mainUser;
+          evilwoods.vars.isTestEnv = makeTestHost;
         }
       ];
+    in
+    {
+      ${hostName} = nixpkgs.lib.nixosSystem {
+        inherit specialArgs modules;
+      };
+    }
+    // optionalAttrs makeTestHost {
+      ${hostName + "-test"} = nixpkgs.lib.nixosSystem {
+        inherit specialArgs modules;
+      };
     };
 
-  mkHosts = hostsPath: mapAttrs mkHost (mkHostAttrs (findAllHosts hostsPath));
+  mkHosts = hostsPath: concatMapAttrs mkHost (mkHostAttrs (findAllHosts hostsPath));
 }
