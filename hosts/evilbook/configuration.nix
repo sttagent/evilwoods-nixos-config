@@ -8,7 +8,6 @@
   imports = [
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
-    inputs.determinate.nixosModules.default
     # (modulesPath + "/profiles/perlless.nix")
   ];
 
@@ -20,7 +19,7 @@
     };
     vars = {
       role = "desktop";
-      tailscaleIP = "100.65.172.110";
+      tailscaleIP = "100.79.120.120";
       desktopEnvironments = [ "gnome" ];
     };
   };
@@ -37,7 +36,6 @@
 
   nix = {
     settings = {
-      lazy-trees = true;
       max-jobs = "auto";
       auto-optimise-store = true;
       secret-key-files = [
@@ -46,9 +44,9 @@
     };
   };
 
-  # nixpkgs.overlays = [
-  #   (import ../../overlays/pythonPackages.nix)
-  # ];
+  nixpkgs.overlays = [
+    (import ../../overlays/pythonPackages.nix)
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

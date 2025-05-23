@@ -2,8 +2,7 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    nixpkgs-2505.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-2505.url = "nixpkgs/nixos-25.05";
     home-manager-2505 = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs-2505";
@@ -17,8 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs-2505";
     };
 
-    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
-    # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -38,10 +36,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    # cachix-deploy = {
-    #   url = "github:cachix/cachix-deploy-flake";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
+    cachix-deploy = {
+      url = "github:cachix/cachix-deploy-flake";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     evilsecrets = {
       url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
@@ -55,14 +53,14 @@
       nixpkgs-unstable,
       nixpkgs-2505,
       nixos-generators,
-      # cachix-deploy,
+      cachix-deploy,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs-unstable.legacyPackages.${system}.extend (import ./overlays/pythonPackages.nix);
       evilib = import ./lib { inherit inputs; };
-      # cachix-deploy-lib = cachix-deploy.lib pkgs;
+      cachix-deploy-lib = cachix-deploy.lib pkgs;
     in
     {
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
@@ -71,15 +69,15 @@
 
       nixosConfigurations = evilib.mkHosts ./hosts;
 
-      # packages.${system} = {
-      #   cachix-deploy-spec = cachix-deploy-lib.spec {
-      #     agents = {
-      #       evilcloud = self.nixosConfigurations.evilcloud.config.system.build.toplevel;
-      #     };
-      #   };
+      packages.${system} = {
+        cachix-deploy-spec = cachix-deploy-lib.spec {
+          agents = {
+            evilcloud = self.nixosConfigurations.evilcloud.config.system.build.toplevel;
+          };
+        };
 
-      #   # bootStrapISO = nixos-generators.nixosGenerate { };
-      # };
+        # bootStrapISO = nixos-generators.nixosGenerate { };
+      };
 
       devShells.x86_64-linux.default = import ./shell.nix {
         inherit pkgs;
