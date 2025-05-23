@@ -141,12 +141,21 @@ in
       };
 
     };
+    xdg = {
+      autostart = {
+        enable = true;
+        entries = [
+          "${pkgs.filen-desktop}/share/applications/filen-desktop.desktop"
+        ];
+      };
+      configFile = {
+        # zed = {
+        #   source = dotFilesPath + "/zed";
+        #   recursive = true;
+        # };
+      };
 
-    xdg.configFile = {
-      # zed = {
-      #   source = dotFilesPath + "/zed";
-      #   recursive = true;
-      # };
     };
+
   };
 }
