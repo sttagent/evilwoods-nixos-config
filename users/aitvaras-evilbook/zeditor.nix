@@ -5,7 +5,7 @@ in
 {
   home-manager.users.${currentUser} = {
     programs.zed-editor = {
-      enable = true;
+      enable = false;
       extensions = [
         "nix"
         "just"
@@ -25,7 +25,7 @@ in
         assistant = {
           default_model = {
             provider = "zed.dev";
-            model = "claude-3-7-sonnet-latest";
+            model = "claude-4-sonnet";
           };
           version = "2";
         };
