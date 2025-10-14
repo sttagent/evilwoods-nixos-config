@@ -52,7 +52,7 @@ in
             formater = {
               external = {
                 command = "nixfmt";
-                args = [ "--quiet" ];
+                arguments = [ "--quiet" ];
               };
             };
           };
