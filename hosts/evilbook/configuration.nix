@@ -75,6 +75,17 @@
     stateVersion = "25.11";
   };
 
+  fileSystems = {
+    "/mnt/nfs/aitvaras_share" = {
+      device = "100.75.110.79:/mnt/storage/shares/aitvaras";
+      fsType = "nfs";
+    };
+    "/mnt/nfs/video" = {
+      device = "100.75.110.79:/mnt/storage/media/video";
+      fsType = "nfs";
+    };
+  };
+
   networking = {
     nftables.enable = true;
 
