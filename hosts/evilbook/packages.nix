@@ -22,6 +22,7 @@
     google-chrome
     vivaldi
     vivaldi-ffmpeg-codecs
+    spotify
 
     # apps specific to Gnome
     notify-client
