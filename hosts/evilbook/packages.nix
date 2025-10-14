@@ -12,7 +12,6 @@
     yubioath-flutter
     wl-clipboard
     discord
-    zoom-us
     zed-editor
     # bitwarden-cli
     gh
@@ -20,9 +19,9 @@
     semeru-jre-bin-17
     ghostty
     bws
-    filen-cli
-    filen-desktop
     google-chrome
+    vivaldi
+    vivaldi-ffmpeg-codecs
 
     # apps specific to Gnome
     notify-client

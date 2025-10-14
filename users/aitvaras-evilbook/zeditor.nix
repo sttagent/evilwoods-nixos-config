@@ -5,7 +5,7 @@ in
 {
   home-manager.users.${currentUser} = {
     programs.zed-editor = {
-      enable = false;
+      enable = true;
       extensions = [
         "nix"
         "just"
@@ -20,14 +20,13 @@ in
           dark = "Gruvbox Dark Hard";
         };
         features = {
-          edit_prediction_provider = "zed";
+          edit_prediction_provider = "supermaven";
         };
-        assistant = {
+        agent = {
           default_model = {
             provider = "zed.dev";
             model = "claude-4-sonnet";
           };
-          version = "2";
         };
         autosave = "on_focus_change";
         vim_mode = true;

@@ -20,7 +20,7 @@ in
         enable = true;
         settings = {
           font-family = "CommitMono Nerd Font Mono";
-          theme = "GruvboxDarkHard";
+          theme = "Miasma";
           window-theme = "ghostty";
           window-save-state = "always";
           window-padding-x = 2;
@@ -130,7 +130,7 @@ in
               "status"
             ];
             paginate = "never";
-            diff.tool = [
+            diff-formater = [
               "difft"
               "--color=always"
               "$left"

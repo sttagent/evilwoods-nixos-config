@@ -5,7 +5,7 @@
       enable = true;
       extraPackages = ps: [
         ps.questionary
-        ps.xonsh-direnv
+        # ps.xonsh-direnv
       ];
     };
   };
