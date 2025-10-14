@@ -26,6 +26,7 @@ in
           window-padding-x = 2;
           adw-toolbar-style = "flat";
           shell-integration = "none";
+          command = "xonsh";
         };
       };
 

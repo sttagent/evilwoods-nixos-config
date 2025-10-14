@@ -1,4 +1,4 @@
-xontrib load coreutils direnv
+xontrib load coreutils # direnv
 
 # TODO: figure out why xonsh doesn't pick up the env vars
 # set by home-manager
@@ -17,5 +17,5 @@ aliases["lla"] = "eza -l -a"
 #
 
 execx($(starship init xonsh))
-execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
+# execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 execx($(atuin init xonsh))

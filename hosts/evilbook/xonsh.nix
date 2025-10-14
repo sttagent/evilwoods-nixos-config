@@ -8,5 +8,7 @@
         # ps.xonsh-direnv
       ];
     };
+    direnv.enable = true;
+    zoxide.enable = true;
   };
 }
