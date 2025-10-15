@@ -67,23 +67,14 @@
     };
 
     tmp.useTmpfs = true;
+
+    supportedFilesystems = [ "nfs" ];
   };
 
   system = {
     rebuild.enableNg = true;
 
     stateVersion = "25.11";
-  };
-
-  fileSystems = {
-    "/mnt/nfs/aitvaras_share" = {
-      device = "100.75.110.79:/mnt/storage/shares/aitvaras";
-      fsType = "nfs";
-    };
-    "/mnt/nfs/video" = {
-      device = "100.75.110.79:/mnt/storage/media/video";
-      fsType = "nfs";
-    };
   };
 
   networking = {
@@ -131,6 +122,7 @@
   services = {
     userborn.enable = true;
 
+    rpcbind.enable = true;
   };
 
   programs = {
@@ -143,8 +135,27 @@
     };
   };
 
-  systemd.services.nix-deamon = {
-    environment.TMPDIR = "/var/tmp";
+  fileSystems = {
+    "/mnt/nfs/aitvaras_share" = {
+      device = "100.75.110.79:/mnt/storage/shares/aitvaras";
+      fsType = "nfs";
+      options = [
+        "x-systemd.automount"
+      ];
+    };
+    "/mnt/nfs/video" = {
+      device = "100.75.110.79:/mnt/storage/media/video";
+      fsType = "nfs";
+      options = [
+        "x-systemd.automount"
+      ];
+    };
+  };
+
+  systemd = {
+    services.nix-daemon = {
+      environment.TMPDIR = "/var/tmp";
+    };
   };
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
