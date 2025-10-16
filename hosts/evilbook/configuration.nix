@@ -141,6 +141,7 @@
       fsType = "nfs";
       options = [
         "x-systemd.automount"
+        "_netdev"
       ];
     };
     "/mnt/nfs/video" = {
@@ -148,6 +149,7 @@
       fsType = "nfs";
       options = [
         "x-systemd.automount"
+        "_netdev"
       ];
     };
   };
