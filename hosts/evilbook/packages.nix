@@ -16,7 +16,7 @@
     # bitwarden-cli
     gh
     obsidian
-    semeru-jre-bin-17
+    temurin-jre-bin-25
     ghostty
     bws
     google-chrome
