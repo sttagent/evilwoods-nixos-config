@@ -44,9 +44,9 @@
     };
   };
 
-  nixpkgs.overlays = [
-    (import ../../overlays/pythonPackages.nix)
-  ];
+  # nixpkgs.overlays = [
+  #   (import ../../overlays/pythonPackages.nix)
+  # ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
