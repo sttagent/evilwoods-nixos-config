@@ -16,6 +16,8 @@ aliases["ll"] = "eza -l"
 aliases["lla"] = "eza -l -a"
 #
 
+execx($(carapace _carapace))
+
 execx($(starship init xonsh))
 # execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
 execx($(atuin init xonsh))
