@@ -23,6 +23,7 @@
     vivaldi
     vivaldi-ffmpeg-codecs
     spotify
+    claude-code
 
     # apps specific to Gnome
     notify-client
