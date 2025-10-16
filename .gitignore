@@ -2,6 +2,7 @@
 /.direnv
 /*.qcow2
 .nixos-test-history
+CLAUDE.md
 
 # xonsh and python
 **/__pycache__
