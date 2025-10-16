@@ -2,6 +2,7 @@
 
 import sys
 import os
+import time
 script_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 sys.path.insert(0, str(script_dir))
 
@@ -54,7 +55,8 @@ def reboot_system(args, is_remote=False):
     if is_remote:
         ssh -t @(args.target_host) "sudo systemctl reboot"
     else:
-        sleep(1)
+        print("The system will reboot now...")
+        time.sleep(3)
         sudo systemctl reboot
 
 
