@@ -154,6 +154,17 @@
     };
   };
 
+  users.groups = {
+    nas_aitvaras_share = {
+      gid = 4000;
+      members = [ "aitvaras" ];
+    };
+    nas_media = {
+      gid = 4100;
+      members = [ "aitvaras" ];
+    };
+  };
+
   systemd = {
     services.nix-daemon = {
       environment.TMPDIR = "/var/tmp";
