@@ -19,7 +19,7 @@
     };
     vars = {
       role = "desktop";
-      tailscaleIP = "100.79.120.120";
+      tailscaleIP = "100.68.20.3";
       desktopEnvironments = [ "gnome" ];
     };
   };
