@@ -137,7 +137,7 @@
 
   fileSystems = {
     "/mnt/nfs/aitvaras_share" = {
-      device = "100.75.110.79:/mnt/storage/shares/aitvaras";
+      device = "nas.evilwoods.net:/mnt/storage/shares/aitvaras";
       fsType = "nfs";
       options = [
         "x-systemd.automount"
@@ -145,7 +145,7 @@
       ];
     };
     "/mnt/nfs/video" = {
-      device = "100.75.110.79:/mnt/storage/media/video";
+      device = "nas.evilwoods.net:/mnt/storage/media/video";
       fsType = "nfs";
       options = [
         "x-systemd.automount"
