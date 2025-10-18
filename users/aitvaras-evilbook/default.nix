@@ -25,7 +25,7 @@ in
           window-save-state = "always";
           window-padding-x = 2;
           adw-toolbar-style = "flat";
-          shell-integration = "true";
+          shell-integration = "fish";
           command = "fish";
         };
       };
