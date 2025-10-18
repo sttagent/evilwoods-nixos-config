@@ -7,6 +7,7 @@
       fsType = "nfs";
       options = [
         "x-systemd.automount"
+        "x-systemd.umount.lazy"
         "_netdev"
       ];
     };
@@ -15,6 +16,7 @@
       fsType = "nfs";
       options = [
         "x-systemd.automount"
+        "x-systemd.umount.lazy"
         "_netdev"
       ];
     };
