@@ -39,7 +39,7 @@
   },
   "terminal": {
     "shell": {
-      "program": "xonsh"
+      "program": "fish"
     },
     "font_family": "CommitMono Nerd Font",
     "line_height": "standard"

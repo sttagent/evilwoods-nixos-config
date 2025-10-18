@@ -25,8 +25,8 @@ in
           window-save-state = "always";
           window-padding-x = 2;
           adw-toolbar-style = "flat";
-          shell-integration = "none";
-          command = "xonsh";
+          shell-integration = "true";
+          command = "fish";
         };
       };
 

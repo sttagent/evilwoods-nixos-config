@@ -60,7 +60,7 @@ in
         terminal = {
           line_height = "standard";
           shell = {
-            program = "xonsh";
+            program = "fish";
           };
         };
       };
