@@ -33,6 +33,7 @@ def get_args():
         'test', aliases=["t"], help="test the nixos configuration", parents=[common_parser])
     switch_parser = sub_parsers.add_parser(
         'switch', aliases=["s"], help="switch to the new nixos configuration", parents=[common_parser])
+    switch_parser.add_argument('--diff', action='store_true', help="perform a diff after build")
 
     boot_parser = sub_parsers.add_parser(
         'boot', aliases=["bo"], help="boot to the new nixos configuration", parents=[common_parser])
@@ -95,6 +96,9 @@ def apply_nixos_config(args, is_remote=False):
             --target-host @(args.target_host)
     else:
         nixos-rebuild @(args.subcommand) --sudo --flake @(f".#{args.nixos_config}")
+
+    if args.subcommand == "switch" && args.diff:
+        diff_result_with_current(args, is_remote)
 
     if args.subcommand == "boot" && args.reboot:
         reboot_system(args, is_remote)
