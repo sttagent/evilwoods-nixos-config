@@ -56,8 +56,27 @@
 
       nixosConfigurations = evilib.mkHosts ./hosts;
 
-      devShells.x86_64-linux.default = import ./shell.nix {
-        inherit pkgs;
+      devShells.x86_64-linux = {
+        default = pkgs.mkShell {
+          name = "evilwoods-nixos-config";
+          packages = with pkgs; [
+            age
+            ssh-to-age
+            sops
+            nixd
+            nix-output-monitor
+            nvd
+            nixfmt
+            jq
+            python312Packages.python-lsp-server
+            lua-language-server
+            nixos-option
+            nix-tree
+          ];
+        };
+        install_env = import ./shell.nix {
+          inherit pkgs;
+        };
       };
     };
 }

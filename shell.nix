@@ -21,14 +21,5 @@ pkgs.mkShell {
     ssh-to-age
     sops
     neovim
-    nixd
-    nix-output-monitor
-    nvd
-    nixfmt-rfc-style
-    jq
-    python312Packages.python-lsp-server
-    lua-language-server
-    nixos-option
-    nix-tree
   ];
 }
