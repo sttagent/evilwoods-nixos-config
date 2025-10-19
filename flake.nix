@@ -50,7 +50,7 @@
       evilib = import ./lib { inherit inputs; };
     in
     {
-      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
+      formatter.x86_64-linux = pkgs.nixfmt;
 
       lib = evilib;
 
