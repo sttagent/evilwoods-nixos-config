@@ -15,6 +15,9 @@ return {
         nixd = {
           mason = false,
         },
+        nil_ls = {
+          mason = false,
+        },
       },
     }
   },
