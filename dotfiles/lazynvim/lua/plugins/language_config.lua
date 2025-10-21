@@ -18,6 +18,9 @@ return {
         nil_ls = {
           mason = false,
         },
+        ruff = {
+          mason = false,
+        },
       },
     }
   },
