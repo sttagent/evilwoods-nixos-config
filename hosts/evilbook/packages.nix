@@ -4,7 +4,11 @@
 {
   environment.systemPackages = with pkgs; [
 
-    prismlauncher
+    (prismlauncher.override {
+      jdks = [
+        pkgs.jdk25
+      ];
+    })
     ffmpeg-full
     appimage-run
     distrobox
@@ -16,7 +20,6 @@
     # bitwarden-cli
     gh
     obsidian
-    temurin-jre-bin-25
     ghostty
     bws
     google-chrome
