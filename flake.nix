@@ -68,7 +68,7 @@
             nvd
             nixfmt
             jq
-            python312Packages.python-lsp-server
+            python3Packages.python-lsp-server
             lua-language-server
             nixos-option
             nix-tree
