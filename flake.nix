@@ -69,6 +69,7 @@
             nixfmt
             jq
             python3Packages.python-lsp-server
+            python3Packages.questionary
             lua-language-server
             nixos-option
             nix-tree
