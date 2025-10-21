@@ -60,19 +60,19 @@
         default = pkgs.mkShell {
           name = "evilwoods-nixos-config";
           packages = with pkgs; [
-            age
-            ssh-to-age
-            sops
             nixd
             nix-output-monitor
             nvd
             nixfmt
             jq
             python3Packages.python-lsp-server
+            basedpyright
+            ruff
             python3Packages.questionary
             lua-language-server
             nixos-option
             nix-tree
+            statix
           ];
         };
         install_env = import ./shell.nix {
