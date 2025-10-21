@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.o.shell = "fish"
+vim.g.lazyvim_python_lsp = "basedpyright"
