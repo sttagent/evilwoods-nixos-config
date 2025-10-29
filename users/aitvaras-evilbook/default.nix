@@ -22,7 +22,6 @@ in
           font-family = "CommitMono Nerd Font Mono";
           theme = "Miasma";
           window-theme = "ghostty";
-          window-save-state = "always";
           window-padding-x = 2;
           adw-toolbar-style = "flat";
           shell-integration = "fish";

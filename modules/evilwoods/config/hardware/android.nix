@@ -15,6 +15,5 @@ in
   config = mkIf cfg.enable {
     users.users.${mainUser}.extraGroups = [ "adbusers" ];
     programs.adb.enable = true;
-    services.udev.packages = [ pkgs.android-udev-rules ];
   };
 }

@@ -3,9 +3,16 @@ import sys
 import os
 import argparse
 import json
+import logging
+from typing import cast
 
-# import questionary
+import questionary
 import inspect
+
+
+sys.argv[0] = os.path.basename(sys.argv[0].removesuffix("/"))
+
+logger = logging.getLogger(sys.argv[0])
 
 
 def get_args():
@@ -106,21 +113,29 @@ def get_args():
 
 
 def choose_nixos_config() -> str:
-    nix_flake_show_result = subprocess.run(
-        "nix flake show --json",
-        capture_output=True,
-        shell=True,
-        check=True,
-        encoding="utf-8",
+    try:
+        nix_flake_show_result = subprocess.run(
+            "nix flake show --json",
+            capture_output=True,
+            shell=True,
+            check=True,
+            encoding="utf-8",
+        )
+    except subprocess.CalledProcessError as e:
+        logger.error(f"in command: {e.cmd}")
+        logger.error(e.stderr)
+        sys.exit(e.returncode)
+
+    config_name_list = list(
+        json.loads(nix_flake_show_result.stdout)["nixosConfigurations"].keys()
     )
+    choice = questionary.select(
+        "Select a configuration", choices=config_name_list
+    ).ask()
+    return choice
 
-    config_name_list = json.loads(nix_flake_show_result.stdout)[
-        "nixosConfigurations"
-    ].keys()
-    return config_name_list
 
-
-def main():
+def main() -> None:
     args = get_args()
 
     args.nixos_config = (
