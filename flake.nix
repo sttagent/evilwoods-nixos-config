@@ -46,7 +46,7 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs-unstable.legacyPackages.${system}.extend (import ./overlays/pythonPackages.nix);
+      pkgs = nixpkgs-unstable.legacyPackages.${system};
       evilib = import ./lib { inherit inputs; };
     in
     {
@@ -55,6 +55,14 @@
       lib = evilib;
 
       nixosConfigurations = evilib.mkHosts ./hosts;
+
+      packages.x86_64-linux = {
+        setup-install-env = pkgs.writeShellApplication {
+          name = "setup-install-env";
+          runtimeInputs = with pkgs; [ fish ];
+          text = builtins.readFile ./scripts/setup-install-env;
+        };
+      };
 
       devShells.x86_64-linux = {
         default = pkgs.mkShell {
