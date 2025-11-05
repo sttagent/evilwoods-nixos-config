@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i fish -p fish
+#!/usr/bin/env fish
 
 echo  "This  is  setup-install-env"
 echo
