@@ -43,11 +43,11 @@
     "evilsecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1761040640,
-        "narHash": "sha256-O3+8BS2eVN4CvU8tKvcFndXkEd9U7DeqzL2EXnBbmBU=",
+        "lastModified": 1762379072,
+        "narHash": "sha256-Xg2iR43VzDNzvyyQwDf7cVYDXxy7bldgNYdIw3gtCrs=",
         "ref": "refs/heads/main",
-        "rev": "2075c1cb3fc233cf6498db792232a2c3a3445b98",
-        "revCount": 73,
+        "rev": "30eff56671cfb223d9a2c07b33f548dc3160a09f",
+        "revCount": 74,
         "type": "git",
         "url": "ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git"
       },
@@ -99,11 +99,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1762336257,
-        "narHash": "sha256-2u5rstcMTqpAr4UF+exs5WGOT62VJRb4yauR6JJHJXs=",
+        "lastModified": 1762371679,
+        "narHash": "sha256-VjZLHnj9tqFRigpD6SJtTKmQsys77jCX5YcnmMnUqH8=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "d48e8f0e1691e0200a675c13df7c85e275090a15",
+        "rev": "e4c6ee69e710805a15a3da905214a25618271609",
         "type": "github"
       },
       "original": {
