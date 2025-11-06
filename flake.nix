@@ -59,7 +59,9 @@
       packages.x86_64-linux = {
         setup-install-env = pkgs.writeShellApplication {
           name = "setup-install-env";
-          runtimeInputs = with pkgs; [ fish ];
+          runtimeInputs = with pkgs; [
+            git
+          ];
           text = builtins.readFile ./scripts/setup-install-env;
         };
       };
