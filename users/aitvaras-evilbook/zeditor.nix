@@ -7,6 +7,7 @@ in
     programs.zed-editor = {
       enable = true;
       extensions = [
+        "fish"
         "nix"
         "just"
         "lua"
