@@ -7,3 +7,7 @@ else
     echo "INFO: local copy of evilwoods-nixos-config repo already exists."
     exit
 fi
+
+cd evilwoods-nixos-config
+
+exec nix develop ".#install_env"
