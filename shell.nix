@@ -20,6 +20,7 @@ pkgs.mkShell {
   GIT_COMMITTER_NAME = "Arvydas Ramanauskas";
   GIT_COMMITTER_EMAIL = "711261+sttagent@users.noreply.github.com";
   packages = with pkgs; [
+    (python3.withPackages (ps: with ps; [ questionary ]))
     git
     just
     age

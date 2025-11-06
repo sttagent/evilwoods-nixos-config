@@ -75,9 +75,12 @@
             nvd
             nixfmt
             jq
-            python3
-            python3Packages.python-lsp-server
-            python3Packages.questionary
+            (python3.withPackages (
+              ps: with ps; [
+                questionary
+                python-lsp-server
+              ]
+            ))
             basedpyright
             ruff
             lua-language-server
