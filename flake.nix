@@ -62,7 +62,7 @@
           runtimeInputs = with pkgs; [
             git
           ];
-          text = builtins.readFile ./scripts/setup-install-env;
+          text = builtins.readFile ./scripts/setup-install-env.bash;
         };
       };
 
