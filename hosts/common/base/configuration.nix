@@ -32,7 +32,6 @@ in
     nix-tree
     nixos-option
     cachix
-    carapace
   ];
 
   nix = {
