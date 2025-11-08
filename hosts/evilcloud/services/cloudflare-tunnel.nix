@@ -1,14 +1,14 @@
 { inputs, config, ... }:
 {
   sops.secrets.cloudflared-evilcloud-tunnel-cert = {
-    sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/cloudflared.yaml");
+    sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/cloudflared.yaml");
     owner = "cloudflared";
     group = "cloudflared";
     mode = "0600";
   };
 
   sops.secrets.cloudflared-evilcloud-tunnel-id = {
-    sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/cloudflared.yaml");
+    sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/cloudflared.yaml");
     owner = "cloudflared";
     group = "cloudflared";
     mode = "0600";

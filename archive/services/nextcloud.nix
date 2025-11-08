@@ -10,7 +10,7 @@ let
   nextcloudDataPath = "${dataPath}/${appName}";
   appUrl = "${appName}.${domain}";
   appName = "nextcloud";
-  sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/nextcloud.yaml");
+  sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/nextcloud.yaml");
 in
 {
   sops.secrets.admin-pass = {

@@ -4,7 +4,7 @@ let
 in
 {
   sops.secrets.searx-secret = {
-    sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/searx.yaml");
+    sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/searx.yaml");
     mode = "0600";
     owner = "searx";
     group = "searx";

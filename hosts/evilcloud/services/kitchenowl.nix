@@ -19,7 +19,7 @@ let
   kitchenOwlDataPath = "${dataPath}/${appName}";
   serviceName = "${prefix}-${appName}";
 
-  sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/kitchenowl.yaml");
+  sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/kitchenowl.yaml");
   genKitchenowlSecrets =
     secretList:
     genAttrs secretList (sercert: {

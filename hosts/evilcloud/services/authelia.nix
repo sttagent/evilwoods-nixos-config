@@ -10,7 +10,7 @@ let
   inherit (config.evilwoods.vars) domain;
   inherit (config.evilwoods.host.vars) dataPath;
 
-  sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/authelia.yaml");
+  sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/authelia.yaml");
   instanceName = domain |> splitString "." |> head;
   finalInstanceName = "authelia-${instanceName}";
   autheliaDataPath = "${dataPath}/${finalInstanceName}";

@@ -27,7 +27,7 @@
   sops.secrets = {
     "network-manager.env" = { };
     evilwoods-nix-key = {
-      sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/nix-key.yaml");
+      sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/nix-key.yaml");
       owner = "root";
       group = "root";
       mode = "0400";
