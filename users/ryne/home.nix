@@ -7,7 +7,6 @@
 }: # os configuration is reachable via nixosConfig
 let
   inherit (evilib.readInVarFile ./vars.toml) currentUser;
-  inherit (config.evilwoods.vars) shell;
 in
 {
   sops.secrets.aitvaras-password.neededForUsers = true;
@@ -17,13 +16,12 @@ in
       isNormalUser = true;
       createHome = true;
       home = "/home/${currentUser}";
-      description = "Arvydas Ramanauskas";
-      hashedPasswordFile = config.sops.secrets.aitvaras-password.path;
+      description = "Ryne Ramanauskas";
+      hashedPasswordFile = config.sops.secrets.ryne-password.path;
       extraGroups = [
         "wheel"
         "networkmanager"
       ]; # Enable ‘sudo’ for the user.
-      shell = pkgs.fish;
     };
 
   };
