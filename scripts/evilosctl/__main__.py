@@ -34,6 +34,9 @@ def get_arg_parser() -> argparse.ArgumentParser:
         help="the nixos configuration to apply",
         default=None,
     )
+    _ = common_build_parser.add_argument(
+        "--diff", action="store_true", help="perform a diff after build"
+    )
 
     sub_parsers = arg_parser.add_subparsers(
         title="subcommands", dest="subcommand", required=True, help="sub-command help"
@@ -43,9 +46,6 @@ def get_arg_parser() -> argparse.ArgumentParser:
         aliases=["b"],
         help="build the nixos configuration",
         parents=[common_remote_parser, common_build_parser],
-    )
-    _ = build_parser.add_argument(
-        "--diff", action="store_true", help="perform a diff after build"
     )
 
     diff_parser = sub_parsers.add_parser(
@@ -144,6 +144,9 @@ def build_nixos_system(args: argparse.Namespace, is_remote: bool = False) -> Non
         shell=True,
         capture_output=False,
     )
+
+    if args.diff:
+        diff_result_with_current(args, is_remote)
 
 
 def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> None:
