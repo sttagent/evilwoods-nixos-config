@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   evilib,
   pkgs,
@@ -7,9 +8,13 @@
 }: # os configuration is reachable via nixosConfig
 let
   inherit (evilib.readInVarFile ./vars.toml) currentUser;
+  inherit (builtins) toString;
 in
 {
-  sops.secrets.aitvaras-password.neededForUsers = true;
+  sops.secrets.ryne-password = {
+    sopsFile = toString (inputs.secrets + "/secrets/ryne/ryne.yaml");
+    neededForUsers = true;
+  };
 
   users.users = {
     ${currentUser} = {
