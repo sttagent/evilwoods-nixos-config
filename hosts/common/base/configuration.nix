@@ -63,7 +63,7 @@ in
     };
   };
   sops = {
-    defaultSopsFile = "${secretsPath}/secrets/aitvaras/default.yaml";
+    defaultSopsFile = "${secretsPath}/secrets/commmon/default.yaml";
     validateSopsFiles = false;
     age = {
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

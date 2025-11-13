@@ -1,13 +1,15 @@
-{ config, lib, ... }:
+{ inputs, config, lib, ... }:
 let
   inherit (lib) mkIf mkMerge;
 
   isTestEnv = config.evilwoods.vars.isTestEnv;
+  secretsPath = toString inputs.evilsecrets;
 in
 {
   config = mkMerge [
     {
       sops.secrets."acme-cloudflare.env" = {
+        sopsFile  =  "${secretsPath}/secrets/aitvaras/default.yaml";
         mode = "0400";
         owner = config.users.users.acme.name;
         group = config.users.users.acme.group;

@@ -1,11 +1,20 @@
-{ evilib, config, ... }:
+{
+  inputs,
+  evilib,
+  config,
+  ...
+}:
 let
   inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
+  secretsPath = builtins.toString inputs.evilsecrets;
 in
 {
   imports = [ ../aitvaras ];
 
-  sops.secrets.ssh-pub-key.neededForUsers = true;
+  sops.secrets.ssh-pub-key = {
+    sopsFile = "${secretsPath}/secrets/aitvaras/default.yaml";
+    neededForUsers = true;
+  };
 
   users.users = {
     ${currentUser}.openssh.authorizedKeys.keys = [

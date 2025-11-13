@@ -9,10 +9,11 @@
 let
   inherit (evilib.readInVarFile ./vars.toml) currentUser;
   inherit (builtins) toString;
+  secretsPath = toString inputs.evilsecrets;
 in
 {
   sops.secrets.ryne-password = {
-    sopsFile = toString (inputs.secrets + "/secrets/ryne/ryne.yaml");
+    sopsFile = "${secretsPath}/secrets/ryne/ryne.yaml";
     neededForUsers = true;
   };
 

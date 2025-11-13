@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   evilib,
   pkgs,
@@ -8,9 +9,13 @@
 let
   inherit (evilib.readInVarFile ./vars.toml) currentUser;
   inherit (config.evilwoods.vars) shell;
+  secretsPath = toString inputs.evilsecrets;
 in
 {
-  sops.secrets.aitvaras-password.neededForUsers = true;
+  sops.secrets.aitvaras-password = {
+    sopsFile = "${secretsPath}/secrets/aitvaras/deflault.yaml";
+    neededForUsers = true;
+  };
 
   users.users = {
     ${currentUser} = {
