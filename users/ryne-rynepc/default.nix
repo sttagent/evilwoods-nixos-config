@@ -9,7 +9,7 @@ let
   # inherit (options.evilwoods.vars) shell;
 in
 {
-  imports = [ ../aitvaras ] ++ (mkImportList ./.);
+  imports = [ ../ryne ] ++ (mkImportList ./.);
 
   home-manager.users.${currentUser} = {
 
