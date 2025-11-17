@@ -15,6 +15,9 @@ in
         "python"
       ];
       userSettings = {
+        auto_signature_help = true;
+        inlay_hints.enable = true;
+        diagnostics.inline.enable = true;
         theme = {
           mode = "system";
           light = "Gruvbox Light Hard";
