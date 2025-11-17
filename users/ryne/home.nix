@@ -41,7 +41,7 @@ in
         username = "${currentUser}";
         homeDirectory = "/home/${currentUser}";
 
-        stateVersion = config.system.stateVersion;
+        inherit (config.system) stateVersion;
       };
 
       programs = {
