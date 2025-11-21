@@ -3,5 +3,6 @@ let
   inherit (evilib) mkImportList;
 in
 {
-  imports = [ ../ryne ] ++ (mkImportList ./.);
+
+  imports = [ ../admin ] ++ (mkImportList ./.);
 }

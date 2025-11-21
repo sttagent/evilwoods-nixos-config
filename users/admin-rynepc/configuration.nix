@@ -4,13 +4,10 @@
   ...
 }:
 let
-  inherit (evilib) mkImportList;
   inherit (evilib.readInVarFile ../admin/vars.toml) currentUser;
   # inherit (options.evilwoods.vars) shell;
 in
 {
-  imports = [ ../admin ] ++ (mkImportList ./.);
-
   users.users.${currentUser}.uid = 1000;
 
   home-manager.users.${currentUser} = {
