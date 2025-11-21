@@ -1,4 +1,5 @@
 system = "x86_64-linux"
 channel = "nixpkgs-unstable"
 mainUser = "aitvaras"
+extraUsers = [ ]
 makeTestHost = false

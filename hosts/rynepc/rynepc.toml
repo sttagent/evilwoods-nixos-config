@@ -2,4 +2,5 @@
 system = "x86_64-linux"
 channel = "nixpkgs-unstable"
 mainUser = "ryne"
+extraUsers = [ "admin" ]
 makeTestHost = false

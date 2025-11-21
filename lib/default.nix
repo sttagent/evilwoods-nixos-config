@@ -59,6 +59,7 @@ rec {
             channel
             mainUser
             makeTestHost
+            extraUsers
             ;
         };
     in
@@ -73,6 +74,7 @@ rec {
         mainUser
         channel
         makeTestHost
+        extraUsers
         ;
       nixpkgs = builtins.getAttr channel inputs;
       specialArgs = {
