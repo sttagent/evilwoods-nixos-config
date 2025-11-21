@@ -24,10 +24,6 @@ in
       home = "/home/${currentUser}";
       description = "Ryne Ramanauskas";
       hashedPasswordFile = config.sops.secrets.ryne-password.path;
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-      ]; # Enable ‘sudo’ for the user.
     };
 
   };
