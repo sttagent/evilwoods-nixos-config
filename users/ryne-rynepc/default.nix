@@ -11,6 +11,8 @@ in
 {
   imports = [ ../ryne ] ++ (mkImportList ./.);
 
+  users.users.${currentUser}.uid = 1001;
+
   home-manager.users.${currentUser} = {
 
     programs = {

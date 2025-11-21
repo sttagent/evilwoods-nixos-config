@@ -11,6 +11,7 @@ in
 {
   imports = [ ../admin ] ++ (mkImportList ./.);
 
+  users.users.${currentUser}.uid = 1000;
 
   home-manager.users.${currentUser} = {
 
