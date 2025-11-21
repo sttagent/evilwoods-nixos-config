@@ -163,6 +163,13 @@ def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> Non
         capture_output=False,
     )
 
+    if args.subcommand == "boot" and args.reboot:
+        reboot_system(args, is_remote)
+
+
+def reboot_system(args: argparse.Namespace, is_remote: bool = False) -> None:
+    _ = run_command(["systemctl", "reboot"])
+
 
 def generate_new_host_key(args: argparse.Namespace, is_remote: bool = False) -> None:
     pass
