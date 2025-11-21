@@ -140,8 +140,7 @@ def diff_result_with_current(args: argparse.Namespace, is_remote: bool = False) 
 
 def build_nixos_system(args: argparse.Namespace, is_remote: bool = False) -> None:
     _ = run_command(
-        f"nixos-rebuild build --flake .#{args.nixos_config} 2>&1 | nom",
-        shell=True,
+        ["nixos-rebuild", "build", "--flake", f".#{args.nixos_config}"],
         capture_output=False,
     )
 
@@ -152,8 +151,13 @@ def build_nixos_system(args: argparse.Namespace, is_remote: bool = False) -> Non
 def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> None:
     build_nixos_system(args, is_remote)
     _ = run_command(
-        f"nixos-rebuild {args.subcommand} --ask-sudo-password --flake .#{args.nixos_config} 2>&1 | nom",
-        shell=True,
+        [
+            "nixos-rebuild",
+            args.subcommand,
+            "--ask-sudo-password",
+            "--flake",
+            f".#{args.nixos_config}",
+        ],
         capture_output=False,
     )
 
