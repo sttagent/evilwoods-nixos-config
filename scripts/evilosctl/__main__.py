@@ -146,6 +146,8 @@ def build_nixos_system(args: argparse.Namespace, is_remote: bool = False) -> Non
 
     if args.diff:
         diff_result_with_current(args, is_remote)
+        if args.subcommant == "boot" and args.reboot:
+            _ = input("Press enter to reboot...")
 
 
 def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> None:
