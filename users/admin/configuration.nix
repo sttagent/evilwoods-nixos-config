@@ -13,16 +13,14 @@ let
 in
 {
   sops.secrets.admin-password = {
-    sopsFile = "${secretsPath}/secrets/common/deflault.yaml";
+    sopsFile = "${secretsPath}/secrets/common/default.yaml";
     neededForUsers = true;
   };
 
   users.users = {
     ${currentUser} = {
       isNormalUser = true;
-      createHome = true;
-      home = "/home/${currentUser}";
-      description = "Adminitrator";
+      description = "Administrator";
       hashedPasswordFile = config.sops.secrets.admin-password.path;
       extraGroups = [
         "wheel"

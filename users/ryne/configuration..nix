@@ -20,8 +20,6 @@ in
   users.users = {
     ${currentUser} = {
       isNormalUser = true;
-      createHome = true;
-      home = "/home/${currentUser}";
       description = "Ryne Ramanauskas";
       hashedPasswordFile = config.sops.secrets.ryne-password.path;
     };
