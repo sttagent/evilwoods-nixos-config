@@ -9,6 +9,7 @@ let
     readFile
     fromTOML
     listToAttrs
+    map
     ;
 
   inherit (lib)
@@ -98,7 +99,8 @@ rec {
           evilwoods.vars.mainUser = mainUser;
           evilwoods.vars.isTestEnv = makeTestHost;
         }
-      ];
+      ]
+      ++ (map (user: ../users/${user}-${hostName}) extraUsers);
     in
     {
       ${hostName} = nixpkgs.lib.nixosSystem {
