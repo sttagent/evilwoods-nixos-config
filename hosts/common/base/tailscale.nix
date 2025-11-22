@@ -14,8 +14,6 @@ let
   mainUser = config.evilwoods.vars.mainUser;
   isTestEnv = config.evilwoods.vars.isTestEnv;
 
-  inherit (config.networking) hostName;
-
   tailscaleExtraUpFlags = [
     "--ssh"
     "--operator=${mainUser}"
@@ -46,7 +44,6 @@ in
         sops.secrets.tailscale-ephemeral-auth-key = { };
         services.tailscale = {
           authKeyFile = config.sops.secrets.tailscale-ephemeral-auth-key.path;
-          extraUpFlags = mkForce (tailscaleExtraUpFlags ++ [ "--hostname${hostName}-test" ]);
         };
       })
     ]
