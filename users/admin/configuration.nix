@@ -12,7 +12,7 @@ let
   secretsPath = toString inputs.evilsecrets;
 in
 {
-  sops.secrets.aitvaras-password = {
+  sops.secrets.admin-password = {
     sopsFile = "${secretsPath}/secrets/common/deflault.yaml";
     neededForUsers = true;
   };
