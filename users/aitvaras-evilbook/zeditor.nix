@@ -15,6 +15,7 @@ in
         "python"
       ];
       userSettings = {
+        sticky_scroll.enable = true;
         auto_signature_help = true;
         inlay_hints.enable = true;
         diagnostics.inline.enable = true;
