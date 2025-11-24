@@ -1,15 +1,14 @@
+import argparse
+import inspect
+import json
+import os
 import subprocess
 import sys
-import os
-import argparse
-import json
-from typing import cast
 from socket import gethostname
-from utils import run_command
+from typing import cast
 
 import questionary
-import inspect
-
+from utils import run_command
 
 sys.argv[0] = os.path.basename(sys.argv[0].removesuffix("/"))
 
@@ -146,7 +145,7 @@ def build_nixos_system(args: argparse.Namespace, is_remote: bool = False) -> Non
 
     if args.diff:
         diff_result_with_current(args, is_remote)
-        if args.subcommant == "boot" and args.reboot:
+        if args.subcommand == "boot" and args.reboot:
             _ = input("Press enter to reboot...")
 
 
