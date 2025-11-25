@@ -1,11 +1,17 @@
 { inputs, ... }:
+let
+  inherit (builtins) elemAt;
+  devices = [
+    "/dev/vda"
+  ];
+in
 {
   imports = [ inputs.disko.nixosModules.disko ];
   disko.devices = {
     disk = {
       nixos = {
         type = "disk";
-        device = "/dev/vda";
+        device = elemAt devices 0;
         content = {
           type = "gpt";
           partitions = {
@@ -39,12 +45,25 @@
                     ];
                     mountpoint = "/nix";
                   };
-                  "home" = {
-                    mountOptions = [ "compress=zstd" ];
-                    mountpoint = "/home";
-                  };
                 };
               };
+            };
+          };
+        };
+      };
+      home = {
+        type = "disk";
+        device = elemAt devices 1;
+        content = {
+          type = "btrfs";
+          extraArgs = [ "-f" ];
+          subvolumes = {
+            "/home" = {
+              mountOptions = [
+                "compress=zstd"
+                "noatime"
+              ];
+              mountpoint = "/home";
             };
           };
         };
