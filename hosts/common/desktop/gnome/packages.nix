@@ -19,7 +19,7 @@ in
       gnome-extension-manager
       gsettings-desktop-schemas
       dconf
-      # valent #  does not build on nixos-unstable
+      valent # does not build on nixos-unstable
       pika-backup
       endeavour
 
