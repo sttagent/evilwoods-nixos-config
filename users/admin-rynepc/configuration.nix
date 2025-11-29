@@ -1,13 +1,10 @@
+currentUser:
 {
-  evilib,
   pkgs,
   ...
 }:
-let
-  inherit (evilib.readInVarFile ../admin/vars.toml) currentUser;
-  # inherit (options.evilwoods.vars) shell;
-in
 {
+  imports = [ ../${currentUser} ];
   users.users.${currentUser}.uid = 1000;
 
   home-manager.users.${currentUser} = {

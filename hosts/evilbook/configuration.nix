@@ -6,7 +6,6 @@
 }:
 let
   secretsPath = builtins.toString inputs.evilsecrets;
-  inherit (config.evilwoods.vars) mainUser;
 in
 {
   imports = [

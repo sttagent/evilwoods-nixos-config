@@ -1,27 +1,22 @@
+currentUser:
 {
   inputs,
   # config,
-  evilib,
   pkgs,
   ...
 }:
 let
-  inherit (evilib) mkImportList;
-  inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
-  # inherit (options.evilwoods.vars) shell;
   # secretsPath = builtins.toString inputs.evilsecrets;
 in
 {
-  imports = [ ../aitvaras ] ++ (mkImportList ./.);
-
+  imports = [ ../${currentUser} ];
   home-manager = {
     sharedModules = [
       inputs.sops-nix.homeManagerModules.sops
     ];
 
     users.${currentUser} = {
-
-      sops.secrets = {
+      sops = {
         age.keyFile = "/home/${currentUser}/.config/sops/age/keys.txt";
       };
 

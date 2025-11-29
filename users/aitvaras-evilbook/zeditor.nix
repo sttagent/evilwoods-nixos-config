@@ -1,7 +1,5 @@
-{ evilib, ... }:
-let
-  inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
-in
+currentUser:
+{ ... }:
 {
   home-manager.users.${currentUser} = {
     programs.zed-editor = {

@@ -1,7 +1,5 @@
-{ evilib, pkgs, ... }:
-let
-  inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
-in
+currentUser:
+{ pkgs, ... }:
 {
   home-manager.users.${currentUser} = {
     programs = {

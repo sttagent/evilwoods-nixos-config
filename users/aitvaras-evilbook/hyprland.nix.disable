@@ -1,8 +1,7 @@
-{ evilib, pkgs, ... }:
+currentUser: { evilib, pkgs, ... }:
 let
   inherit (builtins) readFile;
   inherit (evilib) readInVarFile;
-  inherit (readInVarFile ../aitvaras/vars.toml) currentUser;
 in
 {
   home-manager.users.${currentUser} = {

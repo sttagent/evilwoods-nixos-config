@@ -1,14 +1,12 @@
+currentUser:
 {
   inputs,
   config,
-  evilib,
   pkgs,
   dotFilesPath,
   ...
 }: # os configuration is reachable via nixosConfig
 let
-  inherit (evilib.readInVarFile ./vars.toml) currentUser;
-  inherit (config.evilwoods.vars) shell;
   secretsPath = toString inputs.evilsecrets;
 in
 {
@@ -121,7 +119,7 @@ in
           enable = false;
           settings = {
             default_mode = "locked";
-            default_shell = shell;
+            default_shell = "fish";
             mirror_session = true;
             theme = "gruvbox-dark";
             attach_to_session = true;

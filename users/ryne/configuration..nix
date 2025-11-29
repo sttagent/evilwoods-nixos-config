@@ -1,13 +1,10 @@
+currentUser:
 {
   inputs,
   config,
-  evilib,
-  pkgs,
-  dotFilesPath,
   ...
 }: # os configuration is reachable via nixosConfig
 let
-  inherit (evilib.readInVarFile ./vars.toml) currentUser;
   inherit (builtins) toString;
   secretsPath = toString inputs.evilsecrets;
 in

@@ -1,4 +1,5 @@
 {
+
   description = "Evilwoods nixos config";
 
   inputs = {

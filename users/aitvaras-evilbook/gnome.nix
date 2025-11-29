@@ -1,6 +1,6 @@
-{ evilib, inputs, ... }:
+currentUser:
+{ inputs, ... }:
 let
-  inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
   hmlib = inputs.home-manager.lib;
   hmlibgv = hmlib.hm.gvariant;
   resourceDir = inputs.self.outPath + "/resources";

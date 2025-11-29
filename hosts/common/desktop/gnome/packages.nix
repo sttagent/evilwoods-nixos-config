@@ -27,6 +27,7 @@ in
       gnomeExtensions.valent
       gnomeExtensions.battery-health-charging
       gnomeExtensions.blur-my-shell
+
     ];
 
     environment.gnome.excludePackages = with pkgs; [

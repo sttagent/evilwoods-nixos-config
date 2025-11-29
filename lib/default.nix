@@ -10,15 +10,15 @@ let
     fromTOML
     listToAttrs
     map
+    head
     ;
 
   inherit (lib)
     hasSuffix
     nameValuePair
-    mapAttrs
     concatMapAttrs
-    mkIf
     optionalAttrs
+    splitString
     ;
 
   inherit (lib.filesystem) listFilesRecursive;
@@ -39,6 +39,14 @@ rec {
         "test.nix"
       ]
     );
+
+  mkUserImportList =
+    path:
+    let
+      userName = baseNameOf path |> splitString "-" |> head;
+      applyUserName = file: import file userName;
+    in
+    path |> mkImportList |> map applyUserName;
 
   findAllHosts =
     hostsPath:
