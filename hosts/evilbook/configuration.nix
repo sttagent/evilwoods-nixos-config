@@ -70,6 +70,8 @@
   };
 
   system = {
+    # nixos-init.enable = true;
+    # etc.overlay.enable = true;
 
     stateVersion = "25.11";
   };
