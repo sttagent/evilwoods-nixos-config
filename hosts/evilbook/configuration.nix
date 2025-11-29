@@ -119,6 +119,7 @@
 
   # system.etc.overlay.enable = true;
   services = {
+    firewalld.enable = true;
     userborn.enable = true;
 
     rpcbind.enable = true;
