@@ -15,10 +15,10 @@ in
         "python"
       ];
       userSettings = {
-        sticky_scroll.enable = true;
+        sticky_scroll.enabled = true;
         auto_signature_help = true;
-        inlay_hints.enable = true;
-        diagnostics.inline.enable = true;
+        inlay_hints.enabled = true;
+        diagnostics.inline.enabled = true;
         theme = {
           mode = "system";
           light = "Gruvbox Light Hard";
@@ -54,7 +54,7 @@ in
               "nixd"
               "!nil"
             ];
-            formater = {
+            formatter = {
               external = {
                 command = "nixfmt";
                 arguments = [ "--quiet" ];
