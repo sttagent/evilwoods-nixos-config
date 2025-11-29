@@ -1,4 +1,6 @@
 {
+  inputs,
+  config,
   evilib,
   pkgs,
   ...
@@ -7,11 +9,20 @@ let
   inherit (evilib) mkImportList;
   inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
   # inherit (options.evilwoods.vars) shell;
+  secretsPath = builtins.toString inputs.evilsecrets;
 in
 {
   imports = [ ../aitvaras ] ++ (mkImportList ./.);
 
+  home-manager.sharedModules = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
+
   home-manager.users.${currentUser} = {
+
+    sops.secrets = {
+      age.keyFile = "/home/${currentUser}/.config/sops/age/keys.txt";
+    };
 
     programs = {
       home-manager.enable = true;
