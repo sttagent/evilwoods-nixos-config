@@ -157,7 +157,6 @@ in
         autostart = {
           enable = true;
           entries = [
-            "${pkgs.filen-desktop}/share/applications/filen-desktop.desktop"
           ];
         };
         configFile = {
