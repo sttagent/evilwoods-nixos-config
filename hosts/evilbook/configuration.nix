@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  secretsPath = builtins.toString inputs.evilsecrets;
+in
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -26,8 +29,14 @@
 
   sops.secrets = {
     "network-manager.env" = { };
+    "network-manager-b629.env" = {
+      sopsFile = secretsPath + "/secrets/aitvaras/default.yaml";
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
     evilwoods-nix-key = {
-      sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/nix-key.yaml");
+      sopsFile = secretsPath + "/secrets/aitvaras/nix-key.yaml";
       owner = "root";
       group = "root";
       mode = "0400";
@@ -85,7 +94,10 @@
       enable = true;
       wifi.backend = "iwd";
       ensureProfiles = {
-        environmentFiles = [ config.sops.secrets."network-manager.env".path ];
+        environmentFiles = [
+          config.sops.secrets."network-manager.env".path
+          config.sops.secrets."network-manager-b629.env".path
+        ];
         profiles = {
           evilwoods-5G = {
             connection = {
@@ -102,6 +114,31 @@
               auth-alg = "open";
               key-mgmt = "wpa-psk";
               psk = "$evilwoods_psk";
+            };
+            ipv4 = {
+              method = "auto";
+            };
+            ipv6 = {
+              addr-gen-mode = "default";
+              method = "auto";
+            };
+            proxy = { };
+          };
+          b629-5G = {
+            connection = {
+              id = "629-5GHz";
+              type = "wifi";
+              interface-name = "wlan0";
+              autoconnect = true;
+            };
+            wifi = {
+              mode = "infrastructure";
+              ssid = "629-5GHz";
+            };
+            wifi-security = {
+              auth-alg = "open";
+              key-mgmt = "wpa-psk";
+              psk = "$b629_psk";
             };
             ipv4 = {
               method = "auto";
