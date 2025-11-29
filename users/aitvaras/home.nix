@@ -13,7 +13,7 @@ let
 in
 {
   sops.secrets.aitvaras-password = {
-    sopsFile = "${secretsPath}/secrets/aitvaras/deflault.yaml";
+    sopsFile = "${secretsPath}/secrets/aitvaras/default.yaml";
     neededForUsers = true;
   };
 
