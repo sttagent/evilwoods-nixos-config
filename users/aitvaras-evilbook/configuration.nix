@@ -1,6 +1,6 @@
 {
   inputs,
-  config,
+  # config,
   evilib,
   pkgs,
   ...
@@ -9,7 +9,7 @@ let
   inherit (evilib) mkImportList;
   inherit (evilib.readInVarFile ../aitvaras/vars.toml) currentUser;
   # inherit (options.evilwoods.vars) shell;
-  secretsPath = builtins.toString inputs.evilsecrets;
+  # secretsPath = builtins.toString inputs.evilsecrets;
 in
 {
   imports = [ ../aitvaras ] ++ (mkImportList ./.);
