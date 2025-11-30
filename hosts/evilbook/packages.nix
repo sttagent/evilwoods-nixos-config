@@ -31,7 +31,6 @@
     gh
     obsidian
     ghostty
-    bws
     # google-chrome
 
     vivaldi-ffmpeg-codecs
