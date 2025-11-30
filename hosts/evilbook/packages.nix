@@ -18,23 +18,20 @@
     # (vivaldi.override {
     #   commandLineArgs = "--force-dark-mode";
     # })
+    # vivaldi-ffmpeg-codecs
 
     ffmpeg-full
     appimage-run
     distrobox
-    # firefox # inastalled by home-manager
     yubioath-flutter
     wl-clipboard
     discord
     zed-editor
-    # bitwarden-cli
     gh
     obsidian
     ghostty
-    # google-chrome
 
-    vivaldi-ffmpeg-codecs
-    spotify
+    # spotify
     claude-code
 
     # apps specific to Gnome
