@@ -3,18 +3,18 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixpkgs-2505.url = "nixpkgs/nixos-25.05";
-    home-manager-2505 = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs-2505";
+    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
+    home-manager-stable = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    disko-2505 = {
+    disko-stable = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs-2505";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    sops-nix-2505 = {
+    sops-nix-stable = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs-2505";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
@@ -42,7 +42,7 @@
     {
       self,
       nixpkgs-unstable,
-      nixpkgs-2505,
+      nixpkgs-stable,
       ...
     }@inputs:
     let
