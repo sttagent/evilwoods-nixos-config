@@ -26,11 +26,15 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    # quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
 
     evilsecrets = {
       url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
