@@ -41,14 +41,19 @@ User creation and configuration. Managed by home-manager.
 ## Notes
 
 ### Installation notes
-
-- clone repo with custom ssh command.
+hardware
+- clone repositories and enter install env.
 
 ```bash
-GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519_sk_rk_yubikey2 -o IdentityAgent=none" \
-git clone git@github.com:sttagent/evilwoods-nixos-config.gita && \
-GIT_SSH_COMMAND="ssh -i ~/.ssh/id_ed25519_sk_rk_yubikey2 -o IdentityAgent=none" \
-git clone git@github.com:sttagent/evilwoods-nixos-config-secrets.git
+nix run github.com/sttagent/evilwoods-nixos-config#install_env
+```
+- format disks
+```bash
+just disko mode nixosConfig
+```
+- install nixos config
+```bash
+just install-nixos nixosConfig
 ```
 
 - Setup host ssh keys.
