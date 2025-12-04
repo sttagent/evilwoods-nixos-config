@@ -39,9 +39,4 @@
     fragments
     fractal
   ];
-  programs = {
-    firefox = {
-
-    };
-  };
 }

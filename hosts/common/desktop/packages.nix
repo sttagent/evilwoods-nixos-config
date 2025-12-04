@@ -11,5 +11,6 @@ let
 in
 {
   config = mkIf isDesktop {
+    programs.firefox.enable = true;
   };
 }
