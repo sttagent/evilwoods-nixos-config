@@ -1,5 +1,11 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
+  inherit (lib) mkForce;
   inherit (config.evilwoods.vars) mainUser;
 in
 {
@@ -14,12 +20,19 @@ in
     };
 
     vmVariant = {
+      evilwoods.vars.isTestEnv = true;
+      networking.hostName = mkForce "${config.networking.hostName}-test";
       virtualisation = {
-        memorySize = 4096;
+        memorySize = 1024 * 4;
         cores = 2;
+        sharedDirectories = {
+          sshKeys = {
+            source = "/home/aitvaras/.config/evilwoods/ssh_keys/evilbook";
+            target = "/etc/ssh";
+          };
+        };
       };
     };
-
   };
 
   networking.firewall.trustedInterfaces = [ "virbr0" ];
