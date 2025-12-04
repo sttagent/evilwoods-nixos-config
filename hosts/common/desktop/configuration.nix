@@ -49,7 +49,6 @@ in
     security.rtkit.enable = true;
     security.pam.services.${mainUser}.enableGnomeKeyring = true;
 
-    # Needs to be disabled if using pipwire
     hardware = {
       bluetooth.enable = true;
     };
