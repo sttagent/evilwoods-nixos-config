@@ -99,6 +99,10 @@ in
     services.nix-daemon = {
       environment.TMPDIR = "/var/tmp";
     };
+
+    settings.Manager = {
+      DefaultTimeoutStopSec = "45s";
+    };
   };
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
