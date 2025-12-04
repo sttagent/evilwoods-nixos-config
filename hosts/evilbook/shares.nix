@@ -1,6 +1,12 @@
 { config, ... }:
 let
   inherit (config.evilwoods.vars) mainUser;
+  commonOptions = [
+    "x-systemd.automount"
+    "x-systemd.idle-timeout=5min"
+    "x-systemd.umount.force"
+    "_netdev"
+  ];
 in
 {
   boot.extraSystemdUnitPaths = [ "nfs" ];
@@ -9,20 +15,12 @@ in
     "/mnt/nfs/aitvaras_share" = {
       device = "nas.evilwoods.net:/mnt/storage/shares/aitvaras";
       fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.umount.lazy"
-        "_netdev"
-      ];
+      options = commonOptions;
     };
     "/mnt/nfs/video" = {
       device = "nas.evilwoods.net:/mnt/storage/media/video";
       fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.umount.lazy"
-        "_netdev"
-      ];
+      options = commonOptions;
     };
   };
 
