@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  inherit (config.evilwoods.vars) mainUser;
+in
 {
   boot.extraSystemdUnitPaths = [ "nfs" ];
 
@@ -25,11 +29,11 @@
   users.groups = {
     nas_aitvaras_share = {
       gid = 4000;
-      members = [ "aitvaras" ];
+      members = [ "${mainUser}" ];
     };
     nas_media = {
       gid = 4100;
-      members = [ "aitvaras" ];
+      members = [ "${mainUser}" ];
     };
   };
 }
