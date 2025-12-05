@@ -67,10 +67,6 @@
     };
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFc8oFtu7i4WBlbcDMB7ua9cHJW2bzeomrLFddokw7v aitvaras@evilbook"
-  ];
-
   fileSystems =
     let
       common_mount_options = [
@@ -85,35 +81,40 @@
         fsType = "btrfs";
         options = [
           "subvol=backups"
-        ] ++ common_mount_options;
+        ]
+        ++ common_mount_options;
       };
       "/var/storage/external-hdd/snapshots" = {
         device = "/dev/disk/by-label/external-hdd";
         fsType = "btrfs";
         options = [
           "subvol=snapshots"
-        ] ++ common_mount_options;
+        ]
+        ++ common_mount_options;
       };
       "/var/lib/containers" = {
         device = "/dev/disk/by-label/internal-ssd";
         fsType = "btrfs";
         options = [
           "subvol=containers/system"
-        ] ++ common_mount_options;
+        ]
+        ++ common_mount_options;
       };
       "/var/storage/internal-ssd/storage" = {
         device = "/dev/disk/by-label/internal-ssd";
         fsType = "btrfs";
         options = [
           "subvol=storage"
-        ] ++ common_mount_options;
+        ]
+        ++ common_mount_options;
       };
       "/var/storage/internal-ssd/snapshots" = {
         device = "/dev/disk/by-label/internal-ssd";
         fsType = "btrfs";
         options = [
           "subvol=snapshots"
-        ] ++ common_mount_options;
+        ]
+        ++ common_mount_options;
       };
     };
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
