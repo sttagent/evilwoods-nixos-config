@@ -93,7 +93,7 @@ rec {
         dotFilesPath = inputs.self.outPath + "/dotfiles";
         resourcesPath = inputs.self.outPath + "/resources";
       };
-      modules = [
+      commonModules = [
         # optional config options
         ../modules
         ../hosts/common
@@ -103,21 +103,31 @@ rec {
         hostPath
         {
           nixpkgs.hostPlatform = system;
-          networking.hostName = if makeTestHost then "${hostName}-test" else hostName;
           evilwoods.vars.mainUser = mainUser;
-          evilwoods.vars.isTestEnv = makeTestHost;
         }
       ]
       ++ (map (user: ../users/${user}-${hostName}) extraUsers);
     in
     {
       ${hostName} = nixpkgs.lib.nixosSystem {
-        inherit specialArgs modules;
+        inherit specialArgs;
+        modules = commonModules ++ [
+          {
+            networking.hostName = "${hostName}";
+            evilwoods.vars.isTestEnv = false;
+          }
+        ];
       };
     }
     // optionalAttrs makeTestHost {
       ${hostName + "-test"} = nixpkgs.lib.nixosSystem {
-        inherit specialArgs modules;
+        inherit specialArgs;
+        modules = commonModules ++ [
+          {
+            networking.hostName = "${hostName}-test";
+            evilwoods.vars.isTestEnv = true;
+          }
+        ];
       };
     };
 
