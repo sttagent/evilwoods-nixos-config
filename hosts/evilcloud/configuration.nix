@@ -4,8 +4,8 @@
 }:
 {
   imports = [
-    inputs.sops-nix-2505.nixosModules.sops
-    inputs.home-manager-2505.nixosModules.home-manager
+    inputs.sops-nix-stable.nixosModules.sops
+    inputs.home-manager-stable.nixosModules.home-manager
   ];
 
   evilwoods = {
