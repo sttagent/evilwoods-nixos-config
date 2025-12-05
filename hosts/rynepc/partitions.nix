@@ -1,9 +1,18 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 let
   inherit (builtins) elemAt;
-  devices = [
-    "/dev/vda"
-  ];
+  inherit (config.evilwoods.vars) isTestEnv;
+  devices =
+    if isTestEnv then
+      [
+        "/dev/vda"
+        "/dev/vdb"
+      ]
+    else
+      [
+        "/dev/vda"
+        "/dev/vdb"
+      ];
 in
 {
   imports = [ inputs.disko.nixosModules.disko ];
