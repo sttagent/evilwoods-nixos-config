@@ -1,11 +1,10 @@
 {
-  modulesPath,
   config,
   lib,
   ...
 }:
 let
-  inherit (lib) mkEnableOption mkIf optionals;
+  inherit (lib) mkEnableOption mkIf;
   cfg = config.evilwoods.config.vmGuest;
 in
 {
