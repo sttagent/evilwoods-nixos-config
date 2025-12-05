@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config.evilwodos.vars) mainUser;
+  inherit (config.evilwoods.vars) mainUser;
 in
 {
   boot.extraSystemdUnitPaths = [ "nfs" ];
