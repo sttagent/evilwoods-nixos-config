@@ -20,4 +20,4 @@ fi
 
 cd evilwoods-nixos-config
 
-exec nix develop ".#install_env"
+exec nix-shell
