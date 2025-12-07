@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   lib,
   ...
@@ -8,7 +7,6 @@ let
   inherit (lib)
     mkIf
     mkMerge
-    mkForce
     ;
 
   mainUser = config.evilwoods.vars.mainUser;

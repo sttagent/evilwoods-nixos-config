@@ -11,7 +11,6 @@ let
     mkForce
     ;
   secretsPath = builtins.toString inputs.evilsecrets;
-  mainUser = config.evilwoods.vars.mainUser;
   isTestEnv = config.evilwoods.vars.isTestEnv;
 in
 {
