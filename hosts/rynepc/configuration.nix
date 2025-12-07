@@ -1,8 +1,12 @@
 {
+  config,
   inputs,
   pkgs,
   ...
 }:
+let
+  inherit (config.evilwoods.vars) mainUser;
+in
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -21,6 +25,7 @@
     settings = {
       max-jobs = "auto";
       auto-optimise-store = true;
+      allowed-users = [ "${mainUser}" ];
     };
   };
 
