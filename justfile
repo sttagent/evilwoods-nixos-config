@@ -4,8 +4,11 @@ default:
 update-inputs *INPUTS:
     nix flake update --commit-lock-file {{INPUTS}}
 
-disko mode config:
-    nix run github:nix-community/disko/latest -- --mode {{mode}} --flake .#{{config}}
+disko-mount config:
+    nix run github:nix-community/disko/latest -- --mode mount --flake .#{{config}}
+
+disko-format config:
+    nix run github:nix-community/disko/latest -- --mode destroy,format,mount --flake .#{{config}}
 
 install-nixos config:
     nixos-install --no-root-password --flake .#{{config}}
