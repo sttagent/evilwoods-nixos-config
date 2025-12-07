@@ -10,8 +10,8 @@ let
       ]
     else
       [
-        "ata-LITEON_CV3-8D128_KN1280L016636011E8HC"
-        "ata-ST1000DM003-1SB102_Z9A775D4"
+        "/dev/disk/by-id/ata-LITEON_CV3-8D128_KN1280L016636011E8HC"
+        "/dev/disk/by-id/ata-ST1000DM003-1SB102_Z9A775D4"
       ];
 in
 {
