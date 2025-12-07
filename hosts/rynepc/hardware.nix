@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }:
 {
@@ -21,6 +22,21 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  boot.blacklistedKernelModules = [ "nouveau" ];
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+      ];
+    };
+    nvidia = {
+      open = false; # see the note above
+    };
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
+  services.xserver.videoDrivers = [
+    "nvidia"
+  ];
 }
