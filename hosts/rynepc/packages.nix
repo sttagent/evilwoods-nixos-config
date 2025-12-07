@@ -16,5 +16,6 @@
     notify-client
     fragments
     fractal
+    filen-desktop
   ];
 }
