@@ -96,6 +96,7 @@ rec {
       commonModules = [
         ../modules
         ../hosts/common
+        ../users/common
         ../users/${mainUser}-${hostName}
         hostPath
         {
