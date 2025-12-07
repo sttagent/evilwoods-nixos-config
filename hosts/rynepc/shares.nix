@@ -1,39 +1,45 @@
 { config, ... }:
 let
   inherit (config.evilwoods.vars) mainUser;
+  sharePath = "/var/storage/nfs/shares/${mainUser}";
 in
 {
   boot.extraSystemdUnitPaths = [ "nfs" ];
 
+  systemd.tmpFiles.rules = [
+    "d ${sharePath}"
+  ];
+
   fileSystems = {
-    "/mnt/nfs/aitvaras_share" = {
-      device = "nas.evilwoods.net:/mnt/storage/shares/aitvaras";
+    "${sharePath}" = {
+      device = "nas.evilwoods.net:/mnt/storage/shares/ryne";
       fsType = "nfs";
       options = [
         "x-systemd.automount"
+        "x-systemd.idle-timeout=5min"
         "x-systemd.umount.force"
         "_netdev"
       ];
     };
-    "/mnt/nfs/video" = {
-      device = "nas.evilwoods.net:/mnt/storage/media/video";
-      fsType = "nfs";
-      options = [
-        "x-systemd.automount"
-        "x-systemd.umount.force"
-        "_netdev"
-      ];
-    };
+    # "/mnt/nfs/video" = {
+    #   device = "nas.evilwoods.net:/mnt/storage/media/video";
+    #   fsType = "nfs";
+    #   options = [
+    #     "x-systemd.automount"
+    #     "x-systemd.umount.force"
+    #     "_netdev"
+    #   ];
+    # };
   };
 
   users.groups = {
     nas_aitvaras_share = {
-      gid = 4000;
+      gid = 4002;
       members = [ "${mainUser}" ];
     };
-    nas_media = {
-      gid = 4100;
-      members = [ "${mainUser}" ];
-    };
+    # nas_media = {
+    #   gid = 4100;
+    #   members = [ "${mainUser}" ];
+    # };
   };
 }
