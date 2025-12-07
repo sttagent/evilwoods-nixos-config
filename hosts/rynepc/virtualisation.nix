@@ -4,8 +4,10 @@ let
 in
 {
   virtualisation.vmVariant = {
-    evilwoods.vars.isTestEnv = mkForce true;
-    evilwoods.config.vmGuest = mkForce true;
+    evilwoods = {
+      vars.isTestEnv = mkForce true;
+      config.vmGuest.enable = mkForce true;
+    };
     networking.hostName = mkForce "${config.networking.hostName}-test";
     virtualisation = {
       memorySize = 1024 * 4;
