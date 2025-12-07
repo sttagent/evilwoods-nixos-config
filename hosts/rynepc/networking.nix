@@ -19,17 +19,17 @@ in
     mkMerge [
       (mkIf (!isTestEnv) {
         sops.secrets.ryne-tailscale-auth-key = {
-          sopsFile = secretsPath + "/ryne/ryne.yaml";
+          sopsFile = secretsPath + "/secrets/ryne/ryne.yaml";
         };
-        services.tailscale.authKeyFile = config.sops.secrets.ryne-tailscale-auth-key.path;
+        services.tailscale.authKeyFile = mkForce config.sops.secrets.ryne-tailscale-auth-key.path;
       })
 
       (mkIf isTestEnv {
         sops.secrets.ryne-tailscale-ephemeral-auth-key = {
-          sopsFile = secretsPath + "/ryne/ryne.yaml";
+          sopsFile = secretsPath + "/secrets/ryne/ryne.yaml";
         };
         services.tailscale = {
-          authKeyFile = config.sops.secrets.ryne-tailscale-ephemeral-auth-key.path;
+          authKeyFile = mkForce config.sops.secrets.ryne-tailscale-ephemeral-auth-key.path;
         };
       })
     ]
