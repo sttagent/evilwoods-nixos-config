@@ -94,12 +94,9 @@ rec {
         resourcesPath = inputs.self.outPath + "/resources";
       };
       commonModules = [
-        # optional config options
         ../modules
         ../hosts/common
-        # users
         ../users/${mainUser}-${hostName}
-        # hosts path in hosts folder
         hostPath
         {
           nixpkgs.hostPlatform = system;
