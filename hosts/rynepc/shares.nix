@@ -6,7 +6,7 @@ in
 {
   boot.extraSystemdUnitPaths = [ "nfs" ];
 
-  systemd.tmpFiles.rules = [
+  systemd.tmpfiles.rules = [
     "d ${sharePath}"
   ];
 
