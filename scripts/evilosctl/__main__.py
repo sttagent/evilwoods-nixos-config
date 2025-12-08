@@ -47,6 +47,12 @@ def get_arg_parser() -> argparse.ArgumentParser:
         parents=[common_remote_parser, common_build_parser],
     )
 
+    build_vm_parser = sub_parsers.add_parser(
+        "build-vm",
+        aliases=["bvm"],
+        help="build the nixos configuration",
+        parents=[common_build_parser],
+    )
     diff_parser = sub_parsers.add_parser(
         "diff",
         aliases=["d"],
@@ -147,6 +153,13 @@ def build_nixos_system(args: argparse.Namespace, is_remote: bool = False) -> Non
         diff_result_with_current(args, is_remote)
 
 
+def build_vm(args: argparse.Namespace) -> None:
+    _ = run_command(
+        ["nixos-rebuild", "build-vm", "--flake", f".#{args.nixos_config}"],
+        capture_output=False,
+    )
+
+
 def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> None:
     build_nixos_system(args, is_remote)
     _ = run_command(
@@ -192,6 +205,8 @@ def main() -> None:
             diff_result_with_current(args, is_remote)
         case "build":
             build_nixos_system(args, is_remote)
+        case "build-vm":
+            build_vm(args)
         case "test" | "switch" | "boot":
             apply_nixos_config(args, is_remote)
         case "gen-host-keys":
