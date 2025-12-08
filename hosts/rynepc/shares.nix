@@ -33,13 +33,16 @@ in
   };
 
   users.groups = {
-    nas_aitvaras_share = {
+    nas_ryne_share = {
       gid = 4002;
       members = [ "${mainUser}" ];
     };
-    # nas_media = {
-    #   gid = 4100;
-    #   members = [ "${mainUser}" ];
-    # };
+
+    nas_aitvaras_share = {
+      gid = null;
+    };
+    nas_media = {
+      gid = null;
+    };
   };
 }
