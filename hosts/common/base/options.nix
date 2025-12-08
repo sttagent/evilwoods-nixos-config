@@ -34,6 +34,12 @@ in
           description = "Enable or disable testing environment";
         };
 
+        isVmGuest = mkOption {
+          type = types.bool;
+          default = false;
+          description = "Enable or disable testing environment";
+        };
+
         configPath = mkOption {
           type = types.path;
           default = self.outPath + "/hosts/config";
