@@ -7,7 +7,7 @@
 let
   inherit (lib) mkIf;
   inherit (builtins) elem;
-  inherit (config.evilwoods.vars) desktopEnvironments;
+  inherit (config.evilwoods.flags) desktopEnvironments;
 in
 {
   config = mkIf (elem "gnome" desktopEnvironments) {

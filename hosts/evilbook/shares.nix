@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config.evilwoods.vars) mainUser;
+  inherit (config.evilwoods.flags) mainUser;
   commonOptions = [
     "x-systemd.automount"
     "x-systemd.idle-timeout=5min"

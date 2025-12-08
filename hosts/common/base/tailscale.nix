@@ -9,8 +9,8 @@ let
     mkMerge
     ;
 
-  mainUser = config.evilwoods.vars.mainUser;
-  isTestEnv = config.evilwoods.vars.isTestEnv;
+  mainUser = config.evilwoods.flags.mainUser;
+  isTestEnv = config.evilwoods.flags.isTestEnv;
 
   tailscaleExtraUpFlags = [
     "--ssh"

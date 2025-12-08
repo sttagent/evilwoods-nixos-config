@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 let
   inherit (builtins) elemAt;
-  inherit (config.evilwoods.vars) isTestEnv;
+  inherit (config.evilwoods.flags) isTestEnv;
   devices =
     if isTestEnv then
       [

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 let
   inherit (lib) mkIf;
-  isServer = config.evilwoods.vars.role == "server";
+  isServer = config.evilwoods.flags.role == "server";
 in
 {
   config = mkIf isServer {

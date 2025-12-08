@@ -11,7 +11,7 @@
   system.stateVersion = "25.11";
 
   evilwoods = {
-    vars = {
+    flags = {
       role = "server";
     };
     config = {

@@ -5,7 +5,7 @@
 }:
 let
   inherit (lib) mkIf;
-  isDesktop = config.evilwoods.vars.role == "desktop";
+  isDesktop = config.evilwoods.flags.role == "desktop";
 in
 {
   config = mkIf isDesktop {

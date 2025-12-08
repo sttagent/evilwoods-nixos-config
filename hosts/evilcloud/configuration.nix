@@ -9,7 +9,7 @@
   ];
 
   evilwoods = {
-    vars = {
+    flags = {
       role = "server";
     };
     config = {

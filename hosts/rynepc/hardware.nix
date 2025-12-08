@@ -7,7 +7,7 @@
 }:
 let
   inherit (lib) mkMerge mkIf;
-  inherit (config.evilwoods.vars) isTestEnv;
+  inherit (config.evilwoods.flags) isTestEnv;
 in
 {
   imports = [

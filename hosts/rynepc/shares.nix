@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config.evilwoods.vars) mainUser;
+  inherit (config.evilwoods.flags) mainUser;
   sharePath = "/var/storage/nfs/shares/${mainUser}";
 in
 {

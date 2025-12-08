@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (config.evilwoods.vars) mainUser;
+  inherit (config.evilwoods.flags) mainUser;
 in
 {
   imports = [
@@ -15,7 +15,7 @@ in
   ];
 
   evilwoods = {
-    vars = {
+    flags = {
       role = "desktop";
       desktopEnvironments = [ "gnome" ];
     };

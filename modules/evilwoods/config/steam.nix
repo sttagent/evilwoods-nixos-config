@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkIf mkEnableOption;
-  isDesktop = config.evilwoods.vars.role == "desktop";
+  isDesktop = config.evilwoods.flags.role == "desktop";
   cfg = config.evilwoods.config.steam;
 in
 {

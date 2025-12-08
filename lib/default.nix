@@ -101,7 +101,7 @@ rec {
         hostPath
         {
           nixpkgs.hostPlatform = system;
-          evilwoods.vars.mainUser = mainUser;
+          evilwoods.flags.mainUser = mainUser;
         }
       ]
       ++ (map (user: ../users/${user}-${hostName}) extraUsers);
@@ -112,7 +112,7 @@ rec {
         modules = commonModules ++ [
           {
             networking.hostName = "${hostName}";
-            evilwoods.vars.isTestEnv = false;
+            evilwoods.flags.isTestEnv = false;
           }
         ];
       };
@@ -123,7 +123,7 @@ rec {
         modules = commonModules ++ [
           {
             networking.hostName = "${hostName}-test";
-            evilwoods.vars.isTestEnv = true;
+            evilwoods.flags.isTestEnv = true;
           }
         ];
       };

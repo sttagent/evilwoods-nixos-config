@@ -21,7 +21,7 @@ in
 {
   options = {
     evilwoods = {
-      vars = {
+      flags = {
         mainUser = mkOption {
           type = types.str;
           default = "aitvaras";
@@ -82,20 +82,23 @@ in
           '';
         };
       };
+      config = {
+
+      };
     };
   };
 
   config = {
     assertions = [
       {
-        assertion = config.evilwoods.vars.role != null;
-        message = "evilwoods.vars.role must be set to one of: ${concatStringsSep ", " roles}";
+        assertion = config.evilwoods.flags.role != null;
+        message = "evilwoods.flags.role must be set to one of: ${concatStringsSep ", " roles}";
       }
 
       {
         assertion =
-          config.evilwoods.vars.desktopEnvironments != [ ] -> config.evilwoods.vars.role == "desktop";
-        message = "evilwoods.vars.role must be set to 'desktop' when desktopEnvironments is not empty";
+          config.evilwoods.flags.desktopEnvironments != [ ] -> config.evilwoods.flags.role == "desktop";
+        message = "evilwoods.flags.role must be set to 'desktop' when desktopEnvironments is not empty";
       }
     ];
   };

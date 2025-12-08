@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkForce;
-  inherit (config.evilwoods.vars) mainUser;
+  inherit (config.evilwoods.flags) mainUser;
 in
 {
   evilwoods.config.podman.enable = true;
@@ -20,7 +20,7 @@ in
     };
 
     vmVariant = {
-      evilwoods.vars.isTestEnv = true;
+      evilwoods.flags.isTestEnv = true;
       networking.hostName = mkForce "${config.networking.hostName}-test";
       virtualisation = {
         memorySize = 1024 * 4;

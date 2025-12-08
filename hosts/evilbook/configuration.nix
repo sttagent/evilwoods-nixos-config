@@ -20,7 +20,7 @@ in
       zsa.enable = true;
       android.enable = true;
     };
-    vars = {
+    flags = {
       role = "desktop";
       tailscaleIP = "100.68.20.3";
       desktopEnvironments = [ "gnome" ];
