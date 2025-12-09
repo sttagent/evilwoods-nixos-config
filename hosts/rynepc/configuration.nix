@@ -54,6 +54,8 @@ in
     userborn.enable = true;
 
     rpcbind.enable = true;
+
+    displayManager.gdm.autoSuspend = false;
   };
 
   programs = {
