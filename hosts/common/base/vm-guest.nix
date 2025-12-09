@@ -8,8 +8,8 @@ let
   cfg = config.evilwoods.config.vmGuest;
 in
 {
-  options.evilwoods.config.vmGuest.enable = mkEnableOption "vm guest config";
-  config = mkIf cfg.enable {
+  options.evilwoods.config.vmGuest.enabled = mkEnableOption "vm guest config";
+  config = mkIf cfg.enabled {
     hardware.enableRedistributableFirmware = lib.mkDefault true;
     boot.initrd.availableKernelModules = [
       "virtio_net"

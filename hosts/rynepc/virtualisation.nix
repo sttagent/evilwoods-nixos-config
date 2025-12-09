@@ -6,7 +6,7 @@ in
   virtualisation.vmVariant = {
     evilwoods = {
       flags.isTestEnv = mkForce true;
-      config.vmGuest.enable = mkForce true;
+      config.vmGuest.enabled = mkForce true;
     };
     networking.hostName = mkForce "${config.networking.hostName}-test";
     virtualisation = {

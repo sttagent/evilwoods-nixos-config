@@ -13,7 +13,7 @@
       role = "server";
     };
     config = {
-      vmGuest.enable = true;
+      vmGuest.enabled = true;
       podman.enable = true;
     };
   };
