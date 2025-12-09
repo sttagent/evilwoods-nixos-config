@@ -1,9 +1,9 @@
 { inputs, config, ... }:
 let
   inherit (builtins) elemAt;
-  inherit (config.evilwoods.flags) isTestEnv;
+  vmGuesEnvEnabled = config.evilwoods.vmGuest.enabled;
   devices =
-    if isTestEnv then
+    if vmGuesEnvEnabled then
       [
         "/dev/vda"
         "/dev/vdb"

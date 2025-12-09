@@ -10,7 +10,7 @@ let
     ;
 
   mainUser = config.evilwoods.flags.mainUser;
-  isTestEnv = config.evilwoods.flags.isTestEnv;
+  testEnvEnabled = config.evilwoods.testEnv.enabled;
 
   tailscaleExtraUpFlags = [
     "--ssh"
@@ -33,12 +33,12 @@ in
         };
       }
 
-      (mkIf (!isTestEnv) {
+      (mkIf (!testEnvEnabled) {
         sops.secrets.tailscale-auth-key = { };
         services.tailscale.authKeyFile = config.sops.secrets.tailscale-auth-key.path;
       })
 
-      (mkIf isTestEnv {
+      (mkIf testEnvEnabled {
         sops.secrets.tailscale-ephemeral-auth-key = { };
         services.tailscale = {
           authKeyFile = config.sops.secrets.tailscale-ephemeral-auth-key.path;

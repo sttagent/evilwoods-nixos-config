@@ -5,10 +5,10 @@ in
 {
   virtualisation.vmVariant = {
     evilwoods = {
-      flags.isTestEnv = mkForce true;
-      config.vmGuest.enabled = mkForce true;
+      testEnv.enabled = mkForce true;
+      vmGuest.enabled = mkForce true;
     };
-    networking.hostName = mkForce "${config.networking.hostName}-test";
+    networking.hostName = mkForce "${config.networking.hostName}-vm-test";
     virtualisation = {
       memorySize = 1024 * 4;
       cores = 4;

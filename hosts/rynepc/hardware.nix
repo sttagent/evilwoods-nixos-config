@@ -7,14 +7,14 @@
 }:
 let
   inherit (lib) mkMerge mkIf;
-  inherit (config.evilwoods.flags) isTestEnv;
+  vmGuestEnvNotEnabled = !config.evilwoods.vmGuest.enabled;
 in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
   config = mkMerge [
-    (mkIf (!isTestEnv) {
+    (mkIf vmGuestEnvNotEnabled {
       boot = {
         initrd = {
           availableKernelModules = [

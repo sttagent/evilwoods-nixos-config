@@ -2,7 +2,7 @@
 let
   inherit (lib) mkIf mkMerge;
 
-  inherit (config.evilwoods.flags) isTestEnv;
+  testEnvEnabled = config.evilwoods.testEnv.enabled;
   # inherit (config.evilwoods.host.vars) legoHTTPPort;
   listenHTTPPort = "1360";
 in
@@ -36,7 +36,7 @@ in
       };
     }
 
-    (mkIf isTestEnv {
+    (mkIf testEnvEnabled {
       security.acme.certs.defaults.server = "https://acme-staging-v02.api.letsencrypt.org/directory";
     })
   ];

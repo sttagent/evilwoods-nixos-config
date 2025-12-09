@@ -20,7 +20,7 @@ in
     };
 
     vmVariant = {
-      evilwoods.flags.isTestEnv = true;
+      evilwoods.testEnv.enabled = true;
       networking.hostName = mkForce "${config.networking.hostName}-test";
       virtualisation = {
         memorySize = 1024 * 4;

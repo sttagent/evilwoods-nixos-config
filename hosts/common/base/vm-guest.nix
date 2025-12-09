@@ -5,10 +5,10 @@
 }:
 let
   inherit (lib) mkEnableOption mkIf;
-  cfg = config.evilwoods.config.vmGuest;
+  cfg = config.evilwoods.vmGuest;
 in
 {
-  options.evilwoods.config.vmGuest.enabled = mkEnableOption "vm guest config";
+  options.evilwoods.vmGuest.enabled = mkEnableOption "vm guest environment";
   config = mkIf cfg.enabled {
     hardware.enableRedistributableFirmware = lib.mkDefault true;
     boot.initrd.availableKernelModules = [

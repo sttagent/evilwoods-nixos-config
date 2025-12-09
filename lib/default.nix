@@ -112,18 +112,18 @@ rec {
         modules = commonModules ++ [
           {
             networking.hostName = "${hostName}";
-            evilwoods.flags.isTestEnv = false;
           }
         ];
       };
     }
     // optionalAttrs makeTestHost {
-      ${hostName + "-test"} = nixpkgs.lib.nixosSystem {
+      ${hostName + "-vm-test"} = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
         modules = commonModules ++ [
           {
-            networking.hostName = "${hostName}-test";
-            evilwoods.flags.isTestEnv = true;
+            networking.hostName = "${hostName}-vm-test";
+            evilwoods.testEnv.enabled = true;
+            evilwoods.vmGuest.enabled = true;
           }
         ];
       };

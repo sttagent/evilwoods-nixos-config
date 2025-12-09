@@ -11,19 +11,19 @@ let
     mkForce
     ;
   secretsPath = builtins.toString inputs.evilsecrets;
-  isTestEnv = config.evilwoods.flags.isTestEnv;
+  testEnvEnabled = config.evilwoods.testEnv.enabled;
 in
 {
   config = (
     mkMerge [
-      (mkIf (!isTestEnv) {
+      (mkIf (!testEnvEnabled) {
         sops.secrets.ryne-tailscale-auth-key = {
           sopsFile = secretsPath + "/secrets/ryne/ryne.yaml";
         };
         services.tailscale.authKeyFile = mkForce config.sops.secrets.ryne-tailscale-auth-key.path;
       })
 
-      (mkIf isTestEnv {
+      (mkIf testEnvEnabled {
         sops.secrets.ryne-tailscale-ephemeral-auth-key = {
           sopsFile = secretsPath + "/secrets/ryne/ryne.yaml";
         };

@@ -11,11 +11,11 @@
   system.stateVersion = "25.11";
 
   evilwoods = {
+    vmGuest.enabled = true;
     flags = {
       role = "server";
     };
     config = {
-      vmGuest.enabled = true;
       podman.enable = true;
     };
   };
