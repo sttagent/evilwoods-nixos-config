@@ -7,12 +7,12 @@
 let
   inherit (lib) mkIf mkEnableOption;
   isDesktop = config.evilwoods.flags.role == "desktop";
-  cfg = config.evilwoods.config.steam;
+  cfg = config.evilwoods.steam;
 in
 {
-  options.evilwoods.config.steam.enable = mkEnableOption "Steam";
+  options.evilwoods.steam.enabled = mkEnableOption "Steam";
 
-  config = mkIf (isDesktop && cfg.enable) {
+  config = mkIf (isDesktop && cfg.enabled) {
     programs.steam = {
       enable = true;
       extraPackages = with pkgs; [

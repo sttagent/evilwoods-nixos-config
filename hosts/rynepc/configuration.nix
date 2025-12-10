@@ -15,6 +15,7 @@ in
   ];
 
   evilwoods = {
+    steam.enabled = true;
     flags = {
       role = "desktop";
       desktopEnvironments = [ "gnome" ];
@@ -59,8 +60,6 @@ in
   };
 
   programs = {
-    steam.enable = true;
-
     command-not-found.enable = false;
 
     nix-ld = {

@@ -25,6 +25,7 @@ in
       tailscaleIP = "100.68.20.3";
       desktopEnvironments = [ "gnome" ];
     };
+    steam.enabled = true;
   };
 
   sops.secrets = {
@@ -86,8 +87,6 @@ in
   };
 
   programs = {
-    steam.enable = true;
-
     command-not-found.enable = false;
 
     nix-ld = {
