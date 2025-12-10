@@ -9,13 +9,13 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
-  zsa = config.evilwoods.config.zsa;
+  zsa = config.evilwoods.hardware.zsa;
 in
 {
 
-  options.evilwoods.config.zsa.enable = mkEnableOption "ZSA";
+  options.evilwoods.hardware.zsa.enabled = mkEnableOption "ZSA";
 
-  config = mkIf zsa.enable {
+  config = mkIf zsa.enabled {
 
     hardware.keyboard.zsa.enable = true;
 

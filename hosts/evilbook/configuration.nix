@@ -16,10 +16,8 @@ in
 
   # host specific variables
   evilwoods = {
-    config = {
-      zsa.enable = true;
-      android.enable = true;
-    };
+    hardware.zsa.enabled = true;
+    hardware.android.enabled = true;
     flags = {
       role = "desktop";
       tailscaleIP = "100.68.20.3";

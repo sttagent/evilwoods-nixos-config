@@ -1,18 +1,17 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 let
   inherit (lib) mkIf mkEnableOption;
   mainUser = config.evilwoods.flags.mainUser;
-  cfg = config.evilwoods.config.android;
+  cfg = config.evilwoods.hardware.android;
 in
 {
-  options.evilwoods.config.android.enable = mkEnableOption "android config";
+  options.evilwoods.hardware.android.enabled = mkEnableOption "android config";
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enabled {
     users.users.${mainUser}.extraGroups = [ "adbusers" ];
     programs.adb.enable = true;
   };
