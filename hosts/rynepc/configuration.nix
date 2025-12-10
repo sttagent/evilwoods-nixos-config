@@ -57,6 +57,7 @@ in
     rpcbind.enable = true;
 
     displayManager.gdm.autoSuspend = false;
+    xserver.xkb.layout = "us,se";
   };
 
   programs = {
