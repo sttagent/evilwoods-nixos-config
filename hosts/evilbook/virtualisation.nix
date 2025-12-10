@@ -9,7 +9,7 @@ let
   inherit (config.evilwoods.flags) mainUser;
 in
 {
-  evilwoods.config.podman.enable = true;
+  evilwoods.podman.enabled = true;
 
   virtualisation = {
     libvirtd = {

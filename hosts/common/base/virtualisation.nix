@@ -1,16 +1,16 @@
 { lib, config, ... }:
 let
   inherit (lib) mkIf mkEnableOption;
-  cfg = config.evilwoods.config.podman;
+  cfg = config.evilwoods.podman;
 in
 {
   options = {
-    evilwoods.config = {
-      podman.enable = mkEnableOption "Enable podman";
+    evilwoods = {
+      podman.enabled = mkEnableOption "podman";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enabled {
     virtualisation = {
       podman = {
         enable = true;

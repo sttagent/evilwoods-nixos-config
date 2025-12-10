@@ -10,11 +10,9 @@
 
   evilwoods = {
     vmGuest.enabled = true;
+    podman.enabled = true;
     flags = {
       role = "server";
-    };
-    config = {
-      podman.enable = true;
     };
   };
 
@@ -23,12 +21,6 @@
   networking = {
     nftables.enable = true;
     useDHCP = true;
-  };
-
-  virtualisation = {
-    oci-containers = {
-      backend = "podman";
-    };
   };
 
   services.openssh = {

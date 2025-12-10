@@ -15,20 +15,12 @@
     flags = {
       role = "server";
     };
-    config = {
-      podman.enable = true;
-    };
+    podman.enabled = true;
   };
 
   networking = {
     nftables.enable = true;
     useDHCP = true;
-  };
-
-  virtualisation = {
-    oci-containers = {
-      backend = "podman";
-    };
   };
 
   services.openssh = {
