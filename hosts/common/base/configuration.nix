@@ -49,7 +49,7 @@ in
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "evilwoods.cachix.org-1:+kVRzmuwRwB+nTxSeBhtG5t2QyD7qyiD53SxhhjEj5o="
+        "evilwoods.cachix.org-1:o+vo0Td8pumN3mT5OEnicUQYTkhw4icQYIDgprBXWaI="
         "cache.evilwoods.net-1:YgsjoMYmHvVsg2E7zUiBw5k33VRsVOoBhSaNEc/fTJE="
       ];
     };
