@@ -1,8 +1,7 @@
 { inputs, ... }:
 let
   disks = [
-    "/dev/vda"
-    "/dev/vdb"
+    "/dev/sda"
   ];
 in
 {
@@ -11,66 +10,35 @@ in
   ];
   disko.devices = {
     disk = {
-      nixos = {
+      main = {
         device = builtins.elemAt disks 0;
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            boot = {
-              name = "boot";
+            MBR = {
+              priority = 0;
               size = "1M";
               type = "EF02";
             };
-            esp = {
-              name = "ESP";
-              size = "1G";
+            ESP = {
+              priority = 1;
+              size = "2G";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
               };
             };
             root = {
-              name = "root";
+              priority = 2;
               size = "100%";
               content = {
-                type = "lvm_pv";
-                vg = "pool";
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/";
               };
-            };
-          };
-        };
-      };
-
-      block-storage = {
-        device = builtins.elemAt disks 1;
-        type = "disk";
-        content = {
-          type = "filesystem";
-          format = "xfs";
-          extraArgs = [ "-f" ];
-          mountpoint = "/var/storage";
-          mountOptions = [
-            "defaults"
-            "nofail"
-          ];
-        };
-      };
-    };
-    lvm_vg = {
-      pool = {
-        type = "lvm_vg";
-        lvs = {
-          root = {
-            size = "100%FREE";
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/";
-              mountOptions = [ "defaults" ];
             };
           };
         };

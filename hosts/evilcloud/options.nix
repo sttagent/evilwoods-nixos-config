@@ -4,7 +4,7 @@ let
 in
 {
   options = {
-    evilwoods.host.vars = {
+    evilwoods.host = {
       storagePath = mkOption {
         type = types.str;
         default = "/var/storage";

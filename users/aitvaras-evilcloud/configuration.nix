@@ -7,7 +7,7 @@ let
   secretsPath = builtins.toString inputs.evilsecrets;
 in
 {
-  imports = [ ../aitvaras ];
+  imports = [ ../${currentUser} ];
 
   sops.secrets.ssh-pub-key = {
     sopsFile = "${secretsPath}/secrets/aitvaras/default.yaml";

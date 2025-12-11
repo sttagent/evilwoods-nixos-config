@@ -9,19 +9,12 @@
   ];
 
   evilwoods = {
-    vmGuest.enabled = true;
-    podman.enabled = true;
     flags = {
       role = "server";
     };
   };
 
-  system.stateVersion = "25.05";
-
-  networking = {
-    nftables.enable = true;
-    useDHCP = true;
-  };
+  system.stateVersion = "25.11";
 
   services.openssh = {
     settings = {
@@ -32,17 +25,21 @@
 
   boot = {
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-      };
-      systemd-boot = {
+      # efi = {
+      #   canTouchEfiVariables = true;
+      # };
+      # systemd-boot = {
+      #   enable = true;
+      #   configurationLimit = 10;
+      # };
+      grub = {
         enable = true;
-        configurationLimit = 100;
+        device = "/dev/sda";
+        efiSupport = true;
+        efiInstallAsRemovable = true;
       };
     };
   };
-
-  systemd.tmpfiles.rules = [ "d /var/storage/data 755 root root" ];
 
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
 }
