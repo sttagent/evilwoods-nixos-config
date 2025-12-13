@@ -34,6 +34,23 @@ in
         blacklistedKernelModules = [ "nouveau" ];
       };
 
+      environment = {
+        systemPackages = [ pkgs.libva-utils ];
+        variables = {
+          MOZ_DISABLE_RDD_SANDBOX = "1";
+          NVD_BACKEND = "direct";
+          LIBVA_DRIVER_NAME = "nvidia";
+        };
+      };
+
+      programs.firefox.preferences = {
+        "media.ffmpeg.vaapi.enabled" = true;
+        "media.hardware-video-decoding.force-enabled" = true;
+        "media.rdd-ffmpeg.enabled" = true;
+        "media.av1.enabled" = true;
+        "gfx.x11-egl.force-enabled" = true;
+        "widget.dmabuf.force-enabled" = true;
+      };
       hardware = {
         graphics = {
           enable = true;
