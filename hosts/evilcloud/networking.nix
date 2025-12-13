@@ -32,8 +32,7 @@ in
         services.tailscale = {
           authKeyFile = mkForce config.sops.secrets.tailscale-cloud-test-auth-key.path;
           extraUpFlags = [
-            "--advertise-tags"
-            "tag:cloud"
+            "--advertise-tags=tag:remote-server"
           ];
         };
       })
@@ -43,7 +42,7 @@ in
           sopsFile = secretsPath + "/secrets/common/default.yaml";
         };
         services.tailscale = {
-          extraUpFlags = [ "--advertise-tags 'tag:test,tag:cloud'" ];
+          extraUpFlags = [ "--advertise-tags=tag:test,tag:remote-server" ];
           authKeyFile = mkForce config.sops.secrets.tailscale-ephemeral-cloud-test-auth-key.path;
         };
       })
