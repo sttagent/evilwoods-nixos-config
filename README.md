@@ -1,6 +1,6 @@
 # Evilwoods NixOS Config
 
-This is my personal very much work in progress NixOS configuration.
+This is my personal, work in progress NixOS configuration.
 
 ## Folder Structure
 
@@ -15,12 +15,13 @@ NixOS system configuration folder.
 hosts:
 
 - `evilbook` - laptop
-- `evilserver` - home server (currently not used)
-- `evilcloud` - server
+- `rynepc` - desktop
+- `evilnas` - local server
+- `evilcloud` - remote server
 
 ### lib
 
-Nix functions written for this configuration.
+Nix helper functions specific to this configuration.
 
 ### overlays
 
@@ -36,7 +37,7 @@ Various helper scripts specific to this configuration.
 
 ### users
 
-User creation and configuration. Managed by home-manager.
+User creation and configuration. User confguration Managed by home-manager.
 
 ## Notes
 
@@ -55,8 +56,3 @@ just disko mode nixosConfig
 ```bash
 just install-nixos nixosConfig
 ```
-
-- Setup host ssh keys.
-  - Generate new ones with the script in secrets repo or point to old ones
-  - Update re-encrypt sops secrets
-- Install nixos using the script in the config repo
