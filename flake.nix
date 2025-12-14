@@ -32,6 +32,8 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
+    niks3.url = "github:Mic92/niks3";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     # quadlet-nix.url = "github:SEIAROTg/quadlet-nix";

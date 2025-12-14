@@ -6,6 +6,7 @@
   imports = [
     inputs.sops-nix-stable.nixosModules.sops
     inputs.home-manager-stable.nixosModules.home-manager
+    inputs.niks3.nixosModules.default
   ];
 
   evilwoods = {
@@ -13,6 +14,8 @@
       role = "server";
     };
   };
+
+  # services.niks3.enable = true;
 
   system.stateVersion = "25.11";
 
