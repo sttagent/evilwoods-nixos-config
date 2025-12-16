@@ -67,14 +67,6 @@ if [[ "$REMOTE_HASH" != "NOTFOUND" ]]; then
     }
 fi
 
-# Ensure remote directory exists
-REMOTE_DIR=$(dirname "$REMOTE_FILE")
-log_info "Ensuring remote directory exists: $REMOTE_DIR"
-ssh $SSH_OPTIONS "$REMOTE_HOST" "mkdir -p '$REMOTE_DIR'" || {
-    log_error "Failed to create remote directory"
-    exit 1
-}
-
 # Copy file to remote
 log_info "Copying file to remote..."
 scp $SSH_OPTIONS "$LOCAL_FILE" "$REMOTE_HOST:$REMOTE_FILE" || {
