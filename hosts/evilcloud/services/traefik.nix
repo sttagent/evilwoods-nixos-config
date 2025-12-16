@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  cfg = config.services.traefik;
+in
 {
   services.traefik = {
     enable = true;
@@ -22,8 +26,10 @@
       };
       api = {
         dashboard = true;
-        insecure = true;
+        insecure = false;
       };
     };
   };
+
+  systemd.tmpfiles.rules = [ "d ${cfg.dataDir}/certs 700 traefik traefik" ];
 }
