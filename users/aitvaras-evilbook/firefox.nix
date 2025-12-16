@@ -14,6 +14,7 @@ currentUser:
             force = true;
             default = "Kagi";
             order = [
+              "Kagi"
               "Evilwoods"
               "google"
             ];
