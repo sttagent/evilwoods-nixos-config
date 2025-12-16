@@ -74,6 +74,12 @@ scp $SSH_OPTIONS "$LOCAL_FILE" "$REMOTE_HOST:$REMOTE_FILE" || {
     exit 1
 }
 
+log_info "Changing file ownership..."
+ssh $SSH_OPTIONS "$REMOTE_HOST" "chown traefik:traefik '$REMOTE_FILE'" || {
+   log_error "Failed to change file ownership"
+   exit 1
+}
+
 log_info "File synced successfully"
 
 # Verify the sync
