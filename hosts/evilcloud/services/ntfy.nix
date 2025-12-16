@@ -1,8 +1,5 @@
 { config, ... }:
 let
-  inherit (builtins) toString;
-
-  inherit (config.evilwoods.host.vars) legoHTTPPort;
   inherit (config.evilwoods.flags) domain;
 
   appName = "ntfy";
