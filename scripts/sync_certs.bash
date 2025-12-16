@@ -89,7 +89,7 @@ log_info "Sync verified successfully"
 
 # Restart service
 log_info "Restarting service: $SERVICE_NAME"
-ssh $SSH_OPTIONS "$REMOTE_HOST" "sudo systemctl restart '$SERVICE_NAME'" || {
+ssh $SSH_OPTIONS "$REMOTE_HOST" "systemctl restart '$SERVICE_NAME'" || {
     log_error "Failed to restart service"
     exit 1
 }
