@@ -21,7 +21,7 @@ in
     flags = {
       role = "desktop";
       tailscaleIP = "100.68.20.3";
-      desktopEnvironments = [ "gnome" ];
+      desktopEnvironments = [ "cosmic" ];
     };
     steam.enabled = true;
   };

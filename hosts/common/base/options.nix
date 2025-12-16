@@ -16,6 +16,7 @@ let
   desktopEnvironments = [
     "gnome"
     "hyprland"
+    "cosmic"
   ];
 in
 {
