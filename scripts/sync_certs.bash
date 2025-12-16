@@ -61,7 +61,7 @@ log_warn "Files are different. Syncing from local to remote..."
 if [[ "$REMOTE_HASH" != "NOTFOUND" ]]; then
     BACKUP_FILE="${REMOTE_FILE}.backup.$(date +%Y%m%d_%H%M%S)"
     log_info "Creating backup of remote file: $BACKUP_FILE"
-    ssh $SSH_OPTIONS "$REMOTE_HOST" "cp '$REMOTE_FILE' '$BACKUP_FILE'" || {
+    ssh $SSH_OPTIONS "$REMOTE_HOST" "cp --preserve=all '$REMOTE_FILE' '$BACKUP_FILE'" || {
         log_error "Failed to create backup"
         exit 1
     }
