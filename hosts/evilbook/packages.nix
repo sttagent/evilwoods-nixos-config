@@ -36,6 +36,8 @@
 
     # apps specific to Gnome
     notify-client
+    pika-backup
+    valent
     fragments
     fractal
   ];
