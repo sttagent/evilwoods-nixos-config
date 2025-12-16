@@ -12,7 +12,7 @@ currentUser:
           isDefault = true;
           search = {
             force = true;
-            default = "Evilwoods";
+            default = "Kagi";
             order = [
               "Evilwoods"
               "google"
