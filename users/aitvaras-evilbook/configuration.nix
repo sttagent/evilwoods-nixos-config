@@ -29,10 +29,13 @@ in
             font-family = "CommitMono Nerd Font Mono";
             theme = "Miasma";
             window-theme = "ghostty";
-            window-padding-x = 2;
+            window-padding-x = 8;
+            window-padding-y = 4;
             adw-toolbar-style = "flat";
             shell-integration = "fish";
             command = "fish";
+            window-show-tab-bar = "never";
+            window-decoration = "none";
           };
         };
 
