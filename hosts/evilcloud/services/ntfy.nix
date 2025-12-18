@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config.evilwoods.flags) domain;
+  inherit (config.evilwoods.base) domain;
 
   appName = "ntfy";
   appURL = "${appName}.${domain}";

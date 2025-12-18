@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config.evilwoods.flags) domain;
+  inherit (config.evilwoods.base) domain;
   appName = "adguard";
   appURL = "${appName}.${domain}";
   adGuardListenPort = "3000";

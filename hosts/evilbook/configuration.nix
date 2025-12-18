@@ -18,10 +18,12 @@ in
   evilwoods = {
     hardware.zsa.enabled = true;
     hardware.android.enabled = true;
-    flags = {
+    desktop.desktopEnvironment = "cosmic";
+    base = {
       role = "desktop";
+    };
+    base = {
       tailscaleIP = "100.68.20.3";
-      desktopEnvironments = [ "cosmic" ];
     };
     steam.enabled = true;
   };

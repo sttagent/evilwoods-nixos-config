@@ -10,7 +10,7 @@
 }:
 let
   inherit (lib) genAttrs;
-  inherit (config.evilwoods.flags) domain;
+  inherit (config.evilwoods.base) domain;
   inherit (config.evilwoods.host.vars) dataPath;
   prefix = config.virtualisation.oci-containers.backend;
   appName = "kitchenowl";

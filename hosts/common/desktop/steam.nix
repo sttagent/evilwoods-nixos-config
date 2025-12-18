@@ -6,12 +6,13 @@
 }:
 let
   inherit (lib) mkIf mkEnableOption;
-  isDesktop = config.evilwoods.flags.role == "desktop";
+  isDesktop = config.evilwoods.base.role == "desktop";
   cfg = config.evilwoods.steam;
 in
 {
   options.evilwoods.steam.enabled = mkEnableOption "Steam";
 
+  # write some assersions instead fo this.
   config = mkIf (isDesktop && cfg.enabled) {
     programs.steam = {
       enable = true;

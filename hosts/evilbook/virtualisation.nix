@@ -6,7 +6,7 @@
 }:
 let
   inherit (lib) mkForce;
-  inherit (config.evilwoods.flags) mainUser;
+  inherit (config.evilwoods.base) mainUser;
 in
 {
   evilwoods.podman.enabled = true;

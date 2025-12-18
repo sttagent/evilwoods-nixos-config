@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (config.evilwoods.flags) mainUser;
+  inherit (config.evilwoods.base) mainUser;
 in
 {
   imports = [
@@ -16,9 +16,9 @@ in
 
   evilwoods = {
     steam.enabled = true;
-    flags = {
+    desktop.desktopEnvironment = "gnome";
+    base = {
       role = "desktop";
-      desktopEnvironments = [ "gnome" ];
     };
   };
 

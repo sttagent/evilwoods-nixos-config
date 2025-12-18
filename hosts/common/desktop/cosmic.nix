@@ -6,10 +6,10 @@
 let
   inherit (lib) mkIf;
   inherit (builtins) elem;
-  inherit (config.evilwoods.flags) desktopEnvironments;
+  inherit (config.evilwoods.desktop) desktopEnvironment;
 in
 {
-  config = mkIf (elem "cosmic" desktopEnvironments) {
+  config = mkIf (desktopEnvironment == "cosmic") {
 
     services = {
       displayManager.cosmic-greeter.enable = true;

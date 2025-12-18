@@ -7,7 +7,7 @@
 let
   inherit (builtins) head;
   inherit (lib) genAttrs splitString;
-  inherit (config.evilwoods.flags) domain;
+  inherit (config.evilwoods.base) domain;
   inherit (config.evilwoods.host.vars) dataPath;
 
   sopsFile = builtins.toString (inputs.evilsecrets + "/secrets/aitvaras/authelia.yaml");

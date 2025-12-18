@@ -9,7 +9,7 @@ let
     mkMerge
     ;
 
-  mainUser = config.evilwoods.flags.mainUser;
+  mainUser = config.evilwoods.base.mainUser;
   testEnvEnabled = config.evilwoods.testEnv.enabled;
 
   tailscaleExtraUpFlags = [

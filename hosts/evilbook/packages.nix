@@ -4,8 +4,8 @@
 {
   environment.systemPackages = with pkgs; [
 
-    # prismlauncher pull three java versions by default.
-    # With this override I pull just the one I need fo GTNH.
+    # prismlauncher pulls three java versions by default.
+    # With this override, I pull just the one I need for GTNH.
     (prismlauncher.override {
       jdks = [
         pkgs.jdk25
@@ -20,6 +20,7 @@
     # })
     # vivaldi-ffmpeg-codecs
 
+    element-desktop
     ffmpeg-full
     appimage-run
     distrobox
@@ -30,15 +31,8 @@
     gh
     obsidian
     ghostty
-
-    # spotify
+    qbittorrent-cli
     claude-code
-
-    # apps specific to Gnome
-    notify-client
-    pika-backup
-    valent
-    fragments
-    fractal
+    vorta
   ];
 }

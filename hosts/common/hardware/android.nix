@@ -5,7 +5,7 @@
 }:
 let
   inherit (lib) mkIf mkEnableOption;
-  mainUser = config.evilwoods.flags.mainUser;
+  mainUser = config.evilwoods.base.mainUser;
   cfg = config.evilwoods.hardware.android;
 in
 {

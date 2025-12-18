@@ -22,7 +22,32 @@ in
 {
   options = {
     evilwoods = {
-      flags = {
+      constants = {
+        desktopEnvironments = mkOption {
+          type = types.listOf (types.enum desktopEnvironments);
+          default = [
+            "gnome"
+            "hyprland"
+            "cosmic"
+          ];
+          readOnly = true;
+          description = ''
+            Available configured desktop environments.
+            One of: ${concatStringsSep ", " desktopEnvironments}.
+          '';
+        };
+      };
+      base = {
+        role = mkOption {
+          type = types.nullOr (types.enum roles);
+          default = null;
+          description = ''
+            Role of the host.
+            One of: ${concatStringsSep ", " roles}.
+          '';
+        };
+      };
+      base = {
         mainUser = mkOption {
           type = types.str;
           default = "aitvaras";
@@ -59,23 +84,6 @@ in
           description = "Default shell";
         };
 
-        role = mkOption {
-          type = types.nullOr (types.enum roles);
-          default = null;
-          description = ''
-            Role of the host.
-            One of: ${concatStringsSep ", " roles}.
-          '';
-        };
-
-        desktopEnvironments = mkOption {
-          type = types.listOf (types.enum desktopEnvironments);
-          default = [ ];
-          description = ''
-            Role of the host.
-            One of: ${concatStringsSep ", " roles}.
-          '';
-        };
       };
       config = {
 
@@ -86,14 +94,14 @@ in
   config = {
     assertions = [
       {
-        assertion = config.evilwoods.flags.role != null;
-        message = "evilwoods.flags.role must be set to one of: ${concatStringsSep ", " roles}";
+        assertion = config.evilwoods.base.role != null;
+        message = "evilwoods.base.role must be set to one of: ${concatStringsSep ", " roles}";
       }
 
       {
         assertion =
-          config.evilwoods.flags.desktopEnvironments != [ ] -> config.evilwoods.flags.role == "desktop";
-        message = "evilwoods.flags.role must be set to 'desktop' when desktopEnvironments is not empty";
+          config.evilwoods.desktop.desktopEnvironment != null -> config.evilwoods.base.role == "desktop";
+        message = "evilwoods.base.role must be set to 'desktop' when desktopEnvironments is not empty";
       }
     ];
   };

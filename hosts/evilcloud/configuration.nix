@@ -10,7 +10,7 @@
   ];
 
   evilwoods = {
-    flags = {
+    base = {
       role = "server";
     };
   };

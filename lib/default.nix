@@ -101,7 +101,7 @@ rec {
         hostPath
         {
           nixpkgs.hostPlatform = system;
-          evilwoods.flags.mainUser = mainUser;
+          evilwoods.base.mainUser = mainUser;
         }
       ]
       ++ (map (user: ../users/${user}-${hostName}) extraUsers);

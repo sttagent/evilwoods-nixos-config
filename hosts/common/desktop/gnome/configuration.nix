@@ -6,12 +6,11 @@
 }:
 let
   inherit (lib) mkIf;
-  inherit (builtins) elem;
-  inherit (config.evilwoods.flags) desktopEnvironments;
+  inherit (config.evilwoods.desktop) desktopEnvironment;
 in
 {
 
-  config = mkIf (elem "gnome" desktopEnvironments) {
+  config = mkIf (desktopEnvironment == "gnome") {
 
     services = {
       displayManager.gdm.enable = true;
