@@ -32,8 +32,8 @@ in
             window-padding-x = 8;
             window-padding-y = 4;
             adw-toolbar-style = "flat";
-            shell-integration = "fish";
-            command = "fish";
+            # shell-integration = "fish";
+            command = "xonsh";
             window-show-tab-bar = "never";
             window-decoration = "none";
           };

@@ -26,7 +26,7 @@ in
         "wheel"
         "networkmanager"
       ]; # Enable ‘sudo’ for the user.
-      shell = pkgs.fish;
+      # shell = pkgs.fish;
     };
 
   };
@@ -187,10 +187,10 @@ in
           source = dotFilesPath + "/lazynvim";
           recursive = true;
         };
-        # xonsh = {
-        #   source = dotFilesPath + "/xonsh";
-        #   recursive = true;
-        # };
+        xonsh = {
+          source = dotFilesPath + "/xonsh";
+          recursive = true;
+        };
       };
     };
   };
