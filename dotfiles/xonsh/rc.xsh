@@ -10,10 +10,9 @@ $CASE_SENSITIVE_COMPLETIONS = False
 $CARAPACE_BRIDGES = "fish"
 $COMPLETIONS_CONFIRM = True
 
-#
-# aliases["ls"] = "eza"
-aliases["ll"] = "eza -l"
-aliases["lla"] = "eza -l -a"
+aliases["ls"] = "eza --group-directories-first"
+aliases["ll"] = "ls -l"
+aliases["lla"] = "ls -l -a"
 #
 
 execx($(carapace _carapace))
