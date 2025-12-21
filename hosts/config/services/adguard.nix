@@ -1,4 +1,6 @@
+{ config, ... }:
 {
+  sops.secrets.evilwoods_ip = { };
   services.adguardhome = {
     enable = true;
     host = "192.168.1.3";
@@ -40,7 +42,7 @@
         ];
       };
       dhcp = {
-        enabled = true;
+        enabled = false;
         interface_name = "enp6s18";
         dhcpv4 = {
           gateway_ip = "192.168.1.1";
@@ -139,11 +141,11 @@
     extraInputRules = ''
       ip saddr 192.168.1.4 tcp dport 3000 accept
     '';
-    allowedTCPPorts = [ 53 ];
-    allowedUDPPorts = [
-      53
-      67
-      68
-    ];
+    # allowedTCPPorts = [ 53 ];
+    # allowedUDPPorts = [
+    #   53
+    #   67
+    #   68
+    # ];
   };
 }
