@@ -38,6 +38,7 @@
         refuse_any = true;
         allowed_clients = [
           "100.64.0.0/10"
+          "46.162.126.0/24"
           "192.168.1.0/24"
         ];
       };
@@ -126,22 +127,22 @@
         rewrites = [
           {
             domain = "*.evilwoods.net";
-            answer = "100.80.252.66";
+            answer = "100.75.110.79";
           }
           {
             domain = "*.lan.evilwoods.net";
-            answer = "192.168.1.4";
+            answer = "192.168.1.2";
           }
         ];
       };
     };
   };
 
+  services.firewalld.zones.nixos-fw-default.services = [
+    "dns"
+  ];
+
   networking.firewall = {
-    extraInputRules = ''
-      ip saddr 192.168.1.4 tcp dport 3000 accept
-    '';
-    # allowedTCPPorts = [ 53 ];
     # allowedUDPPorts = [
     #   53
     #   67

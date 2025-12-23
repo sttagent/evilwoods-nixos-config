@@ -38,12 +38,13 @@ in
           ];
           ratelimit = 0;
           ratelimit_whitelist = [
-            "100.68.177.122"
+            "100.122.246.94"
             "46.162.126.31"
           ];
           refuse_any = true;
           allowed_clients = [
             "100.64.0.0/10"
+            "46.162.126.0/24"
             "192.168.1.0/24"
           ];
         };
@@ -51,7 +52,6 @@ in
           enabled = false;
         };
 
-        # TODO: block smart TVs telemetry
         filters = [
           {
             name = "AdGuard DNS filter";
@@ -125,16 +125,20 @@ in
           rewrites = [
             {
               domain = "*.evilwoods.net";
-              answer = "100.80.252.66";
+              answer = "100.75.110.79";
             }
             {
               domain = "*.lan.evilwoods.net";
-              answer = "192.168.1.4";
+              answer = "192.168.1.2";
             }
           ];
         };
       };
     };
+
+    firewalld.zones.nixos-fw-default.services = [
+      "dns"
+    ];
 
     # networking.firewall = {
     #   extraInputRules = ''
