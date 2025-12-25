@@ -4,6 +4,7 @@ let
   appName = "adguard";
   appURL = "${appName}.${domain}";
   adGuardListenPort = "3000";
+  adGuardDOHPort = "8080";
 in
 {
   services = {
@@ -13,6 +14,13 @@ in
       settings = {
         language = "en";
         theme = "auto";
+        trusted_proxies = [
+          "127.0.0.1"
+        ];
+        tls = {
+          allow_unencrypted_doh = true;
+          serve_plain_dns = true;
+        };
         dns = {
           bind_host = [ "0.0.0.0" ];
           port = 53;
@@ -46,6 +54,7 @@ in
             "100.64.0.0/10"
             "46.162.126.0/24"
             "192.168.1.0/24"
+            "eviltest"
           ];
         };
         dhcp = {
@@ -124,10 +133,12 @@ in
           };
           rewrites = [
             {
+              enabled = true;
               domain = "*.evilwoods.net";
               answer = "100.75.110.79";
             }
             {
+              enabled = true;
               domain = "*.lan.evilwoods.net";
               answer = "192.168.1.2";
             }
@@ -153,15 +164,19 @@ in
     # };
 
     traefik.dynamicConfigOptions.http = {
-      routers.${appName} = {
-        rule = "Host(`${appURL}`)";
-        service = "${appName}";
-        entryPoints = "websecure";
-        tls.certResolver = "letsencrypt";
+      routers = {
+        ${appName} = {
+          rule = "Host(`${appURL}`)";
+          service = "${appName}";
+          entryPoints = "websecure";
+          tls.certResolver = "letsencrypt";
+        };
       };
-      services.${appName}.loadBalancer.servers = [
-        { url = "http://localhost:${adGuardListenPort}"; }
-      ];
+      services = {
+        ${appName}.loadBalancer.servers = [
+          { url = "http://localhost:${adGuardListenPort}"; }
+        ];
+      };
     };
   };
 }
