@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -13,6 +14,8 @@ in
 
   config = mkIf cfg.enabled {
     users.users.${mainUser}.extraGroups = [ "adbusers" ];
-    programs.adb.enable = true;
+    environment.systemPackages = with pkgs; [
+      android-tools
+    ];
   };
 }
