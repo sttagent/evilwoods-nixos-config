@@ -23,9 +23,10 @@ currentUser:
           dark = "Gruvbox Dark Hard";
         };
         features = {
-          edit_prediction_provider = "supermaven";
+          edit_prediction_provider = "zed";
         };
         agent = {
+          default_profile = "ask";
           default_model = {
             provider = "zed.dev";
             model = "claude-4-sonnet";
