@@ -180,7 +180,18 @@ def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> Non
 
 
 def reboot_system(args: argparse.Namespace, is_remote: bool = False) -> None:
-    _ = run_command(["systemctl", "reboot"])
+    if is_remote:
+        _ = run_command(
+            [
+                "ssh",
+                f"root@{args.target_host}",
+                "sudo",
+                "systemctl",
+                "reboot",
+            ]
+        )
+    else:
+        _ = run_command(["systemctl", "reboot"])
 
 
 def generate_new_host_key(args: argparse.Namespace, is_remote: bool = False) -> None:
@@ -199,7 +210,10 @@ def main() -> None:
     if args.choose:
         args.nixos_config = choose_nixos_config()
 
-    is_remote: bool = gethostname() != args.target_host
+    is_remote: bool = False
+    if args.target_host and gethostname() != args.target_host:
+        is_remote = True
+
     match args.subcommand:
         case "diff":
             diff_result_with_current(args, is_remote)
