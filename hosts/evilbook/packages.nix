@@ -35,5 +35,6 @@
     qbittorrent-cli
     claude-code
     vorta
+    protonvpn-gui
   ];
 }
