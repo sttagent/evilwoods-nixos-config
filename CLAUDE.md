@@ -110,7 +110,7 @@ The core architecture uses `lib/default.nix` (`evilib`) to automatically discove
 1. **Host Discovery**: `findAllHosts` scans `hosts/` for `.toml` files
 2. **Host Metadata**: Each host has a `<hostname>.toml` file defining:
    - `system`: Platform architecture (e.g., "x86_64-linux")
-   - `channel`: nixpkgs channel ("nixpkgs-stable" or "nixpkgs-unstable")
+   - `channel`: nixpkgs channel ("nixkpgs-25-11" or "nixpkgs-unstable")
    - `mainUser`: Primary user name
    - `extraUsers`: Additional users (list)
    - `makeTestHost`: Whether to generate a VM test variant
