@@ -40,32 +40,32 @@ def get_arg_parser() -> argparse.ArgumentParser:
     sub_parsers = arg_parser.add_subparsers(
         title="subcommands", dest="subcommand", required=True, help="sub-command help"
     )
-    build_parser = sub_parsers.add_parser(
+    _ = sub_parsers.add_parser(
         "build",
         aliases=["b"],
         help="build the nixos configuration",
         parents=[common_remote_parser, common_build_parser],
     )
 
-    build_vm_parser = sub_parsers.add_parser(
+    _ = sub_parsers.add_parser(
         "build-vm",
         aliases=["bvm"],
         help="build the nixos configuration",
         parents=[common_build_parser],
     )
-    diff_parser = sub_parsers.add_parser(
+    _ = sub_parsers.add_parser(
         "diff",
         aliases=["d"],
         help="diff the new nixos configuration with the old",
         parents=[common_remote_parser, common_build_parser],
     )
-    test_parser = sub_parsers.add_parser(
+    _ = sub_parsers.add_parser(
         "test",
         aliases=["t"],
         help="test the nixos configuration",
         parents=[common_remote_parser, common_build_parser],
     )
-    switch_parser = sub_parsers.add_parser(
+    _ = sub_parsers.add_parser(
         "switch",
         aliases=["s"],
         help="switch to the new nixos configuration",
@@ -227,6 +227,8 @@ def main() -> None:
             generate_new_host_key(args, args.secrets_path)
         case "install":
             install_nixos_config(args, is_remote)
+        case _:
+            pass
 
 
 if __name__ == "__main__":
