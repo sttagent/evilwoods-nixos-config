@@ -23,7 +23,7 @@ currentUser:
           dark = "Everforest Dark Hard";
         };
         features = {
-          edit_prediction_provider = "zed";
+          edit_prediction_provider = "codestral";
         };
         agent = {
           default_profile = "ask";
