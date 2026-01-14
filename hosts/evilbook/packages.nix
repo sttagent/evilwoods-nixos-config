@@ -32,7 +32,7 @@
     gh
     obsidian
     ghostty
-    qbittorrent-cli
+    qbittorrent
     claude-code
     vorta
     protonvpn-gui
