@@ -34,6 +34,7 @@
     ghostty
     qbittorrent
     claude-code
+    opencode
     vorta
     protonvpn-gui
   ];
