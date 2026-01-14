@@ -4,7 +4,7 @@ currentUser:
   home-manager.users.${currentUser} = {
     programs = {
       firefox = {
-        enable = true;
+        enable = false;
         nativeMessagingHosts = [ pkgs.tridactyl-native ];
         profiles."${currentUser}" = {
           name = "${currentUser}";
