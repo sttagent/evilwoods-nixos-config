@@ -42,6 +42,11 @@
       url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
       flake = false;
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =

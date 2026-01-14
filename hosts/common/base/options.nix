@@ -17,6 +17,7 @@ let
     "gnome"
     "hyprland"
     "cosmic"
+    "niri"
   ];
 in
 {
@@ -29,6 +30,7 @@ in
             "gnome"
             "hyprland"
             "cosmic"
+            "niri"
           ];
           readOnly = true;
           description = ''

@@ -11,6 +11,7 @@ in
   imports = [
     inputs.sops-nix.nixosModules.sops
     inputs.home-manager.nixosModules.home-manager
+    inputs.noctalia.nixosModules.default
     # (modulesPath + "/profiles/perlless.nix")
   ];
 
@@ -18,7 +19,7 @@ in
   evilwoods = {
     hardware.zsa.enabled = true;
     hardware.android.enabled = true;
-    desktop.desktopEnvironment = "cosmic";
+    desktop.desktopEnvironment = "niri";
     base = {
       role = "desktop";
     };
