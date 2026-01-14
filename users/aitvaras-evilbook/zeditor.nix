@@ -19,8 +19,8 @@ currentUser:
         diagnostics.inline.enabled = true;
         theme = {
           mode = "system";
-          light = "Gruvbox Light Hard";
-          dark = "Gruvbox Dark Hard";
+          light = "Everforest Light";
+          dark = "Everforest Dark Hard";
         };
         features = {
           edit_prediction_provider = "zed";
