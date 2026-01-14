@@ -1,17 +1,11 @@
 import argparse
-import inspect
 import json
 import os
-import subprocess
-import sys
 import time
 from socket import gethostname
-from typing import cast
 
 import questionary
 from utils import run_command
-
-sys.argv[0] = os.path.basename(sys.argv[0].removesuffix("/"))
 
 
 def get_arg_parser() -> argparse.ArgumentParser:
@@ -139,7 +133,29 @@ def diff_result_with_current(args: argparse.Namespace, is_remote: bool = False) 
     current_system: str = os.path.realpath("/run/current-system")
 
     if is_remote:
-        _ = run_command(["nvd", "diff", f"{current_system}", f"{closure}"])
+        _ = run_command(
+            [
+                "ssh",
+                f"root@{args.target_host}",
+                f"nix copy --to ssh://root@{args.target_host} {closure}",
+            ]
+        )
+        current_system = run_command(
+            [
+                "ssh",
+                f"root@{args.target_host}",
+                "readlink -f /run/current-system",
+            ]
+        ).stdout
+
+        _ = run_command(
+            [
+                "ssh",
+                f"root@{args.target_host}",
+                f"nix run nixpkgs#nvd -- diff {current_system} {closure}",
+            ],
+            capture_output=False,
+        )
     else:
         _ = run_command(["nvd", "diff", f"{current_system}", f"{closure}"])
 
@@ -163,16 +179,29 @@ def build_vm(args: argparse.Namespace) -> None:
 
 def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> None:
     build_nixos_system(args, is_remote)
-    _ = run_command(
-        [
-            "nixos-rebuild",
-            args.subcommand,
-            "--ask-sudo-password",
-            "--flake",
-            f".#{args.nixos_config}",
-        ],
-        capture_output=False,
-    )
+    if is_remote:
+        _ = run_command(
+            [
+                "nixos-rebuild",
+                args.subcommand,
+                "--ask-sudo-password",
+                "--flake",
+                f".#{args.nixos_config}",
+                f"--target-host {args.target_host}",
+            ],
+            capture_output=False,
+        )
+    else:
+        _ = run_command(
+            [
+                "nixos-rebuild",
+                args.subcommand,
+                "--sudo",
+                "--flake",
+                f".#{args.nixos_config}",
+            ],
+            capture_output=False,
+        )
 
     if args.subcommand == "boot" and args.reboot:
         if args.diff:
@@ -220,6 +249,9 @@ def main() -> None:
 
     if args.choose:
         args.nixos_config = choose_nixos_config()
+
+    if args.target_host is None:
+        args.target_host = args.nixos_config
 
     is_remote: bool = False
     if args.target_host and gethostname() != args.target_host:
