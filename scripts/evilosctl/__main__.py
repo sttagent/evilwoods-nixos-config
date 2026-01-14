@@ -4,6 +4,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 from socket import gethostname
 from typing import cast
 
@@ -176,6 +177,7 @@ def apply_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> Non
     if args.subcommand == "boot" and args.reboot:
         if args.diff:
             _ = input("Press enter to reboot...")
+        countdown(3, "Rebooting in")
         reboot_system(args, is_remote)
 
 
@@ -194,7 +196,16 @@ def reboot_system(args: argparse.Namespace, is_remote: bool = False) -> None:
         _ = run_command(["systemctl", "reboot"])
 
 
-def generate_new_host_key(args: argparse.Namespace, is_remote: bool = False) -> None:
+def countdown(seconds: int, message="") -> None:
+    print()
+    for i in range(seconds, 0, -1):
+        print(f"\r{message} {i}...", end="", flush=True)
+        time.sleep(1)
+
+
+def generate_new_host_key(
+    args: argparse.Namespace, secrets_path: str, is_remote: bool = False
+) -> None:
     pass
 
 
