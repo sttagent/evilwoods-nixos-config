@@ -19,29 +19,23 @@ in
       mode = "0400";
     };
   };
+
   services.firewalld.enable = true;
 
   services.resolved = {
     enable = true;
-    dnssec = "true";
-    dnsovertls = "true";
-    domains = [ "~." ];
-    fallbackDns = [
-    ];
-    extraConfig = ''
-      DNS=76.76.2.22#27aq5r8yhzg.dns.controld.com
-    '';
+    settings.Resolve = {
+      Domains = [ "~." ];
+      DNSOverTLS = true;
+      DNSSEC = true;
+      DNS = "76.76.2.22#27aq5r8yhzg.dns.controld.com";
+    };
   };
 
   networking = {
     nftables.enable = true;
 
     wireless.iwd.enable = true;
-
-    nameservers = [
-      "127.0.0.1"
-      "::1"
-    ];
 
     networkmanager = {
       enable = true;
