@@ -19,7 +19,7 @@ in
   evilwoods = {
     hardware.zsa.enabled = true;
     hardware.android.enabled = true;
-    desktop.desktopEnvironment = "niri";
+    desktop.desktopEnvironment = "cosmic";
     base = {
       role = "desktop";
     };
