@@ -1,11 +1,13 @@
 {
   inputs,
   config,
+  lib,
   pkgs,
   ...
 }:
 let
   secretsPath = builtins.toString inputs.evilsecrets;
+  inherit (lib) mkForce;
 in
 {
   imports = [
@@ -14,6 +16,8 @@ in
     inputs.noctalia.nixosModules.default
     # (modulesPath + "/profiles/perlless.nix")
   ];
+
+  programs.firefox.enable = mkForce false;
 
   # host specific variables
   evilwoods = {
