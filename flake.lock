@@ -2,14 +2,16 @@
   "nodes": {
     "disko": {
       "inputs": {
-        "nixpkgs": ["nixpkgs-unstable"]
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
       },
       "locked": {
-        "lastModified": 1768727946,
-        "narHash": "sha256-le2GY+ZR6uRHMuOAc60sBR3gBD2BEk1qOZ3S5C/XFpU=",
+        "lastModified": 1768920986,
+        "narHash": "sha256-CNzzBsRhq7gg4BMBuTDObiWDH/rFYHEuDRVOwCcwXw4=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "558e84658d0eafc812497542ad6ca0d9654b3b0f",
+        "rev": "de5708739256238fb912c62f03988815db89ec9a",
         "type": "github"
       },
       "original": {
@@ -20,14 +22,16 @@
     },
     "disko-25-11": {
       "inputs": {
-        "nixpkgs": ["nixkpgs-25-11"]
+        "nixpkgs": [
+          "nixkpgs-25-11"
+        ]
       },
       "locked": {
-        "lastModified": 1768727946,
-        "narHash": "sha256-le2GY+ZR6uRHMuOAc60sBR3gBD2BEk1qOZ3S5C/XFpU=",
+        "lastModified": 1768920986,
+        "narHash": "sha256-CNzzBsRhq7gg4BMBuTDObiWDH/rFYHEuDRVOwCcwXw4=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "558e84658d0eafc812497542ad6ca0d9654b3b0f",
+        "rev": "de5708739256238fb912c62f03988815db89ec9a",
         "type": "github"
       },
       "original": {
@@ -54,7 +58,10 @@
     },
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": ["niks3", "nixpkgs"]
+        "nixpkgs-lib": [
+          "niks3",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1768135262,
@@ -72,14 +79,16 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": ["nixpkgs-unstable"]
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
       },
       "locked": {
-        "lastModified": 1768893778,
-        "narHash": "sha256-iSHEptqSun9Ryl1NgoKguJAjRHAFO3k9bQ9bB+UpCNA=",
+        "lastModified": 1768912518,
+        "narHash": "sha256-FJlof1jnbLIT5RbKxef/NV6RzcOj1GoMzXE4FcBFg5Y=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "895eddbee851630201154725c22e94ecd8232dbf",
+        "rev": "9c5f8aceb6ef620e881f50fe65cb4a2c6b1e8527",
         "type": "github"
       },
       "original": {
@@ -90,7 +99,9 @@
     },
     "home-manager-25-11": {
       "inputs": {
-        "nixpkgs": ["nixkpgs-25-11"]
+        "nixpkgs": [
+          "nixkpgs-25-11"
+        ]
       },
       "locked": {
         "lastModified": 1768603898,
@@ -191,14 +202,16 @@
     },
     "noctalia": {
       "inputs": {
-        "nixpkgs": ["nixpkgs-unstable"]
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
       },
       "locked": {
-        "lastModified": 1768884471,
-        "narHash": "sha256-FS+Yes26xXqcta/jyFHWmC9eU+hiI8xmV+pMdAvb5Vc=",
+        "lastModified": 1768920407,
+        "narHash": "sha256-fXPz9SuD/NTUB4UHeAw0jXZUrexEzMe6qbnOZrbyHz8=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "c47af2a23f208474813930403dc41c1470219258",
+        "rev": "ece8af751fec32876914a99c8e10d91de6159647",
         "type": "github"
       },
       "original": {
@@ -234,13 +247,15 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
-        "sops-nix": "sops-nix",
-        "sobs-nix-25-11": "sobs-nix-25-11"
+        "sobs-nix-25-11": "sobs-nix-25-11",
+        "sops-nix": "sops-nix"
       }
     },
-    "sops-nix": {
+    "sobs-nix-25-11": {
       "inputs": {
-        "nixpkgs": ["nixpkgs-unstable"]
+        "nixpkgs": [
+          "nixkpgs-25-11"
+        ]
       },
       "locked": {
         "lastModified": 1768863606,
@@ -256,9 +271,11 @@
         "type": "github"
       }
     },
-    "sobs-nix-25-11": {
+    "sops-nix": {
       "inputs": {
-        "nixpkgs": ["nixkpgs-25-11"]
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
       },
       "locked": {
         "lastModified": 1768863606,
@@ -276,7 +293,10 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": ["niks3", "nixpkgs"]
+        "nixpkgs": [
+          "niks3",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1768158989,
