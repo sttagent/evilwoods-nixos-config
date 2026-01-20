@@ -2,9 +2,7 @@
   "nodes": {
     "disko": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
+        "nixpkgs": ["nixpkgs-unstable"]
       },
       "locked": {
         "lastModified": 1768727946,
@@ -20,11 +18,9 @@
         "type": "github"
       }
     },
-    "disko-stable": {
+    "disko-25-11": {
       "inputs": {
-        "nixpkgs": [
-          "nixkpgs-25-11"
-        ]
+        "nixpkgs": ["nixkpgs-25-11"]
       },
       "locked": {
         "lastModified": 1768727946,
@@ -58,10 +54,7 @@
     },
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": [
-          "niks3",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["niks3", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1768135262,
@@ -79,9 +72,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
+        "nixpkgs": ["nixpkgs-unstable"]
       },
       "locked": {
         "lastModified": 1768893778,
@@ -97,11 +88,9 @@
         "type": "github"
       }
     },
-    "home-manager-stable": {
+    "home-manager-25-11": {
       "inputs": {
-        "nixpkgs": [
-          "nixkpgs-25-11"
-        ]
+        "nixpkgs": ["nixkpgs-25-11"]
       },
       "locked": {
         "lastModified": 1768603898,
@@ -202,9 +191,7 @@
     },
     "noctalia": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
+        "nixpkgs": ["nixpkgs-unstable"]
       },
       "locked": {
         "lastModified": 1768884471,
@@ -238,24 +225,22 @@
     "root": {
       "inputs": {
         "disko": "disko",
-        "disko-stable": "disko-stable",
+        "disko-25-11": "disko-25-11",
         "evilsecrets": "evilsecrets",
         "home-manager": "home-manager",
-        "home-manager-stable": "home-manager-stable",
+        "home-manager-25-11": "home-manager-25-11",
         "niks3": "niks3",
         "nixkpgs-25-11": "nixkpgs-25-11",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "noctalia": "noctalia",
         "sops-nix": "sops-nix",
-        "sops-nix-stable": "sops-nix-stable"
+        "sobs-nix-25-11": "sobs-nix-25-11"
       }
     },
     "sops-nix": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
+        "nixpkgs": ["nixpkgs-unstable"]
       },
       "locked": {
         "lastModified": 1768863606,
@@ -271,11 +256,9 @@
         "type": "github"
       }
     },
-    "sops-nix-stable": {
+    "sobs-nix-25-11": {
       "inputs": {
-        "nixpkgs": [
-          "nixkpgs-25-11"
-        ]
+        "nixpkgs": ["nixkpgs-25-11"]
       },
       "locked": {
         "lastModified": 1768863606,
@@ -293,10 +276,7 @@
     },
     "treefmt-nix": {
       "inputs": {
-        "nixpkgs": [
-          "niks3",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["niks3", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1768158989,

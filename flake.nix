@@ -4,15 +4,15 @@
 
   inputs = {
     nixkpgs-25-11.url = "nixpkgs/nixos-25.11";
-    home-manager-stable = {
+    home-manager-25-11 = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixkpgs-25-11";
     };
-    disko-stable = {
+    disko-25-11 = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixkpgs-25-11";
     };
-    sops-nix-stable = {
+    sobs-nix-25-11 = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixkpgs-25-11";
     };

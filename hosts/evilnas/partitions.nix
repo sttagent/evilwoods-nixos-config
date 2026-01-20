@@ -7,7 +7,7 @@ let
 in
 {
   imports = [
-    inputs.disko-stable.nixosModules.disko
+    inputs.disko-25-11.nixosModules.disko
   ];
   disko.devices = {
     disk = {

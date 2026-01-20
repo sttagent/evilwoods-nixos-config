@@ -4,8 +4,8 @@
 }:
 {
   imports = [
-    inputs.sops-nix-stable.nixosModules.sops
-    inputs.home-manager-stable.nixosModules.home-manager
+    inputs.sobs-nix-25-11.nixosModules.sops
+    inputs.home-manager-25-11.nixosModules.home-manager
   ];
 
   system.stateVersion = "25.11";
