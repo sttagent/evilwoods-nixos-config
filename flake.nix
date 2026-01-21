@@ -60,13 +60,20 @@
       system = "x86_64-linux";
       pkgs = nixpkgs-unstable.legacyPackages.${system};
       evilib = import ./lib { inherit inputs; };
+
+      commonNixOSModules = [
+        inputs.sops-nix.nixosModules.sops
+        inputs.home-manager.nixosModules.home-manager
+        inputs.noctalia.nixosModules.default
+        inputs.determinate.nixosModules.default
+      ];
     in
     {
       formatter.x86_64-linux = pkgs.nixfmt;
 
       lib = evilib;
 
-      nixosConfigurations = evilib.mkHosts ./hosts;
+      nixosConfigurations = evilib.mkHosts commonNixOSModules ./hosts;
 
       packages.x86_64-linux = {
         setup-install-env = pkgs.writeShellApplication {

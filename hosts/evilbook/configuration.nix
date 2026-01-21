@@ -10,13 +10,6 @@ let
   inherit (lib) mkForce;
 in
 {
-  imports = [
-    inputs.sops-nix.nixosModules.sops
-    inputs.home-manager.nixosModules.home-manager
-    inputs.noctalia.nixosModules.default
-    # (modulesPath + "/profiles/perlless.nix")
-  ];
-
   programs.firefox.enable = mkForce false;
 
   # host specific variables
