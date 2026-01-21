@@ -75,7 +75,7 @@ rec {
     hostVarFilePathList: hostVarFilePathList |> map mkAttr |> listToAttrs;
 
   mkHost =
-    hostName: attrs:
+    commonNixOSModules: hostName: attrs:
     let
       inherit (attrs)
         hostPath
@@ -109,11 +109,14 @@ rec {
     {
       ${hostName} = nixpkgs.lib.nixosSystem {
         inherit specialArgs;
-        modules = commonModules ++ [
-          {
-            networking.hostName = "${hostName}";
-          }
-        ];
+        modules =
+          commonModules
+          ++ commonNixOSModules
+          ++ [
+            {
+              networking.hostName = "${hostName}";
+            }
+          ];
       };
     }
     // optionalAttrs makeTestHost {
@@ -129,5 +132,7 @@ rec {
       };
     };
 
-  mkHosts = hostsPath: concatMapAttrs mkHost (mkHostAttrs (findAllHosts hostsPath));
+  mkHosts =
+    commonNixOSModules: hostsPath:
+    concatMapAttrs (mkHost commonNixOSModules) (mkHostAttrs (findAllHosts hostsPath));
 }

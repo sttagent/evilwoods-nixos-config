@@ -17,7 +17,12 @@
       inputs.nixpkgs.follows = "nixkpgs-25-11";
     };
 
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
+
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    fh.url = "https://flakehub.com/f/DeterminateSystems/fh/*";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";

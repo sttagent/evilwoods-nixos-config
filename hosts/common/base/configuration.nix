@@ -33,6 +33,7 @@ in
     nixos-option
     cachix
     jq
+    inputs.fh.packages.x86_64-linux.default
   ];
 
   nix = {
@@ -47,11 +48,13 @@ in
       substituters = [
         "https://nix-community.cachix.org/"
         "https://evilwoods.cachix.org/"
+        "https://install.determinate.systems"
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "evilwoods.cachix.org-1:o+vo0Td8pumN3mT5OEnicUQYTkhw4icQYIDgprBXWaI="
         "cache.evilwoods.net-1:YgsjoMYmHvVsg2E7zUiBw5k33VRsVOoBhSaNEc/fTJE="
+        "cache.flakehub.com-3:hJuILl5sVK4iKm86JzgdXW12Y2Hwd5G07qKtHTOcDCM="
       ];
     };
 
