@@ -5,6 +5,7 @@ import time
 from socket import gethostname
 
 import questionary
+from models import Action
 from utils import run_command
 
 
@@ -12,68 +13,62 @@ def get_arg_parser() -> argparse.ArgumentParser:
     arg_parser = argparse.ArgumentParser(
         description="Apply nixosConfigurations to local or remote hosts"
     )
-    _ = arg_parser.add_argument("--debug", action="store_true", help="dry run")
 
-    common_remote_parser = argparse.ArgumentParser(add_help=False)
-    _ = common_remote_parser.add_argument(
+    common_flags = argparse.ArgumentParser(add_help=False)
+    common_flags.add_argument("--debug", action="store_true", help="dry run")
+    common_remote_flags = argparse.ArgumentParser(add_help=False)
+    common_remote_flags.add_argument(
         "-t", "--target-host", type=str, help="the host is remote"
     )
-    common_build_parser = argparse.ArgumentParser(add_help=False)
-    _ = common_build_parser.add_argument(
+    common_build_flags = argparse.ArgumentParser(add_help=False)
+    common_build_flags.add_argument(
         "-c", "--choose", action="store_true", help="choose a configuration"
     )
-    _ = common_build_parser.add_argument(
+    common_build_flags.add_argument(
         "nixos_config",
         nargs="?",
         help="the nixos configuration to apply",
         default=None,
     )
-    _ = common_build_parser.add_argument(
+    common_build_flags.add_argument(
         "--diff", action="store_true", help="perform a diff after build"
     )
 
     sub_parsers = arg_parser.add_subparsers(
         title="subcommands", dest="subcommand", required=True, help="sub-command help"
     )
-    _ = sub_parsers.add_parser(
-        "build",
-        aliases=["b"],
+    sub_parsers.add_parser(
+        Action.BUILD.value,
         help="build the nixos configuration",
-        parents=[common_remote_parser, common_build_parser],
+        parents=[common_remote_flags, common_build_flags],
     )
 
-    _ = sub_parsers.add_parser(
-        "build-vm",
-        aliases=["bvm"],
+    sub_parsers.add_parser(
+        Action.BUILDVM.value,
         help="build the nixos configuration",
-        parents=[common_build_parser],
+        parents=[common_build_flags],
     )
-    _ = sub_parsers.add_parser(
-        "diff",
-        aliases=["d"],
+    sub_parsers.add_parser(
+        Action.DIFF.value,
         help="diff the new nixos configuration with the old",
-        parents=[common_remote_parser, common_build_parser],
+        parents=[common_remote_flags, common_build_flags],
     )
-    _ = sub_parsers.add_parser(
-        "test",
-        aliases=["t"],
+    sub_parsers.add_parser(
+        Action.TEST.value,
         help="test the nixos configuration",
-        parents=[common_remote_parser, common_build_parser],
+        parents=[common_remote_flags, common_build_flags],
     )
-    _ = sub_parsers.add_parser(
-        "switch",
-        aliases=["s"],
+    sub_parsers.add_parser(
+        Action.SWITCH.value,
         help="switch to the new nixos configuration",
-        parents=[common_remote_parser, common_build_parser],
+        parents=[common_remote_flags, common_build_flags],
     )
-
     boot_parser = sub_parsers.add_parser(
-        "boot",
-        aliases=["bo"],
+        Action.BOOT.value,
         help="boot to the new nixos configuration",
-        parents=[common_remote_parser, common_build_parser],
+        parents=[common_remote_flags, common_build_flags],
     )
-    _ = boot_parser.add_argument(
+    boot_parser.add_argument(
         "--reboot",
         action="store_true",
         help="reboot after applying the new configuration",
@@ -84,9 +79,9 @@ def get_arg_parser() -> argparse.ArgumentParser:
         "gen-host-keys",
         aliases=["ghk"],
         help="generate new host keys",
-        parents=[common_remote_parser, common_build_parser],
+        parents=[common_remote_flags, common_build_flags],
     )
-    _ = gen_host_keys_parser.add_argument(
+    gen_host_keys_parser.add_argument(
         "--secrets-path",
         type=str,
         help="the path to the secrets folder",
@@ -97,14 +92,14 @@ def get_arg_parser() -> argparse.ArgumentParser:
         "install",
         aliases=["i"],
         help="install the nixos configuration",
-        parents=[common_remote_parser, common_build_parser],
+        parents=[common_remote_flags, common_build_flags],
     )
-    _ = install_parser.add_argument(
+    install_parser.add_argument(
         "--reboot",
         action="store_true",
         help="reboot after applying the new configuration",
     )
-    _ = install_parser.add_argument(
+    install_parser.add_argument(
         "--extra-files",
         type=str,
         help="extra files to be copied to the target host",
