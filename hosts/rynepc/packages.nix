@@ -15,5 +15,6 @@
     fragments
     fractal
     filen-desktop
+    gnome-software
   ];
 }
