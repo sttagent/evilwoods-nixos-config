@@ -3,7 +3,7 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixkpgs-25-11.url = "nixpkgs/nixos-25.11";
+    nixkpgs-25-11.url = "github:NixOS/nixpkgs/nixos-25.11";
     home-manager-25-11 = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixkpgs-25-11";
@@ -48,10 +48,10 @@
       flake = false;
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # noctalia = {
+    #   url = "github:noctalia-dev/noctalia-shell";
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
   };
 
   outputs =
@@ -69,7 +69,6 @@
       commonNixOSModules = [
         inputs.sops-nix.nixosModules.sops
         inputs.home-manager.nixosModules.home-manager
-        inputs.noctalia.nixosModules.default
         inputs.determinate.nixosModules.default
       ];
     in
