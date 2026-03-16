@@ -3,119 +3,66 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    nixkpgs-25-11.url = "github:NixOS/nixpkgs/nixos-25.11";
-    home-manager-25-11 = {
+    # flake utilities
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
+
+    # Stable branch of nixpkgs
+    nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
+    home-manager-2511 = {
       url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixkpgs-25-11";
+      inputs.nixpkgs.follows = "nixpkgs-2511";
     };
-    disko-25-11 = {
+    disko-2511 = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixkpgs-25-11";
+      inputs.nixpkgs.follows = "nixpkgs-2511";
     };
-    sobs-nix-25-11 = {
+    sops-nix-2511 = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixkpgs-25-11";
+      inputs.nixpkgs.follows = "nixpkgs-2511";
     };
 
-    # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
-
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-    fh.url = "https://flakehub.com/f/DeterminateSystems/fh/*";
-
+    # Unstable branch of nixpkgs
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niks3.url = "github:Mic92/niks3";
-
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-
+    # Misc tools, utilities and modules
+    microvm = {
+      url = "github:microvm-nix/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niks3 = {
+      url = "github:Mic92/niks3";
+      inputs.nixpkgs.follows = "nixpkgs-2511";
+    };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
     # quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
 
+    # Sops-nix secrets
     evilsecrets = {
-      url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets.git";
+      url = "git+ssh://git@codeberg.org/mandatory2/evilwoods-nixos-config-secrets.git";
       flake = false;
     };
-
-    # noctalia = {
-    #   url = "github:noctalia-dev/noctalia-shell";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
   };
 
   outputs =
     {
-      self,
-      nixpkgs-unstable,
-      nixkpgs-25-11,
+      flake-parts,
+      import-tree,
       ...
     }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs-unstable.legacyPackages.${system};
-      evilib = import ./lib { inherit inputs; };
-
-      commonNixOSModules = [
-        inputs.sops-nix.nixosModules.sops
-        inputs.home-manager.nixosModules.home-manager
-        inputs.determinate.nixosModules.default
-      ];
-    in
-    {
-      formatter.x86_64-linux = pkgs.nixfmt;
-
-      lib = evilib;
-
-      nixosConfigurations = evilib.mkHosts commonNixOSModules ./hosts;
-
-      packages.x86_64-linux = {
-        setup-install-env = pkgs.writeShellApplication {
-          name = "setup-install-env";
-          runtimeInputs = with pkgs; [
-            git
-          ];
-          text = builtins.readFile ./scripts/setup-install-env.bash;
-        };
-      };
-
-      devShells.x86_64-linux = {
-        default = pkgs.mkShell {
-          name = "evilwoods-nixos-config";
-          packages = with pkgs; [
-            nixd
-            nix-output-monitor
-            nvd
-            nixfmt
-            jq
-            (python3.withPackages (
-              ps: with ps; [
-                questionary
-                python-lsp-server
-              ]
-            ))
-            basedpyright
-            ruff
-            lua-language-server
-            nixos-option
-            nix-tree
-            statix
-          ];
-        };
-
-        install_env = import ./shell.nix {
-          inherit pkgs;
-        };
-      };
-    };
+    flake-parts.lib.mkFlake { inherit inputs; } (import-tree ./modules);
 }

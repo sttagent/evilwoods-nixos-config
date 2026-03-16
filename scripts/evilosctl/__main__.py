@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import time
+from multiprocessing import Lock
 from socket import gethostname
 
 import questionary
@@ -125,34 +126,28 @@ def choose_nixos_config() -> str:
 
 def diff_result_with_current(args: argparse.Namespace, is_remote: bool = False) -> None:
     closure: str = os.path.realpath("./result")
-    current_system: str = os.path.realpath("/run/current-system")
 
     if is_remote:
         _ = run_command(
             [
-                "ssh",
-                f"root@{args.target_host}",
-                f"nix copy --to ssh://root@{args.target_host} {closure}",
+                "nix",
+                "copy",
+                "--to",
+                f"ssh://{args.target_host}",
+                "--substitute-on-destination",
+                f"{closure}",
             ]
         )
-        current_system = run_command(
-            [
-                "ssh",
-                f"root@{args.target_host}",
-                "readlink -f /run/current-system",
-            ]
-        ).stdout
-
         _ = run_command(
             [
                 "ssh",
-                f"root@{args.target_host}",
-                f"nix run nixpkgs#nvd -- diff {current_system} {closure}",
+                f"{args.target_host}",
+                f"nix run nixpkgs#nvd -- diff /run/current-system {closure}",
             ],
             capture_output=False,
         )
     else:
-        _ = run_command(["nvd", "diff", f"{current_system}", f"{closure}"])
+        _ = run_command(["nvd", "diff", "/run/current-system", f"{closure}"])
 
 
 def build_nixos_system(args: argparse.Namespace, is_remote: bool = False) -> None:
@@ -237,19 +232,21 @@ def install_nixos_config(args: argparse.Namespace, is_remote: bool = False) -> N
     pass
 
 
+def parse_target_host(target_host: str) -> str:
+    return ""
+
+
 def main() -> None:
     args = get_arg_parser().parse_args()
 
     print(args)
 
+    is_remote: bool = False
+
     if args.choose:
         args.nixos_config = choose_nixos_config()
 
-    if args.target_host is None:
-        args.target_host = args.nixos_config
-
-    is_remote: bool = False
-    if args.target_host and gethostname() != args.target_host:
+    if args.target_host is not None:
         is_remote = True
 
     match args.subcommand:

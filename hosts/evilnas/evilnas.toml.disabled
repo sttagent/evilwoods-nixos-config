@@ -1,5 +1,0 @@
-system = "x86_64-linux"
-channel = "nixkpgs-25-11"
-mainUser = "aitvaras"
-makeTestHost = false
-extraUsers = [ "ryne" ]

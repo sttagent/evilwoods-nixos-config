@@ -1,58 +1,50 @@
 # Evilwoods NixOS Config
 
-This is my personal, work in progress NixOS configuration.
+My family's computers and homelab, managed with NixOS flakes.
 
-## Folder Structure
+## The Machines
 
-### dotfiles
+| Host | What | Desktop |
+|------|------|---------|
+| evilbook | laptop | Cosmic |
+| rynepc | desktop | GNOME |
+| evilcloud | remote server | - |
 
-Various configuration files managed by home-manager I was not able to configure through home-manager module system.
+## Quick Start
 
-### hosts
+```bash
+# dev shell
+nix develop
 
-NixOS system configuration folder.
+# build
+just osctl build [host]
 
-hosts:
+# apply
+just osctl switch [host]
+```
 
-- `evilbook` - laptop
-- `rynepc` - desktop
-- `evilnas` - local server
-- `evilcloud` - remote server
+## Structure
 
-### lib
+Everything lives in `modules/`:
 
-Nix helper functions specific to this configuration.
+- `hosts/` - per-machine configs
+- `hosts/common/` - shared base, desktop, hardware modules
+- `users/` - home-manager configs per user
 
-### overlays
+Other stuff:
+- `dotfiles/` - config files home-manager can't handle
+- `scripts/` - helper scripts and evilosctl CLI
 
-Custom overlays
+## Fresh Install
 
-### packages
-
-Custom packages not packaged in nixpkgs
-
-### scripts
-
-Various helper scripts specific to this configuration.
-
-### users
-
-User creation and configuration. User confguration Managed by home-manager.
+```bash
+nix develop .#install_env
+just disko-format nixosConfig
+just install-nixos nixosConfig
+```
 
 ## Notes
 
-### Installation notes
-hardware
-- clone repositories and enter install env.
-
-```bash
-nix run github.com/sttagent/evilwoods-nixos-config#install_env
-```
-- format disks
-```bash
-just disko mode nixosConfig
-```
-- install nixos config
-```bash
-just install-nixos nixosConfig
-```
+- Uses flake-parts + import-tree for module discovery
+- Unstable channel for workstations, stable (25.11) for server
+- Secrets via sops-nix in a separate private repo
