@@ -29,6 +29,7 @@
         nixos-option
         cachix
         jq
+        fh
       ];
     };
 }
