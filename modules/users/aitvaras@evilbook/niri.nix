@@ -112,6 +112,9 @@
                     ];
                   };
                 };
+                dock = {
+                  showDockIndicator = true;
+                };
                 colorSchemes.predefinedScheme = "Everforest";
                 general = {
                   # avatarImage = "/home/drfoobar/.face";
