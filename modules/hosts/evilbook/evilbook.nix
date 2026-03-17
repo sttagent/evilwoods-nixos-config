@@ -18,7 +18,7 @@
         [
           # local Nixos modules
           # cosmic
-          cosmic
+          niri
           steam
           hardwareZSA
           hardwareAndroid

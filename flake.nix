@@ -54,6 +54,10 @@
       url = "github:NixOS/nixos-hardware";
     };
     # quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Sops-nix secrets
     evilsecrets = {
