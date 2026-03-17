@@ -20,6 +20,7 @@
           warn-dirty = false;
           allowed-users = [ "@wheel" ];
           substituters = [
+            "https://cache.nixos.org"
             "https://nix-community.cachix.org/"
             # "https://cache.evilwoods.net/"
             #"https://evilwoods.cachix.org/"
