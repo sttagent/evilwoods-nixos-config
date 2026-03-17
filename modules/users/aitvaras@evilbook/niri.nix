@@ -25,6 +25,14 @@
             inputs.noctalia.homeModules.default
           ];
 
+          dconf.settings = {
+            "org/gnome/desktop/interface" = {
+              color-scheme = "prefer-dark";
+              gtk-theme = "Adwaita-dark";
+              accent-color = "green";
+            };
+          };
+
           # configure options
           programs = {
             noctalia-shell = {
