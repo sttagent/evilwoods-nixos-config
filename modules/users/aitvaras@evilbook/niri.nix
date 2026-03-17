@@ -52,7 +52,7 @@
                       {
                         hideUnoccupied = false;
                         id = "Workspace";
-                        labelMode = "none";
+                        labelMode = "index";
                       }
                       {
                         id = "ActiveWindow";
