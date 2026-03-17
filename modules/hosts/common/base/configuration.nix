@@ -7,6 +7,9 @@
       secretsPath = toString inputs.evilsecrets;
     in
     {
+      imports = [
+        inputs.determinate.nixosModules.default
+      ];
       nix = {
         settings = {
           experimental-features = [

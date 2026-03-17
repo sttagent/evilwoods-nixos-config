@@ -31,7 +31,6 @@
           self.modules.nixos."userAitvaras@evilbook"
 
           # external Nixos modules
-          determinate.nixosModules.default
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
         ];
