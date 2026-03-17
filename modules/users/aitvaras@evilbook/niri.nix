@@ -115,9 +115,8 @@
                 dock = {
                   showDockIndicator = true;
                 };
-                colorSchemes.predefinedScheme = "Everforest";
+                colorSchemes.predefinedScheme = "Miasma";
                 general = {
-                  # avatarImage = "/home/drfoobar/.face";
                   # radiusRatio = 0.2;
                   lockScreenBlur = 0.8;
                 };
