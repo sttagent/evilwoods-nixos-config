@@ -41,6 +41,9 @@
               settings = {
                 # configure noctalia here
                 settingsVersion = 0;
+                notifications = {
+                  location = "top";
+                };
                 bar = {
                   barType = "floating";
                   floating = true;
