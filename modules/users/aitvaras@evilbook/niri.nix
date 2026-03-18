@@ -117,6 +117,12 @@
                 };
                 dock = {
                   showDockIndicator = true;
+                  pinnedStatic = true;
+                  inactiveIndicators = true;
+                  pinned-apps = [
+                    "vivaldi-stable"
+                    "com.mitchellh.ghostty"
+                  ];
                 };
                 colorSchemes.predefinedScheme = "Miasma";
                 general = {
