@@ -350,6 +350,7 @@ window-rule {
 
 window-rule {
     match  app-id=r#"firefox$"#
+    match  app-id="vivaldi-stable"
     open-maximized true
 }
 
