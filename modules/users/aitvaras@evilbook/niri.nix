@@ -76,6 +76,9 @@
                     right = [
                       {
                         id = "Tray";
+                        pinned = [
+                          "Discord"
+                        ];
                       }
                       {
                         id = "plugin:privacy-indicator";
