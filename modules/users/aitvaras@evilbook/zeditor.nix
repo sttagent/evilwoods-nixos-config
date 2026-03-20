@@ -29,9 +29,6 @@
               dark = "Everforest Dark Hard (regular)";
             };
             edit_predictions.provider = "codestral";
-            features = {
-              edit_prediction_provider = "codestral";
-            };
             agent = {
               default_profile = "ask";
               default_model = {
