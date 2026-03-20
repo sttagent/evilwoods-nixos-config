@@ -61,7 +61,7 @@
 
     # Sops-nix secrets
     evilsecrets = {
-      url = "git+ssh://git@codeberg.org/mandatory2/evilwoods-nixos-config-secrets.git";
+      url = "git@github.com:sttagent/evilwoods-nixos-config-secrets.git";
       flake = false;
     };
   };
