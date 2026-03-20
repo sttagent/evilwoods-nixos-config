@@ -100,18 +100,14 @@
     "evilsecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1772625938,
-        "narHash": "sha256-NtAnNO6fhiLDKiHpP/JR2Piu869y3SL4CnmeWcR63Gg=",
-        "ref": "refs/heads/main",
-        "rev": "c9e0cdc2fc44b144fd48e7223498f265cd98cf70",
-        "revCount": 114,
-        "type": "git",
-        "url": "ssh://git@codeberg.org/mandatory2/evilwoods-nixos-config-secrets.git"
+        "path": "git@github.com:sttagent/evilwoods-nixos-config-secrets.git",
+        "type": "path"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@codeberg.org/mandatory2/evilwoods-nixos-config-secrets.git"
-      }
+        "path": "git@github.com:sttagent/evilwoods-nixos-config-secrets.git",
+        "type": "path"
+      },
+      "parent": []
     },
     "flake-compat": {
       "flake": false,
@@ -222,11 +218,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773962693,
-        "narHash": "sha256-nf9pgktDE4E2TCavUT1vh3Nd/tfKixL1BK6P32Zp3hI=",
+        "lastModified": 1774007980,
+        "narHash": "sha256-FOnZjElEI8pqqCvB6K/1JRHTE8o4rer8driivTpq2uo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9d3c1d636e7b8ab10f357cd9bee653cd400437de",
+        "rev": "9670de2921812bc4e0452f6e3efd8c859696c183",
         "type": "github"
       },
       "original": {
@@ -338,11 +334,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1773533765,
-        "narHash": "sha256-qonGfS2lzCgCl59Zl63jF6dIRRpvW3AJooBGMaXjHiY=",
+        "lastModified": 1774018263,
+        "narHash": "sha256-HHYEwK1A22aSaxv2ibhMMkKvrDGKGlA/qObG4smrSqc=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "f8e82243fd601afb9f59ad230958bd073795cbfe",
+        "rev": "2d4b4717b2534fad5c715968c1cece04a172b365",
         "type": "github"
       },
       "original": {
@@ -478,11 +474,11 @@
         "noctalia-qs": "noctalia-qs"
       },
       "locked": {
-        "lastModified": 1773998346,
-        "narHash": "sha256-LcH6L4DWf4a1aLZHjblXxKbF8l+hOA0EpxEFGdYvJME=",
+        "lastModified": 1774029401,
+        "narHash": "sha256-pM4U3rRPs+QUh/qfPFhcpmN2g9Nb91eIro1xcLdEYnA=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "829dedc2d0efbd3ecd323d1e0e07719fd474d2eb",
+        "rev": "56457b140047e96a7a1e3bae6cf00cb9485d49a1",
         "type": "github"
       },
       "original": {
