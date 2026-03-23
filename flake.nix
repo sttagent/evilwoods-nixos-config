@@ -3,12 +3,6 @@
   description = "Evilwoods nixos config";
 
   inputs = {
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
-
-    # flake utilities
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
-
     # Stable branch of nixpkgs
     # nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-2511.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
@@ -42,6 +36,9 @@
     };
 
     # Misc tools, utilities and modules
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
     microvm = {
       url = "github:microvm-nix/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,11 +54,15 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
     };
-
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Sops-nix secrets
     evilsecrets = {
-      url = "git@github.com:sttagent/evilwoods-nixos-config-secrets.git";
+      url = "git+ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets?ref=main";
       flake = false;
     };
   };
