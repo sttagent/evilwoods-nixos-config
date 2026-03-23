@@ -15,6 +15,7 @@
             "lua"
             "toml"
             "python"
+            "kdl"
           ];
           userSettings = {
             which_key.enabled = true;
