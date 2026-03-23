@@ -69,6 +69,7 @@
         noctalia-shell.enable = true;
         tuned.enable = true;
         udisks2.enable = true;
+        gvfs.enable = true;
 
         gnome = {
           sushi.enable = true;
