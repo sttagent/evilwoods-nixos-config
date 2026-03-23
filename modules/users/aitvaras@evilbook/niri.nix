@@ -131,6 +131,7 @@
                 general = {
                   # radiusRatio = 0.2;
                   lockScreenBlur = 0.8;
+                  shadowDirection = "bottom";
                 };
                 location = {
                   monthBeforeDay = true;
