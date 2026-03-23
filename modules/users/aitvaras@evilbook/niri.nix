@@ -16,6 +16,9 @@
       noctalia-shell-bin = "${noctalia-pkg}/bin/noctalia-shell";
 
       dotFilesPath = inputs.self.outPath + "/dotfiles";
+
+      resourceDir = inputs.self.outPath + "/resources";
+      wallpaperPath = resourceDir + "/wallpapers/background.jpg";
     in
     {
       config = mkIf (desktopEnvironment == "niri") {
@@ -24,6 +27,17 @@
           imports = [
             inputs.noctalia.homeModules.default
           ];
+
+          xdg.cacheFile."noctalia/wallpapers.json" = {
+            enable = true;
+            text = builtins.toJSON {
+              defaultWallpaper = wallpaperPath;
+              wallpapers = {
+                "HDMI-A-1" = wallpaperPath;
+                "eDP-1" = wallpaperPath;
+              };
+            };
+          };
 
           dconf.settings = {
             "org/gnome/desktop/interface" = {
