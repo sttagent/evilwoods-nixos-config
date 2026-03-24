@@ -66,7 +66,6 @@
       security.polkit.enable = true;
 
       services = {
-        noctalia-shell.enable = true;
         tuned.enable = true;
         udisks2.enable = true;
         gvfs.enable = true;

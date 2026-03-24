@@ -8,13 +8,14 @@
       ...
     }:
     let
-      inherit (lib) mkIf;
+      inherit (lib) mkIf getExe;
       inherit (config.evilwoods.variables) desktopEnvironment;
       inherit (pkgs.stdenv.hostPlatform) system;
-      noctalia-pkg = inputs.noctalia.packages.${system}.default;
-      noctalia-shell-bin = "${noctalia-pkg}/bin/noctalia-shell";
+      hmlib = inputs.home-manager.lib;
+
+      noctalia-shell-exec = getExe inputs.noctalia.packages.${system}.default;
       currentUser = "aitvaras";
-      niriConfigPath = inputs.self.outPath + "/dotfiles/niri/config.kdl";
+      niriDefaultConfigPath = inputs.self.outPath + "/dotfiles/niri/config.kdl";
     in
     {
 
@@ -28,8 +29,28 @@
             };
           };
 
-          xdg.configFile."niri/config.kdl" = {
-            source = niriConfigPath;
+          xdg.configFile = {
+            "niri/config.kdl" = {
+              text = hmlib.hm.generators.toKDL { } {
+                # The elements of _children list appear before attributes in generated
+                # config file and in the order they are added to the list. _Children
+                # can also contain duplicates.
+                # Root level _children. Appears at the top of the file.
+                _children = [
+                  {
+                    include = {
+                      # Optional includes are not available in 25.11. According to the
+                      # dcoumentation, this will be available in the next version.
+                      # _props.optional = true;
+                      _args = [ (toString niriDefaultConfigPath) ];
+                    };
+                  }
+                ];
+                spawn-at-startup = [
+                  noctalia-shell-exec
+                ];
+              };
+            };
           };
 
           services = {
@@ -48,7 +69,7 @@
                       }
                     ];
                     exec = [
-                      "${noctalia-shell-bin} ipc call bar setDisplayMode always_visible eDP-1"
+                      "${noctalia-shell-exec} ipc call bar setDisplayMode always_visible eDP-1"
                     ];
                   };
                 }
@@ -69,7 +90,7 @@
                       }
                     ];
                     exec = [
-                      "${noctalia-shell-bin} ipc call bar setDisplayMode auto_hide eDP-1"
+                      "${noctalia-shell-exec} ipc call bar setDisplayMode auto_hide eDP-1"
                     ];
                   };
                 }

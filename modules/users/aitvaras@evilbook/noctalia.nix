@@ -20,6 +20,7 @@
           imports = [
             inputs.noctalia.homeModules.default
           ];
+          # xdg.autostart.entries = [ ];
           xdg.cacheFile."noctalia/wallpapers.json" = {
             enable = true;
             text = builtins.toJSON {
