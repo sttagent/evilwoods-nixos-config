@@ -19,6 +19,12 @@
         },
         {
           "id": "NotificationHistory"
+        },
+        {
+          "defaultSettings": {
+            "hideInactive": true
+          },
+          "id": "plugin:privacy-indicator"
         }
       ],
       "left": [
@@ -34,15 +40,7 @@
       "right": [
         {
           "id": "Tray",
-          "pinned": [
-            "Discord"
-          ]
-        },
-        {
-          "defaultSettings": {
-            "hideInactive": true
-          },
-          "id": "plugin:privacy-indicator"
+          "pinned": ["Discord"]
         },
         {
           "displayMode": "alwaysHide",
@@ -109,10 +107,7 @@
   },
   "dock": {
     "inactiveIndicators": true,
-    "pinned-apps": [
-      "vivaldi-stable",
-      "com.mitchellh.ghostty"
-    ],
+    "pinned-apps": ["vivaldi-stable", "com.mitchellh.ghostty"],
     "pinnedStatic": true,
     "showDockIndicator": true
   },
