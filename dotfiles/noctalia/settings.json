@@ -11,6 +11,10 @@
     "widgets": {
       "center": [
         {
+          "id": "Spacer",
+          "width": 110
+        },
+        {
           "formatHorizontal": "HH:mm",
           "formatVertical": "HH mm",
           "id": "Clock",
