@@ -1,0 +1,149 @@
+{
+  "audio": {
+    "volumeFeedback": true
+  },
+  "bar": {
+    "barType": "floating",
+    "density": "default",
+    "floating": true,
+    "position": "top",
+    "showCapsule": false,
+    "widgets": {
+      "center": [
+        {
+          "formatHorizontal": "HH:mm",
+          "formatVertical": "HH mm",
+          "id": "Clock",
+          "useMonospacedFont": true,
+          "usePrimaryColor": true
+        },
+        {
+          "id": "NotificationHistory"
+        }
+      ],
+      "left": [
+        {
+          "hideUnoccupied": false,
+          "id": "Workspace",
+          "labelMode": "index"
+        },
+        {
+          "id": "ActiveWindow"
+        }
+      ],
+      "right": [
+        {
+          "id": "Tray",
+          "pinned": [
+            "Discord"
+          ]
+        },
+        {
+          "defaultSettings": {
+            "hideInactive": true
+          },
+          "id": "plugin:privacy-indicator"
+        },
+        {
+          "displayMode": "alwaysHide",
+          "id": "plugin:kde-connect"
+        },
+        {
+          "displayMode": "forceOpen",
+          "id": "KeyboardLayout"
+        },
+        {
+          "displayMode": "alwaysHide",
+          "id": "Volume"
+        },
+        {
+          "displayMode": "alwaysHide",
+          "id": "WiFi"
+        },
+        {
+          "displayMode": "alwaysHide",
+          "id": "Bluetooth"
+        },
+        {
+          "alwaysShowPercentage": false,
+          "id": "Battery",
+          "warningThreshold": 30
+        },
+        {
+          "id": "ControlCenter",
+          "useDistroLogo": true
+        }
+      ]
+    }
+  },
+  "colorSchemes": {
+    "predefinedScheme": "Miasma"
+  },
+  "controlCenter": {
+    "cards": [
+      {
+        "enabled": true,
+        "id": "profile-card"
+      },
+      {
+        "enabled": true,
+        "id": "shortcuts-card"
+      },
+      {
+        "enabled": true,
+        "id": "audio-card"
+      },
+      {
+        "enabled": true,
+        "id": "brightness-card"
+      },
+      {
+        "enabled": false,
+        "id": "weather-card"
+      },
+      {
+        "enabled": false,
+        "id": "media-sysmon-card"
+      }
+    ]
+  },
+  "dock": {
+    "inactiveIndicators": true,
+    "pinned-apps": [
+      "vivaldi-stable",
+      "com.mitchellh.ghostty"
+    ],
+    "pinnedStatic": true,
+    "showDockIndicator": true
+  },
+  "general": {
+    "lockScreenBlur": 0.8,
+    "shadowDirection": "bottom"
+  },
+  "idle": {
+    "customCommands": [],
+    "enabled": true,
+    "fadeDuration": 5,
+    "lockTimeout": 320,
+    "screenOffTimeout": 300,
+    "suspendTimeout": 1800
+  },
+  "location": {
+    "firstDayOfWeek": 1,
+    "monthBeforeDay": true,
+    "name": "Skellefteå, Sweden",
+    "showWeekNumberInCalendar": true
+  },
+  "notifications": {
+    "location": "top"
+  },
+  "settingsVersion": 0,
+  "ui": {
+    "fontDefault": "Adwaita Sans",
+    "fontFixed": "Adwaita Mono"
+  },
+  "wallpaper": {
+    "overviewBlur": 0.8,
+    "overviewEnabled": true
+  }
+}

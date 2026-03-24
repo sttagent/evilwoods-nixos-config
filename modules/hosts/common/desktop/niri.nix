@@ -20,7 +20,6 @@
     {
       imports = [
         self.modules.nixos.desktop
-        inputs.noctalia.nixosModules.default
       ];
 
       evilwoods = {
@@ -51,6 +50,7 @@
       };
 
       environment.systemPackages = with pkgs; [
+        inputs.noctalia.packages.${system}.default
         xwayland-satellite
         # (inputs.noctalia.packages.${system}.default.override { calendarSupport = true; })
         nautilus
