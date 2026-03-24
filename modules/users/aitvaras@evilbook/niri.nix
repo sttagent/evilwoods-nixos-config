@@ -10,10 +10,8 @@
     let
       inherit (lib) mkIf getExe;
       inherit (config.evilwoods.variables) desktopEnvironment;
-      inherit (pkgs.stdenv.hostPlatform) system;
       hmlib = inputs.home-manager.lib;
-
-      noctalia-shell-exec = getExe inputs.noctalia.packages.${system}.default;
+      noctalia-shell-exec = getExe pkgs.noctalia-shell;
       currentUser = "aitvaras";
       niriDefaultConfigPath = inputs.self.outPath + "/dotfiles/niri/config.kdl";
     in

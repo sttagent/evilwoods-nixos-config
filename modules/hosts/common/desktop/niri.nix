@@ -50,9 +50,8 @@
       };
 
       environment.systemPackages = with pkgs; [
-        inputs.noctalia.packages.${system}.default
+        noctalia-shell
         xwayland-satellite
-        # (inputs.noctalia.packages.${system}.default.override { calendarSupport = true; })
         nautilus
         adwaita-icon-theme
         adw-gtk3
