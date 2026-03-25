@@ -17,10 +17,6 @@
     {
       config = mkIf (desktopEnvironment == "niri") {
         home-manager.users.${currentUser} = {
-          # import the home manager module
-          imports = [
-            inputs.noctalia.homeModules.default
-          ];
           # xdg.autostart.entries = [ ];
           xdg = {
             cacheFile."noctalia/wallpapers.json" = {
