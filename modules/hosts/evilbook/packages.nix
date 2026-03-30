@@ -40,7 +40,7 @@
         qbittorrent
         opencode
         vorta
-        protonvpn-gui
+        proton-vpn
 
         inputs.niks3.packages."x86_64-linux".niks3
       ];
