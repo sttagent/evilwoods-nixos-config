@@ -47,6 +47,14 @@
                 spawn-at-startup = [
                   noctalia-shell-exec
                 ];
+                binds = {
+                  "Super+Alt+N" = {
+                    _props = {
+                      hotkey-overlay-title = null;
+                    };
+                    spawn-sh = "pkill .quickshell-wra || exec ${noctalia-shell-exec}";
+                  };
+                };
               };
             };
           };
