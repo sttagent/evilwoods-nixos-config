@@ -52,7 +52,7 @@
                     _props = {
                       hotkey-overlay-title = null;
                     };
-                    spawn-sh = "pkill .quickshell-wra || exec ${noctalia-shell-exec}";
+                    spawn-sh = "${noctalia-shell-exec} kill || exec ${noctalia-shell-exec}";
                   };
                 };
               };
