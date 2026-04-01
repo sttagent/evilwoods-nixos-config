@@ -51,6 +51,9 @@
           "id": "plugin:kde-connect"
         },
         {
+          "id": "KeepAwake"
+        },
+        {
           "displayMode": "forceOpen",
           "id": "KeyboardLayout"
         },
