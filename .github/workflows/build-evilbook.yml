@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v5
       - uses: DeterminateSystems/determinate-nix-action@v3
       - uses: DeterminateSystems/flakehub-cache-action@v3
-      - run: nix build .#nixosConfigurations.evilbook.config.system.build.toplevel
+      - run: nix build --extra-experimental-features 'pipe-operators flakes nix-commanads' .#nixosConfigurations.evilbook.config.system.build.toplevel
       - name: Push private flake to flakehub
         uses: determinatesystems/flakehub-push@main
         with:
