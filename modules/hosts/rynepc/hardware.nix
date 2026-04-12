@@ -69,6 +69,7 @@
               ];
             };
             nvidia = {
+              package = config.boot.kernelPackages.nvidiaPackages.legacy_580;
               open = false; # see the note above
             };
             cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
