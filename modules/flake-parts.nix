@@ -27,6 +27,13 @@ let
   mkNixosConfigs =
     attrNames self.modules.nixos
     |> filter (hostName: hasPrefix "host" hostName)
+    |> filter (
+      hostName:
+      !(builtins.elem hostName [
+        "hostEvilcloud"
+        "hostNecronomicon"
+      ])
+    )
     |> map mkHost
     |> listToAttrs;
 

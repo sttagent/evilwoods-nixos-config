@@ -24,7 +24,7 @@
           # services
           serviceFail2ban
           serviceAdGuardHome
-          serviceForgejoRunner
+          # serviceForgejoRunner
           serviceNtfy
           serviceTraefik
           serviceSearx
