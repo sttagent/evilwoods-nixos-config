@@ -1,49 +1,68 @@
+{ inputs, ... }:
 {
   flake.modules.nixos.aitvarasMachines =
-    { config, ... }:
+    { config, pkgs, ... }:
     let
       inherit (config.evilwoods.variables) mainUser;
+      inherit (config.evilwoods.constants) evilwoodsDomain;
+
+      # mainUserId = config.users.users.${mainUser}.uid;
+      # userGroupId = config.users.groups.users.gid;
       commonOptions = [
         "x-systemd.automount"
-        "x-systemd.idle-timeout=5min"
+        "noauto"
+        "x-systemd.idle-timeout=60"
+        "x-systemd.device-timeout=5s"
+        "x-systemd.mount-timeout=5s"
         "x-systemd.umount.force"
         "_netdev"
+        "nofail"
+        "uid=1000"
+        "gid=100"
       ];
-      localSharePath = "/var/storage/nfs/shares";
+      nasDomain = "nas.${evilwoodsDomain}";
+      localSharePath = "/var/storage/shares";
+      localSmbSharePath = "${localSharePath}/smb";
       remoteSharePath = "/mnt/storage/shares";
-      mainUserShare = "${localSharePath}/${mainUser}";
-      videoShare = "${localSharePath}/video";
+      mainUserShare = "${localSmbSharePath}/${mainUser}";
+      pikaBackupShare = "${localSmbSharePath}/pika-backup";
+      secretsPath = toString inputs.evilsecrets;
     in
     {
-      boot.extraSystemdUnitPaths = [ "nfs" ];
+      environment.systemPackages = [ pkgs.cifs-utils ];
+
+      sops.secrets.aitvaras-samba-share-creds = {
+        sopsFile = "${secretsPath}/secrets/aitvaras/default.yaml";
+        owner = "root";
+        group = "root";
+        mode = "0400";
+      };
 
       systemd.tmpfiles.rules = [
         "d ${mainUserShare}"
-        "d ${videoShare}"
+        "d ${pikaBackupShare}"
       ];
 
-      fileSystems = {
-        "${mainUserShare}" = {
-          device = "nas.evilwoods.net:${remoteSharePath}/aitvaras";
-          fsType = "nfs";
-          options = commonOptions;
+      fileSystems =
+        let
+          options = commonOptions ++ [ "credentials=${config.sops.secrets.aitvaras-samba-share-creds.path}" ];
+        in
+        {
+          "${mainUserShare}" = {
+            device = "//${nasDomain}/aitvaras";
+            fsType = "cifs";
+            inherit options;
+          };
+          "${pikaBackupShare}" = {
+            device = "//${nasDomain}/pika-backup";
+            fsType = "cifs";
+            inherit options;
+          };
         };
-        "${videoShare}" = {
-          device = "nas.evilwoods.net:${remoteSharePath}/video";
-          fsType = "nfs";
-          options = commonOptions;
-        };
-      };
 
-      users.groups = {
-        nas_aitvaras_share = {
-          gid = 4000;
-          members = [ "${mainUser}" ];
-        };
-        nas_media = {
-          gid = 4100;
-          members = [ "${mainUser}" ];
-        };
-      };
+      # users.groups = {
+      #   nas_aitvaras_share.gid = null;
+      #   nas_media.gid = null;
+      # };
     };
 }
