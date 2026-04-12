@@ -69,7 +69,7 @@
         # nixos-init.enable = true;
         # etc.overlay.enable = true;
 
-        stateVersion = "25.11";
+        stateVersion = "26.05";
       };
 
       # system.etc.overlay.enable = true;
