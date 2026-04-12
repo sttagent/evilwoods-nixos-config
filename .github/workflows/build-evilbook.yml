@@ -17,8 +17,11 @@ jobs:
           ssh-private-key: ${{ secrets.NIXOS_SECRETS_SSH_KEY }}
       - uses: actions/checkout@v5
       - uses: DeterminateSystems/determinate-nix-action@v3
+        with:
+          extra-config:
+            extra-experimental-features: "pipe-operators flakes nix-commanads"
       - uses: DeterminateSystems/flakehub-cache-action@v3
-      - run: nix build --extra-experimental-features 'pipe-operators flakes nix-commanads' .#nixosConfigurations.evilbook.config.system.build.toplevel
+      - run: nix build .#nixosConfigurations.evilbook.config.system.build.toplevel
       - name: Push private flake to flakehub
         uses: determinatesystems/flakehub-push@main
         with:
