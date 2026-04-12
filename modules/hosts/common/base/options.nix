@@ -30,7 +30,7 @@
           };
 
           constants = {
-            domain = mkOption {
+            evilwoodsDomain = mkOption {
               type = types.str;
               default = "evilwoods.net";
               description = "Domain name";
