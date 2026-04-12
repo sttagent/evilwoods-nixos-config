@@ -11,6 +11,10 @@ jobs:
       contents: read
       id-token: write
     steps:
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.1
+        with:
+          ssh-private-key: ${{ secrets.NIXOS_SECRETS_PRIVATE_KEY }}
       - uses: actions/checkout@v5
       - uses: DeterminateSystems/determinate-nix-action@v3
       - uses: DeterminateSystems/flakehub-cache-action@v3
