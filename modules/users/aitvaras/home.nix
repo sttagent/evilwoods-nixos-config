@@ -1,4 +1,4 @@
-{ config, ... }:
+{ inputs, config, ... }:
 let
   flake-config = config;
 in
@@ -10,6 +10,8 @@ in
     }:
     let
       currentUser = "aitvaras";
+      dotFiles = inputs.self.outPath + "/dotfiles";
+      nuConfig = dotFiles + "/nushell/config.nu";
     in
     {
       home-manager = {
@@ -41,6 +43,10 @@ in
                   autocrlf = "input";
                 };
               };
+            };
+            nushell = {
+              enable = true;
+              configFile.source = nuConfig;
             };
             fish = {
               enable = true;
