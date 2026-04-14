@@ -30,6 +30,7 @@
         cachix
         jq
         fh
+        nushell
       ];
     };
 }
