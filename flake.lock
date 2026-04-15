@@ -100,11 +100,11 @@
     "evilsecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1776028893,
-        "narHash": "sha256-bs59SOrRvQ+kost7Q6AST8nA+H9Cn8zWMlOBcmfZOiA=",
+        "lastModified": 1776250310,
+        "narHash": "sha256-DgW4Jzq8BpHhdcI0tyyDE4xP3hC5DrM0MHJPM+PZxy8=",
         "ref": "main",
-        "rev": "6a1ed23e417b8cd77304345266a0310c9bf9939a",
-        "revCount": 117,
+        "rev": "43fcb66274131ce09dce98576abab82596de4510",
+        "revCount": 119,
         "type": "git",
         "url": "ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets"
       },
@@ -303,11 +303,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1776070286,
-        "narHash": "sha256-GiDr5xAeDZ92L+BXyLPB0+d37U+WIS4c8eXOr4cmvLM=",
+        "lastModified": 1776242678,
+        "narHash": "sha256-Q178nCDJmgCkasG44X9tNkVlqR3gfxJZjXMMmSbKTjM=",
         "owner": "Mic92",
         "repo": "niks3",
-        "rev": "dc879bffa9090ef0584a3225563aab4858e5aaa9",
+        "rev": "bac25926c7999d02e7932f609545c6ebd3db0b51",
         "type": "github"
       },
       "original": {
