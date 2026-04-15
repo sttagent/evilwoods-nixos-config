@@ -23,9 +23,8 @@
       nasDomain = "nas.${evilwoodsDomain}";
       localSharePath = "/var/storage/shares";
       localSmbSharePath = "${localSharePath}/smb";
-      remoteSharePath = "/mnt/storage/shares";
       mainUserShare = "${localSmbSharePath}/${mainUser}";
-      pikaBackupShare = "${localSmbSharePath}/pika-backup";
+      backupsShare = "${localSmbSharePath}/backups";
       secretsPath = toString inputs.evilsecrets;
     in
     {
@@ -40,7 +39,7 @@
 
       systemd.tmpfiles.rules = [
         "d ${mainUserShare}"
-        "d ${pikaBackupShare}"
+        "d ${backupsShare}"
       ];
 
       fileSystems =
@@ -53,16 +52,11 @@
             fsType = "cifs";
             inherit options;
           };
-          "${pikaBackupShare}" = {
-            device = "//${nasDomain}/pika-backup";
+          "${backupsShare}" = {
+            device = "//${nasDomain}/backups";
             fsType = "cifs";
             inherit options;
           };
         };
-
-      # users.groups = {
-      #   nas_aitvaras_share.gid = null;
-      #   nas_media.gid = null;
-      # };
     };
 }
