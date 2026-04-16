@@ -39,7 +39,6 @@
         ghostty
         qbittorrent
         opencode
-        vorta
         proton-vpn
 
         inputs.niks3.packages."x86_64-linux".niks3
