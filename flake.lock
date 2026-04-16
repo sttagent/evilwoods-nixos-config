@@ -280,11 +280,11 @@
         "spectrum": "spectrum"
       },
       "locked": {
-        "lastModified": 1776176805,
-        "narHash": "sha256-kspXHPoCD7JkqUyj9yidbsB15J+lV/xGLyboU8w6KY0=",
+        "lastModified": 1776340739,
+        "narHash": "sha256-s4FDictJlPtY6Shd6scG5hgrDMiHth09+svtvTA5NLA=",
         "owner": "microvm-nix",
         "repo": "microvm.nix",
-        "rev": "e91d0e3c728d2af0404bb62641150c75935f0a71",
+        "rev": "2f2f62fdfdca2750e3399f66bd03986ab967e5ca",
         "type": "github"
       },
       "original": {
@@ -303,11 +303,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1776242678,
-        "narHash": "sha256-Q178nCDJmgCkasG44X9tNkVlqR3gfxJZjXMMmSbKTjM=",
+        "lastModified": 1776315131,
+        "narHash": "sha256-wEYkwW+ZmgSeq9Mezjg77p3GMhPnssCJ9vM67/d01qU=",
         "owner": "Mic92",
         "repo": "niks3",
-        "rev": "bac25926c7999d02e7932f609545c6ebd3db0b51",
+        "rev": "cc97bb883805f2e51d1b401a1a3c278250c408dd",
         "type": "github"
       },
       "original": {
