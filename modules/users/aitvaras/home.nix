@@ -67,6 +67,9 @@ in
                 set fish_cursor_visual block blink
               '';
             };
+            carapace = {
+              enable = true;
+            };
 
             atuin = {
               enable = true;
