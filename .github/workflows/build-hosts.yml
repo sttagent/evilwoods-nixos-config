@@ -4,6 +4,7 @@ on:
 
 jobs:
   build-host:
+    timeout-minutes: 15
     runs-on: blacksmith-2vcpu-ubuntu-2404
     strategy:
       matrix:
@@ -22,7 +23,10 @@ jobs:
         with:
           extra-conf: |
             extra-experimental-features = pipe-operators flakes nix-commanads
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: DeterminateSystems/flakehub-cache-action@v3
+        with:
+          use-gha-cache: true
       - run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
   push-to-flakehub:
     runs-on: blacksmith-2vcpu-ubuntu-2404
