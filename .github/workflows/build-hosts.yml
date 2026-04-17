@@ -4,7 +4,7 @@ on:
 
 jobs:
   build-host:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     strategy:
       matrix:
         host: [evilbook, rynepc]
@@ -25,7 +25,7 @@ jobs:
       - uses: DeterminateSystems/flakehub-cache-action@v3
       - run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
   push-to-flakehub:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2404
     needs: build-host
     permissions:
       contents: read
