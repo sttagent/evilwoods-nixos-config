@@ -24,6 +24,24 @@ jobs:
             extra-experimental-features = pipe-operators flakes nix-commanads
       - uses: DeterminateSystems/flakehub-cache-action@v3
       - run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
+  push-to-flakehub:
+    runs-on: ubuntu-latest
+    needs: build-host
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.1
+        with:
+          ssh-private-key: ${{ secrets.NIXOS_SECRETS_SSH_KEY }}
+      - uses: actions/checkout@v5
+      - uses: DeterminateSystems/determinate-nix-action@v3
+        with:
+          extra-conf: |
+            extra-experimental-features = pipe-operators flakes nix-commanads
+      - uses: DeterminateSystems/flakehub-cache-action@v3
+      - run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
       - name: Push private flake to flakehub
         uses: determinatesystems/flakehub-push@main
         with:
