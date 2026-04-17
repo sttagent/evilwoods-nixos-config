@@ -17,8 +17,8 @@
         with self.modules.nixos;
         [
           # local Nixos modules
-          cosmic
-          # niri
+          # cosmic
+          niri
           steam
           hardwareZSA
           hardwareAndroid
