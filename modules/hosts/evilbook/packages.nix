@@ -8,10 +8,10 @@
       ...
     }:
     {
-      programs.firefox.enable = lib.mkForce false;
       programs = {
         xonsh.enable = true;
         direnv.enable = true;
+        firefox.enable = lib.mkForce false;
       };
       environment.systemPackages = with pkgs; [
 
