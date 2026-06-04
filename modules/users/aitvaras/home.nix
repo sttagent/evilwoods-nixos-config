@@ -130,10 +130,6 @@ in
               source = flake-config.paths.dotFilesPath + "/lazynvim";
               recursive = true;
             };
-            # xonsh = {
-            #   source = dotFilesPath + "/xonsh";
-            #   recursive = true;
-            # };
             xonsh = {
               source = dotFiles + "/xonsh";
               recursive = true;
