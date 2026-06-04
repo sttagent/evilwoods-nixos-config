@@ -45,7 +45,7 @@ in
               };
             };
             nushell = {
-              enable = true;
+              enable = false;
               configFile.source = nuConfig;
             };
             fish = {
@@ -134,6 +134,10 @@ in
             #   source = dotFilesPath + "/xonsh";
             #   recursive = true;
             # };
+            xonsh = {
+              source = dotFiles + "/xonsh";
+              recursive = true;
+            };
           };
         };
       };

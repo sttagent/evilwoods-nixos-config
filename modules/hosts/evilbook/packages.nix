@@ -9,6 +9,10 @@
     }:
     {
       programs.firefox.enable = lib.mkForce false;
+      programs = {
+        xonsh.enable = true;
+        direnv.enable = true;
+      };
       environment.systemPackages = with pkgs; [
 
         # prismlauncher pulls three java versions by default.
