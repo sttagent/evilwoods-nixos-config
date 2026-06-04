@@ -13,6 +13,7 @@
         direnv.enable = true;
         firefox.enable = lib.mkForce false;
       };
+
       environment.systemPackages = with pkgs; [
 
         # prismlauncher pulls three java versions by default.
@@ -44,6 +45,7 @@
         qbittorrent
         opencode
         proton-vpn
+        ftb-app
 
         inputs.niks3.packages."x86_64-linux".niks3
       ];
