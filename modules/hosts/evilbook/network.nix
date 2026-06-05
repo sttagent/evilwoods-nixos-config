@@ -95,6 +95,31 @@
                 };
                 proxy = { };
               };
+              # Degerman = {
+              #   connection = {
+              #     id = "Degerman";
+              #     type = "wifi";
+              #     interface-name = "wlan0";
+              #     autoconnect = true;
+              #   };
+              #   wifi = {
+              #     mode = "infrastructure";
+              #     ssid = "629-5GHz";
+              #   };
+              #   wifi-security = {
+              #     auth-alg = "open";
+              #     key-mgmt = "wpa-psk";
+              #     psk = "$b629_psk";
+              #   };
+              #   ipv4 = {
+              #     method = "auto";
+              #   };
+              #   ipv6 = {
+              #     addr-gen-mode = "default";
+              #     method = "auto";
+              #   };
+              #   proxy = { };
+              # };
               stthotspot = {
                 connection = {
                   id = "stthotspot";

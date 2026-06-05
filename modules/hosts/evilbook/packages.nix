@@ -11,6 +11,7 @@
       programs = {
         xonsh.enable = true;
         direnv.enable = true;
+        zoxide.enable = true;
         firefox.enable = lib.mkForce false;
       };
 
