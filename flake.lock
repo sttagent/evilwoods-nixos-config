@@ -97,6 +97,26 @@
         "type": "github"
       }
     },
+    "disko-2605": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-2605"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780290312,
+        "narHash": "sha256-eTAlX0CwgB84Ts3GaBd944A3DRXVMzgA0EqroZBISUo=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "115e5211780054d8a890b41f0b7734cafad54dfe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "evilsecrets": {
       "flake": false,
       "locked": {
@@ -232,6 +252,27 @@
       "original": {
         "owner": "nix-community",
         "ref": "release-25.11",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager-2605": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-2605"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780361225,
+        "narHash": "sha256-wnV9ttf4fPWNonBIQmvlrSlNpQYgx5HgWWd007mwIFA=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "e28654b71096e08c019d4861ca26acb646f583d8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-26.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -376,6 +417,20 @@
         "url": "https://flakehub.com/f/NixOS/nixpkgs/%2A"
       }
     },
+    "nixpkgs-2605": {
+      "locked": {
+        "lastModified": 1780453794,
+        "narHash": "sha256-bXMRa9VTsHSPXL4Cw8R6JJLQeY3Y/IP4+YJCYVmQ7FY=",
+        "rev": "6b316287bae2ee04c9b93c8c858d930fd07d7338",
+        "revCount": 1005474,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/NixOS/nixpkgs/0.2605.1005474%2Brev-6b316287bae2ee04c9b93c8c858d930fd07d7338/019e9173-4b6d-7073-b6fd-fd85965ee2a2/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/NixOS/nixpkgs/0.2605"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "lastModified": 1777168982,
@@ -453,18 +508,22 @@
         "determinate": "determinate",
         "disko": "disko",
         "disko-2511": "disko-2511",
+        "disko-2605": "disko-2605",
         "evilsecrets": "evilsecrets",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
         "home-manager-2511": "home-manager-2511",
+        "home-manager-2605": "home-manager-2605",
         "import-tree": "import-tree",
         "microvm": "microvm",
         "niks3": "niks3",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-2511": "nixpkgs-2511",
+        "nixpkgs-2605": "nixpkgs-2605",
         "sops-nix": "sops-nix",
-        "sops-nix-2511": "sops-nix-2511"
+        "sops-nix-2511": "sops-nix-2511",
+        "sops-nix-2605": "sops-nix-2605"
       }
     },
     "sops-nix": {
@@ -491,6 +550,26 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs-2511"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780547341,
+        "narHash": "sha256-Gq8KNx5A7hBB3uGJaj6eQfLDIz5YdLu92gqBcvHvoUo=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "9ed65852b6257fbeae4355bc24ecfea307ca759a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
+      }
+    },
+    "sops-nix-2605": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-2605"
         ]
       },
       "locked": {
