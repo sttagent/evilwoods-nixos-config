@@ -7,7 +7,7 @@
 {
   options.hosts.hostEvilcloud.nixpkgs = lib.mkOption {
     type = lib.types.str;
-    default = "nixpkgs-2511";
+    default = "nixpkgs-2605";
   };
 
   config.flake = {
@@ -34,8 +34,8 @@
           self.modules.nixos."userAitvaras@evilcloud"
 
           # external Nixos modules
-          sops-nix-2511.nixosModules.sops
-          home-manager-2511.nixosModules.home-manager
+          sops-nix-2605.nixosModules.sops
+          home-manager-2605.nixosModules.home-manager
         ];
     };
   };

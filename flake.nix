@@ -19,6 +19,22 @@
       inputs.nixpkgs.follows = "nixpkgs-2511";
     };
 
+    # Stable branch of nixpkgs
+    # nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
+    home-manager-2605 = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs-2605";
+    };
+    disko-2605 = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs-2605";
+    };
+    sops-nix-2605 = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs-2605";
+    };
+
     # Unstable branch of nixpkgs
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
