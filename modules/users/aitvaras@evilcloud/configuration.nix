@@ -28,7 +28,7 @@ in
 
       home-manager = {
         sharedModules = [
-          inputs.sops-nix-2511.homeManagerModules.sops
+          inputs.sops-nix-2605.homeManagerModules.sops
         ];
 
         users.${currentUser} = {

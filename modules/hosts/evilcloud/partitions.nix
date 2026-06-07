@@ -6,7 +6,7 @@ let
 in
 {
   flake.modules.nixos.diskoEvilcloud = {
-    imports = [ inputs.disko-2511.nixosModules.disko ];
+    imports = [ inputs.disko-2605.nixosModules.disko ];
 
     disko.devices = {
       disk = {
