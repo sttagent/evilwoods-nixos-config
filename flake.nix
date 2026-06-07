@@ -5,22 +5,6 @@
   inputs = {
     # Stable branch of nixpkgs
     # nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-2511.url = "https://flakehub.com/f/NixOS/nixpkgs/*";
-    home-manager-2511 = {
-      url = "github:nix-community/home-manager/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs-2511";
-    };
-    disko-2511 = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs-2511";
-    };
-    sops-nix-2511 = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs-2511";
-    };
-
-    # Stable branch of nixpkgs
-    # nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
     home-manager-2605 = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -61,7 +45,7 @@
     };
     niks3 = {
       url = "github:Mic92/niks3";
-      inputs.nixpkgs.follows = "nixpkgs-2511";
+      inputs.nixpkgs.follows = "nixpkgs-2605";
     };
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
