@@ -4,7 +4,6 @@
 
   inputs = {
     # Stable branch of nixpkgs
-    # nixpkgs-2511.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
     home-manager-2605 = {
       url = "github:nix-community/home-manager/release-26.05";
