@@ -25,7 +25,7 @@
           diskoEvilbook
           aitvarasMachines
 
-          microvms
+          # microvms
 
           # users
           self.modules.nixos."userAitvaras@evilbook"
