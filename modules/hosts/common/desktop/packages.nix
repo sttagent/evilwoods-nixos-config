@@ -1,7 +1,5 @@
 {
-  flake.modules.nixos.desktop =
-    { ... }:
-    {
-      programs.firefox.enable = true;
-    };
+  den.aspects.desktop.nixos = {
+    programs.firefox.enable = true;
+  };
 }

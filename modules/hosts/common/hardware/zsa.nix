@@ -1,8 +1,6 @@
-# Config for moonlander keyboard.
 {
-  flake.modules.nixos.hardwareZSA =
-    { pkgs, ... }:
-    {
+  den.aspects.hardware.zsa = {
+    nixos = { pkgs, ... }: {
       hardware.keyboard.zsa.enable = true;
 
       environment.systemPackages = with pkgs; [
@@ -10,4 +8,5 @@
         keymapp
       ];
     };
+  };
 }

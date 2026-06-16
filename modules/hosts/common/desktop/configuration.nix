@@ -2,20 +2,14 @@
 
 { self, ... }:
 {
-  flake.modules.nixos.desktop =
+  den.aspects.desktop.nixos =
     {
+      host,
       config,
       pkgs,
       ...
     }:
-    let
-      inherit (config.evilwoods.variables) mainUser;
-    in
     {
-      imports = [ self.modules.nixos.base ];
-
-      evilwoods.flags.isDesktop = true;
-
       boot = {
         plymouth.enable = true;
       };
@@ -48,7 +42,7 @@
 
       # Recommended for pipwire
       security.rtkit.enable = true;
-      security.pam.services.${mainUser}.enableGnomeKeyring = true;
+      security.pam.services.${host.mainUser}.enableGnomeKeyring = true;
 
       hardware = {
         bluetooth.enable = true;

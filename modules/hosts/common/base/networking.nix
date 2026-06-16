@@ -1,6 +1,28 @@
+{ lib, ... }:
+let
+  inherit (lib) mkDefault;
+in
 {
-  flake.modules.nixos.base = {
-    services.firewalld.enable = true;
-    networking.nftables.enable = true;
+  den.aspects.hostBase = {
+    nixos = {
+      networking = {
+        useDHCP = mkDefault true;
+        firewall = {
+          enable = mkDefault true;
+        };
+        enableIPv6 = mkDefault false;
+        nftables.enable = mkDefault true;
+      };
+
+      services = {
+        firewalld.enable = true;
+        openssh = {
+          enable = mkDefault true;
+          settings = {
+            PasswordAuthentication = mkDefault false;
+          };
+        };
+      };
+    };
   };
 }

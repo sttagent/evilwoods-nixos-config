@@ -6,7 +6,7 @@
   ...
 }:
 {
-  flake.modules.nixos.hostEvilbook =
+  den.aspects.evilbook.nixos =
     {
       config,
       lib,

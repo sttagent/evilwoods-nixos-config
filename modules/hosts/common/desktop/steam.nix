@@ -1,7 +1,6 @@
 {
-  flake.modules.nixos.steam =
-    { pkgs, ... }:
-    {
+  den.aspects.gaming.steam = {
+    nixos = { pkgs, ... }: {
       programs.steam = {
         enable = true;
         extraPackages = with pkgs; [
@@ -10,4 +9,5 @@
       };
       hardware.steam-hardware.enable = true;
     };
+  };
 }

@@ -1,12 +1,12 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.hostEvilbook =
-    { config, ... }:
+  den.aspects.evilbook.nixos =
+    { host, config, ... }:
     let
       serviceName = "evilbook-aitvaras";
       repoName = "restic-backups-${serviceName}";
       repository = "/var/storage/shares/smb/backups/${repoName}";
-      user = config.evilwoods.variables.mainUser;
+      user = host.mainUser;
       userHome = "/home/${user}";
       sopsFile = "${inputs.evilsecrets}/secrets/${user}/default.yaml";
       secretName = "${repoName}-repo-pass";

@@ -1,10 +1,8 @@
 {
-  flake.modules.nixos.base =
-    { pkgs, ... }:
-    {
+  den.aspects.hostBase = {
+    nixos = { pkgs, ... }: {
       programs = {
         nh.enable = true;
-        fish.enable = true;
       };
 
       environment.systemPackages = with pkgs; [
@@ -30,7 +28,7 @@
         cachix
         jq
         fh
-        nushell
       ];
     };
+  };
 }
