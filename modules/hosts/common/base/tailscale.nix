@@ -3,15 +3,9 @@
     {
       host,
       config,
-      lib,
       ...
     }:
     let
-      inherit (lib)
-        mkIf
-        mkMerge
-        ;
-
       tailscaleExtraUpFlags = [
         "--ssh"
         "--operator=${host.mainUser}"

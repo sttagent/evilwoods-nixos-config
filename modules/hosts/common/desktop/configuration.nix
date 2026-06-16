@@ -1,11 +1,9 @@
 # Common desktop config
 
-{ self, ... }:
 {
   den.aspects.desktop.nixos =
     {
       host,
-      config,
       pkgs,
       ...
     }:
