@@ -88,11 +88,8 @@
           };
         };
 
-      provides.to-users.homeManager =
-        { pkgs, ... }:
-        {
-          home.stateVersion = host.stateVersion;
-          home.packages = [ pkgs.vim ];
-        };
+      provides.to-users.homeManager = {
+        home.stateVersion = host.stateVersion;
+      };
     };
 }
