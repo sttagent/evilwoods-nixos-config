@@ -87,9 +87,5 @@
             NIKS3_SERVER_URL = "https://cache.evilwoods.net";
           };
         };
-
-      provides.to-users.homeManager = {
-        home.stateVersion = host.stateVersion;
-      };
     };
 }

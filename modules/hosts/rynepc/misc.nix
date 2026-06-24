@@ -1,8 +1,6 @@
 {
   den.aspects.rynepc = {
-    provides.to-users.homeManager = { host, user, ... }: {
-      home.stateVersion = host.stateVersion;
-    };
+
     nixos =
       {
         host,
