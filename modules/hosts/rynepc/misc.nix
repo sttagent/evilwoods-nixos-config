@@ -1,6 +1,8 @@
-{
+{ den, ... }: {
   den.aspects.rynepc = {
-
+    includes = with den.aspects; [
+      desktop.gnome
+    ];
     nixos =
       {
         host,
