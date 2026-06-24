@@ -7,7 +7,7 @@
 
   # other inputs may be defined at a module using them.
   flake-file.inputs = {
-    den.url = "github:denful/den/v0.17.0";
+    den.url = "github:denful/den/v0.18.0";
     flake-file.url = "github:vic/flake-file";
     nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
     home-manager-2605 = {
