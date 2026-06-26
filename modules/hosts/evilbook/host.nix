@@ -12,6 +12,7 @@
       gaming.steam
       hardware.zsa
       virtualisation.podman
+      shared.aitvarasMachines
       optional.tools.determinate
     ];
     nixos = {
