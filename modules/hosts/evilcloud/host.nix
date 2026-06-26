@@ -12,6 +12,7 @@
     includes = with den.aspects; [
       server
       vmGuest
+      optional.tools.determinate
     ];
 
     nixos = {

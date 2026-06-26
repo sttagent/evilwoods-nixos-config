@@ -26,7 +26,6 @@
         nix-tree
         nixos-option
         jq
-        fh
       ];
     };
   };

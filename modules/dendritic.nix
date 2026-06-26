@@ -40,7 +40,6 @@
     };
 
     # Misc tools, utilities and modules
-    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     microvm = {
       url = "github:microvm-nix/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";

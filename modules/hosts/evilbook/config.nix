@@ -1,13 +1,7 @@
-{ inputs, den, ... }: {
+{ inputs, ... }: {
   den.aspects.evilbook =
     { host }:
     {
-      includes = with den.aspects; [
-        desktop.cosmic
-        gaming.steam
-        hardware.zsa
-        virtualisation.podman
-      ];
       nixos =
         { config, pkgs, ... }:
         let
