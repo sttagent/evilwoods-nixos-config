@@ -23,7 +23,7 @@
       };
 
       services.resolved = {
-        enable = true;
+        enable = false;
         settings.Resolve = {
           Domains = [ "~." ];
           DNSOverTLS = true;
