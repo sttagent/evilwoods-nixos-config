@@ -1,8 +1,6 @@
-{ inputs, ... }:
 {
   den.aspects.evilbook = {
     nixos = {
-
       disko.devices = {
         disk = {
           nixos = {
