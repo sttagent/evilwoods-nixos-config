@@ -25,7 +25,6 @@
         difftastic
         nix-tree
         nixos-option
-        cachix
         jq
         fh
       ];
