@@ -4,6 +4,7 @@
   den.aspects.aitvaras = {
     includes = [
       den.batteries.primary-user
+      den.aspects.aitvaras.gnome
     ];
 
     homeManager =

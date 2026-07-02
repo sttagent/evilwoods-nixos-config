@@ -1,7 +1,5 @@
-{
-  den.aspects.ryne.homeManager =
-    { host, pkgs, ... }:
-    {
-      home.stateVersion = host.stateVersion;
-    };
+{ den, ... }: {
+  den.aspects.ryne.includes = [
+    den.aspects.ryne.gnome
+  ];
 }

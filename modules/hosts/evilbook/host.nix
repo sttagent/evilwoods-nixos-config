@@ -3,7 +3,8 @@
   den.hosts.x86_64-linux.evilbook = {
     stateVersion = "26.11";
     mainUser = "aitvaras";
-    users.aitvaras = { };
+    users.aitvaras = {
+    };
   };
 
   den.aspects.evilbook = {
