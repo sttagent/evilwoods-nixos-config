@@ -15,7 +15,7 @@
     in
     {
       sops.secrets.tailscale-cloud-auth-key = {
-        sopsFile = secretsPath + "/secrets/common/default.yaml";
+        sopsFile = secretsPath + "/secrets/hosts/common/.yaml";
       };
       networking = {
         hostName = host.name;

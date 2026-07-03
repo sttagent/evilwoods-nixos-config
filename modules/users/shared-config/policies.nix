@@ -9,7 +9,7 @@
         in
         {
           sops.secrets."${user.name}-password" = {
-            sopsFile = "${secretsPath}/secrets/${user.name}/default.yaml";
+            sopsFile = "${secretsPath}/secrets/users/${user.name}.yaml";
             neededForUsers = true;
           };
           users.users.${user.name} = {

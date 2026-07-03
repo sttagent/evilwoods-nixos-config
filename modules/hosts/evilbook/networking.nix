@@ -9,13 +9,13 @@
       sops.secrets = {
         "network-manager.env" = { };
         "network-manager-b629.env" = {
-          sopsFile = secretsPath + "/secrets/aitvaras/default.yaml";
+          sopsFile = secretsPath + "/secrets/users/aitvaras.yaml";
           owner = "root";
           group = "root";
           mode = "0400";
         };
         "network-manager-stthotspot.env" = {
-          sopsFile = secretsPath + "/secrets/aitvaras/default.yaml";
+          sopsFile = secretsPath + "/secrets/users/aitvaras.yaml";
           owner = "root";
           group = "root";
           mode = "0400";

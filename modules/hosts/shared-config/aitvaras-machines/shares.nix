@@ -33,7 +33,7 @@
       environment.systemPackages = [ pkgs.cifs-utils ];
 
       sops.secrets.aitvaras-samba-share-creds = {
-        sopsFile = "${secretsPath}/secrets/aitvaras/default.yaml";
+        sopsFile = "${secretsPath}/secrets/users/aitvaras.yaml";
         owner = "root";
         group = "root";
         mode = "0400";

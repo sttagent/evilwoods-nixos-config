@@ -8,7 +8,7 @@
       repository = "/var/storage/shares/smb/backups/${repoName}";
       user = host.mainUser;
       userHome = "/home/${user}";
-      sopsFile = "${inputs.evilsecrets}/secrets/${user}/default.yaml";
+      sopsFile = "${inputs.evilsecrets}/secrets/users/${user}.yaml";
       secretName = "${repoName}-repo-pass";
       passwordFile = config.sops.secrets."${secretName}".path;
     in

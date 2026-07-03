@@ -35,7 +35,7 @@
       };
 
       sops.secrets.ryne-tailscale-auth-key = {
-        sopsFile = secretsPath + "/secrets/ryne/default.yaml";
+        sopsFile = secretsPath + "/secrets/users/ryne.yaml";
       };
       services.tailscale.authKeyFile = mkForce config.sops.secrets.ryne-tailscale-auth-key.path;
     };

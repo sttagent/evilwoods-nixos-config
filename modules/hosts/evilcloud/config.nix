@@ -43,7 +43,7 @@
       };
 
       sops = {
-        defaultSopsFile = "${secretsPath}/secrets/common/default.yaml";
+        defaultSopsFile = "${secretsPath}/secrets/hosts/common.yaml";
         validateSopsFiles = false;
         age = {
           sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

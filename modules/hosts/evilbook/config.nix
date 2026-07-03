@@ -18,12 +18,12 @@
               group = "root";
               mode = "0400";
             };
-            niks3-api-token = {
-              sopsFile = secretsPath + "/secrets/evilcloud/cloudflare-r2.yaml";
-              owner = host.mainUser;
-              group = "users";
-              mode = "0400";
-            };
+            # niks3-api-token = {
+            #   sopsFile = secretsPath + "/secrets/hosts/evilcloud/cloudflare-r2.yaml";
+            #   owner = host.mainUser;
+            #   group = "users";
+            #   mode = "0400";
+            # };
           };
 
           nix = {
@@ -77,8 +77,8 @@
           };
 
           environment.variables = {
-            NIKS3_AUTH_TOKEN_FILE = "${config.sops.secrets."niks3-api-token".path}";
-            NIKS3_SERVER_URL = "https://cache.evilwoods.net";
+            # NIKS3_AUTH_TOKEN_FILE = "${config.sops.secrets."niks3-api-token".path}";
+            # NIKS3_SERVER_URL = "https://cache.evilwoods.net";
           };
         };
     };
