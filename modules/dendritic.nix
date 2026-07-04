@@ -1,10 +1,10 @@
-{ inputs, ... }:
+{ inputs, den, ... }:
 {
   imports = [
     (inputs.flake-file.flakeModules.dendritic or { })
     (inputs.den.flakeModules.dendritic or { })
   ];
-
+  flake.den = den; # remove after debugging
   # other inputs may be defined at a module using them.
   flake-file.inputs = {
     den.url = "github:denful/den/v0.18.0";
