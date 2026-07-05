@@ -13,6 +13,7 @@
             neededForUsers = true;
           };
           users.users.${user.name} = {
+            description = user.description or "";
             uid = user.uid or 1000;
             hashedPasswordFile = config.sops.secrets."${user.name}-password".path;
           };

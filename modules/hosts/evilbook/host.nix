@@ -4,12 +4,13 @@
     stateVersion = "26.11";
     mainUser = "aitvaras";
     users.aitvaras = {
+      description = "Arvydas Ramanauskas";
     };
   };
 
   den.aspects.evilbook = {
     includes = with den.aspects; [
-      desktop.gnome
+      desktop.niri
       gaming.steam
       hardware.zsa
       virtualisation.podman
