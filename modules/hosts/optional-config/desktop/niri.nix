@@ -1,0 +1,84 @@
+{
+  den,
+  ...
+}:
+{
+  den.aspects.desktop.niri = {
+    includes = [ den.aspects.desktop ];
+    nixos =
+      {
+        lib,
+        config,
+        pkgs,
+        ...
+      }:
+      let
+        inherit (lib)
+          mkForce
+          ;
+      in
+      {
+        boot.plymouth.enable = mkForce false;
+        programs = {
+          niri = {
+            enable = true;
+            useNautilus = true;
+          };
+
+          uwsm = {
+            enable = true;
+            waylandCompositors.niri = {
+              binPath = "/run/current-system/sw/bin/niri";
+              comment = "Niri (UWSM)";
+              extraArgs = [ "--session" ];
+              prettyName = "Niri";
+            };
+          };
+
+          kdeconnect.enable = true;
+        };
+
+        environment.systemPackages = with pkgs; [
+          noctalia-shell
+          xwayland-satellite
+          nautilus
+          adwaita-icon-theme
+          adw-gtk3
+          kdePackages.qttools
+        ];
+
+        fonts.packages = with pkgs; [
+          adwaita-fonts
+        ];
+
+        security.polkit.enable = true;
+
+        services = {
+          tuned.enable = true;
+          udisks2.enable = true;
+          gvfs.enable = true;
+
+          gnome = {
+            sushi.enable = true;
+            gnome-keyring.enable = true;
+            evolution-data-server.enable = true;
+          };
+
+          greetd = {
+            enable = true;
+            useTextGreeter = true;
+            settings = {
+              default_session =
+                let
+                  sessions = "${config.services.displayManager.sessionData.desktops}/share/xsessions:${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
+                in
+                {
+                  command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${sessions} --time --asterisks --remember --remember-user-session";
+                  user = "greeter";
+                };
+            };
+          };
+        };
+      };
+  };
+}
