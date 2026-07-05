@@ -33,24 +33,31 @@
             _children = [
               {
                 include = {
-                  # Optional includes are not available in 25.11. According to the
-                  # dcoumentation, this will be available in the next version.
-                  # _props.optional = true;
                   _args = [ (toString niriConfigPath) ];
                 };
               }
-            ];
-            spawn-at-startup = [
-              noctalia-shell-exec
-            ];
-            binds = {
-              "Super+Alt+N" = {
-                _props = {
-                  hotkey-overlay-title = null;
+              {
+                spawn-at-startup = [
+                  noctalia-shell-exec
+                ];
+              }
+              {
+                binds = {
+                  "Super+Alt+N" = {
+                    _props = {
+                      hotkey-overlay-title = null;
+                    };
+                    spawn-sh = "${noctalia-shell-exec} kill || exec ${noctalia-shell-exec}";
+                  };
                 };
-                spawn-sh = "${noctalia-shell-exec} kill || exec ${noctalia-shell-exec}";
-              };
-            };
+              }
+              {
+                include = {
+                  _props.optional = true;
+                  _args = [ "overrides.kdl" ];
+                };
+              }
+            ];
           };
         };
       };
