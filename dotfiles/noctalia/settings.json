@@ -141,6 +141,7 @@
   },
   "settingsVersion": 0,
   "ui": {
+    "panelBackgroundOpacity": 0.65,
     "fontDefault": "Adwaita Sans",
     "fontFixed": "Adwaita Mono"
   },
