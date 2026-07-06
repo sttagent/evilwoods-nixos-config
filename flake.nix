@@ -43,6 +43,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
     nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

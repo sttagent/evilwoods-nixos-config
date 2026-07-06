@@ -10,6 +10,7 @@
     den.url = "github:denful/den/v0.18.0";
     flake-file.url = "github:vic/flake-file";
     nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
+
     home-manager-2605 = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs-2605";
@@ -26,6 +27,7 @@
     # Unstable branch of nixpkgs
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

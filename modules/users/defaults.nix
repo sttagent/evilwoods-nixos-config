@@ -6,6 +6,8 @@
       den.provides.define-user
       den.batteries.host-aspects
     ];
-    classes = lib.mkDefault [ "homeManager" ];
+    classes = lib.mkDefault [
+      "homeManager"
+    ];
   };
 }

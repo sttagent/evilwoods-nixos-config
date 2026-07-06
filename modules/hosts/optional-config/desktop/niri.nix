@@ -1,8 +1,13 @@
 {
+  inputs,
   den,
   ...
 }:
 {
+  flake-file.inputs.noctalia = {
+    url = "github:noctalia-dev/noctalia/cachix";
+  };
+
   den.aspects.desktop.niri = {
     includes = [ den.aspects.desktop ];
     nixos =
@@ -18,6 +23,12 @@
           ;
       in
       {
+        nix.settings = {
+          extra-substituters = [ "https://noctalia.cachix.org" ];
+          extra-trusted-public-keys = [
+            "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+          ];
+        };
         boot.plymouth.enable = mkForce false;
         programs = {
           niri = {
@@ -39,7 +50,8 @@
         };
 
         environment.systemPackages = with pkgs; [
-          noctalia-shell
+          # noctalia-shell # old noctalia in nixpkgs
+          inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
           xwayland-satellite
           nautilus
           adwaita-icon-theme
