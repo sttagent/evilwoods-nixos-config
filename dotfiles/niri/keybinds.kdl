@@ -1,0 +1,9 @@
+binds {
+  Mod+Space { spawn "noctalia" "msg" "panel-toggle" "launcher" ; }
+  Mod+S { spawn "noctalia" "msg" "panel-toggle" "control-center" ; }
+  Mod+Comma { spawn "noctalia" "msg" "settings-toggle" ; }
+
+  "Super+Alt+N" hotkey-overlay-title=null {
+    spawn-sh  "pkill noctalia || exec ${noctalia-exec}";
+  }
+}
