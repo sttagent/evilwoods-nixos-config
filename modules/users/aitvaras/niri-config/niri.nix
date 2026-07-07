@@ -9,6 +9,7 @@
       }:
       let
         noctalia-exec = lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        niri-config = inputs.self.outPath + "/dotfiles/niri/config.kdl";
       in
       {
         dconf.settings = {
@@ -67,11 +68,11 @@
         xdg.configFile = {
           "niri/config.kdl" = {
             text = ''
-              spawn-at-startup ${noctalia-exec}
+              include  "${niri-config}"
+              spawn-at-startup "${noctalia-exec}"
               binds {
-                "Super+Alt+N" {
-                  hotkey-overlay-title = null;
-                  spawn-sh = "pkill noctalia || exec ${noctalia-exec}";
+                "Super+Alt+N" hotkey-overlay-title=null {
+                  spawn-sh  "pkill noctalia || exec ${noctalia-exec}";
                 }
               }
               include optional=true "overrides.kdl"
