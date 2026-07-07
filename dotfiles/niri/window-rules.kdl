@@ -7,3 +7,13 @@ window-rule {
     xray true
   }
 }
+
+window-rule {
+  match app-id="dev.zed.Zed"
+  draw-border-with-background false
+  opacity 0.90
+  background-effect {
+    blur true
+    xray true
+  }
+}
