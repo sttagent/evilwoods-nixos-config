@@ -1,3 +1,18 @@
+// Recommendations from noctalia docs.
+window-rule {
+  geometry-corner-radius 10
+
+  clip-to-geometry true
+}
+
+// Recommendations from noctalia docs.
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
 window-rule {
   draw-border-with-background false
   match app-id="com.mitchellh.ghostty"
@@ -15,5 +30,19 @@ window-rule {
   background-effect {
     blur true
     xray true
+  }
+}
+
+layer-rule {
+  match namespace="^noctalia-backdrop"
+  place-within-backdrop true
+}
+
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|panel|attached-panel|osd)$"
+  background-effect {
+    blur true
+    xray false
+    // blur false
   }
 }

@@ -70,10 +70,10 @@
         xdg.configFile = {
           "niri/config.kdl" = {
             text = ''
+              spawn-at-startup "${noctalia-exec}"
+
               include  "${niri-config}"
               include  "${niri-window-rules}"
-
-              spawn-at-startup "${noctalia-exec}"
               include  "${niri-keybinds}"
 
               include optional=true "noctalia.kdl"
