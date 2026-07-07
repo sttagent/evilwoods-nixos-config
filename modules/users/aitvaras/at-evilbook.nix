@@ -6,7 +6,7 @@
           enable = true;
           settings = {
             font-family = "CommitMono Nerd Font Mono";
-            theme = "Everforest Dark Hard";
+            theme = "Miasma";
             window-theme = "ghostty";
             window-padding-x = 8;
             window-padding-y = 4;
