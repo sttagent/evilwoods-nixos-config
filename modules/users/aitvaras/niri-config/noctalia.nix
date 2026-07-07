@@ -7,7 +7,7 @@
     {
       xdg = {
         configFile = {
-          "noctalia/noctalia-config.toml" = {
+          "noctalia/config.toml" = {
             source = noctaliaConfigPath;
           };
         };
