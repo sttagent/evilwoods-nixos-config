@@ -15,6 +15,7 @@
       optional.tools.determinate
 
       services.fail2ban
+      services.nixos-runner
     ];
 
     nixos = {

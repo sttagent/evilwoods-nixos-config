@@ -8,8 +8,7 @@
         ...
       }:
       let
-        inherit (lib) getExe;
-        noctalia-exec = getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        noctalia-exec = lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
       in
       {
         dconf.settings = {
