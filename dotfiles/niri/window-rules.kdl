@@ -1,0 +1,9 @@
+window-rule {
+  draw-border-with-background false
+  match app-id="com.mitchellh.ghostty"
+  opacity 0.90
+  background-effect {
+    blur true
+    xray true
+  }
+}
