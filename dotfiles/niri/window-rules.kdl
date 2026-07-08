@@ -43,6 +43,5 @@ layer-rule {
   background-effect {
     blur true
     xray false
-    // blur false
   }
 }
