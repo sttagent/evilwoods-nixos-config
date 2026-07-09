@@ -4,8 +4,14 @@
   ...
 }:
 {
-  flake-file.inputs.noctalia = {
-    url = "github:noctalia-dev/noctalia/cachix";
+  flake-file.inputs = {
+    # noctalia-greeter = {
+    #   url = "github:noctalia-dev/noctalia-greeter";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/cachix";
+    };
   };
 
   den.aspects.desktop.niri = {
@@ -76,20 +82,25 @@
             evolution-data-server.enable = true;
           };
 
-          greetd = {
+          displayManager.ly = {
             enable = true;
-            useTextGreeter = true;
-            settings = {
-              default_session =
-                let
-                  sessions = "${config.services.displayManager.sessionData.desktops}/share/xsessions:${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
-                in
-                {
-                  command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${sessions} --time --asterisks --remember --remember-user-session";
-                  user = "greeter";
-                };
-            };
+            x11Support = false;
           };
+
+          # greetd = {
+          #   enable = true;
+          #   useTextGreeter = true;
+          #   settings = {
+          #     default_session =
+          #       let
+          #         sessions = "${config.services.displayManager.sessionData.desktops}/share/xsessions:${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
+          #       in
+          #       {
+          #         command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${sessions} --time --asterisks --remember --remember-user-session";
+          #         user = "greeter";
+          #       };
+          #   };
+          # };
         };
       };
   };
