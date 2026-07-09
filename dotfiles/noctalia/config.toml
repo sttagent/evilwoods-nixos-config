@@ -8,6 +8,7 @@ center = [ "clock", "notifications" ]
 end = [ "tray", "keyboard_layout", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
 margin_edge = 5
 margin_ends = 5
+radius = 80
 start = [ "wallpaper", "workspaces" ]
 
 [battery]
@@ -24,7 +25,7 @@ active_monitor_only = true
 auto_hide = true
 enabled = true
 launcher_position = "end"
-monitors = [ "eDP-1" ]
+monitors = [ "HDMI-A-1", "eDP-1" ]
 pinned = [ "firefox", "com.mitchellh.ghostty", "dev.zed.Zed" ]
 reserve_space = false
 show_dots = true
@@ -143,7 +144,8 @@ source = "builtin"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    enable_builtin_templates = false
+    builtin_ids = [ "niri" ]
+    enable_builtin_templates = true
     enable_community_templates = false
 
 [wallpaper.default]
@@ -154,6 +156,9 @@ path = "/home/aitvaras/Pictures/Wallpapers/wallpaperflare.com_wallpaper(4).jpg"
 
 [wallpaper.monitors.eDP-1]
 path = "/home/aitvaras/Pictures/Wallpapers/wallpaperflare.com_wallpaper(4).jpg"
+
+[widget.clock]
+anchor = true
 
 [widget.network]
 show_label = false
