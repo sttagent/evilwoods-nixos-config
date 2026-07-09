@@ -11,6 +11,12 @@ window-rule {
     open-maximized true
 }
 
+window-rule {
+    match app-id=r#"^GT: New Horizons"#
+    open-maximized true
+    open-focused true
+}
+
 // Recommendations from noctalia docs.
 window-rule {
   match app-id="dev.noctalia.Noctalia"
