@@ -135,12 +135,15 @@ niri_overview_type_to_launch_enabled = true
 polkit_agent = true
 
     [shell.panel]
+    control_center_placement = "floating"
+    session_placement = "floating"
     transparency_mode = "glass"
+    wallpaper_placement = "floating"
 
 [theme]
 builtin = "Gruvbox"
-community_palette = "Oxocarbon"
-source = "builtin"
+community_palette = "Miasma"
+source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -149,13 +152,13 @@ wallpaper_scheme = "m3-content"
     enable_community_templates = false
 
 [wallpaper.default]
-path = "/home/aitvaras/Pictures/Wallpapers/wallpaperflare.com_wallpaper(4).jpg"
+path = "/home/aitvaras/Pictures/Wallpapers/wallhaven-3qrdr6.jpg"
 
 [wallpaper.last]
-path = "/home/aitvaras/Pictures/Wallpapers/wallpaperflare.com_wallpaper(4).jpg"
+path = "/home/aitvaras/Pictures/Wallpapers/wallhaven-3qrdr6.jpg"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/aitvaras/Pictures/Wallpapers/wallpaperflare.com_wallpaper(4).jpg"
+path = "/home/aitvaras/Pictures/Wallpapers/wallhaven-3qrdr6.jpg"
 
 [widget.clock]
 anchor = true
