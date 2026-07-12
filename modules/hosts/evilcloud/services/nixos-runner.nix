@@ -13,6 +13,7 @@ in
 
       users = {
         users."${service-user}" = {
+          isSystemUser = true;
           uid = 1100;
           home = "${github-runners-dir}/${service-user}";
           createHome = true;
@@ -38,7 +39,7 @@ in
         replace = true;
         tokenFile = config.sops.secrets.nixos-runner.path;
         url = "https://github.com/sttagent/evilwoods-nixos-config-private";
-        workDir = config.users."${service-user}".home;
+        workDir = config.users.users."${service-user}".home;
       };
     };
 }
