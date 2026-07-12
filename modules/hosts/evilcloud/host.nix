@@ -4,7 +4,11 @@
     home-manager.module = inputs.home-manager-2605.nixosModules.home-manager;
     stateVersion = "26.05";
     mainUser = "admin";
-    users.admin = { };
+    users = {
+      admin = {
+        uid = 1000;
+      };
+    };
   };
 
   den.aspects.evilcloud = {
