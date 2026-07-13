@@ -42,6 +42,8 @@ in
         workDir = config.users.users."${service-user}".home;
         extraPackages = with pkgs; [
           xz
+          fh
+          inputs.determinate.packages.${pkgs.stdenv.hostPlatform.system}.default
         ];
       };
     };
