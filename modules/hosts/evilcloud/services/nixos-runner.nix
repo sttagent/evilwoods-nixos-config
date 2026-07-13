@@ -5,7 +5,7 @@ let
 in
 {
   den.aspects.services.nixos-runner.nixos =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
       systemd.tmpfiles.rules = [
         "d ${github-runners-dir} 0755 root root -"
@@ -40,6 +40,9 @@ in
         tokenFile = config.sops.secrets.nixos-runner.path;
         url = "https://github.com/sttagent/evilwoods-nixos-config-private";
         workDir = config.users.users."${service-user}".home;
+        extraPackages = with pkgs; [
+          xz
+        ];
       };
     };
 }
