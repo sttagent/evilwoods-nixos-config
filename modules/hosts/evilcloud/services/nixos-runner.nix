@@ -24,7 +24,7 @@ in
           gid = 1100;
         };
       };
-      nix.settings.allowed-users = [ "${service-user}" ];
+      nix.settings.trusted-users = [ "${service-user}" ];
       sops.secrets."nixos-runner" = {
         sopsFile = inputs.evilsecrets + "/secrets/services/nixos-runner.yaml";
         mode = "0600";
