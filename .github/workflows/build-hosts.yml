@@ -8,7 +8,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        host: [evilbook, evilcloud]
+        host: [evilbook, evilcloud, rynepc]
       fail-fast: true
     permissions:
       contents: read
