@@ -4,12 +4,12 @@ enabled = true
 [bar.default]
 background_opacity = 0.64999998547136784
 capsule = true
-center = [ "clock", "notifications" ]
+center = [ "wallpaper", "clock", "notifications" ]
 end = [ "tray", "keyboard_layout", "clipboard", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
 margin_edge = 5
 margin_ends = 5
 radius = 80
-start = [ "wallpaper", "workspaces" ]
+start = [ "workspaces" ]
 
 [battery]
 warning_threshold = 20
@@ -25,6 +25,7 @@ active_monitor_only = true
 auto_hide = true
 enabled = true
 launcher_position = "end"
+margin_edge = 10
 monitors = [ "HDMI-A-1", "eDP-1" ]
 pinned = [ "firefox", "com.mitchellh.ghostty", "dev.zed.Zed" ]
 reserve_space = false
@@ -78,9 +79,9 @@ widget_order = [
 
         [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
         background_color = "surface_variant"
-        background_opacity = 0.88
+        background_opacity = 0.65000000000000002
         background_radius = 12.0
-        input_opacity = 1.0
+        input_opacity = 0.65000000000000002
         input_radius = 6.0
         show_caps_lock = true
         show_keyboard_layout = true
@@ -130,6 +131,9 @@ widget_order = [
     rotation = 0.0
     type = "clock"
 
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+
 [shell]
 niri_overview_type_to_launch_enabled = true
 polkit_agent = true
@@ -159,6 +163,9 @@ path = "/home/aitvaras/Pictures/Wallpapers/wallhaven-3qrdr6.jpg"
 
 [wallpaper.monitors.eDP-1]
 path = "/home/aitvaras/Pictures/Wallpapers/wallhaven-3qrdr6.jpg"
+
+[widget.brightness]
+show_label = false
 
 [widget.clock]
 anchor = true
