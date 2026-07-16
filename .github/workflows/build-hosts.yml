@@ -1,5 +1,12 @@
 name: build-hosts-and-push-to-flakehub
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - modules/
+      - flake.nix
+      - flake.lock
   workflow_dispatch: # allows manual triggering
 
 jobs:
