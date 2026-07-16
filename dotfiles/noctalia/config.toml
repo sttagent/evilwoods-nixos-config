@@ -17,12 +17,15 @@ warning_threshold = 20
 [calendar]
 enabled = true
 
+[control_center.calendar]
+show_events_card = false
+
 [desktop_widgets]
 enabled = false
 
 [dock]
 active_monitor_only = true
-auto_hide = true
+auto_hide = false
 enabled = true
 launcher_position = "end"
 margin_edge = 10
@@ -30,6 +33,7 @@ monitors = [ "HDMI-A-1", "eDP-1" ]
 pinned = [ "firefox", "com.mitchellh.ghostty", "dev.zed.Zed" ]
 reserve_space = false
 show_dots = true
+smart_auto_hide = true
 
 [idle]
 behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
@@ -143,6 +147,9 @@ polkit_agent = true
     session_placement = "floating"
     transparency_mode = "glass"
     wallpaper_placement = "floating"
+
+    [shell.screen_corners]
+    enabled = true
 
 [theme]
 builtin = "Gruvbox"

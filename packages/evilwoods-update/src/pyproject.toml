@@ -1,0 +1,10 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+evilwoods-update = "evilwoods_update:main"
+
+[project]
+name = "evilwoods-update"
+version = "0.0.0"
