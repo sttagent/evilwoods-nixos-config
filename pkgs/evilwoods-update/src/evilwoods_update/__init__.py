@@ -1,2 +1,1 @@
-def main() -> None:
-    print("Hello world from evilwoods-update.")
+"""Stage Evilwoods NixOS updates for activation at the next boot."""

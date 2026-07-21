@@ -14,7 +14,14 @@ python3Packages.buildPythonApplication rec {
 
   passthru = {
     devShell = mkShell {
-      packages = [ python3 ];
+      packages = [
+        (python3.withPackages (
+          ps: with ps; [
+            requests
+            pytest
+          ]
+        ))
+      ];
       shellHook = ''
         cd pkgs/evilwoods-update/src || true
       '';
