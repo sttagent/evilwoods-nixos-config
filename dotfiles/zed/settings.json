@@ -1,98 +1,95 @@
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "autosave": "on_focus_change",
-
-  "load_direnv": "shell_hook",
-
-  // AI settings
-  "assistant": {
+  "active_pane_modifiers": {
+    "inactive_opacity": 0.5
+  },
+  "cli_default_open_behavior": "new_window",
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-4-sonnet"
+      "model": "claude-4-sonnet",
+      "provider": "zed.dev"
     },
-    "version": "2"
+    "default_profile": "ask"
   },
-  "features": {
-    "inline_completion_provider": "supermaven"
+  "auto_install_extensions": {
+    "fish": true,
+    "just": true,
+    "kdl": true,
+    "lua": true,
+    "nix": true,
+    "python": true,
+    "toml": true
   },
-
-  // vim mode settings
-  "vim_mode": true,
-  "vim": {
-    "toggle_relative_line_numbers": true
-  },
-
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
+  "auto_signature_help": true,
+  "autosave": "on_focus_change",
   "buffer_font_family": "CommitMono Nerd Font",
+  "buffer_font_size": 15,
   "buffer_line_height": "standard",
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "languages": {
+    "Nix": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "arguments": [
+            "--quiet"
+          ],
+          "command": "nixfmt"
+        }
+      },
+      "language_servers": [
+        "nixd",
+        "!nil"
+      ],
+      "tab_size": 2
+    }
+  },
+  "sticky_scroll": {
+    "enabled": true
+  },
   "tabs": {
     "file_icons": true,
     "git_status": true
   },
   "terminal": {
+    "line_height": "standard",
     "shell": {
       "program": "fish"
-    },
-    "font_family": "CommitMono Nerd Font",
-    "line_height": "standard"
+    }
   },
   "theme": {
-    "mode": "system",
-    "light": "Gruvbox Dark Soft",
-    "dark": "Gruvbox Dark Hard"
+    "dark": "Zedokai Darker (Filter Machine)",
+    "light": "Zedokai Light (Filter Sun)",
+    "mode": "system"
   },
-  "file_types": {
-    "Ansible": [
-      "**.ansible.yml",
-      "**/defaults/**.yml",
-      "**/defaults/**.yaml",
-      "**/meta/**.yml",
-      "**/meta/**.yaml",
-      "**/tasks/**.yml",
-      "**/tasks/*.yml",
-      "**/tasks/*.yaml",
-      "**/handlers/*.yml",
-      "**/handlers/*.yaml",
-      "**/group_vars/**.yml",
-      "**/group_vars/**.yaml",
-      "**playbook*.yaml",
-      "**playbook*.yml"
-    ]
+  "ui_font_size": 16,
+  "vim": {
+    "toggle_relative_line_numbers": true
   },
-  "languages": {
-    "Nix": {
-      "language_servers": ["nixd"]
-    }
-  },
-
-  "lsp": {
-    "ansible-language-server": {
-      "settings": {
-        "ansible": {
-          "path": "ansible"
-        },
-        "executionEnvironment": {
-          "enabled": false
-        },
-        "python": {
-          "interpreterPath": "python3"
-        },
-        "validation": {
-          "enabled": true,
-          "lint": {
-            "enabled": true,
-            "path": "ansible-lint"
-          }
-        }
-      }
-    }
+  "vim_mode": true,
+  "which_key": {
+    "enabled": true
   }
 }
