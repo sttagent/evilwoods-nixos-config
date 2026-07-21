@@ -292,11 +292,11 @@
         "spectrum": "spectrum"
       },
       "locked": {
-        "lastModified": 1784395873,
-        "narHash": "sha256-2aNPMX+33DdK/tVXMabpVNRzFJ5m2IgYaaw8LL0Tb9Q=",
+        "lastModified": 1784666190,
+        "narHash": "sha256-xgfS6slV7J3baMooNN1UuBi51RIgg9y0DbCxfSA0668=",
         "owner": "microvm-nix",
         "repo": "microvm.nix",
-        "rev": "0784796ba5c4ba17c58fce3c2c0cbccc60d22e84",
+        "rev": "fa5340ac684cdce8a22b6d4a0bcebb0cc999275e",
         "type": "github"
       },
       "original": {
@@ -484,11 +484,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1784635834,
-        "narHash": "sha256-n1BN4db20v+m3Fk/W13D2qDV9MEl9+x1BkHQ68wn1mc=",
+        "lastModified": 1784670796,
+        "narHash": "sha256-cS5jHFC3hyreRmo5tqF5BDhIQ03+qBeZmAyU88Vwyjo=",
         "owner": "noctalia-dev",
         "repo": "noctalia",
-        "rev": "6d7677827ca1d5f09df2abc48c382c93f6b5909c",
+        "rev": "3c1ca3e65a0459a10779acb5b81f4a6dedaa7889",
         "type": "github"
       },
       "original": {
