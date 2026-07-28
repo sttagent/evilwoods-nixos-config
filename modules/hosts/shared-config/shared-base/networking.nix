@@ -15,7 +15,7 @@ in
       };
 
       services = {
-        firewalld.enable = false;
+        firewalld.enable = true;
         openssh = {
           enable = mkDefault true;
           settings = {
