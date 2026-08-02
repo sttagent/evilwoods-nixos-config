@@ -2,7 +2,7 @@
 {
   den.aspects.aitvaras.niri.homeManager =
     let
-      noctaliaConfigPath = inputs.self.outPath + "/dotfiles/noctalia/noctalia-config.toml";
+      noctaliaConfigPath = inputs.self.outPath + "/dotfiles/noctalia/config.toml";
     in
     {
       xdg = {
