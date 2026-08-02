@@ -2,10 +2,6 @@
 {
   # user aspect
   den.aspects.aitvaras = {
-    includes = [
-      den.batteries.primary-user
-    ];
-
     homeManager =
       { user, pkgs, ... }:
       let

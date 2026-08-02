@@ -1,6 +1,5 @@
 { inputs, den, ... }: {
   den.aspects.admin = {
-    includes = [ den.batteries.primary-user ];
     homeManager =
       { user }:
       { pkgs, ... }:

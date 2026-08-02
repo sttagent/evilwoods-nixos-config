@@ -10,8 +10,7 @@
 
   den.aspects.evilbook = {
     includes = with den.aspects; [
-      desktop.cosmic
-      # desktop.niri
+      desktop.niri
       gaming.steam
       hardware.zsa
       virtualisation.podman

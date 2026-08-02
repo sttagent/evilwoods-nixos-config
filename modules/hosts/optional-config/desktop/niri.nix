@@ -52,17 +52,15 @@
             };
           };
 
-          kdeconnect.enable = true;
+          kdeconnect.enable = false;
         };
 
         environment.systemPackages = with pkgs; [
           # noctalia-shell # old noctalia in nixpkgs
           inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
           xwayland-satellite
-          nautilus
           adwaita-icon-theme
           adw-gtk3
-          kdePackages.qttools
         ];
 
         fonts.packages = with pkgs; [
@@ -78,7 +76,6 @@
 
           gnome = {
             sushi.enable = true;
-            gnome-keyring.enable = true;
             evolution-data-server.enable = true;
           };
 
