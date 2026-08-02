@@ -46,7 +46,7 @@
             enable = true;
             waylandCompositors.niri = {
               binPath = "/run/current-system/sw/bin/niri";
-              comment = "Niri (UWSM)";
+              comment = "Niri compositor managed by UWSM";
               extraArgs = [ "--session" ];
               prettyName = "Niri";
             };
