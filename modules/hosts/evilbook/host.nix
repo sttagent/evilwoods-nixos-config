@@ -1,6 +1,7 @@
 { inputs, den, ... }:
 {
   den.hosts.x86_64-linux.evilbook = {
+    channel = "nixos-unstable";
     stateVersion = "26.11";
     mainUser = "aitvaras";
     users.aitvaras = {

@@ -1,7 +1,6 @@
 { inputs, den, ... }: {
   den.hosts.x86_64-linux.evilcloud = {
-    instantiate = inputs.nixpkgs-2605.lib.nixosSystem;
-    home-manager.module = inputs.home-manager-2605.nixosModules.home-manager;
+    channel = "nixos-2605";
     stateVersion = "26.05";
     mainUser = "admin";
     users = {
