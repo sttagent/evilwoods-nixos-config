@@ -61,6 +61,7 @@
           xwayland-satellite
           adwaita-icon-theme
           adw-gtk3
+          nautilus
         ];
 
         fonts.packages = with pkgs; [
