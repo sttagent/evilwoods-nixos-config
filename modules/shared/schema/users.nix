@@ -11,8 +11,8 @@ in
           default = null;
         };
         description = mkOption {
-          type = types.nullOr types.str;
-          default = null;
+          type = types.str;
+          default = "";
         };
       };
     })
