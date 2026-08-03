@@ -1,5 +1,6 @@
 { inputs, den, ... }: {
   den.hosts.x86_64-linux.rynepc = {
+    channel = "nixos-unstable";
     stateVersion = "25.11";
     mainUser = "admin";
     users = {
