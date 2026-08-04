@@ -21,11 +21,8 @@
         git
         gnupg
         dust
-        just
-        difftastic
-        nix-tree
-        nixos-option
         jq
+        nvd
       ];
     };
   };
