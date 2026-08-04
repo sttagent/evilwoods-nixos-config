@@ -15,9 +15,10 @@
 
   den.aspects.rynepc = {
     includes = with den.aspects; [
-      desktop.gnome
+      role.desktop
+      desktop-environment.gnome
       gaming.steam
-      optional.tools.determinate
+      tools.determinate
     ];
     nixos = {
       imports = with inputs; [

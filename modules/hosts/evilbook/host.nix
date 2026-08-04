@@ -11,12 +11,14 @@
 
   den.aspects.evilbook = {
     includes = with den.aspects; [
-      desktop.niri
+      role.desktop
+      desktop-environment.niri
+
       gaming.steam
       hardware.zsa
       virtualisation.podman
-      shared.aitvarasMachines
-      optional.tools.determinate
+      aitvaras-machines.shares
+      tools.determinate
     ];
     nixos = {
       imports = with inputs; [

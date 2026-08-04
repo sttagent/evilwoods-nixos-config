@@ -12,10 +12,10 @@
 
   den.aspects.evilcloud = {
     includes = with den.aspects; [
-      server
-      vmGuest
+      role.server
+      hardware.vm-guest
 
-      optional.tools.determinate
+      tools.determinate
 
       services.fail2ban
       services.nixos-runner

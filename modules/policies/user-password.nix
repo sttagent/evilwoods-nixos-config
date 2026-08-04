@@ -1,0 +1,22 @@
+{ inputs, den, ... }: {
+  den.policies.user-password =
+    { host, user, ... }:
+    den.lib.policy.include {
+      nixos =
+        { config, ... }:
+        let
+          secretsPath = toString inputs.evilsecrets;
+        in
+        {
+          sops.secrets."${user.name}-password" = {
+            sopsFile = "${secretsPath}/secrets/users/${user.name}.yaml";
+            neededForUsers = true;
+          };
+          users.users.${user.name} = {
+            description = user.description;
+            uid = user.uid or 1000;
+            hashedPasswordFile = config.sops.secrets."${user.name}-password".path;
+          };
+        };
+    };
+}
