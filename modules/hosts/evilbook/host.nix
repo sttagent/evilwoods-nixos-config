@@ -6,6 +6,7 @@
     mainUser = "aitvaras";
     users.aitvaras = {
       description = "Arvydas Ramanauskas";
+      extraGroups = [ "libvirt" ];
     };
   };
 
@@ -17,6 +18,7 @@
       gaming.steam
       hardware.zsa
       virtualisation.podman
+      virtualisation.qemu
       aitvaras-machines.shares
       tools.determinate
     ];

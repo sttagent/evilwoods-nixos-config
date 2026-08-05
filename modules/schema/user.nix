@@ -25,6 +25,10 @@ in
             type = types.path;
             default = secrets + "/${config.name}.yaml";
           };
+          extraGroups = mkOption {
+            type = types.listOf types.str;
+            default = [ ];
+          };
         };
       })
     ];
@@ -37,6 +41,7 @@ in
       den.batteries.define-user
       den.batteries.host-aspects
       den.policies.user-password
+      den.policies.user-extra-groups
 
       (den.lib.policy.mkPolicy "primary-user-for-main" (
         { host, user, ... }:
