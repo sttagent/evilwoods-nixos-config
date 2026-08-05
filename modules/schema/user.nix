@@ -1,19 +1,29 @@
-{ den, lib, ... }:
+{
+  inputs,
+  den,
+  lib,
+  ...
+}:
 let
   inherit (lib) mkOption types;
+  secrets = inputs.evilsecrets + "/secrets/users";
 in
 {
   den.schema.user = {
     imports = [
       ({ config, ... }: {
         options = {
+          description = mkOption {
+            type = types.str;
+            default = "";
+          };
           uid = mkOption {
             type = types.nullOr types.int;
             default = null;
           };
-          description = mkOption {
-            type = types.str;
-            default = "";
+          secretPath = mkOption {
+            type = types.path;
+            default = secrets + "/${config.name}.yaml";
           };
         };
       })
