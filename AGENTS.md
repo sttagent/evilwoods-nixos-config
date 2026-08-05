@@ -1,31 +1,37 @@
-# Repository Guidelines
+# AGENTS.md
 
-## Project Structure & Module Organization
+Personal NixOS flake config (dendritic pattern: `den` + `flake-parts` + `import-tree`). Hosts: `evilbook` (desktop/niri, unstable), `evilcloud` (server + CI runner, 26.05), `rynepc` (desktop).
 
-This repository is a Nix flake for NixOS systems and user environments. The main configuration is under `modules/`: hosts in `modules/hosts/`, users in `modules/users/`, shared schemas/defaults in `modules/shared/`, and flake outputs in top-level module files. Machine- and user-specific files are grouped by name, such as `modules/hosts/evilbook/` and `modules/users/aitvaras/`. Managed application configuration is in `dotfiles/`; Bash scripts are in `scripts/`; the Python `evilosctl` utility is in `scripts/evilosctl/`; packaged Python code is in `packages/evilwoods-update/`; and assets are in `resources/`. Secrets come from the separate `evilwoods-nixos-config-secrets` input and must not be committed here.
+## Critical gotchas
 
-## Build, Test, and Development Commands
+- **`flake.nix` is generated — never edit it.** Add/change inputs via `flake-file.inputs` in `modules/dendritic.nix` (or the module using them), then regenerate with `nix run .#write-flake`.
+- **Evaluation requires the private `evilsecrets` input** (`git+ssh://github.com/sttagent/evilwoods-nixos-config-secrets`, `flake = false`). No SSH access to that repo = nothing builds or evaluates. Secrets live in that repo under `secrets/hosts/common.yaml`, `secrets/users/<user>.yaml`, `secrets/services/*.yaml` (sops-nix).
+- **Files/dirs prefixed with `_` are not imported** by import-tree (e.g. `modules/_vm.nix`, `modules/hosts/rynepc/_rynepc.nix` are disabled on purpose). Rename to enable.
+- Repo is used with **jujutsu (`.jj`) colocated with git** — ask before any git mutation.
 
-Just commands are currently unused. Enter the pinned development environment with `direnv allow` (after reviewing `.envrc`) or `nix-shell`:
+## Architecture (dendritic)
 
-- `nix flake check` — evaluate flake outputs and run available checks.
-- `just` — list repository recipes.
-- `just update <input>` — update selected flake inputs and commit the lockfile change.
+- Every `*.nix` file under `modules/` is auto-imported as a flake-parts module; no manual import lists at the flake level.
+- Reusable config = **aspects**: `modules/aspects/<group>/<name>.nix` defines `den.aspects.<group>.<name>` with `nixos` and/or `homeManager` attrsets. Hosts compose them via `includes`.
+- Hosts: declared in `modules/hosts/<host>/host.nix` as `den.hosts.x86_64-linux.<host>` with `channel` (`nixos-unstable` | `nixos-2605`, see `modules/schema/host.nix`), `stateVersion`, `mainUser`, plus a matching `den.aspects.<host>` that `includes` role/hardware/service aspects.
+- Users: base home config in `modules/users/<user>/user.nix` (`den.aspects.<user>`); per-host user config as nested `den.aspects.<user>.<host>` (e.g. `modules/users/aitvaras/at-evilbook.nix`).
+- Dual-channel: each host pins unstable or 26.05 (`*-2605` inputs follow `nixpkgs-2605`). Keep `inputs.X.follows` consistent with the channel of the hosts using that input.
+- `den.reservedKeys = [ "settings" ]` (modules/defaults.nix) — don't use `settings` as an aspect key.
 
-For a local build, use `nixos-rebuild build --flake .#<host>` and inspect the output before switching.
+## Commands
 
-## Coding Style & Naming Conventions
+- `just check` → `nix flake check`; `just update` → `nix flake update --commit-lock-file`.
+- `just build|test|switch|boot` → `nix run .#$(hostname) [-- test|switch|boot]` (per-host `nh` apps generated in `modules/nh.nix`).
+- Build one host without activating: `nix build .#nixosConfigurations.<host>.config.system.build.toplevel`.
+- `nix run .#write-flake` — regenerate `flake.nix` after touching `flake-file.inputs`.
+- Dev shell via direnv (`.envrc` → `use flake`); formatter is `nixfmt`, linter `statix` (both in the dev shell).
 
-Use two-space indentation for Nix and Bash, and four spaces for Python. Keep Nix attributes and module filenames lowercase, using hyphens where appropriate; use descriptive host/user directory names. Python modules/functions use `snake_case`; Bash variables use uppercase `SNAKE_CASE`. Preserve generated-file markers in `flake.nix`; regenerate it with `nix run .#write-flake`. Keep changes focused.
+## CI / deploy
 
-## Testing Guidelines
+- `.github/workflows/build-hosts.yml` runs on a **self-hosted runner on evilcloud** (`modules/hosts/evilcloud/services/nixos-runner.nix`): builds all 3 hosts on pushes to `main` touching `modules/**`, then pushes the flake privately to FlakeHub.
+- Fresh installs: `just install-nixos-local <config>` / `just install-nixos-remote <config> <host> <extra-files>` (nixos-anywhere + disko; partition layouts in `modules/hosts/<host>/partitions.nix`).
 
-There is no standalone unit-test suite. Validate Nix changes with `nix flake check` and, when behavior affects a machine, `just run-tests <host>`. Use the exact flake host name. For Python or Bash changes, run the relevant command locally and check failures carefully.
+## Conventions
 
-## Commit & Pull Request Guidelines
-
-Recent commits use short, imperative, lowercase summaries such as `fix rynepc channel` and `update noctalia config`; follow that style and keep commits focused. Pull requests should explain affected hosts/users, list validation commands and results, call out lockfile or configuration impacts, and include screenshots for visible desktop changes. Never include secrets or credentials.
-
-## Security & Configuration Tips
-
-Review hostnames, SSH targets, certificate paths, and privilege-changing commands before running recipes. Treat `sops`, `age`, remote installs, and disk-format recipes as sensitive; verify the target host and flake attribute first.
+- `TODO.md` lists known deduplication/refactor plans — check it before introducing new boilerplate patterns; prefer extending it over silently duplicating.
+- Dotfiles for user programs live in `dotfiles/` and are linked via `xdg.configFile` from user aspects, not via home-manager `programs.*` options, when the tool lacks good HM support.

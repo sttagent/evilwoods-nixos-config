@@ -13,7 +13,7 @@
       hmlibgv = hmlib.hm.gvariant;
     in
     {
-      config = lib.mkIf (host.hasAspect den.aspects.desktop.gnome) {
+      config = lib.mkIf (host.hasAspect den.aspects.desktop-environment.gnome) {
         dconf.settings = {
           "ca/andyholmes/valent" = {
             name = config.networking.hostName;
