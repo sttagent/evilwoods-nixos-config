@@ -16,6 +16,7 @@
           nixos-option
           nix-tree
           statix
+          just
         ];
       };
     };
