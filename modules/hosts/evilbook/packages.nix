@@ -46,7 +46,7 @@
         proton-vpn
         ftb-app
 
-        inputs.niks3.packages."x86_64-linux".niks3
+        # inputs.niks3.packages."x86_64-linux".niks3
       ];
     };
 }

@@ -36,10 +36,6 @@
       url = "github:microvm-nix/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niks3 = {
-      url = "github:Mic92/niks3";
-      inputs.nixpkgs.follows = "nixpkgs-2605";
-    };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
     nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
