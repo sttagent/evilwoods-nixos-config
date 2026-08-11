@@ -1,26 +1,31 @@
-{ inputs, ... }:
+{ inputs, den, ... }:
 {
-  den.aspects.evilbook.nixos =
-    { host, config, ... }:
-    let
-      serviceName = "evilbook-aitvaras";
-      repoName = "restic-backups-${serviceName}";
-      repository = "/var/storage/shares/smb/backups/${repoName}";
-      user = host.mainUser;
-      userHome = "/home/${user}";
-      sopsFile = "${inputs.evilsecrets}/secrets/users/${user}.yaml";
-      secretName = "${repoName}-repo-pass";
-      passwordFile = config.sops.secrets."${secretName}".path;
-    in
-    {
-      sops.secrets."${secretName}" = {
-        inherit sopsFile;
-        owner = user;
-        group = "users";
-        mode = "0400";
+  den.aspects.aitvaras.evilbook.backup = { host, user }:
+  let
+    userHome = "/home/${user.name}";
+    sopsFile = "${inputs.evilsecrets}/secrets/users/${user.name}.yaml";
+    serviceName = "evilbook-aitvaras";
+    repoName = "restic-backups-${serviceName}";
+    secretName = "${repoName}-repo-pass";
+  in
+  {
+    includes = [ (den.lib.policy.mkPolicy "decrypt-backup-secret" ({ host, user, ... }: den.lib.policy.include {
+      nixos = {
+          sops.secrets."${secretName}" = {
+          inherit sopsFile;
+          owner = user.name;
+          group = "users";
+          mode = "0400";
+        };
       };
-      services.restic.backups.${serviceName} = {
-        inherit user repository passwordFile;
+    }))
+    ];
+    homeManager = {  osConfig, ... }: {
+      services.restic = {
+        enable = true;
+        backups.${serviceName} = {
+        repository = "/var/storage/shares/smb/backups/${repoName}";
+        passwordFile = osConfig.sops.secrets."${secretName}".path;
         initialize = false;
         inhibitsSleep = false;
         paths = [
@@ -80,7 +85,7 @@
           "*.iso"
         ];
       };
-      systemd.services."${repoName}" = {
       };
     };
+  };
 }

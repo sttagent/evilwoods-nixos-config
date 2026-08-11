@@ -27,6 +27,7 @@
         disko.nixosModules.disko
         sops-nix.nixosModules.default
       ];
+      # home-manager.sharedModules = [ inputs.sops-nix.homeManagerModules.sops ];
     };
   };
 }
