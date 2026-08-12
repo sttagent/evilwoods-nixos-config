@@ -116,11 +116,11 @@
     "evilsecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1785889364,
-        "narHash": "sha256-IqNhRINHDpdMt0PAAIh37V3/uaoTsT8BX3QPgvEEEyE=",
+        "lastModified": 1786539180,
+        "narHash": "sha256-YCnPtyIMEQNJh3/qx30sxLM/E3weC7zKVxdJ8UqwkLQ=",
         "ref": "main",
-        "rev": "e7395c15681a13559b783cab40b17f2478097546",
-        "revCount": 133,
+        "rev": "723617677c5e6c86568a05370bc6172fcf11dcd6",
+        "revCount": 135,
         "type": "git",
         "url": "ssh://git@github.com/sttagent/evilwoods-nixos-config-secrets"
       },
