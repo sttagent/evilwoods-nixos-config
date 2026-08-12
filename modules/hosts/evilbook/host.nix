@@ -15,6 +15,8 @@
       role.desktop
       desktop-environment.niri
 
+      networking.wifi.evilHome
+
       gaming.steam
       hardware.zsa
       virtualisation.podman
