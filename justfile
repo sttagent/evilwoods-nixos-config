@@ -3,8 +3,8 @@ default:
 
 check:
     nix flake check
-update:
-    nix flake update --commit-lock-file
+update *INPUTS:
+    nix flake update --commit-lock-file {{ INPUTS }}
 
 # local build commands
 build:
