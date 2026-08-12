@@ -1,4 +1,4 @@
-{
+{ inputs, ... }: {
   den.aspects.aitvaras.evilbook = {
     homeManager = {
       programs = {
@@ -137,10 +137,10 @@
           ];
         };
         configFile = {
-          # zed = {
-          #   source = dotFilesPath + "/zed";
-          #   recursive = true;
-          # };
+          zed = {
+            source = inputs.self.outPath + "/dotfiles/zed";
+            recursive = true;
+          };
         };
       };
     };

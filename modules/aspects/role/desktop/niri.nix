@@ -1,24 +1,8 @@
 {
-  inputs,
-  den,
-  ...
-}:
-{
-  flake-file.inputs = {
-    # noctalia-greeter = {
-    #   url = "github:noctalia-dev/noctalia-greeter";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-    };
-  };
-
   den.aspects.desktop-environment.niri = {
     nixos =
       {
         lib,
-        config,
         pkgs,
         ...
       }:
@@ -28,14 +12,13 @@
           ;
       in
       {
-        nix.settings = {
-          extra-substituters = [ "https://noctalia.cachix.org" ];
-          extra-trusted-public-keys = [
-            "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-          ];
-        };
         boot.plymouth.enable = mkForce false;
         programs = {
+          noctalia = {
+            enable = true;
+            systemd.enable = true;
+            recommendedServices.enable = true;
+          };
           niri = {
             enable = true;
             useNautilus = true;
@@ -56,7 +39,6 @@
 
         environment.systemPackages = with pkgs; [
           # noctalia-shell # old noctalia in nixpkgs
-          inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
           xwayland-satellite
           adwaita-icon-theme
           adw-gtk3
@@ -81,9 +63,8 @@
             evolution-data-server.enable = true;
           };
 
-          displayManager.ly = {
+          displayManager.noctalia-greeter = {
             enable = true;
-            x11Support = false;
           };
 
           # greetd = {

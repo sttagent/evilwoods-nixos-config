@@ -8,7 +8,7 @@
         ...
       }:
       let
-        noctalia-exec = lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        noctalia-exec = lib.getExe pkgs.noctalia;
         niri-config = inputs.self.outPath + "/dotfiles/niri/config.kdl";
         niri-window-rules = inputs.self.outPath + "/dotfiles/niri/window-rules.kdl";
         niri-keybinds = inputs.self.outPath + "/dotfiles/niri/keybinds.kdl";
@@ -70,8 +70,6 @@
         xdg.configFile = {
           "niri/config.kdl" = {
             text = ''
-              spawn-at-startup "${noctalia-exec}"
-
               include  "${niri-config}"
               include  "${niri-window-rules}"
               include  "${niri-keybinds}"
