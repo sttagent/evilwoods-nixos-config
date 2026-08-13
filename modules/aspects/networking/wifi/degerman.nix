@@ -1,6 +1,11 @@
 { inputs, ... }: {
   den.aspects.networking.wifi.degerman.nixos = { config, ... }: {
-    sops.secrets."network-manager-degerman.env" = { };
+    sops.secrets."network-manager-degerman.env" = {
+      sopsFile = inputs.evilsecrets + "/secrets/users/aitvaras.yaml";
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
 
     networking.networkManager.ensureProfiles = {
       environmentFiles = [
@@ -21,7 +26,7 @@
           wifi-security = {
             auth-alg = "open";
             key-mgmt = "wpa-psk";
-            psk = "$b629_psk";
+            psk = "$degerman_psk";
           };
           ipv4 = {
             method = "auto";

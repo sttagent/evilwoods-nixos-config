@@ -16,6 +16,8 @@
       desktop-environment.niri
 
       networking.wifi.evilHome
+      networking.wifi.stthotspot
+      networking.wifi.degerman
 
       gaming.steam
       hardware.zsa
