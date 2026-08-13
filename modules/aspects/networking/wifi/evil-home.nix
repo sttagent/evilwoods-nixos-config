@@ -5,7 +5,7 @@
         "network-manager.env" = { };
       };
       networking = {
-        networkManager = {
+        networkmanager = {
           ensureProfiles = {
             environmentFiles = [
               config.sops.secrets."network-manager.env".path

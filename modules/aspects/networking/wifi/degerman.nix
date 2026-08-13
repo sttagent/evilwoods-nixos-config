@@ -7,7 +7,7 @@
       mode = "0400";
     };
 
-    networking.networkManager.ensureProfiles = {
+    networking.networkmanager.ensureProfiles = {
       environmentFiles = [
         config.sops.secrets."network-manager-degerman.env".path
       ];
