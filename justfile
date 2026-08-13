@@ -10,11 +10,11 @@ update *INPUTS:
 build:
     nix run .#$(hostname)
 test:
-    nix run .#$(hostname) -- test
+    nix run .#$(hostname) -- test -a
 switch:
-    nix run .#$(hostname) -- switch
+    nix run .#$(hostname) -- switch -a
 boot:
-    nix run .#$(hostname) -- boot && sleep 3 && systemctl reboot
+    nix run .#$(hostname) -- boot -a
 
 disko-mount config:
     nix run github:nix-community/disko/latest -- --mode mount --flake .#{{ config }}
