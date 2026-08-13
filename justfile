@@ -15,6 +15,8 @@ switch:
     nix run .#$(hostname) -- switch -a
 boot:
     nix run .#$(hostname) -- boot -a
+reboot:
+    nix run .#$(hostname) -- boot -a && sleep 3 && systemctl reboot
 
 disko-mount config:
     nix run github:nix-community/disko/latest -- --mode mount --flake .#{{ config }}
