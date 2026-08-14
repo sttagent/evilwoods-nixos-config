@@ -148,9 +148,15 @@ widget_order = [
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
         background = false
 
+[notification]
+position = "top_center"
+
 [shell]
 niri_overview_type_to_launch_enabled = true
 polkit_agent = true
+
+    [shell.greeter_sync]
+    auto_sync = true
 
     [shell.panel]
     control_center_placement = "floating"
