@@ -3,5 +3,9 @@
 /*.qcow2
 .nixos-test-history
 
+**/NOTES.md
+
+AGENTS.md
+
 # xonsh and python
 **/__pycache__
