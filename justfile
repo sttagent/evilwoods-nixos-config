@@ -1,3 +1,4 @@
+
 default:
     just --list
 
@@ -7,16 +8,16 @@ update *INPUTS:
     nix flake update --commit-lock-file {{ INPUTS }}
 
 # local build commands
-build:
+build host='evilbook':
     nix run .#$(hostname)
-test:
-    nix run .#$(hostname) -- test -a
-switch:
-    nix run .#$(hostname) -- switch -a
-boot:
-    nix run .#$(hostname) -- boot -a
-reboot:
-    nix run .#$(hostname) -- boot -a && sleep 3 && systemctl reboot
+test host='evilbook':
+    nix run .#{{host}} -- test -a
+switch host='evilbook':
+    nix run .#{{host}} -- switch -a
+boot host='evilbook':
+    nix run .#{{host}} -- boot -a
+reboot host='evilbook':
+    nix run .#{{host}} -- boot -a && sleep 3 && systemctl reboot
 
 disko-mount config:
     nix run github:nix-community/disko/latest -- --mode mount --flake .#{{ config }}
