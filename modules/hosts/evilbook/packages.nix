@@ -21,7 +21,6 @@
         (prismlauncher.override {
           jdks = [
             pkgs.jdk25
-            pkgs.jdk17
           ];
         })
 
@@ -45,7 +44,7 @@
         qbittorrent
         opencode
         proton-vpn
-        ftb-app
+        codex
 
         # inputs.niks3.packages."x86_64-linux".niks3
       ];
