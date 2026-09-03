@@ -1,3 +1,4 @@
+_host := `hostname`
 
 default:
     just --list
@@ -8,15 +9,15 @@ update *INPUTS:
     nix flake update --commit-lock-file {{ INPUTS }}
 
 # local build commands
-build host='evilbook':
-    nix run .#$(hostname)
-test host='evilbook':
+build host=_host:
+    nix run .#{{host}}
+test host=_host:
     nix run .#{{host}} -- test -a
-switch host='evilbook':
+switch host=_host:
     nix run .#{{host}} -- switch -a
-boot host='evilbook':
+boot host=_host:
     nix run .#{{host}} -- boot -a
-reboot host='evilbook':
+reboot host=_host:
     nix run .#{{host}} -- boot -a && sleep 3 && systemctl reboot
 
 disko-mount config:
