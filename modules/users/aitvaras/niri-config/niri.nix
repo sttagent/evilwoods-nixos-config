@@ -9,6 +9,7 @@
       }:
       let
         noctalia-exec = lib.getExe pkgs.noctalia;
+        niri-exec = lib.getExe pkgs.niri;
         niri-config = inputs.self.outPath + "/dotfiles/niri/config.kdl";
         niri-window-rules = inputs.self.outPath + "/dotfiles/niri/window-rules.kdl";
         niri-keybinds = inputs.self.outPath + "/dotfiles/niri/keybinds.kdl";
@@ -39,6 +40,7 @@
                   ];
                   exec = [
                     "${noctalia-exec} msg bar-show default eDP-1"
+                    "${niri-exec} msg action switch-layout 0"
                   ];
                 };
               }
@@ -60,6 +62,7 @@
                   ];
                   exec = [
                     "${noctalia-exec} msg bar-hide default eDP-1"
+                    "${niri-exec} msg action switch-layout 1"
                   ];
                 };
               }
