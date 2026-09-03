@@ -34,7 +34,7 @@
             };
           };
 
-          kdeconnect.enable = false;
+          kdeconnect.enable = true;
         };
 
         environment.systemPackages = with pkgs; [
