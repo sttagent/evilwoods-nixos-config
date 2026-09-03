@@ -44,7 +44,6 @@
         qbittorrent
         opencode
         proton-vpn
-        codex
 
         # inputs.niks3.packages."x86_64-linux".niks3
       ];
