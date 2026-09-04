@@ -12,7 +12,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^GT: New Horizons"#
+    match app-id=r#"Minecraft$"#
     open-maximized true
     open-focused true
 }
