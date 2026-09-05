@@ -21,7 +21,7 @@
           };
           wifi = {
             mode = "infrastructure";
-            ssid = "629-5GHz";
+            ssid = "Degerman";
           };
           wifi-security = {
             auth-alg = "open";
