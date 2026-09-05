@@ -12,7 +12,12 @@
     policies = {
       on-evilbook =
         { host, user, ... }:
-        lib.optional (host.name == "evilbook") (den.lib.policy.include [ den.aspects.aitvaras.evilbook den.aspects.aitvaras.evilbook den.aspects.aitvaras.evilbook den.aspects.aitvaras.evilbook.backup ]);
+        lib.optional (host.name == "evilbook") (
+          den.lib.policy.include [
+            den.aspects.aitvaras.evilbook
+            den.aspects.aitvaras.evilbook.backup
+          ]
+        );
     };
   };
 }
