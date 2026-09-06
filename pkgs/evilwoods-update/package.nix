@@ -16,7 +16,7 @@ python3Packages.buildPythonApplication rec {
     devShell = mkShell {
       packages = [ python3 ];
       shellHook = ''
-        cd packages/evilwoods-update/src || true
+        cd pkgs/evilwoods-update/src || true
       '';
     };
   };
