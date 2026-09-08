@@ -27,6 +27,7 @@
       localSmbSharePath = "${localSharePath}/smb";
       mainUserShare = "${localSmbSharePath}/${mainUser}";
       backupsShare = "${localSmbSharePath}/backups";
+      musicShare = "${localSmbSharePath}/music";
       secretsPath = toString inputs.evilsecrets;
     in
     {
@@ -42,6 +43,7 @@
       systemd.tmpfiles.rules = [
         "d ${mainUserShare}"
         "d ${backupsShare}"
+        "d ${musicShare}"
       ];
 
       fileSystems =
@@ -56,6 +58,11 @@
           };
           "${backupsShare}" = {
             device = "//${nasDomain}/backups";
+            fsType = "cifs";
+            inherit options;
+          };
+          "${musicShare}" = {
+            device = "//${nasDomain}/music";
             fsType = "cifs";
             inherit options;
           };
