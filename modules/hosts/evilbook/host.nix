@@ -13,7 +13,7 @@
   den.aspects.evilbook = {
     includes = with den.aspects; [
       role.desktop
-      desktop-environment.cosmic
+      desktop-environment.noctalia
 
       networking.wifi.evilHome
       networking.wifi.stthotspot
