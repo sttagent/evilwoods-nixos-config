@@ -1,5 +1,1 @@
 [keybinds]
-"Mod" = "overview-toggle"
-"Mod+O" = "spawn:noctalia msg panel-toggle launcher"
-"Mod+Q" = "window-close"
-"Mod+F" = "window-toggle-maximize"

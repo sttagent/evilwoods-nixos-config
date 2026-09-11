@@ -1,0 +1,19 @@
+[layout]
+gap = 5
+mode = "scrolling"
+
+[layout.scrolling]
+default_width_fraction = 0.5
+
+[input.keyboard]
+layout = "us,us,se"       # XKB layout, empty = system default
+variant = ",colemak_dh_iso"      # XKB variant
+options = ""      # XKB options, comma-separated
+
+[input.cursor]
+theme = "Adwaita"
+
+[hot_corners.top_left]
+enabled = true
+delay_ms = 250
+action = "overview-open"

@@ -9,6 +9,7 @@
       }:
       let
         noctalia-exec = lib.getExe pkgs.noctalia;
+        umbriel-exec = lib.getExe pkgs.umbriel;
         umbriel-config = inputs.self.outPath + "/dotfiles/umbriel/config.toml";
         umbriel-keybinds = inputs.self.outPath + "/dotfiles/umbriel/keybinds.toml";
       in
@@ -34,6 +35,7 @@
                       mode = "1920x1080@60.042";
                       scale = 1.25;
                       transform = "normal";
+                      position = "0,0";
                     }
                   ];
                   exec = [
@@ -46,15 +48,16 @@
                   name = "external-monitor";
                   outputs = [
                     {
-                      criteria = "eDP-1";
-                      mode = "1920x1080@60.042";
-                      transform = "normal";
-                    }
-                    {
                       criteria = "*C32JG5x*";
                       mode = "2560x1440@99.946";
                       adaptiveSync = true;
-                      position = "2560,-420";
+                      position = "0,0";
+                    }
+                    {
+                      criteria = "eDP-1";
+                      mode = "1920x1080@60.042";
+                      transform = "normal";
+                      position = "2560,440";
                     }
                   ];
                   exec = [
@@ -74,11 +77,11 @@
                   "${umbriel-config}",
                   "${umbriel-keybinds}"
                 ]
-              # [include.optional]
-              #   files = [
-              #     "~/.config/umbriel/noctalia.toml",
-              #     "~/.config/umbriel/overrides.toml"
-              #   ]
+              [include.optional]
+                files = [
+                  "~/.config/umbriel/noctalia.toml",
+                  "~/.config/umbriel/overrides.toml"
+                ]
             '';
           };
         };
