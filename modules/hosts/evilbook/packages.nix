@@ -16,14 +16,6 @@
 
       environment.systemPackages = with pkgs; [
 
-        # prismlauncher pulls three java versions by default.
-        # With this override, I pull just the one I need for GTNH.
-        (prismlauncher.override {
-          jdks = [
-            pkgs.jdk25
-          ];
-        })
-
         # Vivaldi does not follow gnomes dark mode setting.
         # This config helps with websites and dark mode, but
         # Vivaldi is still not working with dark mode.

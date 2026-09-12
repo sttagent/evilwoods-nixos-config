@@ -20,6 +20,8 @@
       networking.wifi.degerman
 
       gaming.steam
+      gaming.minecraft
+
       hardware.zsa
       virtualisation.podman
       virtualisation.qemu

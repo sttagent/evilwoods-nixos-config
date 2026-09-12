@@ -10,7 +10,6 @@
         discord
         obsidian
         ghostty
-        prismlauncher
         # spotify
 
         # apps specific to Gnome
