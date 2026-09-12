@@ -28,6 +28,7 @@
       mainUserShare = "${localSmbSharePath}/${mainUser}";
       backupsShare = "${localSmbSharePath}/backups";
       musicShare = "${localSmbSharePath}/music";
+      videoShare = "${localSmbSharePath}/video";
       secretsPath = toString inputs.evilsecrets;
     in
     {
@@ -44,6 +45,7 @@
         "d ${mainUserShare}"
         "d ${backupsShare}"
         "d ${musicShare}"
+        "d ${videoShare}"
       ];
 
       fileSystems =
@@ -63,6 +65,11 @@
           };
           "${musicShare}" = {
             device = "//${nasDomain}/music";
+            fsType = "cifs";
+            inherit options;
+          };
+          "${videoShare}" = {
+            device = "//${nasDomain}/video";
             fsType = "cifs";
             inherit options;
           };
