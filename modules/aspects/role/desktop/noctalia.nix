@@ -1,5 +1,6 @@
-{
-  den.aspects.desktop-environment.noctalia = {
+{ den, ... }: {
+  den.aspects.role.desktop.noctalia = {
+    includes = [ den.aspects.role.desktop ];
     nixos =
       {
         lib,

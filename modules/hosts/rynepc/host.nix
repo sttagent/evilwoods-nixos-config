@@ -15,9 +15,7 @@
 
   den.aspects.rynepc = {
     includes = with den.aspects; [
-      role.desktop
-
-      desktop-environment.gnome
+      role.desktop.gnome
 
       gaming.steam
       gaming.minecraft

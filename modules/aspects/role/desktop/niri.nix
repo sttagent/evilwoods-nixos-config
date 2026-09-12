@@ -1,5 +1,5 @@
 {
-  den.aspects.desktop-environment.niri = {
+  den.aspects.role.desktop.niri = {
     nixos =
       {
         lib,

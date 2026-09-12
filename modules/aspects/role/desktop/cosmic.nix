@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.desktop-environment.cosmic = {
+  den.aspects.role.desktop.cosmic = {
     nixos = {
       services = {
         gnome.gnome-keyring.enable = false;
