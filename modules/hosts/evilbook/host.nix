@@ -12,7 +12,7 @@
 
   den.aspects.evilbook = {
     includes = with den.aspects; [
-      role.desktop.noctalia
+      roles.desktop.noctalia
 
       networking.wifi.evilHome
       networking.wifi.stthotspot

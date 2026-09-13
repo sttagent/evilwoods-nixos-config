@@ -12,7 +12,7 @@
 
   den.aspects.evilcloud = {
     includes = with den.aspects; [
-      role.server
+      roles.server
       hardware.vm-guest
 
       tools.determinate

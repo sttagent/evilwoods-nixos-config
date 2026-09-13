@@ -1,7 +1,7 @@
 # Common desktop config
 
 {
-  den.aspects.role.desktop.nixos =
+  den.aspects.roles.desktop.nixos =
     {
       host,
       pkgs,

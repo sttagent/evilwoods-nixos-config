@@ -1,5 +1,5 @@
 {
-  den.aspects.role.desktop.nixos = {
+  den.aspects.roles.desktop.nixos = {
     networking.networkmanager.enable = true;
   };
 }

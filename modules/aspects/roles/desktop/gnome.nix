@@ -1,5 +1,5 @@
 { den, ... }: {
-  den.aspects.role.desktop.gnome = {
+  den.aspects.roles.desktop.gnome = {
     nixos = { pkgs, ... }: {
 
       services = {

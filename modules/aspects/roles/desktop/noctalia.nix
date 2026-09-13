@@ -1,5 +1,6 @@
-{
-  den.aspects.role.desktop.niri = {
+{ den, ... }: {
+  den.aspects.roles.desktop.noctalia = {
+    includes = [ den.aspects.roles.desktop ];
     nixos =
       {
         lib,
@@ -19,20 +20,19 @@
             systemd.enable = true;
             recommendedServices.enable = true;
           };
-          niri = {
+          umbriel = {
             enable = true;
-            useNautilus = true;
           };
 
-          uwsm = {
-            enable = true;
-            waylandCompositors.niri = {
-              binPath = "/run/current-system/sw/bin/niri";
-              comment = "Niri compositor managed by UWSM";
-              extraArgs = [ "--session" ];
-              prettyName = "Niri";
-            };
-          };
+          # uwsm = {
+          #   enable = true;
+          #   waylandCompositors.niri = {
+          #     binPath = "/run/current-system/sw/bin/niri";
+          #     comment = "Niri compositor managed by UWSM";
+          #     extraArgs = [ "--session" ];
+          #     prettyName = "Niri";
+          #   };
+          # };
 
           kdeconnect.enable = true;
         };
@@ -66,21 +66,6 @@
           displayManager.noctalia-greeter = {
             enable = true;
           };
-
-          # greetd = {
-          #   enable = true;
-          #   useTextGreeter = true;
-          #   settings = {
-          #     default_session =
-          #       let
-          #         sessions = "${config.services.displayManager.sessionData.desktops}/share/xsessions:${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
-          #       in
-          #       {
-          #         command = "${pkgs.tuigreet}/bin/tuigreet --sessions ${sessions} --time --asterisks --remember --remember-user-session";
-          #         user = "greeter";
-          #       };
-          #   };
-          # };
         };
       };
   };

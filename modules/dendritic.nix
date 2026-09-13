@@ -4,10 +4,10 @@
     (inputs.flake-file.flakeModules.dendritic or { })
     (inputs.den.flakeModules.dendritic or { })
   ];
-  # flake.den = den; # remove after debugging
+  flake.den = den; # remove after debugging
   # other inputs may be defined at a module using them.
   flake-file.inputs = {
-    den.url = "github:denful/den/v0.18.0";
+    den.url = "github:denful/den";
     flake-file.url = "github:vic/flake-file";
     nixpkgs-2605.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2605";
 

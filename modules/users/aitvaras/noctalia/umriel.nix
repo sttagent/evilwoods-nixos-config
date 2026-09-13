@@ -1,6 +1,6 @@
-{ inputs, ... }:
+{ inputs, den, ... }:
 {
-  den.aspects.aitvaras.noctalia = {
+  den.aspects.aitvaras.noctalia = { host }: {
     homeManager =
       {
         lib,
