@@ -12,7 +12,12 @@
 
   den.aspects.evilbook = {
     includes = with den.aspects; [
-      roles.desktop.noctalia
+      # roles.desktop.noctalia
+      # roles.desktop.umbriel
+      (roles.desktop.wm {
+        shell = "noctalia";
+        wm = "umbriel";
+      })
 
       networking.wifi.evilHome
       networking.wifi.stthotspot
@@ -27,12 +32,15 @@
       aitvaras-machines.shares
       tools.determinate
     ];
-    nixos = {
+    nixos = { lib, ... }: {
       imports = with inputs; [
         disko.nixosModules.disko
         sops-nix.nixosModules.default
       ];
       # home-manager.sharedModules = [ inputs.sops-nix.homeManagerModules.sops ];
+
+      # overrides
+      boot.plymouth.enable = lib.mkForce false;
     };
   };
 }

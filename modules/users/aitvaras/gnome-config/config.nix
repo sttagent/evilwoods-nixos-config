@@ -136,9 +136,12 @@ in
 
   den.aspects.aitvaras = {
     includes = [
-      (den.lib.policy.when (
-        { host, ... }: host.hasAspect den.aspects.roles.desktop.gnome
-      ) den.aspects.aitvaras.gnome)
+      (den.lib.aspects.fx.includes.includeIf
+        ({ host, ... }: host.hasAspect den.aspects.roles.desktop.gnome)
+        [
+          den.aspects.aitvaras.gnome
+        ]
+      )
     ];
   };
 }
