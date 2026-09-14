@@ -1,27 +1,11 @@
-{ inputs, den, ... }:
-{
-  den.aspects.aitvaras.noctalia = { host }: {
+{ den, ... }: {
+  den.aspects.aitvaras.wm = {
     homeManager =
-      {
-        lib,
-        pkgs,
-        ...
-      }:
+      { lib, pkgs, ... }:
       let
         noctalia-exec = lib.getExe pkgs.noctalia;
-        umbriel-exec = lib.getExe pkgs.umbriel;
-        umbriel-config = inputs.self.outPath + "/dotfiles/umbriel/config.toml";
-        umbriel-keybinds = inputs.self.outPath + "/dotfiles/umbriel/keybinds.toml";
       in
       {
-        dconf.settings = {
-          "org/gnome/desktop/interface" = {
-            color-scheme = "prefer-dark";
-            gtk-theme = "Adwaita-dark";
-            accent-color = "green";
-          };
-        };
-
         services = {
           kanshi = {
             enable = true;
@@ -68,23 +52,16 @@
             ];
           };
         };
-
-        xdg.configFile = {
-          "umbriel/config.toml" = {
-            text = ''
-              [include]
-                files = [
-                  "${umbriel-config}",
-                  "${umbriel-keybinds}"
-                ]
-              [include.optional]
-                files = [
-                  "~/.config/umbriel/noctalia.toml",
-                  "~/.config/umbriel/overrides.toml"
-                ]
-            '';
-          };
-        };
       };
+  };
+
+  den.aspects.aitvaras = {
+    includes = [
+      (den.lib.aspects.fx.includes.includeIf ({ host, ... }: host.hasAspect den.aspects.roles.desktop.wm)
+        [
+          den.aspects.aitvaras.wm
+        ]
+      )
+    ];
   };
 }

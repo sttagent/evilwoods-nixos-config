@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, den, ... }:
 {
   den.aspects.aitvaras.niri = {
     homeManager =
@@ -83,5 +83,16 @@
           };
         };
       };
+  };
+
+  den.aspects.aitvaras = {
+    includes = [
+      # (den.lib.aspects.fx.includes.includeIf
+      #   ({ host, ... }: host.hasAspect den.aspects.roles.desktop.niri)
+      #   [
+      #     den.aspects.aitvaras.niri
+      #   ]
+      # )
+    ];
   };
 }
