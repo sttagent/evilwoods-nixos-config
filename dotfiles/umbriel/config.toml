@@ -1,10 +1,3 @@
-[layout]
-gap = 5
-mode = "scrolling"
-
-[layout.scrolling]
-default_width_fraction = 0.5
-
 [input.keyboard]
 layout = "us,us,se"       # XKB layout, empty = system default
 variant = ",colemak_dh_iso"      # XKB variant
@@ -13,9 +6,9 @@ options = ""      # XKB options, comma-separated
 [input.touchpad]
 natural_scroll = true                         # Omit to preserve the libinput default
 
-
 [input.cursor]
 theme = "Adwaita"
+size = 24                                       # Logical size, 1-512
 
 [hot_corners.top_left]
 enabled = true
