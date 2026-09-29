@@ -1,1 +1,5 @@
 [keybinds]
+"Mod+Page_Down" = "workspace-next"
+"Mod+Page_Up" = "workspace-previous"
+"Mod+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-fullscreen", repeat = false }
