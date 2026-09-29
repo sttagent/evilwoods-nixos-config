@@ -87,12 +87,12 @@
 
   den.aspects.aitvaras = {
     includes = [
-      # (den.lib.aspects.fx.includes.includeIf
-      #   ({ host, ... }: host.hasAspect den.aspects.roles.desktop.niri)
-      #   [
-      #     den.aspects.aitvaras.niri
-      #   ]
-      # )
+      (den.lib.aspects.fx.includes.includeIf
+        ({ host, ... }: host.hasAspect den.aspects.roles.desktop.niri)
+        [
+          den.aspects.aitvaras.niri
+        ]
+      )
     ];
   };
 }

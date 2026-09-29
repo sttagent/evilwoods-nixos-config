@@ -1,10 +1,5 @@
 { den, ... }: {
-  den.aspects.roles.desktop.wm = { shell, wm }: {
-    includes = [
-      den.aspects.roles.desktop.${shell}
-      den.aspects.roles.desktop.${wm}
-    ];
-
+  den.aspects.roles.desktop.wm = {
     nixos = {
       services = {
         gnome.gnome-keyring.enable = false;

@@ -33,10 +33,6 @@ in
       })
     ];
 
-    classes = lib.mkDefault [
-      "homeManager"
-    ];
-
     includes = [
       den.batteries.define-user
       den.batteries.host-aspects

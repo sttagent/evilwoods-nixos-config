@@ -12,12 +12,10 @@
 
   den.aspects.evilbook = {
     includes = with den.aspects; [
-      # roles.desktop.noctalia
-      # roles.desktop.umbriel
-      (roles.desktop.wm {
-        shell = "noctalia";
-        wm = "umbriel";
-      })
+
+      roles.desktop.wm
+      roles.desktop.noctalia
+      roles.desktop.umbriel
 
       networking.wifi.evilHome
       networking.wifi.stthotspot

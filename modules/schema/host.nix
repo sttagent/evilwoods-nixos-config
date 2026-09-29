@@ -23,8 +23,6 @@ let
 in
 {
   den.schema.host = {
-    home-manager.enable = true;
-
     includes = [
       den.policies.home-manager-state-version
       den.aspects.core.hosts
