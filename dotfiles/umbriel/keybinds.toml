@@ -3,3 +3,5 @@
 "Mod+Page_Up" = "workspace-previous"
 "Mod+F" = { action = "window-toggle-maximize", repeat = false }
 "Mod+Ctrl+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Space" = "keyboard-layout-next"
+"Mod+Return" = { action = "spawn:ghostty", repeat = false }
