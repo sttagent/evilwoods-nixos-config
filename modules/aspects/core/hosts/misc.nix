@@ -65,7 +65,7 @@
           hashedPassword = mkDefault "!";
         };
 
-        environment.enableAllTerminfo = true;
+        environment.enableAllTerminfo = false;
       };
   };
 }
