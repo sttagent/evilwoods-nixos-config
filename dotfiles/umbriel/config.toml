@@ -14,3 +14,6 @@ size = 24                                       # Logical size, 1-512
 enabled = true
 delay_ms = 150
 action = "overview-open"
+
+[layout]
+gap = 5
