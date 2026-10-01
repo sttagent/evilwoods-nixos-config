@@ -7,3 +7,4 @@
 "Mod+Return" = { action = "spawn:ghostty", repeat = false }
 "Mod+Shift+Page_Down" = "window-move-to-workspace-next"
 "Mod+Shift+Page_Up" = "window-move-to-workspace-previous"
+"Mod+Tab" = "spawn:noctalia msg window-switcher"
