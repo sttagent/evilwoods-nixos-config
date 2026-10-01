@@ -30,7 +30,7 @@ enabled = true
 launcher_position = "end"
 margin_edge = 10
 monitors = [ "HDMI-A-1", "eDP-1" ]
-pinned = [ "firefox", "com.mitchellh.ghostty", "dev.zed.Zed" ]
+pinned = [ "com.mitchellh.ghostty", "dev.zed.Zed" ]
 reserve_space = false
 show_dots = true
 smart_auto_hide = true
@@ -78,6 +78,8 @@ widget_order = [
     cx = 1280.0
     cy = 734.0
     output = "HDMI-A-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "login_box"
 
@@ -100,9 +102,11 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 720.0
-    cx = 768.0
-    cy = 494.0
+    cx = 960.0
+    cy = 617.5
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -125,9 +129,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 128.0
     box_width = 320.0
-    cx = 768.0
-    cy = 240.0
+    cx = 960.0
+    cy = 300.0
     output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -142,6 +148,8 @@ widget_order = [
     cx = 1280.0
     cy = 448.0
     output = "HDMI-A-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
     rotation = 0.0
     type = "clock"
 
@@ -167,6 +175,9 @@ polkit_agent = true
     [shell.screen_corners]
     enabled = true
 
+    [shell.window_switcher]
+    mru = true
+
 [theme]
 builtin = "Gruvbox"
 community_palette = "Miasma"
@@ -174,7 +185,7 @@ source = "community"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "niri" ]
+    builtin_ids = [ "niri", "umbriel" ]
     enable_builtin_templates = true
     enable_community_templates = false
 
