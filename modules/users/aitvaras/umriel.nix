@@ -1,14 +1,8 @@
 { inputs, den, ... }:
 {
-  den.aspects.aitvaras.umbriel = { host }: {
+  den.aspects.aitvaras.umbriel = {
     homeManager =
-      {
-        lib,
-        pkgs,
-        ...
-      }:
       let
-        umbriel-exec = lib.getExe pkgs.umbriel;
         umbriel-defaults = inputs.self.outPath + "/dotfiles/umbriel/defaults.toml";
         umbriel-config = inputs.self.outPath + "/dotfiles/umbriel/config.toml";
         umbriel-keybinds = inputs.self.outPath + "/dotfiles/umbriel/keybinds.toml";
@@ -40,6 +34,10 @@
           };
         };
       };
+    kanshi-command-list = {
+      laptop-only = [ ];
+      external-monitor = [ ];
+    };
   };
 
   den.aspects.aitvaras = {

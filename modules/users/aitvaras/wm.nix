@@ -1,7 +1,12 @@
 { den, ... }: {
   den.aspects.aitvaras.wm = {
     homeManager =
-      { lib, pkgs, ... }:
+      {
+        kanshi-command-list,
+        lib,
+        pkgs,
+        ...
+      }:
       let
         noctalia-exec = lib.getExe pkgs.noctalia;
       in
@@ -22,9 +27,7 @@
                       position = "0,0";
                     }
                   ];
-                  exec = [
-                    "${noctalia-exec} msg bar-show default eDP-1"
-                  ];
+                  exec = lib.concatMap (f: f.laptop-only or [ ]) kanshi-command-list;
                 };
               }
               {
@@ -44,9 +47,7 @@
                       position = "2560,440";
                     }
                   ];
-                  exec = [
-                    "${noctalia-exec} msg bar-hide default eDP-1"
-                  ];
+                  exec = lib.concatMap (f: f.external-monitor or [ ]) kanshi-command-list;
                 };
               }
             ];

@@ -2,14 +2,7 @@
 {
   den.aspects.aitvaras.niri = {
     homeManager =
-      {
-        lib,
-        pkgs,
-        ...
-      }:
       let
-        noctalia-exec = lib.getExe pkgs.noctalia;
-        niri-exec = lib.getExe pkgs.niri;
         niri-config = inputs.self.outPath + "/dotfiles/niri/config.kdl";
         niri-window-rules = inputs.self.outPath + "/dotfiles/niri/window-rules.kdl";
         niri-keybinds = inputs.self.outPath + "/dotfiles/niri/keybinds.kdl";
@@ -20,53 +13,6 @@
             color-scheme = "prefer-dark";
             gtk-theme = "Adwaita-dark";
             accent-color = "green";
-          };
-        };
-
-        services = {
-          kanshi = {
-            enable = true;
-            settings = [
-              {
-                profile = {
-                  name = "laptop-only";
-                  outputs = [
-                    {
-                      criteria = "eDP-1";
-                      mode = "1920x1080@60.042";
-                      scale = 1.25;
-                      transform = "normal";
-                    }
-                  ];
-                  exec = [
-                    "${noctalia-exec} msg bar-show default eDP-1"
-                    "${niri-exec} msg action switch-layout 0"
-                  ];
-                };
-              }
-              {
-                profile = {
-                  name = "external-monitor";
-                  outputs = [
-                    {
-                      criteria = "eDP-1";
-                      mode = "1920x1080@60.042";
-                      transform = "normal";
-                    }
-                    {
-                      criteria = "*C32JG5x*";
-                      mode = "2560x1440@99.946";
-                      adaptiveSync = true;
-                      position = "2560,-420";
-                    }
-                  ];
-                  exec = [
-                    "${noctalia-exec} msg bar-hide default eDP-1"
-                    "${niri-exec} msg action switch-layout 1"
-                  ];
-                };
-              }
-            ];
           };
         };
 
@@ -83,6 +29,14 @@
           };
         };
       };
+    kanshi-command-list = {
+      laptop-only = [
+        "niri msg action switch-layout 0"
+      ];
+      external-monitor = [
+        "niri msg action switch-layout 1"
+      ];
+    };
   };
 
   den.aspects.aitvaras = {
