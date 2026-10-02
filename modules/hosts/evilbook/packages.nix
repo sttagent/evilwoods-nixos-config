@@ -22,9 +22,7 @@
         vivaldi
         vivaldi-ffmpeg-codecs
 
-        element-desktop
         ffmpeg-full
-        appimage-run
         distrobox
         yubioath-flutter
         wl-clipboard
@@ -36,6 +34,7 @@
         qbittorrent
         opencode
         proton-vpn
+        fractal
 
         # inputs.niks3.packages."x86_64-linux".niks3
       ];
